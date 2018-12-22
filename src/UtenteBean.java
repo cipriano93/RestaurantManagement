@@ -10,5 +10,6 @@ public class UtenteBean {
 		this.username = username;
 	}
 
-	String username;
+	
+	String username, nome, cognome;
 }
