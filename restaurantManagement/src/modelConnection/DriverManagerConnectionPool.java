@@ -24,7 +24,10 @@ public class DriverManagerConnectionPool {
 		String ip = "localhost";
 		String port = "3306";
 		String db = "restaurantManagement";
-		//da inserire
+		/*da inserire
+		username = progetto
+		password = progetto
+		*/
 		String username = "...";
 		String password = "...";
 
