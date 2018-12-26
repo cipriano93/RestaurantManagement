@@ -14,8 +14,8 @@
 	<hr/>
 </div>
 	
-<!-- Rimuovi menù -->
+<!-- Rimozione menù -->
 
-<!-- ./Rimuovi menù form -->
+<!-- ./Rimozione menù form -->
 	
 <%@ include file="footer.jsp" %>

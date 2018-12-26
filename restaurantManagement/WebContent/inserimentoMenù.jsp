@@ -40,19 +40,19 @@
 	<hr/>
 </div>
 	
-<!-- Crea menù form -->
+<!-- Inserimento menù form -->
 <div class="container">
-	<form name="form" action="Login" onsubmit="return validateForm()" method="POST">
+	<form name="form" action="" onsubmit="return validateForm()" method="POST">
 		<div class="form-group">
 	    	<label class ="dark_brown" for="name">Nome:</label>
 	      	<input type="text" class="form-control light_brown" id="name" placeholder="Inserisci il nome" name="name">
 	      	<span class="red" id="ver"></span>
 	    </div>
-		<button type="submit" class="btn btn-primary">Crea</button>
+		<button type="submit" class="btn btn-primary">Crea menù</button>
 	</form>
 </div>
 <br>
 <br>
-<!-- ./Crea menù form -->
+<!-- ./Inserimento menù form -->
 	
 <%@ include file="footer.jsp" %>
