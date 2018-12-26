@@ -14,7 +14,7 @@
 	<hr/>
 </div>
 	
-<!-- Rimozione portata -->
+<!-- Rimozione portata form -->
 
 <!-- ./Rimozione portata form -->
 	

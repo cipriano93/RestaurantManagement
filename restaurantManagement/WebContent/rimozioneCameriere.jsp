@@ -14,7 +14,7 @@
 	<hr/>
 </div>
 	
-<!-- Rimozione cameriere -->
+<!-- Rimozione cameriere form -->
 
 <!-- ./Rimozione cameriere form -->
 	
