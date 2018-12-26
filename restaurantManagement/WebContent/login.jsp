@@ -1,12 +1,62 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
-</body>
-</html>
+<%@ include file="heading.jsp" %>
+
+<script>
+	function verifica(errore){
+		document.getElementById("ver").innerHTML = errore;
+	}	
+ 	function validateForm(){
+   		var email = document.form1.email;
+   		var password = document.form1.pswd; 
+   		if(validationEmail(email) && validationPassword(password)){
+     		return true;
+   		} else {
+     		return false;
+		}
+ 	}
+ 	function validationEmail(umail) {
+   		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
+   		if(umail.value.match(mailformat)){
+     		return true;
+   		} else {
+     		verifica("Inserire correttamente l'email");
+			umail.focus();
+			return false;
+		}
+ 	}
+ 	function validationPassword(password){
+   		if(password.value.length >= 5){
+     		return true;
+   		} else {
+    			verifica("Inserire correttamente la password");
+     		password.focus();
+     		return false;
+		}
+ 	}
+</script>
+
+<div class="container">
+	<h3 class="dark_brown">Accedi all'area personale</h3>
+	<hr />
+</div>
+	
+<!-- Login form -->
+<div class="container">
+	   		<form name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
+	    			<div class="form-group">
+	      			<label class ="dark_brown" for="email">Email:</label>
+	      			<input type="text" class="form-control light_brown" id="email" placeholder="Inserisci l'email" name ="email">
+	    			</div>
+	   			<div class="form-group">
+	      			<label class ="dark_brown" for="pwd">Password:</label>
+	      			<input type="password" class="form-control light_brown" id="pwd" placeholder="Inserisci la password" name ="pswd">
+	   			</div>
+				<button type="submit" class="btn btn-primary">Accedi</button>
+			</form> 		
+	<p class ="red" id="ver"></p>
+</div>
+<br>
+<br>
+<!-- ./Login form -->
+	
+<%@ include file="footer.jsp" %>
