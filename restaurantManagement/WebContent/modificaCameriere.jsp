@@ -14,7 +14,7 @@
         
         if(validationName(name) && validationSurname(surname) && validationEmail(email) && validationPassword(password) && validationConfirmPassword(passwordConfirm, password)){
           	return true;
-        }else {
+        } else {
          	return false;
         }
       }
@@ -30,7 +30,7 @@
       	}
 	  }
       
-   	  function validationSurname(surname){
+   	  function validationSurname(surname) {
 	  	var surnameformat = /^[A-Za-z]{3,}$/;
  	 	if(surname.value.match(surnameformat)){
     			return true;
@@ -38,8 +38,8 @@
     			verify("Inserire correttamente il cognome");
       	 	surname.focus();
        		return false;
-    		}
-	   }
+    	}
+	  }
    	  
       function validationPassword(password) {
     	  	var passwordformat = /^[A-Za-z0-9]{5,}$/;

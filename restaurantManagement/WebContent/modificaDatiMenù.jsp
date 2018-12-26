@@ -19,7 +19,7 @@
    		if(name.value.match(nameformat)){
      		return true;
    		} else {
-     		verifica("Il nome del menù deve contenere soltanto lettere o numeri");
+     		verify("Il nome del menù deve contenere soltanto lettere o numeri");
 			name.focus();
 			return false; 
 		}
