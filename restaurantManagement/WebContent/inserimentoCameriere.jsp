@@ -6,15 +6,15 @@
   	  }
   	  
       function validateForm() {
-        var name = document.form1.name;
-        var surname = document.form1.surname;
-        var email = document.form1.email;
-        var password = document.form1.pwd; 
-        var passwordConfirm = document.form1.pwd_confirm; 
+        var name = document.form.name;
+        var surname = document.form.surname;
+        var username = document.form.username;
+        var password = document.form.pwd; 
+        var passwordConfirm = document.form.pwd_confirm; 
         
-        if(validationName(name) && validationSurname(surname) && validationEmail(email) && validationPassword(password) && validationConfirmPassword(passwordConfirm, password)){
+        if(validationName(name) && validationSurname(surname) && validationUsername(username) && validationPassword(password) && validationConfirmPassword(passwordConfirm, password)){
           	return true;
-        }else {
+        } else {
          	return false;
         }
       }
@@ -33,44 +33,41 @@
    	  function validationSurname(surname){
 	  	var surnameformat = /^[A-Za-z]{3,}$/;
  	 	if(surname.value.match(surnameformat)){
-    			return true;
+    		return true;
    	 	} else {
-    			verify("Inserire correttamente il cognome");
+    		verify("Inserire correttamente il cognome");
       	 	surname.focus();
        		return false;
-    		}
-	   }
+    	}
+	  }
    	  
-   	  //Modificare 
-   	  /* 
-      function validationEmail(umail) {
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
-        if(umail.value.match(mailformat)){
-          	return true;
-        }else {
-          	verify("Inserire correttamente l'email");
-         	umail.focus();
-         	return false;
-        }
-      }
-   	  */
+   	function validationUsername(username) {
+   		var username_format=/^[0-9a-zA-Z]+$/;
+   		if (username.value.match(username_format))
+   			return true;
+   		else {
+   			verify("Inserire correttamente la username");
+   			username.focus();
+   			return false;
+   		}
+   	}
    	  
       function validationPassword(password) {
     	  	var passwordformat = /^[A-Za-z0-9]{5,}$/;
         if(password.value.match(passwordformat)){
       	  	return true;
         } else {
-	    		verify("Inserire correttamente la password");
+	    	verify("Inserire correttamente la password");
          	password.focus();
          	return false;
         }
       }
    	  
       function validationConfirmPassword(confirmPassword, password) {
-        if(confirmPassword.value == password.value){
+      	if(confirmPassword.value == password.value){
       	  	return true;
         } else {
-        		verify("Le due password devono coincidere");
+        	verify("Le due password devono coincidere");
          	confirmPassword.focus();
          	return false;
         }
@@ -94,7 +91,7 @@
 	
 	<!-- Inserimento cameriere form -->
 	<div class="container">
-	   		<form  name="form1" action="" method="POST" onsubmit="return validateForm()">
+	   		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
 	 	 		<div class="row">
 	 	 			<div class="col-sm-6">
 			 	 		<div class="form-group">
@@ -132,7 +129,7 @@
 			    		</div>
 			    	</div>
 		    	</div>
-				<button type="submit" class="btn btn-primary">Crea account</button>
+				<button type="submit" class="btn btn-primary">Crea cameriere</button>
 			</form>	
 	</div>
 	<br>
