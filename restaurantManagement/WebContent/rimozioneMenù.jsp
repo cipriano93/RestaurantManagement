@@ -1,12 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ include file="heading.jsp" %>
 
-</body>
-</html>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+ 	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Rimuovi menù</li>
+	</ol>
+</nav>
+<!-- ./Breadcrumb -->
+
+<div class="container">
+	<h3 class="dark_brown">Rimuovi menù</h3>
+	<hr/>
+</div>
+	
+<!-- Rimuovi menù -->
+
+<!-- ./Rimuovi menù form -->
+	
+<%@ include file="footer.jsp" %>
