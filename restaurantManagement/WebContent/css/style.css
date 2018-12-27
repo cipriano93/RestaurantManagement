@@ -84,3 +84,6 @@ a#headingAnchor_new {
 .red {
 	color: #C90015;
 }
+#number {
+  width: 3em;
+}
