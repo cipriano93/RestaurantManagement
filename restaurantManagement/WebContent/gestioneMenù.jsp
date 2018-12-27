@@ -16,7 +16,9 @@
 
 <!-- Tabella menù -->
 <div class="container">
-	<div align="center"><a href="inserimentoMenù.jsp" class="btn btn-default">Inserisci menù</a></div>
+	<div align="center">
+		<a href="inserimentoMenù.jsp" class="btn btn-default">Inserisci menù</a>
+	</div>
 	<table class="table">
 		<thead>
 			<tr>

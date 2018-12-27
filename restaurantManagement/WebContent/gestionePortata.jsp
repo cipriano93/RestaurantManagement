@@ -19,6 +19,10 @@
 	<div align="center">
 		Menù "Mare"<a href="modificaNomeMenù.jsp">rinomina</a>
 	</div>
+	<br>
+	<div align="center">
+		<a href="inserimentoPortata.jsp" class="btn btn-default">Inserisci portata</a>
+	</div>
 	<table class="table">
 		<thead>
 			<tr>
