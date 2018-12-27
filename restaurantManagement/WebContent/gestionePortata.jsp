@@ -17,7 +17,7 @@
 <!-- Tabella portata -->
 <div class="container">
 	<div align="center">
-		Menù "mare"<a href="modificaNomeMenù.jsp">rinomina</a>
+		Menù "Mare"<a href="modificaNomeMenù.jsp">rinomina</a>
 	</div>
 	<table class="table">
 		<thead>
