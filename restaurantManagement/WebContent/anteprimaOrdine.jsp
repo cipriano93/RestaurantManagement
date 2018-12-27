@@ -1,12 +1,89 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
-</body>
-</html>
+<%@ include file="heading.jsp" %>	
+
+<!-- Cart -->
+<div class="container">
+	<h3 class ="dark_brown">Anteprima ordine - tavolo X</h3>
+  	<hr/>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+	  		
+		  	<!-- Table -->		
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class ="dark_brown">Immagine</th>
+					        <th class ="dark_brown">Nome prodotto</th>
+					        <th class ="dark_brown">Prezzo unitario</th>
+					        <th class ="dark_brown">Quantità</th>
+					        <th class ="dark_brown">Subtotale</th>
+					        <th></th>
+						</tr>
+					</thead>
+		     		<tbody>     
+							<tr>
+								<td class="col-md-2"> 
+						     		<a href="" >
+							        		<img src="" class="img-responsive" style="" alt="">
+							    		</a>
+							    	</td>
+						        <td class ="light_brown">
+							        	<a href="" id="headingAnchor_discount">
+					
+							        	</a>
+							    </td>
+							    <td class ="light_brown">
+							    	</td>
+						        <td class ="light_brown">
+						    
+								<!-- Update -->
+									<form action="carrello.jsp" method = "post">
+										<input name="update" type="number" min="1" max="" value="">
+										<input type="hidden" name="id" value="">
+										<button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button>
+									</form>
+								<!-- ./Update -->     	
+						        </td> 
+						        <td class ="light_brown">				        
+						
+						        	</td>
+						        <td>
+						        		<!-- Remove product -->
+									<form action="carrello.jsp">
+						        			<input type="hidden" name="remove" value="">
+						        			<button type="submit" class="btn btn-danger">Rimuovi</button>
+						        		</form>
+						        		<!-- Remove product -->
+						        </td> 
+						      </tr>
+
+					</tbody>
+				</table>
+				
+				
+			</div>
+			
+			<!-- ./Table -->
+			<h4 class = "light_brown">Totale:<span id = "total"> </span></h4>
+			<div class="text-right">
+				<a href="carrello.jsp?empty=1">Svuota il carrello</a>
+			</div>
+			<br>
+		</div>
+		<!-- ./Riepilogo -->	
+	</div>
+	<br>
+	<br>		
+</div>
+<!-- ./Cart -->
+<script>	
+	$(document).ready(function(){
+		var tot = $("#total").text();
+		var quant = $("#quantity").text();
+	    $("#cart_menu").html(tot + " &euro; (" + quant+" )")
+		});
+</script>
+<%@ include file="footer.jsp" %>
