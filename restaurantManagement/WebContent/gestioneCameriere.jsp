@@ -14,7 +14,7 @@
 	<hr/>
 </div>
 <div align="center">
-	<a href="inserimentoPortata.jsp" class="btn btn-default">Inserisci cameriere</a>
+	<a href="inserimentoCameriere.jsp" class="btn btn-default">Inserisci cameriere</a>
 </div>
 
 <!-- Tabella cameriere -->
