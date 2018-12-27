@@ -1,5 +1,11 @@
 <%@ include file="header.jsp" %>
 
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+});
+</script>
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
@@ -41,7 +47,7 @@
 		<strong>Totale &euro;98.5</strong>
 	</div>
 	<div align="right">
-		<a href="#" class="btn btn-default">Conferma ordine</a>
+		<a href="#" class="btn btn-default" data-toggle="popover" data-content="Ottimo lavoro, Andrea. L'ordine &egrave; stato inviato alla cassa">Conferma ordine</a>
 	</div>
 </div>
 <!-- ./Tabella menù -->
