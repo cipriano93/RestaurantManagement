@@ -19,19 +19,19 @@
 	<form action="">
 		<div class="form-group">
 			<label for="date">Seleziona data:</label>
-		    <input type="date" id="date" name="date">
+		    <input type="date" class="form-control" id="date" name="date">
 		</div>
 		<div class="form-group">
 	      <label for="hour">Ora:</label>
-	      <input type="time" id="hour" name="hour">
+	      <input type="time" class="form-control" id="hour" name="hour">
 	    </div>
 	    <div class="form-group">
 	    	<label for="num_people">Numero persone:</label>
-	      	<input type="number" id="num_people" name="num_people" min="1" max="20">
+	      	<input type="number" class="form-control" id="num_people" name="num_people" min="1" max="20">
 	    </div>
 	    <div class="form-group">
 	    	<label for="tel">Numero di cellulare:</label>
-	      	<input type="tel" id="tel" name="tel">
+	      	<input type="tel" class="form-control" id="tel" name="tel">
 	    </div>
 	    <div class="form-group">
   			<label for="note">Note:</label>

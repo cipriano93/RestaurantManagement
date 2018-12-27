@@ -37,19 +37,6 @@
        		return false;
     		}
 	   }
-   	  //Modificare 
-   	  /* 
-      function validationEmail(umail) {
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
-        if(umail.value.match(mailformat)){
-          	return true;
-        }else {
-          	verify("Inserire correttamente l'email");
-         	umail.focus();
-         	return false;
-        }
-      }
-   	  */
       function validationPassword(password){
     	  	var passwordformat = /^[A-Za-z0-9]{5,}$/;
         if(password.value.match(passwordformat)){

@@ -75,7 +75,7 @@
 							<option>Contorno</option>
 							<option>Frutta</option>
 							<option>Dessert</option>
-							<option>Bevande</option>
+							<option>Bevanda</option>
 						</select>
 	    			</div>
 	    			</div>
