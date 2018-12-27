@@ -34,7 +34,7 @@
 			<tr>
 				<td>Portata 1</td>
 				<td>
-					<a href="#" class="btn btn-default">Modifica</a>
+					<a href="modificaPortata.jsp" class="btn btn-default">Modifica</a>
 					<a href="#" class="btn btn-danger">Rimuovi</a>
 				</td>
 			</tr>
