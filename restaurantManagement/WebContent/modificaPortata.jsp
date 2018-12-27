@@ -59,7 +59,7 @@
 	   		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
 				<div class="form-group">
 			    	<label class="dark_brown" for="name">Nome:</label>
-			      		<input type="text" class="form-control light_brown" name="name">
+			      		<input type="text" class="form-control light_brown" name="name" value= "Spaghetti pomodoro">
 			      		<span id="ver" class="red"></span>
 			    	</div>
 	    			<div class="form-group">
@@ -76,12 +76,12 @@
 	    			</div>
 				   	<div class="form-group">
 				      	<label class="dark_brown" for="price">Prezzo:</label>
-				      	<input type="text" class="form-control light_brown" name="price">
+				      	<input type="text" class="form-control light_brown" name="price" value = "3.00">
 				      	<span id="ver" class ="red"></span>
 				    </div>
 				    <div class="form-group">
 						<label for="description">Descrizione:</label>
-						<textarea class="form-control" rows="5" id="description"></textarea>
+						<textarea class="form-control light_brown" rows="5" id="description">Vestibulum nec fringilla purus. Etiam dictum eleifend leo, eu laoreet lectus suscipit nec. Aliquam accumsan neque eu dolor tincidunt porttitor. Nulla.</textarea>
 						<span id="ver" class="red"></span>
 					</div> 
 					<button type="submit" class="btn btn-primary">Modifica portata</button>
