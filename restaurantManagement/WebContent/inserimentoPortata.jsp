@@ -57,11 +57,15 @@
 	<!-- Inserimento portata form -->
 	<div class="container">
 	   		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
+				<div class = "row">
+				<div class="col-sm-4">
 				<div class="form-group">
 			    	<label class="dark_brown" for="name">Nome:</label>
-			      		<input type="text" class="form-control light_brown" name="name">
+			      		<input type="text" class="form-control light_brown" name="name" value= "">
 			      		<span id="ver" class="red"></span>
 			    	</div>
+			    	</div>
+			    	<div class="col-sm-4">
 	    			<div class="form-group">
 	      				<label for="type">Tipo:</label>
 						<select class="form-control" id="type">
@@ -71,22 +75,33 @@
 							<option>Contorno</option>
 							<option>Frutta</option>
 							<option>Dessert</option>
-							<option>Bevanda</option>
+							<option>Bevande</option>
 						</select>
 	    			</div>
+	    			</div>
+	    			<div class="col-sm-4">
 				   	<div class="form-group">
 				      	<label class="dark_brown" for="price">Prezzo:</label>
-				      	<input type="text" class="form-control light_brown" name="price">
+				      	<input type="text" class="form-control light_brown" name="price" value = "">
 				      	<span id="ver" class ="red"></span>
 				    </div>
+				 </div>
+				 </div>
+				 
 				    <div class="form-group">
 						<label for="description">Descrizione:</label>
-						<textarea class="form-control" rows="5" id="description"></textarea>
+						<textarea class="form-control light_brown" rows="5" id="description"></textarea>
 						<span id="ver" class="red"></span>
-					</div> 
-					<button type="submit" class="btn btn-primary">Inserisci portata</button>
+					</div>	
+					
+			<div class = "row">		
+  				<div class="col-sm-3">
+					<button type="submit" class="btn btn-primary">Inserisci</button>
+				</div>
+			</div>	
 			</form>	
 	</div>
+	
 	<br>
 	<br>
 	<!-- ./Inserimento portata form -->
