@@ -14,7 +14,7 @@
 	<hr/>
 </div>
 	
-<!-- Rimozione menù -->
+<!-- Rimozione menù form -->
 
 <!-- ./Rimozione menù form -->
 	

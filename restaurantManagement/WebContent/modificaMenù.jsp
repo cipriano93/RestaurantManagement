@@ -14,8 +14,8 @@
 	<hr/>
 </div>
 	
-<!-- Modifica menù -->
-
+<!-- Modifica menù form -->
+<!-- Lista delle portate -->
 <!-- ./Modifica menù form -->
 	
 <%@ include file="footer.jsp" %>
