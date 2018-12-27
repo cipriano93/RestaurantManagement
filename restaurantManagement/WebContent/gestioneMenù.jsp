@@ -25,11 +25,11 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>Test</td>
+				<td>Menù 1</td>
 				<td>
-					<a href="#" class="btn btn-default">Modifica dati</a>
+					<a href="#" class="btn btn-default">Modifica nome</a>
 					<a href="#" class="btn btn-default">Modifica</a>
-					<a href="#" class="btn btn-default">Rimuovi</a>
+					<a href="#" class="btn btn-danger">Rimuovi</a>
 				</td>
 			</tr>
 		</tbody>
