@@ -15,7 +15,7 @@
         }
       }
       
-      function validationNome(note) {
+      function validationNote(note) {
   	  	var noteformat = /^[A-Z a-z]{3,}$/;
     	if (name.value.match(nameformat)){
       		return true;
@@ -25,6 +25,7 @@
          	return false;
       	}
 	  }
+      
     </script>
 	<!-- ./Validation -->
 	
@@ -48,8 +49,6 @@
 	  <h4 class= "dark_brown"> Numero persone: <span class= "light_brown">10</span></h4>
 	</div>
 	<!-- \.Numero persone -->
-	
-	
 	
 	<!-- Inserimento portata comanda form -->
 	<div class="container">
@@ -172,9 +171,11 @@
 								
 								<!-- Stato portata comanda -->
 								<td>
-									<a href="#">
-										<span align="center" style="color:green"  class="glyphicon glyphicon-ok btn btn-default btn-md "></span>
-									</a>
+									
+									
+										
+										<span id ="fist" align="center" style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-ok"></span>
+			
 								</td>
 								<!-- /.Stato portata comanda -->
 								
@@ -209,8 +210,8 @@
 								
 								<!-- Stato portata comanda -->
 								<td>
-									<a href="#">
-										<span align="center" style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-remove"></span>
+									<a  href="#">
+										<span  align="center" style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-remove"></span>
 									</a>
 								</td>
 								<!-- /.Stato portata comanda -->
