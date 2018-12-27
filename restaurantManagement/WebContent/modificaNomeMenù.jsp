@@ -30,17 +30,17 @@
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="">Home</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Modifica dati menù</li>
+		<li class="breadcrumb-item active" aria-current="page">Modifica nome menù</li>
 	</ol>
 </nav>
 <!-- ./Breadcrumb -->
 
 <div class="container">
-	<h3 class="dark_brown">Modifica dati menù</h3>
+	<h3 class="dark_brown">Modifica nome menù</h3>
 	<hr/>
 </div>
 	
-<!-- Modifica dati menù form -->
+<!-- Modifica nome menù form -->
 <div class="container">
 	<form name="form" action="" onsubmit="return validateForm()" method="POST">
 		<div class="form-group">
@@ -48,11 +48,11 @@
 	      	<input type="text" class="form-control light_brown" id="name" placeholder="Inserisci il nome" name="name">
 	      	<span class="red" id="ver"></span>
 	    </div>
-		<button type="submit" class="btn btn-primary">Modifica menù</button>
+		<button type="submit" class="btn btn-primary">Modifica nome</button>
 	</form>
 </div>
 <br>
 <br>
-<!-- ./Modifica dati menù form -->
+<!-- ./Modifica nome menù form -->
 	
 <%@ include file="footer.jsp" %>
