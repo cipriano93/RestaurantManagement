@@ -8,11 +8,10 @@
       function validateForm() {
         var name = document.form.name;
         var surname = document.form.surname;
-        var email = document.form.email;
         var password = document.form.pwd; 
         var passwordConfirm = document.form.pwd_confirm; 
         
-        if(validationName(name) && validationSurname(surname) && validationEmail(email) && validationPassword(password) && validationConfirmPassword(passwordConfirm, password)){
+        if(validationName(name) && validationSurname(surname) && validationPassword(password) && validationConfirmPassword(passwordConfirm, password)){
           	return true;
         } else {
          	return false;
@@ -97,11 +96,6 @@
 			    		</div>
 			    	</div>
 		    	</div>
-	    		<div class="form-group">
-	      			<label class="dark_brown" for="email">Username:</label>
-	      			<input type="email" class="form-control light_brown" name="username">
-	      			<span id="ver" class ="red"></span>
-	    		</div>
 	    		<div class="row">
 	    			<div class="col-sm-6">
 			    		<div class="form-group">
