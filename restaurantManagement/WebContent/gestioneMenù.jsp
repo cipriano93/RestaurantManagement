@@ -13,12 +13,12 @@
 	<h3 class="dark_brown">Gestione menù</h3>
 	<hr/>
 </div>
+<div align="center">
+	<a href="inserimentoMenù.jsp" class="btn btn-default">Inserisci menù</a>
+</div>
 
 <!-- Tabella menù -->
 <div class="container">
-	<div align="center">
-		<a href="inserimentoMenù.jsp" class="btn btn-default">Inserisci menù</a>
-	</div>
 	<table class="table">
 		<thead>
 			<tr>

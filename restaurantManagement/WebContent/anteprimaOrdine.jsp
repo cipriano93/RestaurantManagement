@@ -13,6 +13,9 @@
 	<h3 class="dark_brown">Anteprima conto</h3>
 	<hr/>
 </div>
+<div align="center">
+	<strong>Ordine tavolo n.10</strong>
+</div>
 
 <!-- Tabella menù -->
 <div class="container">

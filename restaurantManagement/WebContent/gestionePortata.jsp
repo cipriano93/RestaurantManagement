@@ -13,16 +13,16 @@
 	<h3 class="dark_brown">Gestione portata</h3>
 	<hr/>
 </div>
+<div align="center">
+	Menù "Mare"<a href="modificaNomeMenù.jsp">rinomina</a>
+</div>
+<br>
+<div align="center">
+	<a href="inserimentoPortata.jsp" class="btn btn-default">Inserisci portata</a>
+</div>
 
 <!-- Tabella portata -->
 <div class="container">
-	<div align="center">
-		Menù "Mare"<a href="modificaNomeMenù.jsp">rinomina</a>
-	</div>
-	<br>
-	<div align="center">
-		<a href="inserimentoPortata.jsp" class="btn btn-default">Inserisci portata</a>
-	</div>
 	<table class="table">
 		<thead>
 			<tr>
