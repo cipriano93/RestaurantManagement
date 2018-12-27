@@ -1,4 +1,4 @@
-<%@ include file="heading.jsp" %>	
+<%@ include file="header.jsp" %>	
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore){

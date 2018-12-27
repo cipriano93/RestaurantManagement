@@ -1,5 +1,5 @@
 
-<%@ include file="heading.jsp" %>	
+<%@ include file="header.jsp" %>	
 
 <!-- Cart -->
 <div class="container">

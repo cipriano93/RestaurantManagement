@@ -23,7 +23,7 @@
 			<h2 style= "font-family: avenir"> Restaurant Management</h2>	   		 
 	   		 </div>
 	   		 <div class="col-sm-4 text-right">
- 		 		<a href="signup.jsp"><span class="glyphicon glyphicon-user"></span> Registrati</a>
+ 		 		<a href="registrazione.jsp"><span class="glyphicon glyphicon-user"></span> Registrati</a>
       			<a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Accedi</a>
 		    </div>
    	 	</div>
