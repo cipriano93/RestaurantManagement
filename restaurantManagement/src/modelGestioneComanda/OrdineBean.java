@@ -4,13 +4,23 @@ import java.util.GregorianCalendar;
 
 public class OrdineBean {
 
-	public int getId_ordine() {
+	public int getIdOrdine() {
 		return id_ordine;
 	}
 	
 	
-	public void setId_ordine(int id_ordine) {
+	public void setIdOrdine(int id_ordine) {
 		this.id_ordine = id_ordine;
+	}
+	
+	
+	public GregorianCalendar getData() {
+		return data;
+	}
+
+
+	public void setData(GregorianCalendar data) {
+		this.data = data;
 	}
 	
 	
@@ -21,16 +31,6 @@ public class OrdineBean {
 
 	public void setTotale(double totale) {
 		this.totale = totale;
-	}
-
-
-	public GregorianCalendar getData() {
-		return data;
-	}
-
-
-	public void setData(GregorianCalendar data) {
-		this.data = data;
 	}
 
 
