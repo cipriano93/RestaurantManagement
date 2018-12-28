@@ -37,18 +37,21 @@ public class PortataBeanDAO {
 		return false;
 	}
 	
-	public synchronized PortataBean doRetrieveByKey(int idPortata, int idMenù) {
+	public synchronized PortataBean doRetrieveByKey(int idPortata) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		
 		try {
 			PortataBean pb = new PortataBean();
 			pb.setIdPortata(idPortata);
-			pb.setIdMenù(idMenù);
+			conn = DriverManagerConnectionPool.getConnection();
+			ps = conn.prepareStatement("SELECT * FROM portata WHERE idportata=?");
+			ps.setLong(1, idPortata);
 			
 			ResultSet res = ps.executeQuery();
 			
 			if(res.next()) {
+				pb.setIdMenù(res.getInt("idMenù"));
 				pb.setNome(res.getString("nome"));
 				pb.setTipo(res.getString("tipo"));
 				pb.setPrezzo(res.getString("prezzo"));
