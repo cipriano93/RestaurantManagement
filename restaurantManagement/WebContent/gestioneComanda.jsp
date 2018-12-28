@@ -120,6 +120,7 @@
 				    			<button id="inserimento_portata_comanda" class="btn btn-success">Inserisci portata</button> 
 						</div>
 					</form>
+				</div>
 				<!-- /.Bottone inserimento portata nella comanda -->
 					
 			
