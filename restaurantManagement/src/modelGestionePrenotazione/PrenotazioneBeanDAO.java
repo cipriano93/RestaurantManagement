@@ -9,7 +9,7 @@ import modelConnection.DriverManagerConnectionPool;
 
 public class PrenotazioneBeanDAO {
 	
-	public synchronized  boolean doSave(PrenotazioneBean pb, String username) {/**/
+	public synchronized  boolean doSave(PrenotazioneBean pb, String username) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		try {
