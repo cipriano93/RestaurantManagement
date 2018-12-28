@@ -24,6 +24,16 @@ public class PrenotazioneBean {
 	}
 
 
+	public int getNumPersone() {
+		return num_persone;
+	}
+
+
+	public void setNumPersone(int num_persone) {
+		this.num_persone = num_persone;
+	}
+
+
 	public String getDescrizione() {
 		return descrizione;
 	}
@@ -34,7 +44,7 @@ public class PrenotazioneBean {
 	}
 
 
-	private int id_prenotazione;
+	private int id_prenotazione, num_persone;
 	private String descrizione;
 	private GregorianCalendar data;
 }

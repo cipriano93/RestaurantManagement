@@ -3,11 +3,9 @@ package modelGestionePrenotazione;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import modelConnection.DriverManagerConnectionPool;
-import modelGestioneMenù.MenùBean;
 
 public class PrenotazioneBeanDAO {
 	
@@ -16,7 +14,8 @@ public class PrenotazioneBeanDAO {
 		PreparedStatement ps = null;
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			if ((pb.getDescrizione())==null)
+			String descrizione = pb.getDescrizione();
+			if (descrizione == null)
 				ps = con.prepareStatement("INSERT INTO menu VALUES (?, ?, ?, ?)");
 			else
 				ps = con.prepareStatement("INSERT INTO menu VALUES (?, ?, ?, ?, ?)");
@@ -24,6 +23,9 @@ public class PrenotazioneBeanDAO {
 			ps.setString(2, username);
 			Date date = new Date(pb.getData().getTimeInMillis());
 			ps.setDate(3, date);
+			ps.setInt(4, pb.getNumPersone());
+			if (descrizione != null)
+				ps.setString(5, pb.getDescrizione());
 			ps.executeUpdate();
 			con.commit();
 			return true;
