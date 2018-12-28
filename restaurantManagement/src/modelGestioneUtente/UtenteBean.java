@@ -22,12 +22,12 @@ public class UtenteBean {
 	}
 	
 	
-	public String getName() {
+	public String getNome() {
 		return nome;
 	}
 
 	
-	public void setName(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	
@@ -42,12 +42,12 @@ public class UtenteBean {
 	}
 	
 	
-	public String getType() {
+	public String getTipo() {
 		return tipo;
 	}
 
 	
-	public void setType(String tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	

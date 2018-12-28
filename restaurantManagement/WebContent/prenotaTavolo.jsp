@@ -1,4 +1,4 @@
-<%@ include file="header.jsp" %>
+<%@ include file="headear.jsp" %>
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
@@ -9,10 +9,12 @@
 </nav>
 <!-- ./Breadcrumb -->
 
+
 <div class="container">
 	<h3 class="dark_brown">Prenota tavolo</h3>
 	<hr/>
 </div>
+
 
 <!-- Prenotazione tavolo -->
 <div class="container">
@@ -37,7 +39,13 @@
   			<label for="note">Note:</label>
   			<textarea class="form-control" rows="5" id="note"></textarea>
 		</div> 
-	    <button type="submit" class="btn btn-default">Prenota</button>
+	    <button type="submit" class="btn btn-success">Prenota</button>
+	    <button type="submit" class="btn btn-danger text-right">Annulla</button>
   </form>
 </div>
 <!-- ./Prenotazione tavolo -->
+
+<br>
+	
+	<div class="footer">	<%@ include file="footer.jsp" %> </div>
+	
