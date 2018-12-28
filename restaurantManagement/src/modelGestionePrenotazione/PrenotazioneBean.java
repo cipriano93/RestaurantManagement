@@ -2,7 +2,7 @@ package modelGestionePrenotazione;
 
 import java.util.GregorianCalendar;
 
-public class PrenotazioneBean {/**/
+public class PrenotazioneBean {
 
 	public int getIdPrenotazione() {
 		return id_prenotazione;
