@@ -38,17 +38,14 @@ public class PortataBean {
 	}
 	
 	
-	public double getPrezzo() {
+	public String getPrezzo() {
 		return prezzo;
 	}
 
 
-	public void setPrezzo(double prezzo) {
+	public void setPrezzo(String prezzo) {
 		this.prezzo = prezzo;
 	}
-
-
-	
 
 	public String getDescrizione() {
 		return descrizione;
@@ -62,6 +59,5 @@ public class PortataBean {
 
 	private int idPortata;
 	private int idMenù;
-	private double prezzo;
-	private String nome, tipo, descrizione;
+	private String nome, tipo, descrizione, prezzo;
 }
