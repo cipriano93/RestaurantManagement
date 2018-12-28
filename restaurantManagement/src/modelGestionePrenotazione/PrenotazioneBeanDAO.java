@@ -23,7 +23,6 @@ public class PrenotazioneBeanDAO {
 			ps.setInt(4, pb.getNumPersone());
 			ps.setString(5, pb.getDescrizione());
 			ps.executeUpdate();
-			con.commit();
 			return true;
 		} catch (SQLException e) {
 			return false;
@@ -46,7 +45,6 @@ public class PrenotazioneBeanDAO {
 			ps = con.prepareStatement("DELETE FROM prenotazione WHERE idprenotazione=?");
 			ps.setInt(1, id);
 			ps.executeUpdate();
-			con.commit();
 			return true;
 		} catch (SQLException e) {
 			return false;

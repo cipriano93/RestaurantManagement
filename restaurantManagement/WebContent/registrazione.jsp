@@ -7,13 +7,13 @@
       function validateForm(){
         var name = document.form1.name;
         var surname = document.form1.surname;
-        var email = document.form1.email;
+        var username = document.form1.usr;
         var password = document.form1.pwd; 
         var passwordConfirm = document.form1.pwd_confirm; 
         
-        if(validationName(name) && validationSurname(surname) && validationEmail(email) && validationPassword(password) && validationConfirmPassword(passwordConfirm, password)){
+        if(validationName(name) && validationSurname(surname) && validationUsername(username) && validationPassword(password) && validationConfirmPassword(passwordConfirm, password)){
           	return true;
-        }else {
+        } else {
          	return false;
         }
       }
@@ -76,6 +76,10 @@
 	
 	<!-- Signup form -->
 	<div class="container">
+	
+			<% if (Boolean.parseBoolean(request.getParameter("errMessage"))) { %>
+				<h3>Username già utilizzata</h3>
+			<% } %>
 
 	   		<form  name ="form1" action="Registrazione" method="POST" onsubmit ="return validateForm()">
 	 	 		<div class="row">
@@ -94,7 +98,7 @@
 		    	</div>
 	    		<div class="form-group">
 	      			<label class ="dark_brown" for="email">Username:</label>
-	      			<input type="email" class="form-control light_brown" name="username">
+	      			<input type="text" class="form-control light_brown" name="usr">
 	    		</div>
 	    		<div class="row">
 	    			<div class="col-sm-6">

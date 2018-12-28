@@ -27,29 +27,25 @@ public class Registrazione extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
-		String username = request.getParameter("username");
+		String username = request.getParameter("usr");
 		String password = request.getParameter("pwd");
 		String confirmPassword = request.getParameter("pwd_confirm");
-		String type = request.getParameter("type");
 		
 		//prima della creazione controllo sulla chiave
 		UtenteBeanDAO ubd = new UtenteBeanDAO();
-		String regexName = "^[A-Za-z\\s]{3,}$";
-		String regexSurname ="^[A-Za-z\\s]{3,}$";
+		
 		String regexUsername = "^[0-9a-zA-Z]+$";
-		String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";
+		
 		
 		//questo è un controllo più accurato, se l'email non rispetta il pattern, esce direttamente
-		if(username.matches(regexUsername) && (password.equals(confirmPassword)) && password.matches(regexPassword)  
-									&& name.matches(regexName) && surname.matches(regexSurname)
-									&& (ubd.doRetrieveByKey(username, password)) != null) {
+		if(username.matches(regexUsername) && password.equals(confirmPassword)
+									&& (ubd.doRetrieveByKey(username, password)) == null) {
 			//Creazione bean
 			UtenteBean ub = new UtenteBean();
 			ub.setNome(name);
 			ub.setCognome(surname);
 			ub.setUsername(username);
 			ub.setPassword(password);
-			ub.setTipo(type);
 			
 			boolean result = ubd.doSave(ub);
 			

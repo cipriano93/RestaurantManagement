@@ -18,7 +18,6 @@ public class MenùBeanDAO {
 			ps.setLong(1, mb.getIdMenù());
 			ps.setString(2, mb.getNome());
 			ps.executeUpdate();
-			con.commit();
 			return true;
 		} catch (SQLException e) {
 			return false;
@@ -69,7 +68,6 @@ public class MenùBeanDAO {
 			ps = con.prepareStatement("DELETE FROM menu WHERE idmenu=?");
 			ps.setInt(1, id);
 			ps.executeUpdate();
-			con.commit();
 			return true;
 		} catch (SQLException e) {
 			return false;

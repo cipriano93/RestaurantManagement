@@ -21,7 +21,6 @@ public class OrdineBeanDAO {
 			ps.setObject(2, ob.getData());
 			ps.setDouble(3, ob.getTotale());
 			ps.executeUpdate();
-			con.commit();
 			return true;
 		} catch (SQLException e) {
 			return false;
