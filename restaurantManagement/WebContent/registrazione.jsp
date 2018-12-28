@@ -77,7 +77,7 @@
 	<!-- Signup form -->
 	<div class="container">
 
-	   		<form  name ="form1" action="Registration" method="POST" onsubmit ="return validateForm()">
+	   		<form  name ="form1" action="Registrazione" method="POST" onsubmit ="return validateForm()">
 	 	 		<div class="row">
 	 	 			<div class="col-sm-6">
 			 	 		<div class="form-group">

@@ -5,24 +5,24 @@
 		document.getElementById("ver").innerHTML = errore;
 	}	
  	function validateForm(){
-   		var email = document.form1.email;
+   		var username = document.form1.usr;
    		var password = document.form1.pswd; 
-   		if(validationEmail(email) && validationPassword(password)){
+   		if(validationUsername(username) && validationPassword(password)){
      		return true;
    		} else {
      		return false;
 		}
  	}
- 	function validationEmail(umail) {
-   		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
-   		if(umail.value.match(mailformat)){
-     		return true;
-   		} else {
-     		verifica("Inserire correttamente l'email");
-			umail.focus();
-			return false;
-		}
- 	}
+ 	function validationUsername(username) {
+   		var username_format=/^[0-9a-zA-Z]+$/;
+   		if (username.value.match(username_format))
+   			return true;
+   		else {
+   			verify("La username può contenere soltanto numeri e lettere");
+   			username.focus();
+   			return false;
+   		}
+   	}
  	function validationPassword(password){
    		if(password.value.length >= 5){
      		return true;
@@ -52,8 +52,8 @@
 <div class="container">
 	   		<form name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
 	    			<div class="form-group">
-	      			<label class ="dark_brown" for="email">Email:</label>
-	      			<input type="text" class="form-control light_brown" id="email" placeholder="Inserisci l'email" name ="email">
+	      			<label class ="dark_brown" for="usr">Username:</label>
+	      			<input type="text" class="form-control light_brown" id="usr" placeholder="Inserisci la username" name ="usr">
 	    			</div>
 	   			<div class="form-group">
 	      			<label class ="dark_brown" for="pwd">Password:</label>

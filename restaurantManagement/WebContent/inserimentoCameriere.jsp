@@ -46,7 +46,7 @@
    		if (username.value.match(username_format))
    			return true;
    		else {
-   			verify("Inserire correttamente la username");
+   			verify("La username può contenere soltanto numeri e lettere");
    			username.focus();
    			return false;
    		}
@@ -111,8 +111,8 @@
 			    	</div>
 		    	</div>
 	    		<div class="form-group">
-	      			<label class="dark_brown" for="email">Username:</label>
-	      			<input type="email" class="form-control light_brown" name="username">
+	      			<label class="dark_brown" for="usr">Username:</label>
+	      			<input type="text" class="form-control light_brown" name="usr">
 	      			<span id="ver" class ="red"></span>
 	    		</div>
 	    		<div class="row">
