@@ -80,7 +80,7 @@ public class UtenteBeanDAO {
 			return null;
 		}
 	
-	public synchronized boolean doSaveOrUpdate(UtenteBean ub) {
+	public synchronized boolean doUpdate(UtenteBean ub) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		

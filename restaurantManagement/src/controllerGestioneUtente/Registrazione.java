@@ -30,6 +30,7 @@ public class Registrazione extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("pwd");
 		String confirmPassword = request.getParameter("pwd_confirm");
+		String type = request.getParameter("type");
 		
 		//prima della creazione controllo sulla chiave
 		UtenteBeanDAO ubd = new UtenteBeanDAO();
@@ -48,6 +49,7 @@ public class Registrazione extends HttpServlet {
 			ub.setCognome(surname);
 			ub.setUsername(username);
 			ub.setPassword(password);
+			ub.setTipo(type);
 			
 			boolean result = ubd.doSave(ub);
 			
