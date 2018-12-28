@@ -15,7 +15,7 @@ public class MenùBeanDAO {
 		try {
 			con = DriverManagerConnectionPool.getConnection();
 			ps = con.prepareStatement("INSERT INTO menu (idmenu, nome) VALUES (?, ?)");
-			ps.setInt(1, mb.getIdMenù());
+			ps.setLong(1, mb.getIdMenù());
 			ps.setString(2, mb.getNome());
 			ps.executeUpdate();
 			con.commit();
@@ -41,7 +41,7 @@ public class MenùBeanDAO {
 			mb.setIdMenù(id);
 			con = DriverManagerConnectionPool.getConnection();
 			ps = con.prepareStatement("SELECT nome FROM menu WHERE idmenu=?");
-			ps.setInt(1, 0);
+			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				mb.setNome(rs.getString("nome"));
