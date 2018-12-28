@@ -44,7 +44,7 @@ public class PrenotazioneBeanDAO {
 		try {
 			con = DriverManagerConnectionPool.getConnection();
 			ps = con.prepareStatement("DELETE FROM prenotazione WHERE idprenotazione=?");
-			ps.setLong(1, id);
+			ps.setInt(1, id);
 			ps.executeUpdate();
 			con.commit();
 			return true;

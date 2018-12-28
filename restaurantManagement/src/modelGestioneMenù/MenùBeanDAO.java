@@ -67,7 +67,7 @@ public class MenùBeanDAO {
 		try {
 			con = DriverManagerConnectionPool.getConnection();
 			ps = con.prepareStatement("DELETE FROM menu WHERE idmenu=?");
-			ps.setLong(1, id);
+			ps.setInt(1, id);
 			ps.executeUpdate();
 			con.commit();
 			return true;
