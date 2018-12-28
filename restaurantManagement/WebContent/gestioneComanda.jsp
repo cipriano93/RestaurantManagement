@@ -20,7 +20,7 @@
     	if (name.value.match(nameformat)){
       		return true;
       	} else {
-      		verify("Inserire correttamente il note");
+      		verify("Inserire correttamente le note");
          	name.focus();
          	return false;
       	}
@@ -115,11 +115,9 @@
 			</div>
 			<!-- Bottone inserimento portata nella comanda -->
 				<div class="text-center">
-					<form  name="form" action="" method="POST" onsubmit="">
-						<div class=" text-center"> 
-				    			<button id="inserimento_portata_comanda" class="btn btn-success">Inserisci portata</button> 
-						</div>
-					</form>
+					<div class=" text-center"> 
+				    	<button id="inserimento_portata_comanda" class="btn btn-success" onclick="">Inserisci portata</button> 
+					</div>
 				</div>
 				<!-- /.Bottone inserimento portata nella comanda -->
 					
@@ -175,7 +173,7 @@
 									
 									
 										
-										<span id ="fist" align="center" style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-ok"></span>
+										<span id ="fist" style="color:green"  class=" btn btn-default btn-md glyphicon glyphicon-ok"></span>
 			
 								</td>
 								<!-- /.Stato portata comanda -->
@@ -212,7 +210,7 @@
 								<!-- Stato portata comanda -->
 								<td>
 									<a  href="#">
-										<span  align="center" style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-remove"></span>
+										<span style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-remove"></span>
 									</a>
 								</td>
 								<!-- /.Stato portata comanda -->
