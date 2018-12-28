@@ -15,6 +15,8 @@ public class Logout extends HttpServlet {
 	public Logout() {
 	}
 
+	//spunto
+	
 	// Metodi
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext application = getServletContext();
