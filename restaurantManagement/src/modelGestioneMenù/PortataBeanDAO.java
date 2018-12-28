@@ -2,6 +2,7 @@ package modelGestioneMenù;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import modelConnection.DriverManagerConnectionPool;
@@ -35,4 +36,38 @@ public class PortataBeanDAO {
 			}
 		return false;
 	}
+	
+	public synchronized PortataBean doRetrieveByKey(int idPortata, int idMenù) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			PortataBean pb = new PortataBean();
+			pb.setIdPortata(idPortata);
+			pb.setIdMenù(idMenù);
+			
+			ResultSet res = ps.executeQuery();
+			
+			if(res.next()) {
+				pb.setNome(res.getString("nome"));
+				pb.setTipo(res.getString("tipo"));
+				pb.setPrezzo(res.getString("prezzo"));
+				pb.setDescrizione(res.getString("descizione"));
+				return pb;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				DriverManagerConnectionPool.releaseConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		 return null;	 
+	 }
+	
+	
 }
