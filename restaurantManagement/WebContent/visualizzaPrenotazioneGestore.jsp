@@ -8,7 +8,7 @@
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 96%;
-  margin:25px;
+  	margin:25px;
 
 }
 
@@ -16,7 +16,6 @@
 
   border: 1px solid #ddd;
   padding: 8px;
-  width:10%;
 }
 
 #prenotazioni tr:nth-child(even){background-color: white;}
@@ -49,58 +48,70 @@
 
 <table id="prenotazioni">
   <tr>
+  	
+	<th>Nome</th>
+    <th>Cognome</th>
     <th>Data</th>
     <th>Ora</th>
     <th>N.coperti</th>
-    <th>Opzioni</th>
+    <th>Cellulare</th>
   </tr>
   <tr>
+  	<td>Antonio</td>
+    <td>Rossi</td>
     <td>11/04/2019</td>
     <td>13:00</td>
     <td>4</td>
-    <td>
-    <button id="btn" type="button" class="btn btn-warning">Cancella</button>
-    </td>
+    <td>3333456789</td>
     
   </tr>
   <tr>
+  	<td>Giuseppe</td>
+    <td>Verdi</td>
     <td>11/04/2019</td>
     <td>13:00</td>
     <td>6</td>
-    <td>
-    <button id="btn" type="button" class="btn btn-warning">Cancella</button>
-	</td>
+    <td>3333456789</td>
   </tr>
   <tr>
+  	<td>Filippo</td>
+    <td>Neri</td>
     <td>11/04/2019</td>
     <td>13:00</td>
     <td>5</td>
-    <td>
-    <button id="btn" type="button" class="btn btn-warning">Cancella</button>
-    </td>
+    <td>3333456789</td>
   </tr>
   <tr>
+  	<td>Antonio</td>
+    <td>Rossi</td>
     <td>11/04/2019</td>
     <td>13:00</td>
     <td>10</td>
-    <td>
-    <button id="btn" type="button" class="btn btn-warning">Cancella</button>
-    </td>
+    <td>3333456789</td>
   </tr>
   <tr>
+  	<td>Franco</td>
+    <td>Roma</td>
     <td>11/04/2019</td>
     <td>13:00</td>
     <td>7</td>
-    <td>
-    <button id="btn" type="button" class="btn btn-warning">Cancella</button>
-    </td>
+    <td>3333456789</td>
+  </tr>
+    <tr>
+  	<td>Enzo</td>
+    <td>Pino</td>
+    <td>11/04/2019</td>
+    <td>13:00</td>
+    <td>7</td>
+    <td>3333456789</td>
   </tr>
 </table>
 
 </body>
-<div align="center">
+
 <button id="btn" type="button" class="btn btn-danger">Annulla</button>
-</div>
+<button type="button" class="btn btn-info">Stampa</button>
+
 	<%@ include file="footer.jsp" %>
 </html>
 
