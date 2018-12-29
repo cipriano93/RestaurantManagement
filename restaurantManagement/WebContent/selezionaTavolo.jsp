@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@include file="heading.jsp" %>
+<%@include file="header.jsp" %>
 <html>
 <head>
 <style>
