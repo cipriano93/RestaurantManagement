@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelGestioneUtente.UtenteBean;
 import modelGestioneUtente.UtenteBeanDAO;
+import modelGestioneUtente.UtenteManager;
 
 
 /**
@@ -25,30 +26,24 @@ public class Registrazione extends HttpServlet {
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String surname = request.getParameter("surname");
+		String nome = request.getParameter("name");
+		String cognome = request.getParameter("surname");
 		String username = request.getParameter("usr");
 		String password = request.getParameter("pwd");
 		String confirmPassword = request.getParameter("pwd_confirm");
 		
-		//prima della creazione controllo sulla chiave
-		UtenteBeanDAO ubd = new UtenteBeanDAO();
-		
 		String regexUsername = "^[0-9a-zA-Z]+$";
 		
 		
+		UtenteManager um = new UtenteManager();
+		
 		//questo è un controllo più accurato, se l'email non rispetta il pattern, esce direttamente
 		if(username.matches(regexUsername) && password.equals(confirmPassword)
-									&& (ubd.doRetrieveByKey(username, password)) == null) {
-			//Creazione bean
-			UtenteBean ub = new UtenteBean();
-			ub.setNome(name);
-			ub.setCognome(surname);
-			ub.setUsername(username);
-			ub.setPassword(password);
+									&& (um.login(username, password)) == null) {
+
 			
-			boolean result = ubd.doSave(ub);
-			
+			boolean result = um.registrazione(username, password, nome, cognome, "cliente");
+		
 			if(result) {
 				response.sendRedirect("login.jsp");
 			} else {

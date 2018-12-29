@@ -73,48 +73,59 @@
 		</ol>
 	</nav>
 	<!-- ./Breadcrumb -->
-
-	<div class="container">
-	  <h3>Modifica dati personali</h3>
-	  <hr/>
-	</div>
 	
 	<!-- Modifica dati personali form -->
 	<div class="container">
+		<div class="row">
+		<div class="col-md-12">		
+			<h3 class = "dark_brown">Modifica i tuoi dati</h3>
+			<hr/>
+			<br>
 		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
-	 		<div class="row">
-	 	 		<div class="col-sm-6">
-			 		<div class="form-group">
-			      		<label class="dark_brown" for="name">Nome:</label>
-			      		<input type="text" class="form-control light_brown" name="name">
-			    	</div>
-			    </div>
-			    <div class="col-sm-6">
-			    	<div class="form-group">
-			      		<label class="dark_brown" for="surname">Cognome:</label>
-			      		<input type="text" class="form-control light_brown" name="surname">
-			    	</div>
-			    </div>
-		    </div>
-	    	<div class="row">
-	    		<div class="col-sm-6">
-			    	<div class="form-group">
-				    	<label class="dark_brown" for="pwd">Password:</label>
-				     	<input type="password" class="form-control light_brown" name="pwd">
-			    	</div>
-			    </div>
-			    <div class="col-sm-6">
-			    	<div class="form-group">
-				    	<label class="dark_brown" for="pwd_confirm">Conferma password:</label>
-				     	<input type="password" class="form-control light_brown" name="pwd_confirm">
-			    	</div>
-			    </div>
-		    </div>
-			<button type="submit" class="btn btn-primary">Modifica dati</button>
-		</form>		
-	</div>
-	<br>
-	<br>
-	<!-- ./Modifica dati personali form -->
+				<!-- Username -->
+				<div class="row">
+			    		<label class="col-sm-2 control-label dark_brown">Username</label>
+			    		<div class="col-sm-3">
+			    			<input class="form-control light_brown" type="text" value="Andrea" disabled>
+			    			<input class="light_brown" type="hidden" name="username" value=""> 
+			   	 	</div>
+			    		<div class="col-sm-7"></div>
+			  	</div>
+				<!-- ./Username -->
+				<br>
+				<!-- Password -->
+				<div class="row">
+			    		<label class="col-sm-2 control-label dark_brown">Nuova password</label>
+			    		<div class="col-sm-3">
+			      		<input type="password" class="form-control light_brown" name="password" value="">
+			    		</div>
+			  	  	<label class="col-sm-2 control-label dark_brown">Conferma la password</label>
+			  	  	<div class="col-sm-3">
+			      		<input type="password" class="form-control light_brown" name="confirmPassword" value="">
+			   	 	</div>
+			    		<div class="col-sm-2"></div>
+			  	</div>
+				<!-- ./Password -->
+				<br>
+				<!-- Nome and cognome -->
+				<div class="row">
+			   	 	<label class="col-sm-2 control-label dark_brown">Nome</label>
+			   	 	<div class="col-sm-3">
+			      		<input type="text" class="form-control light_brown" name="name" value="">
+			    		</div>
+			    		<label class="col-sm-2 control-label dark_brown">Cognome</label>
+			   	 	<div class="col-sm-3">
+			      		<input type="text" class="form-control light_brown" name="surname" value="">
+			    		</div>
+			    		<div class="col-sm-2"></div>
+			  	</div>
+				<!-- ./Nome and cognome -->
+						<br>
+				<button type="submit" class="btn btn-success">Aggiorna</button>
+			</form>
+				<p id="ver" class ="red" ></p> 
+				</div>
+				</div>
+				</div>
 	
 <%@ include file="footer.jsp" %>

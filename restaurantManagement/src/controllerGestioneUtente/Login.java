@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import modelGestioneUtente.UtenteBean;
 import modelGestioneUtente.UtenteBeanDAO;
+import modelGestioneUtente.UtenteManager;
 
 
 /**
@@ -36,8 +37,9 @@ public class Login extends HttpServlet {
 			response.sendRedirect("login.jsp");
 		else {
 			try {
-				UtenteBeanDAO ubd = new UtenteBeanDAO();
-				UtenteBean ub = ubd.doRetrieveByKey(userB.getUsername(), userB.getPassword());
+				UtenteManager um = new UtenteManager();
+				UtenteBean ub = um.login(userB.getUsername(), userB.getPassword());
+		
 				if(ub == null) {
 					request.setAttribute("denied", Boolean.valueOf(true));
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
