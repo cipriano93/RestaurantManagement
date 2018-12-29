@@ -43,9 +43,5 @@ public class CameriereManager {
 		
 		return result;
 	}
-	
-	
-	
-	
-	
+
 }
