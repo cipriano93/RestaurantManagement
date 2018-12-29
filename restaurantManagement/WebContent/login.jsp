@@ -18,7 +18,7 @@
    		if (username.value.match(username_format))
    			return true;
    		else {
-   			verify("La username può contenere soltanto numeri e lettere");
+   			verifica("La username può contenere soltanto numeri e lettere");
    			username.focus();
    			return false;
    		}

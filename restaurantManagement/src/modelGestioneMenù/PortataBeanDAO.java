@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 import modelConnection.DriverManagerConnectionPool;
 
@@ -70,7 +73,39 @@ public class PortataBeanDAO {
 			}
 		}
 		 return null;	 
+		}
+	//la condizione è l'idmenù
+	public synchronized ArrayList<PortataBean> doRetrieveByCond(int idMenù) {
+		ArrayList<PortataBean> result = new ArrayList<PortataBean>();
+		
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {	
+			conn = DriverManagerConnectionPool.getConnection();
+
+			ps = conn.prepareStatement("SELECT * FROM portata WHERE idmenu=?");
+			ps.setLong(1, idMenù);
+			
+			ResultSet items = ps.executeQuery();
+			
+			while(items.next()) {
+				PortataBean pb = new PortataBean();
+				
+				String id = items.getString("idportata");
+				Integer idPortata = Integer.parseInt(id);
+				pb.setIdPortata(idPortata);
+				pb.setIdMenù(idMenù);
+				pb.setTipo(items.getString("tipo"));
+				pb.setPrezzo(items.getString("prezzo"));
+				pb.setDescrizione(items.getString("descizione"));
+				
+				result.add(pb);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;	 
 	 }
-	
 	
 }
