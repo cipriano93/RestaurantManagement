@@ -83,7 +83,7 @@
 
 <div class="container" align="center">
 		<div class="row">			
-			<form action="#" method="#">
+			<form action="#" method="GET">
 				<div class="col-sm-4"></div>
 				<div class="col-sm-3">
 		   			<span class="dark_brown">Filtra per:</span>
