@@ -32,6 +32,52 @@ public class MenùBeanDAO {
 	}
 	
 	
+	public synchronized boolean doDelete(int id) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = DriverManagerConnectionPool.getConnection();
+			ps = con.prepareStatement("DELETE FROM menu WHERE idmenu=?");
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		} finally {
+			try {
+				DriverManagerConnectionPool.releaseConnection(con);
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	public synchronized boolean doUpdate(MenùBean mb) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			conn = DriverManagerConnectionPool.getConnection();
+			String query = "UPDATE menù SET nome=? WHERE idmenu=?";
+			
+			ps = conn.prepareStatement(query);
+			ps.setString(1, mb.getNome());
+			ps.setLong(2, mb.getIdMenù());
+			
+			int i = ps.executeUpdate();
+			
+			if(i != 0)
+				return true;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	
 	public synchronized MenùBean doRetrieveByKey(int id) {
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -57,28 +103,6 @@ public class MenùBeanDAO {
 			}
 		}
 		return null;
-	}
-	
-	
-	public synchronized boolean doDelete(int id) {
-		Connection con = null;
-		PreparedStatement ps = null;
-		try {
-			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("DELETE FROM menu WHERE idmenu=?");
-			ps.setInt(1, id);
-			ps.executeUpdate();
-			return true;
-		} catch (SQLException e) {
-			return false;
-		} finally {
-			try {
-				DriverManagerConnectionPool.releaseConnection(con);
-				ps.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 	
 	

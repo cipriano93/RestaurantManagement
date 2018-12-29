@@ -40,15 +40,14 @@ public class ModificaDatiPersonali extends HttpServlet {
 		
 			boolean result = um.modificaDatiPersonali(username, password, name, surname, "cliente");
 			
-			if(result) {
+			if(result)
 				response.sendRedirect("areaPersonaleCliente.jsp");
-			} else {
+			else {
 				request.setAttribute("errMessage", result);
 				request.getRequestDispatcher("modificaDatiPersonali.jsp").forward(request, response);	
 			}
-		} else {
-			response.sendRedirect("modificaDatiPersonali.jsp");
-		}	
+		} else
+			response.sendRedirect("modificaDatiPersonali.jsp");	
 	}
 
 	
