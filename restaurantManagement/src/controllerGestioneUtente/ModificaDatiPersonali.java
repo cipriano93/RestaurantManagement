@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelGestioneUtente.UtenteBean;
 import modelGestioneUtente.UtenteBeanDAO;
+import modelGestioneUtente.UtenteManager;
 
 /**
  * Servlet implementation class ModificaDatiPersonali
@@ -23,6 +24,7 @@ public class ModificaDatiPersonali extends HttpServlet {
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String username = request.getParameter("username");
 		String name = request.getParameter("name");
 		String surname = request.getParameter("surname");
 		String password = request.getParameter("pwd");
@@ -36,16 +38,13 @@ public class ModificaDatiPersonali extends HttpServlet {
 		
 		//questo è un controllo più accurato, se l'email non rispetta il pattern, esce direttamente
 		if(password.equals(confirmPassword) && password.matches(regexPassword) && name.matches(regexName) && surname.matches(regexSurname)) {
-			//Creazione bean
-			UtenteBean ub = new UtenteBean();
-			ub.setNome(name);
-			ub.setCognome(surname);
-			ub.setPassword(password);
-			
-			boolean result = ubd.doUpdate(ub);
+			//Creazione utente manager
+			UtenteManager um = new UtenteManager();
+		
+			boolean result = um.modificaDatiPersonali(username, password, name, surname, "cliente");
 			
 			if(result) {
-				response.sendRedirect("outputModificaDatiPersonali.jsp");
+				response.sendRedirect("areaPersonaleCliente.jsp");
 			} else {
 				request.setAttribute("errMessage", result);
 				request.getRequestDispatcher("modificaDatiPersonali.jsp").forward(request, response);	

@@ -86,13 +86,15 @@ public class UtenteBeanDAO {
 		
 		try {
 			conn = DriverManagerConnectionPool.getConnection();
-			String query = "UPDATE utente SET password=?, name=?, cognome=?, tipo=?";
+			String query = "UPDATE utente SET password=?, nome=?, cognome=?, tipo=? WHERE username=?";
 			
 			ps = conn.prepareStatement(query);
 			ps.setString(1, ub.getPassword());
 			ps.setString(2, ub.getNome());
 			ps.setString(3, ub.getCognome());
 			ps.setString(4, ub.getTipo());
+			ps.setString(5, ub.getUsername());
+			
 			
 			int i = ps.executeUpdate();
 			
