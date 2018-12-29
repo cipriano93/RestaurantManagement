@@ -4,9 +4,9 @@
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="">Home</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Area personale</li>
-		<li class="breadcrumb-item active" aria-current="page">Gestione cameriere</li>
-		<li class="breadcrumb-item active" aria-current="page">Rimuovi cameriere</li>
+		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
+		<li class="breadcrumb-item"><a href="gestioneCameriere.jsp">Gestione cameriere</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Rimozione cameriere</li>
 	</ol>
 </nav>
 <!-- ./Breadcrumb -->

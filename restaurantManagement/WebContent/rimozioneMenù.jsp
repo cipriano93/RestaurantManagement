@@ -4,13 +4,15 @@
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area peronale</a></li>
+		<li class="breadcrumb-item"><a href="gestioneMenù.jsp">Gestione menù</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Rimuovi menù</li>
 	</ol>
 </nav>
 <!-- ./Breadcrumb -->
 
 <div class="container">
-	<h3 class="dark_brown">Rimuovi menù</h3>
+	<h3 class="dark_brown">Menù rimosso</h3>
 	<hr/>
 </div>
 	

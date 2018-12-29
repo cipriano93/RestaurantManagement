@@ -33,7 +33,7 @@
 	<nav aria-label="breadcrumb">
 	 	<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="">Home</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Disposizione tavoli</li>
+			<li class="breadcrumb-item"><a href="selezionaTavolo.jsp">Disposizione tavoli</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Gestione comanda</li>
 		</ol>
 	</nav>

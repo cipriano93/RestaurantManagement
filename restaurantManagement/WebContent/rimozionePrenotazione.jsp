@@ -1,12 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ include file="header.jsp" %>
 
-</body>
-</html>
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+ 	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="">Home</a></li>
+		<li class="breadcrumb-item"><a href="areaPersonaleCliente.jsp">Area peronale</a></li>
+		<li class="breadcrumb-item"><a href="visualizzaPrenotazioni.jsp">Visualizza prenotazioni</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Rimozione prenotazione</li>
+	</ol>
+</nav>
+<!-- ./Breadcrumb -->
+
+<div class="container">
+	<h3 class="dark_brown">Prenotazione rimossa</h3>
+	<hr/>
+</div>
+	
+<!-- Rimozione prenotazione form -->
+
+<!-- ./Rimozione prenotazione form -->
+	
+<%@ include file="footer.jsp" %>

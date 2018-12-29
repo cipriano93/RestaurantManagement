@@ -1,4 +1,4 @@
-<%@ include file="header.jsp" %>
+<%@ include file ="header.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,8 @@
 <!-- Breadcrumb -->
 	<ul class="breadcrumb">
 		<li><a href="#">Home</a></li>
-		<li>Prenotazioni</li>
+		<li class="breadcrumb-item"><a href="areaPersonaleCliente.jsp">Area peronale</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Visualizza prenotazioni</li>
 	</ul>
 <!-- Breadcrumb -->
 
