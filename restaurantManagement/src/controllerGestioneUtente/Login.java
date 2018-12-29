@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import modelGestioneUtente.UtenteBean;
-import modelGestioneUtente.UtenteBeanDAO;
 import modelGestioneUtente.UtenteManager;
 
 
