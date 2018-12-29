@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelGestioneCameriere.CameriereManager;
-import modelGestioneUtente.UtenteManager;
 
 /**
  * Servlet implementation class RimozioneCameriere
