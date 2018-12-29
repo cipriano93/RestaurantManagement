@@ -1,52 +1,69 @@
 package modelGestioneMenù;
 
 public class MenùManager {
-//inserimento
-	public boolean inserisci(int id, String nome) {
-		boolean result = false;
+
+	public boolean inserimento(String nome) {
 		MenùBean mb = new MenùBean();
-		//ho tolto il set
 		
 		mb.setNome(nome);
 		
 		MenùBeanDAO mbd = new MenùBeanDAO();
-		
-		result = mbd.doSave(mb);
 
-		return result;
+		return (mbd.doSave(mb));
 	}
 	
-	//Ok
+	
 	public boolean modificaNome(int id, String nome) {
-		boolean result = false;
 		MenùBean mb = new MenùBean();
-		//qui invece lo devi settare, perchè il menù già esiste e quindi già lo conosci
+		
 		mb.setIdMenù(id);
 		mb.setNome(nome);
 		
 		MenùBeanDAO mbd = new MenùBeanDAO();
 		
-		result = mbd.doUpdate(mb);
-		
-		return result;
+		return (mbd.doUpdate(mb));
 	}
 	
-	//rimozione
-	public boolean rimuovi(int id) {
-		boolean result = false;
+	
+	public boolean rimozione(int id) {
 		MenùBeanDAO mbd = new MenùBeanDAO();
 		
-		result = mbd.doDelete(id);
-		
-		return result;
+		return (mbd.doDelete(id));
 	}
 	
-	/*
-	 * inserimento portata
-	 * modifica portata
-	 * rimozione portata
-	 */
+	
+	public boolean inserimentoPortata(String nome, String tipo, String prezzo, String descrizione) {
+		PortataBean pb = new PortataBean();
+		
+		pb.setNome(nome);
+		pb.setTipo(tipo);
+		pb.setPrezzo(prezzo);
+		pb.setDescrizione(descrizione);
+		
+		PortataBeanDAO pbd = new PortataBeanDAO();
+		
+		return (pbd.doSave(pb));
+	}
 	
 	
+	public boolean modificaPortata(int id, String nome, String tipo, String prezzo, String descrizione) {
+		PortataBean pb = new PortataBean();
+		
+		pb.setIdPortata(id);
+		pb.setNome(nome);
+		pb.setTipo(tipo);
+		pb.setPrezzo(prezzo);
+		pb.setDescrizione(descrizione);
+		
+		PortataBeanDAO pbd = new PortataBeanDAO();
+		
+		return (pbd.doUpdate(pb));
+	}
 	
+	
+	public boolean rimozionePortata(int id) {
+		PortataBeanDAO pbd = new PortataBeanDAO();
+		
+		return (pbd.doDelete(id));
+	}
 }

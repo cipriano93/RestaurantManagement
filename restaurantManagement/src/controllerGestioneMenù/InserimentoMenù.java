@@ -1,8 +1,6 @@
 package controllerGestioneMenù;
 
 import java.io.IOException;
-import java.util.concurrent.ThreadLocalRandom;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,14 +28,11 @@ public class InserimentoMenù extends HttpServlet {
 		
 		String regexName = "^[a-zA-Z0-9 ]+$";
 		
-		
-		MenùManager mm = new MenùManager();
-		
 		//questo è un controllo più accurato, se il nome non rispetta il pattern, esce direttamente
 		if (nome.matches(regexName)) {
-
+			MenùManager mm = new MenùManager();
 			
-			boolean result = mm.inserisci(ThreadLocalRandom.current().nextInt(10000, 99999 + 1), nome);
+			boolean result = mm.inserimento(nome);
 		
 			if(result) {
 				response.sendRedirect("gestioneMenù.jsp");

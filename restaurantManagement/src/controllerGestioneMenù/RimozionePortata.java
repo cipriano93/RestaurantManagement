@@ -7,34 +7,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelGestioneMenù.MenùManager;
+
+
 /**
  * Servlet implementation class RimozionePortata
  */
-@WebServlet("/RimozionePortata")
+
+@WebServlet("/rimozione_portata")
 public class RimozionePortata extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RimozionePortata() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		MenùManager mm = new MenùManager();
+		boolean result = mm.rimozionePortata(Integer.parseInt(request.getParameter("id_portata")));
+		if (result)
+			response.sendRedirect("gestionePortata.jsp");
+		else {
+			request.setAttribute("errMessage", result);
+			request.getRequestDispatcher("gestionePortata.jsp").forward(request, response);
+		}
 	}
 
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
