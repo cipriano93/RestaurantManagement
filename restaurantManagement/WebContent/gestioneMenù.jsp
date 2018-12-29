@@ -32,7 +32,7 @@
 				<td>Menù 1</td>
 				<td>
 					<a href="gestionePortata.jsp" class="btn btn-default">Modifica</a>
-					<a href="#" class="btn btn-danger">Rimuovi</a>
+					<a href="rimuovi_menù" class="btn btn-danger">Rimuovi</a>
 				</td>
 			</tr>
 		</tbody>
