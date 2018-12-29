@@ -35,14 +35,14 @@ public class Registrazione extends HttpServlet {
 		
 		UtenteManager um = new UtenteManager();
 		
-		//questo è un controllo più accurato, se l'email non rispetta il pattern, esce direttamente
-		if(username.matches(regexUsername) && password.equals(confirmPassword)
+		//questo è un controllo più accurato, se la username non rispetta il pattern, esce direttamente
+		if (username.matches(regexUsername) && password.equals(confirmPassword)
 									&& (um.login(username, password)) == null) {
 
 			
 			boolean result = um.registrazione(username, password, nome, cognome, "cliente");
 		
-			if(result) {
+			if (result) {
 				response.sendRedirect("login.jsp");
 			} else {
 				request.setAttribute("errMessage", result);
