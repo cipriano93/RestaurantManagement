@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelGestioneCameriere.CameriereManager;
-import modelGestioneUtente.UtenteBeanDAO;
-import modelGestioneUtente.UtenteManager;
 
 /**
  * Servlet implementation class ModificaCameriere
@@ -31,7 +29,6 @@ public class ModificaCameriere extends HttpServlet {
 		String confirmPassword = request.getParameter("pwd_confirm");
 		
 		//prima della creazione controllo sulla chiave
-		UtenteBeanDAO ubd = new UtenteBeanDAO();
 		String regexName = "^[A-Za-z\\s]{3,}$";
 		String regexSurname ="^[A-Za-z\\s]{3,}$";
 		String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";

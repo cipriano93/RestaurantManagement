@@ -1,15 +1,23 @@
 package modelGestioneMenù;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class PortataBean {
+	
+	public PortataBean() {
+		idPortata = ThreadLocalRandom.current().nextInt(10000, 99999 + 1);
+	}
+	
 
 	public int getIdPortata() {
 		return idPortata;
 	}
 	
 	
-	public void setIdPortata(int id_portata) {
-		this.idPortata = id_portata;
+	public void setIdPortata(int idPortata) {
+		this.idPortata = idPortata;
 	}
+	
 	
 	public int getIdMenù() {
 		return idMenù;

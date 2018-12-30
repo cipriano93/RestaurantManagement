@@ -38,6 +38,55 @@ public class PortataBeanDAO {
 		return false;
 	}
 	
+	
+	public synchronized boolean doDelete(int id) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = DriverManagerConnectionPool.getConnection();
+			ps = con.prepareStatement("DELETE FROM portata WHERE idportata=?");
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		} finally {
+			try {
+				DriverManagerConnectionPool.releaseConnection(con);
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	public synchronized boolean doUpdate(PortataBean pb) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			conn = DriverManagerConnectionPool.getConnection();
+			String query = "UPDATE portata SET nome=?, tipo=?, prezzo=?, descrizione=? WHERE idportata=?";
+			
+			ps = conn.prepareStatement(query);
+			ps.setLong(1, pb.getIdPortata());
+			ps.setString(2, pb.getNome());
+			ps.setString(3, pb.getPrezzo());
+			ps.setString(4, pb.getDescrizione());
+			
+			int i = ps.executeUpdate();
+			
+			if(i != 0)
+				return true;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	
 	public synchronized PortataBean doRetrieveByKey(int idPortata) {
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -71,7 +120,7 @@ public class PortataBeanDAO {
 			}
 		}
 		 return null;	 
-		}
+	}
 	//la condizione è l'idmenù
 	public synchronized ArrayList<PortataBean> doRetrieveByCond(int idMenù) {
 		ArrayList<PortataBean> result = new ArrayList<PortataBean>();

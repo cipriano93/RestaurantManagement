@@ -7,34 +7,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelGestioneMenù.MenùManager;
+
 /**
  * Servlet implementation class InserimentoPortata
  */
-@WebServlet("/InserimentoPortata")
+
+@WebServlet("/inserisci_portata")
 public class InserimentoPortata extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InserimentoPortata() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String nome = request.getParameter("name");
+		String tipo = request.getParameter("type");
+		String prezzo = request.getParameter("price");
+		String descrizione = request.getParameter("description");
+		String regexName = "^[a-zA-Z0-9 ]+$";
+		String regexPrice = "^[0-9]{1,2}\\.[0-9]{1,2}$";
+		if (nome.matches(regexName) && prezzo.matches(regexPrice)) {
+			MenùManager mm = new MenùManager();
+			boolean result = mm.inserimentoPortata(nome, tipo, prezzo, descrizione);
+			if (result)
+				response.sendRedirect("gestionePortata.jsp");
+			else {
+				request.setAttribute("errMessage", result);
+				request.getRequestDispatcher("inserimentoPortata.jsp").forward(request, response);
+			}
+		} else
+			response.sendRedirect("inserimentoPortata.jsp");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

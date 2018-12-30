@@ -6,10 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import modelGestioneMenù.MenùManager;
-import modelGestioneMenù.MenùBean;
 
 
 /**
@@ -29,15 +26,11 @@ public class ModificaNomeMenù extends HttpServlet {
 		String nome = request.getParameter("name");
 		String regName = "^[a-zA-Z0-9 ]+$";
 		if (nome.matches(regName)) {
-			HttpSession session = request.getSession();
-			MenùBean mb = (MenùBean) session.getAttribute("menùBean");
+			int id = Integer.parseInt(request.getParameter("id_menù"));
 			MenùManager mm = new MenùManager();
-			boolean result = mm.modificaNome(mb.getIdMenù(), nome);
-			if (result) {
-				mb.setNome(nome);
-				session.setAttribute("menùBean", mb);
+			boolean result = mm.modificaNome(id, nome);
+			if (result)
 				response.sendRedirect("gestioneMenù.jsp");
-			}
 			else {
 				request.setAttribute("errMessage", result);
 				request.getRequestDispatcher("modificaNomeMenù.jsp").forward(request, response);
