@@ -1,15 +1,23 @@
 package modelGestionePrenotazione;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 import modelGestioneUtente.UtenteBean;
 import modelGestioneUtente.UtenteBeanDAO;
 
 public class PrenotazioneManager {
-	public boolean prenotaTavolo() {
+	public boolean prenotaTavolo(String username, int num_persone, GregorianCalendar data, String descrizione) {
 		boolean result = false;
 		
+		PrenotazioneBean pb = new PrenotazioneBean();
+		pb.setNumPersone(num_persone);
+		pb.setData(data);
+		pb.setDescrizione(descrizione);
 		
+		PrenotazioneBeanDAO pbd = new PrenotazioneBeanDAO();
+		
+		result = pbd.doSave(pb, username);
 		
 		return result;
 	}
