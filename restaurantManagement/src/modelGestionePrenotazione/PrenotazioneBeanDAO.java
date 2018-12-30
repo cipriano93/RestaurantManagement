@@ -40,6 +40,7 @@ public class PrenotazioneBeanDAO {
 	public synchronized boolean doDelete(int id) {
 		Connection con = null;
 		PreparedStatement ps = null;
+		
 		try {
 			con = DriverManagerConnectionPool.getConnection();
 			ps = con.prepareStatement("DELETE FROM prenotazione WHERE idprenotazione=?");
@@ -58,6 +59,34 @@ public class PrenotazioneBeanDAO {
 		}
 	}
 	
+	public synchronized ArrayList <PrenotazioneBean> doRetrieveAllByKey(String username) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ArrayList <PrenotazioneBean> pbs = new ArrayList<>();
+		
+		try {
+			con = DriverManagerConnectionPool.getConnection();
+			ps = con.prepareStatement("SELECT * FROM prenotazione WHERE username=?");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				PrenotazioneBean pb = new PrenotazioneBean();
+				pb.setIdPrenotazione(rs.getInt("idprenotazione"));
+				pb.setData((GregorianCalendar) rs.getObject("data"));
+				pb.setNumPersone(rs.getInt("num_persone"));
+				pbs.add(pb);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				DriverManagerConnectionPool.releaseConnection(con);
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return pbs;
+	}
 	
 	public synchronized ArrayList <PrenotazioneBean> doRetrieveAll() {
 		Connection con = null;

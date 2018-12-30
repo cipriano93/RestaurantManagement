@@ -80,6 +80,45 @@ public class UtenteBeanDAO {
 			return null;
 		}
 	
+	public synchronized UtenteBean doRetrieveByOneKey(String username) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			UtenteBean ub = new UtenteBean();
+			ub.setUsername(username);
+			
+			conn = DriverManagerConnectionPool.getConnection();
+			
+			ps = conn.prepareStatement("SELECT * FROM utente WHERE username=?");
+			
+			ps.setString(1, username);
+			
+			ResultSet res = ps.executeQuery();
+			
+				if(res.next()) {
+					ub.setNome(res.getString("nome"));
+					ub.setPassword(res.getString("password"));
+					ub.setCognome(res.getString("cognome"));
+					ub.setTipo(res.getString("tipo"));
+					
+					return ub;
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					ps.close();
+					DriverManagerConnectionPool.releaseConnection(conn);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			return null;
+		}
+	
+	
+	
 	public synchronized boolean doUpdate(UtenteBean ub) {
 		Connection conn = null;
 		PreparedStatement ps = null;

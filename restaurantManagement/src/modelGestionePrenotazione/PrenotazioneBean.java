@@ -1,20 +1,21 @@
 package modelGestionePrenotazione;
 
 import java.util.GregorianCalendar;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PrenotazioneBean {
 	
 	public PrenotazioneBean() {
-		
+		idPrenotazione = ThreadLocalRandom.current().nextInt(10000, 99999 + 1);
 	}
 
 	public int getIdPrenotazione() {
-		return id_prenotazione;
+		return idPrenotazione;
 	}
 	
 	
-	public void setIdPrenotazione(int id_prenotazione) {
-		this.id_prenotazione = id_prenotazione;
+	public void setIdPrenotazione(int idPrenotazione) {
+		this.idPrenotazione = idPrenotazione;
 	}
 	
 	
@@ -48,7 +49,7 @@ public class PrenotazioneBean {
 	}
 
 
-	private int id_prenotazione, num_persone;
+	private int idPrenotazione, num_persone;
 	private String descrizione;
 	private GregorianCalendar data;
 }

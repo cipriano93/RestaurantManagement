@@ -18,7 +18,7 @@
 
 <!-- Prenotazione tavolo -->
 <div class="container">
-	<form action="">
+	<form action="PrenotaTavolo">
 		<div class="form-group">
 			<label for="date">Seleziona data:</label>
 		    <input type="date" class="form-control" id="date" name="date">
