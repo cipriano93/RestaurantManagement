@@ -92,6 +92,7 @@
 			if (errMessage != null) { 
 		%>
 			<%= errMessage %>
+			<br><br>
 		<% } %>
 
 	   		<form  name ="form1" action="Registrazione" method="POST" onsubmit ="return validateForm()">
