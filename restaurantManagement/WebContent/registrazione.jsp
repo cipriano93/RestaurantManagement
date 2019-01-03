@@ -91,7 +91,7 @@
 			String errMessage = (String) request.getAttribute("errMessage");
 			if (errMessage != null) { 
 		%>
-			<%= errMessage %>
+			<h3><%= errMessage %></h3>
 			<br><br>
 		<% } %>
 
