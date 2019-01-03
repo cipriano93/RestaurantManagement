@@ -23,8 +23,7 @@
 		<div class="form-group">
 			<label for="date">Seleziona data:</label>
 		    <input type="date" class="form-control" id="date" name="date">
-		</div>
-		<!-- 
+		</div> 
 		<div class="form-group">
 	      <label for="hour">Ora:</label>
 	      <input type="time" class="form-control" id="hour" name="hour">
@@ -39,9 +38,9 @@
 	    </div>
 	    <div class="form-group">
   			<label for="note">Note:</label>
-  			<textarea class="form-control" rows="5" id="note"></textarea>
+  			<textarea class="form-control" rows="5" name="note"></textarea>
 		</div> 
-		 -->
+
 	    <button type="submit" class="btn btn-success">Prenota</button>
   </form>
 </div>

@@ -7,16 +7,16 @@ import modelGestioneUtente.UtenteBean;
 import modelGestioneUtente.UtenteBeanDAO;
 
 public class PrenotazioneManager {
-	public boolean prenotaTavolo(String username, int num_persone, GregorianCalendar data, String descrizione) {
+	public boolean prenotaTavolo(String username, GregorianCalendar data, int num_persone, String telefono, String descrizione) {
 		boolean result = false;
 		
 		PrenotazioneBean pb = new PrenotazioneBean();
 		pb.setNumPersone(num_persone);
 		pb.setData(data);
+		pb.setTelefono(telefono);
 		pb.setDescrizione(descrizione);
-		
+			
 		PrenotazioneBeanDAO pbd = new PrenotazioneBeanDAO();
-		
 		result = pbd.doSave(pb, username);
 		
 		return result;

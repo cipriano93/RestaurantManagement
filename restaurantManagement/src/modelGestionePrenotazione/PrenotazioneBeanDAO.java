@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -16,14 +17,20 @@ public class PrenotazioneBeanDAO {
 		PreparedStatement ps = null;
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("INSERT INTO prenotazione (idmenu, username, data, num_persone, descrizione) VALUES (?, ?, ?, ?, ?)");
+			
+			String query = "INSERT INTO prenotazione (idprenotazione, username, data,  num_persone, telefono, descrizione) VALUES (?, ?, ?, ?, ?, ?)";
+			ps = con.prepareStatement(query);
+		
 			ps.setLong(1, pb.getIdPrenotazione());
 			ps.setString(2, username);
-			ps.setObject(3, pb.getData());
+			ps.setObject(3, new Timestamp(new GregorianCalendar().getTimeInMillis()));
 			ps.setInt(4, pb.getNumPersone());
-			ps.setString(5, pb.getDescrizione());
+			ps.setString(5, pb.getTelefono());
+			ps.setString(6, pb.getDescrizione());
+			
 			ps.executeUpdate();
 			return true;
+			
 		} catch (SQLException e) {
 			return false;
 		} finally {
@@ -35,7 +42,6 @@ public class PrenotazioneBeanDAO {
 			}
 		}
 	}
-	
 	
 	public synchronized boolean doDelete(int id) {
 		Connection con = null;
@@ -116,3 +122,6 @@ public class PrenotazioneBeanDAO {
 		return pbs;
 	}
 }
+
+
+//http://localhost:8080/restaurantManagement/PrenotaTavolo?username=andrea&date=2019-01-09&hour=04%3A44&num_people=5&tel=555

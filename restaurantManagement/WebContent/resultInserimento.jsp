@@ -14,7 +14,7 @@
 		<div class="col-md-12">
 			<% if(request.getAttribute("prenotazioneInserita")!=null) {%>
 					<p class="green">Prenotazione inserita con successo</p>	
-			<% } %>
+					<%} %>
 		</div>
 	</div>
 </div>

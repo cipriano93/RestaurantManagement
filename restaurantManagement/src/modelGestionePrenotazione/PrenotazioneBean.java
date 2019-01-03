@@ -37,8 +37,15 @@ public class PrenotazioneBean {
 	public void setNumPersone(int num_persone) {
 		this.num_persone = num_persone;
 	}
+	
+	public void setTelefono(String tel) {
+		telefono = tel;
+	}
 
-
+	public String getTelefono() {
+		return telefono;
+	}
+	
 	public String getDescrizione() {
 		return descrizione;
 	}
@@ -50,6 +57,6 @@ public class PrenotazioneBean {
 
 
 	private int idPrenotazione, num_persone;
-	private String descrizione;
+	private String descrizione, telefono;
 	private GregorianCalendar data;
 }
