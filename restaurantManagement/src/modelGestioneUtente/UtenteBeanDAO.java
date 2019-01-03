@@ -30,16 +30,18 @@ public class UtenteBeanDAO {
 			ps.setString(3, nome);
 			ps.setString(4, cognome);
 			ps.setString(5, tipo);
-			
-			int i = ps.executeUpdate();
-			
-			if(i != 0) {
-				return true;	
-			}
-			}catch(SQLException e) {
+			ps.executeUpdate();
+			return true;
+		} catch(SQLException e) {
+			return false;
+		} finally {
+			try {
+				DriverManagerConnectionPool.releaseConnection(conn);
+				ps.close();
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		return false;
+		}
 	}
 	
 	public synchronized UtenteBean doRetrieveByKey(String username, String password) {

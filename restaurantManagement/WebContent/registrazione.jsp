@@ -37,6 +37,16 @@
        		return false;
     		}
 	   }
+   	  function validationUsername(username) {
+   	  	var username_format=/^[0-9a-zA-Z]+$/;
+   		if (username.value.match(username_format))
+   			return true;
+   		else {
+   			verifica("La username può contenere soltanto numeri e lettere");
+   			username.focus();
+   			return false;
+   		}
+   	  }
       function validationPassword(password){
     	  	var passwordformat = /^[A-Za-z0-9]{5,}$/;
         if(password.value.match(passwordformat)){
@@ -77,9 +87,12 @@
 	<!-- Signup form -->
 	<div class="container">
 	
-			<% if (Boolean.parseBoolean(request.getParameter("errMessage"))) { %>
-				<h3>Username già utilizzata</h3>
-			<% } %>
+		<%
+			String errMessage = (String) request.getAttribute("errMessage");
+			if (errMessage != null) { 
+		%>
+			<%= errMessage %>
+		<% } %>
 
 	   		<form  name ="form1" action="Registrazione" method="POST" onsubmit ="return validateForm()">
 	 	 		<div class="row">
