@@ -19,10 +19,12 @@
 <!-- Prenotazione tavolo -->
 <div class="container">
 	<form action="PrenotaTavolo">
+		<input class="light_brown" type="hidden" name="username" value="andrea"> 
 		<div class="form-group">
 			<label for="date">Seleziona data:</label>
 		    <input type="date" class="form-control" id="date" name="date">
 		</div>
+		<!-- 
 		<div class="form-group">
 	      <label for="hour">Ora:</label>
 	      <input type="time" class="form-control" id="hour" name="hour">
@@ -39,8 +41,8 @@
   			<label for="note">Note:</label>
   			<textarea class="form-control" rows="5" id="note"></textarea>
 		</div> 
+		 -->
 	    <button type="submit" class="btn btn-success">Prenota</button>
-	    <button type="submit" class="btn btn-danger text-right">Annulla</button>
   </form>
 </div>
 <!-- ./Prenotazione tavolo -->

@@ -3,15 +3,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Restaurant Management</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
 
+<style>
+.button {
+  background-color: lightgrey;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.button:hover {
+  background-color: #f1f1f1;
+}
+</style>
+
+
+</head>
 <body>
 <!-- Affix -->
 	<div class="container-fluid">
@@ -23,8 +43,9 @@
 			<h2 style= "font-family: avenir"> Restaurant Management</h2>	   		 
 	   		 </div>
 	   		 <div class="col-sm-4 text-right">
- 		 		<a href="registrazione.jsp"><span class="glyphicon glyphicon-user"></span> Registrati</a>
-      			<a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Accedi</a>
+	   		 <br>
+      			<a href="registrazione.jsp"><button class="button"><i class="glyphicon glyphicon-user"></i> Registrati</button></a>
+      			<a href="login.jsp"><button class="button"><i class="glyphicon glyphicon-log-in"></i> Accedi</button> </a>
 		    </div>
    	 	</div>
 	</div>	

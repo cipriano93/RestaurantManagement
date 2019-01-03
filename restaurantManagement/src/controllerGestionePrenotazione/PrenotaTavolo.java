@@ -59,7 +59,7 @@ private static final long serialVersionUID = 1L;
 			if(result) {
 				HttpSession session = request.getSession();
 				request.setAttribute("prenotazioneInserita", result);
-				request.getRequestDispatcher("reultInserimento.jsp").forward(request, response);
+				request.getRequestDispatcher("resultInserimento.jsp").forward(request, response);
 			}
 			else {
 				//controllare!!!
