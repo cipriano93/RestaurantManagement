@@ -30,19 +30,17 @@ public class Registrazione extends HttpServlet {
 		String password = request.getParameter("pwd");
 		String confirmPassword = request.getParameter("pwd_confirm");
 		
-		String regexUsername = "^[0-9a-zA-Z]+$";
+		/*String regexUsername = "^[0-9a-zA-Z]+$";
 		String regexName = "^[A-Za-z\\s]{3,}$";
 		String regexSurname ="^[A-Za-z\\s]{3,}$";
-		String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";
+		String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";*/
 		
 		
 		UtenteManager um = new UtenteManager();
 		
 		//questo è un controllo più accurato, se la username non rispetta il pattern, esce direttamente
 		
-		if(username.matches(regexUsername) && password.equals(confirmPassword) && password.matches(regexPassword)  
-				&& nome.matches(regexName) && cognome.matches(regexSurname)
-				&& (um.login(username, password)) == null) {
+		if((um.login(username, password)) == null) {
 
 			boolean result = um.registrazione(username, password, nome, cognome, "cliente");
 		

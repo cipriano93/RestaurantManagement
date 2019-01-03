@@ -22,7 +22,7 @@ public class UtenteBeanDAO {
 		
 		try {
 			conn = DriverManagerConnectionPool.getConnection();
-			String query = "INSERT INTO utente(username, password, nome, cognome, tipo) values (?, ?, ?, ?, ?)";
+			String query = "INSERT INTO utente (username, password, nome, cognome, tipo) values (?, ?, ?, ?, ?)";
 			
 			ps = conn.prepareStatement(query);
 			ps.setString(1, username);
