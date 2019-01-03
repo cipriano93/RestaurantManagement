@@ -19,8 +19,6 @@
 			<a href="modificaDatiPersonali.jsp">Modifica dati personali</a>
 			<br>
 			<a href="visualizzaPrenotazioni.jsp">Visualizza prenotazioni</a>
-			
-			
 		</div>
 	</div>
 </div>
