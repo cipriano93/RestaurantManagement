@@ -40,18 +40,13 @@ public class Registrazione extends HttpServlet {
 		
 		//questo è un controllo più accurato, se la username non rispetta il pattern, esce direttamente
 		
-		if((um.login(username, password)) == null) {
-
-			boolean result = um.registrazione(username, password, nome, cognome, "cliente");
+		boolean result = um.registrazione(username, password, nome, cognome, "cliente");
 		
-			if (result) {
-				response.sendRedirect("login.jsp");
-			} else {
-				request.setAttribute("errMessage", result);
-				request.getRequestDispatcher("registrazione.jsp").forward(request, response);	
-			}
+		if(result) {
+			response.sendRedirect("login.jsp");	
 		} else {
-			response.sendRedirect("registrazione.jsp");
+			request.setAttribute("errMessage", "Username già utilizzata. Inserire un'altra username");
+			request.getRequestDispatcher("registrazione.jsp").forward(request, response);
 		}	
 	}
 
