@@ -46,10 +46,10 @@ private static final long serialVersionUID = 1L;
 				response.sendRedirect("login.jsp");
 			} else {
 				request.setAttribute("errMessage", result);
-				request.getRequestDispatcher("registrazione.jsp").forward(request, response);	
+				request.getRequestDispatcher("inserimentoCameriere.jsp").forward(request, response);	
 			}
 		} else {
-			response.sendRedirect("registrazione.jsp");
+			response.sendRedirect("inserimentoCameriere.jsp");
 		}	
 	}
 

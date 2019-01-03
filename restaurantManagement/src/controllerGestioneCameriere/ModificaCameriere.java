@@ -44,10 +44,10 @@ public class ModificaCameriere extends HttpServlet {
 				response.sendRedirect("areaPersonaleCliente.jsp");
 			} else {
 				request.setAttribute("errMessage", result);
-				request.getRequestDispatcher("modificaDatiPersonali.jsp").forward(request, response);	
+				request.getRequestDispatcher("modificaCameriere.jsp").forward(request, response);	
 			}
 		} else {
-			response.sendRedirect("modificaDatiPersonali.jsp");
+			response.sendRedirect("modificaCameriere.jsp");
 		}	
 	}
 
