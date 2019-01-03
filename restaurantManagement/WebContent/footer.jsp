@@ -2,10 +2,10 @@
 <footer class="page-footer font-small danger pt-4 mt-4">
 
 <!--Footer Links-->
-<div class="container-fluid text-center text-md-left">
+<div class="container">
 	<div class="row">
 		<!--First column-->
-		<div class="col-md-6">
+		<div class="col-sm-6">
 			<h5 class="text-uppercase dark_brown">Chi siamo</h5>
 			<ul class="list-unstyled">
 				<li>
@@ -22,7 +22,7 @@
 		<!--/.First column-->
 			            
 		<!--Second column-->
-		<div class="col-md-6">
+		<div class="col-sm-6">
 			<h5 class="text-uppercase dark_brown">Informazioni</h5>
 			<ul class="list-unstyled">
 				<li>

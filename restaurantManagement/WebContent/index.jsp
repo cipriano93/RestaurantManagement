@@ -150,6 +150,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 </body>
-<div class="footer">	<%@ include file="footer.jsp" %> </div>
+
+<%@ include file="footer.jsp" %>
+
 </html>	
 	

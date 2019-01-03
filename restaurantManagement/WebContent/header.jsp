@@ -36,7 +36,7 @@
 <!-- Affix -->
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-4 text_left">
+			<div class="col-sm-4 text-left">
 		   		<a href=" "><img src="img/logoSfondoBianco.jpg"  class="img-responsive" height="80" width="80" ></a>
 			</div>
 			<div class="col-sm-4 text-center">
