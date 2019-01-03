@@ -55,6 +55,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </style>
 </head>
 <body>
+<!-- manuel -->
+
 <%@ include file="header.jsp" %>
 
 

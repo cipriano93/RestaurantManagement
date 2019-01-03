@@ -42,14 +42,12 @@ private static final long serialVersionUID = 1L;
 	
 		PrenotazioneManager pm = new PrenotazioneManager();
 	
-		//2018-11-30
 		//Creazione Gregorian Calendar
 		GregorianCalendar data = new GregorianCalendar();
 		
 		String anno = date.substring(0, 4);
 		String mese = date.substring(5, 7);
 		String giorno = date.substring(8,10);
-		//17%3A15
 		
 		String ore = hour.substring(0, 2);
 		String minuti = hour.substring(3, 5);
