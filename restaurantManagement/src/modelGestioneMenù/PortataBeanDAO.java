@@ -17,7 +17,7 @@ public class PortataBeanDAO {
 		
 		try {
 			conn = DriverManagerConnectionPool.getConnection();
-			String query = "INSERT INTO portata(idportata, idmenù, nome, tipo, prezzo, descrizione) values (?, ?, ?, ?, ?, ?)";
+			String query = "INSERT INTO portata (idportata, idmenu, nome, tipo, prezzo, descrizione) values (?, ?, ?, ?, ?, ?)";
 			
 			ps = conn.prepareStatement(query);
 			ps.setLong(1, pb.getIdPortata());
@@ -26,16 +26,18 @@ public class PortataBeanDAO {
 			ps.setString(4, pb.getTipo());
 			ps.setString(5, pb.getPrezzo());
 			ps.setString(6, pb.getDescrizione());
-			
-			int i = ps.executeUpdate();
-			
-			if(i != 0) {
-				return true;	
-			}
-			}catch(SQLException e) {
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		} finally {
+			try {
+				DriverManagerConnectionPool.releaseConnection(conn);
+				ps.close();
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		return false;
+		}
 	}
 	
 	
@@ -70,20 +72,24 @@ public class PortataBeanDAO {
 			String query = "UPDATE portata SET nome=?, tipo=?, prezzo=?, descrizione=? WHERE idportata=?";
 			
 			ps = conn.prepareStatement(query);
-			ps.setLong(1, pb.getIdPortata());
-			ps.setString(2, pb.getNome());
+			ps.setString(1, pb.getNome());
+			ps.setString(2, pb.getTipo());
 			ps.setString(3, pb.getPrezzo());
 			ps.setString(4, pb.getDescrizione());
+			ps.setLong(5, pb.getIdPortata());
 			
-			int i = ps.executeUpdate();
-			
-			if(i != 0)
-				return true;
-		} catch(SQLException e) {
-			e.printStackTrace();
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		} finally {
+			try {
+				DriverManagerConnectionPool.releaseConnection(conn);
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		return false;
 	}
 	
 	
@@ -101,7 +107,7 @@ public class PortataBeanDAO {
 			ResultSet res = ps.executeQuery();
 			
 			if(res.next()) {
-				pb.setIdMenù(res.getInt("idMenù"));
+				pb.setIdMenù(res.getInt("idMenu"));
 				pb.setNome(res.getString("nome"));
 				pb.setTipo(res.getString("tipo"));
 				pb.setPrezzo(res.getString("prezzo"));
@@ -143,9 +149,10 @@ public class PortataBeanDAO {
 				Integer idPortata = Integer.parseInt(id);
 				pb.setIdPortata(idPortata);
 				pb.setIdMenù(idMenù);
+				pb.setNome(items.getString("nome"));
 				pb.setTipo(items.getString("tipo"));
 				pb.setPrezzo(items.getString("prezzo"));
-				pb.setDescrizione(items.getString("descizione"));
+				pb.setDescrizione(items.getString("descrizione"));
 				
 				result.add(pb);
 			}

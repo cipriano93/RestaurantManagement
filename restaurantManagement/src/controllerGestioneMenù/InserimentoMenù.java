@@ -23,7 +23,7 @@ public class InserimentoMenù extends HttpServlet {
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome = request.getParameter("name");
+		String nome = request.getParameter("namemenu");
 		
 		String regexName = "^[a-zA-Z0-9 ]+$";
 		
@@ -36,8 +36,7 @@ public class InserimentoMenù extends HttpServlet {
 			if(result) {
 				request.setAttribute("message", "il menù è stato inserito correttamente.");
 				request.getRequestDispatcher("getmenus").forward(request, response);
-			}
-			else {
+			} else {
 				request.setAttribute("message", "impossibile inserire il menù.");
 				request.getRequestDispatcher("inserimentoMenu.jsp").forward(request, response);	
 			}

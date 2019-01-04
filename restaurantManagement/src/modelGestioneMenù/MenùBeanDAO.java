@@ -60,21 +60,25 @@ public class MenùBeanDAO {
 		
 		try {
 			conn = DriverManagerConnectionPool.getConnection();
-			String query = "UPDATE menù SET nome=? WHERE idmenu=?";
+			String query = "UPDATE menu SET nome=? WHERE idmenu=?";
 			
 			ps = conn.prepareStatement(query);
 			ps.setString(1, mb.getNome());
 			ps.setLong(2, mb.getIdMenù());
 			
-			int i = ps.executeUpdate();
+			ps.executeUpdate();
 			
-			if(i != 0)
-				return true;
-		} catch(SQLException e) {
-			e.printStackTrace();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		} finally {
+			try {
+				DriverManagerConnectionPool.releaseConnection(conn);
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		return false;
 	}
 	
 	

@@ -46,7 +46,7 @@ public class Registrazione extends HttpServlet {
 			request.setAttribute("message", "Ora puoi loggarti con le credenziali inserite in fase di registrazione");
 			response.sendRedirect("login.jsp");	
 		} else {
-			request.setAttribute("message", "Inserire un'altra username");
+			request.setAttribute("message", "Inserire un'altra username.");
 			request.getRequestDispatcher("registrazione.jsp").forward(request, response);
 		}	
 	}

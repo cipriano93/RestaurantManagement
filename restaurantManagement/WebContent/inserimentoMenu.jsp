@@ -55,7 +55,7 @@
 	<form name="form" action="inseriscimenu" onsubmit="return validateForm()" method="POST">
 		<div class="form-group">
 	    	<label class ="dark_brown" for="name">Nome:</label>
-	      	<input type="text" class="form-control light_brown" id="name" placeholder="Inserisci il nome" name="name">
+	      	<input type="text" class="form-control light_brown" id="name" placeholder="Inserisci il nome" name="namemenu">
 	      	<span class="red" id="ver"></span>
 	    </div>
 		<button type="submit" class="btn btn-primary">Inserisci menù</button>

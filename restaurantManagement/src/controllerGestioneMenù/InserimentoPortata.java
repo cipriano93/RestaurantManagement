@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelGestioneMenù.MenùManager;
 
@@ -23,7 +24,8 @@ public class InserimentoPortata extends HttpServlet {
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome = request.getParameter("name");
+		
+		String nome = request.getParameter("nameportata");
 		String tipo = request.getParameter("type");
 		String prezzo = request.getParameter("price");
 		String descrizione = request.getParameter("description");
@@ -31,11 +33,13 @@ public class InserimentoPortata extends HttpServlet {
 		String regexPrice = "^[0-9]{1,2}\\.[0-9]{1,2}$";
 		if (nome.matches(regexName) && prezzo.matches(regexPrice)) {
 			MenùManager mm = new MenùManager();
-			boolean result = mm.inserimentoPortata(nome, tipo, prezzo, descrizione);
-			if (result)
-				response.sendRedirect("gestionePortata.jsp");
-			else {
-				request.setAttribute("errMessage", result);
+			HttpSession session = request.getSession();
+			boolean result = mm.inserimentoPortata((Integer) session.getAttribute("id_menù"), nome, tipo, prezzo, descrizione);
+			if (result) {
+				request.setAttribute("message", "portata inserita correttamente");
+				response.sendRedirect("getportate");
+			} else {
+				request.setAttribute("message", "impossibile inserire la portata nel menù");
 				request.getRequestDispatcher("inserimentoPortata.jsp").forward(request, response);
 			}
 		} else

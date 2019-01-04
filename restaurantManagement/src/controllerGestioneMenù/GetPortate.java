@@ -6,16 +6,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelGestioneMenù.MenùManager;
 
-
 /**
- * Servlet implementation class RimozionePortata
+ * Servlet implementation class GetPortate
  */
-
-@WebServlet("/rimuoviportata")
-public class RimozionePortata extends HttpServlet {
+@WebServlet("/getportate")
+public class GetPortate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 
@@ -24,15 +23,20 @@ public class RimozionePortata extends HttpServlet {
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id;
+		HttpSession session = request.getSession();
+		if ((request.getParameter("idmenu")) == null)
+			id = (Integer) session.getAttribute("id_menù");
+		else
+			id = Integer.parseInt(request.getParameter("id"));
+		session.setAttribute("id_menù", id);
+		String nome_menù = request.getParameter("name_menu");
+		if (nome_menù != null)
+			session.setAttribute("nome_menù", nome_menù);
 		MenùManager mm = new MenùManager();
-		boolean result = mm.rimozionePortata(Integer.parseInt(request.getParameter("idportata")));
-		if (result) {
-			request.setAttribute("message_success", "portata rimossa correttamente");
-			request.getRequestDispatcher("gestionePortata.jsp").forward(request, response);
-		} else {
-			request.setAttribute("message_danger", "impossibile rimuovere la portata");
-			request.getRequestDispatcher("gestionePortata.jsp").forward(request, response);
-		}
+		request.setAttribute("portate", mm.getPortate(id));
+		request.setAttribute("message", request.getAttribute("message"));
+		request.getRequestDispatcher("gestionePortata.jsp").forward(request, response);
 	}
 
 	

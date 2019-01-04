@@ -83,58 +83,56 @@
 	  <h3>Crea un account personale</h3>
 	  <hr />
 	</div>
-	
-	<!-- Signup form -->
 	<div class="container">
-	
 		<%
 			String message = (String) request.getAttribute("message");
 			if (message != null) { 
 		%>
-				<div class="alert alert-warning">
-  					<strong>Username già utilizzata!</strong> <%= message %>.
+				<div class="alert alert-danger">
+	  				<strong>Username già utilizzata!</strong> <%= message %>
 				</div>
 		<% } %>
-
-	   		<form  name ="form1" action="Registrazione" method="POST" onsubmit ="return validateForm()">
-	 	 		<div class="row">
-	 	 			<div class="col-sm-6">
-			 	 		<div class="form-group">
-			      			<label class ="dark_brown" for="name">Nome:</label>
-			      			<input type="text" class="form-control light_brown" name="name">
-			    		</div>
+	
+	<!-- Signup form -->
+	   	<form  name ="form1" action="Registrazione" method="POST" onsubmit ="return validateForm()">
+	 	 	<div class="row">
+	 	 		<div class="col-sm-6">
+			 	 	<div class="form-group">
+			      		<label class ="dark_brown" for="name">Nome:</label>
+			      		<input type="text" class="form-control light_brown" name="name">
 			    	</div>
-			    	<div class="col-sm-6">
-			    		<div class="form-group">
-			      			<label class ="dark_brown" for="surname">Cognome:</label>
-			      			<input type="text" class="form-control light_brown" name="surname">
-			    		</div>
+			    </div>
+			    <div class="col-sm-6">
+			    	<div class="form-group">
+			      		<label class ="dark_brown" for="surname">Cognome:</label>
+			      		<input type="text" class="form-control light_brown" name="surname">
 			    	</div>
-		    	</div>
-	    		<div class="form-group">
-	      			<label class ="dark_brown" for="email">Username:</label>
-	      			<input type="text" class="form-control light_brown" name="usr">
-	    		</div>
-	    		<div class="row">
-	    			<div class="col-sm-6">
-			    		<div class="form-group">
-				    		<label class ="dark_brown" for="pwd">Password:</label>
-				     		<input type="password" class="form-control light_brown" name="pwd">
-			    		</div>
+			    </div>
+		    </div>
+	    	<div class="form-group">
+	      		<label class ="dark_brown" for="email">Username:</label>
+	      		<input type="text" class="form-control light_brown" name="usr">
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-sm-6">
+			    	<div class="form-group">
+				    	<label class ="dark_brown" for="pwd">Password:</label>
+				     	<input type="password" class="form-control light_brown" name="pwd">
 			    	</div>
-			    	<div class="col-sm-6">
-			    		<div class="form-group">
-				    		<label class ="dark_brown" for="pwd_confirm">Conferma password:</label>
-				     		<input type="password" class="form-control light_brown" name="pwd_confirm">
-			    		</div>
+			    </div>
+			    <div class="col-sm-6">
+			    	<div class="form-group">
+				    	<label class ="dark_brown" for="pwd_confirm">Conferma password:</label>
+				     	<input type="password" class="form-control light_brown" name="pwd_confirm">
 			    	</div>
-		    	</div>
-				<button type="submit" class="btn btn-primary">Crea account</button>
-			</form>		
+			    </div>
+		    </div>
+			<button type="submit" class="btn btn-primary">Crea account</button>
+		</form>		
 		<p id="ver" class ="red" ></p>
+	<!-- ./Singup form -->
 	</div>
 	<br>
 	<br>
-	<!-- ./Singup form -->
 	
 <%@ include file="footer.jsp" %>

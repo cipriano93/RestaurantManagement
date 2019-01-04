@@ -34,9 +34,10 @@ public class MenùManager {
 	}
 	
 	
-	public boolean inserimentoPortata(String nome, String tipo, String prezzo, String descrizione) {
+	public boolean inserimentoPortata(int id, String nome, String tipo, String prezzo, String descrizione) {
 		PortataBean pb = new PortataBean();
 		
+		pb.setIdMenù(id);
 		pb.setNome(nome);
 		pb.setTipo(tipo);
 		pb.setPrezzo(prezzo);
@@ -74,5 +75,12 @@ public class MenùManager {
 		MenùBeanDAO mbd = new MenùBeanDAO();
 		
 		return (mbd.doRetrieveAll());
+	}
+	
+	
+	public ArrayList<PortataBean> getPortate(int id) {
+		PortataBeanDAO pbd = new PortataBeanDAO();
+		
+		return (pbd.doRetrieveByCond(id));
 	}
 }

@@ -57,21 +57,30 @@
 	  <hr/>
 	</div>
 	
-	<!-- Modifica portata form -->
 	<div class="container">
-	   		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
-				<div class = "row">
+		<%
+			String message = (String) request.getParameter("message");
+			if (message != null) {
+		%>
+				<div class="alert alert-danger">
+	  				<strong>Portata:</strong> <%= message %>
+				</div>
+		<%	}	%>
+	
+	<!-- Modifica portata form -->
+	   	<form  name="form" action=<%= "modificaportata?id=" + request.getParameter("id") %>  method="POST" onsubmit="return validateForm()">
+			<div class = "row">
 				<div class="col-sm-4">
-				<div class="form-group">
-			    	<label class="dark_brown" for="name">Nome:</label>
-			      		<input type="text" class="form-control light_brown" name="name" value= "Spaghetti pomodoro">
+					<div class="form-group">
+			    		<label class="dark_brown" for="name">Nome:</label>
+			      		<input type="text" class="form-control light_brown" name="nameportata">
 			      		<span id="ver" class="red"></span>
 			    	</div>
-			    	</div>
-			    	<div class="col-sm-4">
+			    </div>
+			    <div class="col-sm-4">
 	    			<div class="form-group">
 	      				<label for="type">Tipo:</label>
-						<select class="form-control" id="type">
+						<select class="form-control" id="type" name="type">
 							<option>Antipasto</option>
 							<option>Primo</option>
 							<option>Secondo</option>
@@ -81,32 +90,30 @@
 							<option>Bevanda</option>
 						</select>
 	    			</div>
-	    			</div>
-	    			<div class="col-sm-4">
+	    		</div>
+	    		<div class="col-sm-4">
 				   	<div class="form-group">
 				      	<label class="dark_brown" for="price">Prezzo:</label>
-				      	<input type="text" class="form-control light_brown" name="price" value = "3.00">
+				      	<input type="text" class="form-control light_brown" name="price">
 				      	<span id="ver" class ="red"></span>
 				    </div>
-				 </div>
-				 </div>
-				 
-				    <div class="form-group">
-						<label for="description">Descrizione:</label>
-						<textarea class="form-control light_brown" rows="5" id="description">Vestibulum nec fringilla purus. Etiam dictum eleifend leo, eu laoreet lectus suscipit nec. Aliquam accumsan neque eu dolor tincidunt porttitor. Nulla.</textarea>
-						<span id="ver" class="red"></span>
-					</div>	
-					
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="description">Descrizione:</label>
+				<textarea class="form-control light_brown" rows="5" id="description" name="description"></textarea>
+				<span id="ver" class="red"></span>
+			</div>			
 			<div class = "row">		
   				<div class="col-sm-3">
 					<button type="submit" class="btn btn-primary">Modifica</button>
 				</div>
 			</div>	
-			</form>	
+		</form>	
+	<!-- ./Modifica portata form -->
 	</div>
 	
 	<br>
 	<br>
-	<!-- ./Modifica portata form -->
 	
 <%@ include file="footer.jsp" %>
