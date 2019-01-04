@@ -68,7 +68,7 @@
 		<%	}	%>
 	
 	<!-- Modifica portata form -->
-	   	<form  name="form" action=<%= "modificaportata?id=" + request.getParameter("id") %>  method="POST" onsubmit="return validateForm()">
+	   	<form  name="form" action=<%= "modificaportata?idportata=" + request.getParameter("idportata") %>  method="POST" onsubmit="return validateForm()">
 			<div class = "row">
 				<div class="col-sm-4">
 					<div class="form-group">
