@@ -17,8 +17,9 @@
 	<hr/>
 </div>
 <div align="center">
-	<a href="inserimentoMenù.jsp" class="btn btn-default">Inserisci menù</a>
+	<a href="inserimentoMenu.jsp" class="btn btn-default">Inserisci menù</a>
 </div>
+<br>
 
 <!-- Tabella menù -->
 <div class="container">
@@ -28,13 +29,15 @@
 		if (message != null) { 
 	%>
 			<div class="alert alert-success">
-  				<strong>Menù inserito!</strong> <%= message %>.
+  				<strong>Menù:</strong> <%= message %>
 			</div>
 	<%	}
 		ArrayList<MenùBean> ms = (ArrayList<MenùBean>) request.getAttribute("menùs");
-		if (ms == null) {
+		if (ms == null || (ms.size()) == 0) {
 	%>
-			<h3>Nessun menù inserito</h3>
+			<div class="alert alert-info">
+  				<strong>Info!</strong> Nessun menù inserito.
+			</div>
 	<%	} else {	%>
 			<table class="table">
 				<thead>
@@ -52,7 +55,7 @@
 					<td><%= ms.get(i).getNome() %></td>
 					<td>
 						<a href="gestionePortata.jsp" class="btn btn-default">Modifica</a>
-						<a href="rimuovi_menù" class="btn btn-danger">Rimuovi</a>
+						<a href="<%= "rimuovimenu?id=" + ms.get(i).getIdMenù() %>" class="btn btn-danger">Rimuovi</a>
 					</td>
 				</tr>
 			</tbody>

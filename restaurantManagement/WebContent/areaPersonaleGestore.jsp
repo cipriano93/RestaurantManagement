@@ -16,7 +16,7 @@
 			
 				<a href="modificaDatiAttivita.jsp">Modifica dati attività</a>
 				<br>
-				<a href="gestioneMenu.jsp">Gestione menù</a>
+				<a href="getmenus">Gestione menù</a>
 				<br>
 				<a href="gestioneCameriere.jsp">Gestione cameriere</a>
 				<br>

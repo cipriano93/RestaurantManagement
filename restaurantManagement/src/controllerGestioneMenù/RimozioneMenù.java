@@ -24,13 +24,15 @@ public class RimozioneMenù extends HttpServlet {
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id_menù"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		MenùManager mm = new MenùManager();
 		boolean result = mm.rimozione(id);
-		if (result)
-			response.sendRedirect("gestioneMenù.jsp");
+		if (result) {
+			request.setAttribute("message", "menù rimosso con successo.");
+			request.getRequestDispatcher("getmenus").forward(request, response);
+		}
 		else {
-			request.setAttribute("errMessage", result);
+			request.setAttribute("message", result);
 			request.getRequestDispatcher("gestioneMenù.jsp").forward(request, response);
 		}
 	}
