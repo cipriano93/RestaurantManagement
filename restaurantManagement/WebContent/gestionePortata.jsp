@@ -18,7 +18,7 @@
 	<hr/>
 </div>
 <div align="center">
-	Menù "<%= session.getAttribute("nome_menù") %>" <a href="modificaNomeMenu.jsp">rinomina</a>
+	Menù "<%= session.getAttribute("name_menù") %>" <a href="modificaNomeMenu.jsp">rinomina</a>
 </div>
 <br>
 <div align="center">

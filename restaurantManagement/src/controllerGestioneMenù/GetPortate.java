@@ -28,11 +28,11 @@ public class GetPortate extends HttpServlet {
 		if ((request.getParameter("idmenu")) == null)
 			id = (Integer) session.getAttribute("id_menù");
 		else
-			id = Integer.parseInt(request.getParameter("id"));
+			id = Integer.parseInt(request.getParameter("idmenu"));
 		session.setAttribute("id_menù", id);
-		String nome_menù = request.getParameter("name_menu");
+		String nome_menù = request.getParameter("namemenu");
 		if (nome_menù != null)
-			session.setAttribute("nome_menù", nome_menù);
+			session.setAttribute("name_menù", nome_menù);
 		MenùManager mm = new MenùManager();
 		request.setAttribute("portate", mm.getPortate(id));
 		request.setAttribute("message", request.getAttribute("message"));

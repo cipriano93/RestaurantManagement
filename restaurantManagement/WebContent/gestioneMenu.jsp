@@ -54,7 +54,7 @@
 							<tr>
 								<td><%= mbs.get(i).getNome() %></td>
 								<td>
-									<a href="<%= "getportate?idmenu=" + id + "&name=" + mbs.get(i).getNome()  %>" class="btn btn-default">Modifica</a>
+									<a href="<%= "getportate?idmenu=" + id + "&namemenu=" + mbs.get(i).getNome()  %>" class="btn btn-default">Modifica</a>
 									<a href="<%= "rimuovimenu?idmenu=" + id %>" class="btn btn-danger">Rimuovi</a>
 								</td>
 							</tr>
