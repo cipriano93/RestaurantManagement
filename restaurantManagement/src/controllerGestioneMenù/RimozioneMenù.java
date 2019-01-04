@@ -14,7 +14,7 @@ import modelGestioneMenù.MenùManager;
  * Servlet implementation class RimozioneMenù
  */
 
-@WebServlet("/rimuovi_menù")
+@WebServlet("/rimuovimenu")
 public class RimozioneMenù extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

@@ -18,7 +18,7 @@
    		if (username.value.match(username_format))
    			return true;
    		else {
-   			verifica("La username può contenere soltanto numeri e lettere");
+   			verify("La username può contenere soltanto numeri e lettere");
    			username.focus();
    			return false;
    		}
@@ -27,7 +27,7 @@
    		if(password.value.length >= 5){
      		return true;
    		} else {
-    			verifica("Inserire correttamente la password");
+    			verify("Inserire correttamente la password");
      		password.focus();
      		return false;
 		}
@@ -50,6 +50,14 @@
 	
 <!-- Login form -->
 <div class="container">
+	<%
+		String message = (String) request.getAttribute("message");
+		if (message != null) {
+	%>
+			<div class="alert alert-success">
+  				<strong>Registrazione effettuata!</strong> <%= message %>.
+			</div>
+	<% 	}	%>
 	   		<form name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
 	    			<div class="form-group">
 	      			<label class ="dark_brown" for="usr">Username:</label>

@@ -14,9 +14,9 @@
 		<div class="col-md-12">
 			<h1 class ="dark_brown">Bentornato <strong><span class ="light_brown">Andrea</span></strong></h1>
 			
-				<a href="modificaDatiAttività.jsp">Modifica dati attività</a>
+				<a href="modificaDatiAttivita.jsp">Modifica dati attività</a>
 				<br>
-				<a href="gestioneMenù.jsp">Gestione menù</a>
+				<a href="gestioneMenu.jsp">Gestione menù</a>
 				<br>
 				<a href="gestioneCameriere.jsp">Gestione cameriere</a>
 				<br>

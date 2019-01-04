@@ -13,7 +13,7 @@ import modelGestioneMenù.MenùManager;
  * Servlet implementation class ModificaMenù
  */
 
-@WebServlet("/modifica_nome_menù")
+@WebServlet("/modificanomemenu")
 public class ModificaNomeMenù extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -19,7 +19,7 @@
    		if(name.value.match(nameformat)){
      		return true;
    		} else {
-     		verify("Il nome del menù deve contenere soltanto lettere o numeri");
+     		verifica("Il nome del menù deve contenere soltanto lettere o numeri");
 			name.focus();
 			return false;
 		}
@@ -44,13 +44,21 @@
 	
 <!-- Inserimento menù form -->
 <div class="container">
-	<form name="form" action="inserisci_menù" onsubmit="return validateForm()" method="POST">
+	<%
+		String message = (String) request.getAttribute("message");
+		if (message != null) {
+	%>
+			<div class="alert alert-warning">
+  				<strong>Menù non inserito!</strong> <%= message %>.
+			</div>
+	 <% } %>
+	<form name="form" action="inseriscimenu" onsubmit="return validateForm()" method="POST">
 		<div class="form-group">
 	    	<label class ="dark_brown" for="name">Nome:</label>
 	      	<input type="text" class="form-control light_brown" id="name" placeholder="Inserisci il nome" name="name">
 	      	<span class="red" id="ver"></span>
 	    </div>
-		<button type="submit" class="btn btn-primary">Crea menù</button>
+		<button type="submit" class="btn btn-primary">Inserisci menù</button>
 	</form>
 </div>
 <br>

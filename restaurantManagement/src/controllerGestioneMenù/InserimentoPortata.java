@@ -13,7 +13,7 @@ import modelGestioneMenù.MenùManager;
  * Servlet implementation class InserimentoPortata
  */
 
-@WebServlet("/inserisci_portata")
+@WebServlet("/inserisciportata")
 public class InserimentoPortata extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

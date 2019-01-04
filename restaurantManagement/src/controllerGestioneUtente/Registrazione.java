@@ -42,10 +42,11 @@ public class Registrazione extends HttpServlet {
 		
 		boolean result = um.registrazione(username, password, nome, cognome, "cliente");
 		
-		if(result) {
+		if(result && password.equals(confirmPassword)) {
+			request.setAttribute("message", "Ora puoi loggarti con le credenziali inserite in fase di registrazione");
 			response.sendRedirect("login.jsp");	
 		} else {
-			request.setAttribute("errMessage", "Username già utilizzata. Inserire un'altra username");
+			request.setAttribute("message", "Inserire un'altra username");
 			request.getRequestDispatcher("registrazione.jsp").forward(request, response);
 		}	
 	}

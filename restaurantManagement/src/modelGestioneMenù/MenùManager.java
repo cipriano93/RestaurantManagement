@@ -1,5 +1,7 @@
 package modelGestioneMenù;
 
+import java.util.ArrayList;
+
 public class MenùManager {
 
 	public boolean inserimento(String nome) {
@@ -65,5 +67,12 @@ public class MenùManager {
 		PortataBeanDAO pbd = new PortataBeanDAO();
 		
 		return (pbd.doDelete(id));
+	}
+	
+	
+	public ArrayList<MenùBean> getMenùs() {
+		MenùBeanDAO mbd = new MenùBeanDAO();
+		
+		return (mbd.doRetrieveAll());
 	}
 }

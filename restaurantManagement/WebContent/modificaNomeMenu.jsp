@@ -45,7 +45,7 @@
 	
 <!-- Modifica nome menù form -->
 <div class="container">
-	<form name="form" action="modifica_nome_menù" onsubmit="return validateForm()" method="POST">
+	<form name="form" action="modificanomemenù" onsubmit="return validateForm()" method="POST">
 		<div class="form-group">
 	    	<label class ="dark_brown" for="name">Nome:</label>
 	      	<input type="text" class="form-control light_brown" id="name" placeholder="Inserisci il nome" name="name">

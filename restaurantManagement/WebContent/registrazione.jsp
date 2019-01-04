@@ -88,11 +88,12 @@
 	<div class="container">
 	
 		<%
-			String errMessage = (String) request.getAttribute("errMessage");
-			if (errMessage != null) { 
+			String message = (String) request.getAttribute("message");
+			if (message != null) { 
 		%>
-			<h3><%= errMessage %></h3>
-			<br><br>
+				<div class="alert alert-warning">
+  					<strong>Username già utilizzata!</strong> <%= message %>.
+				</div>
 		<% } %>
 
 	   		<form  name ="form1" action="Registrazione" method="POST" onsubmit ="return validateForm()">

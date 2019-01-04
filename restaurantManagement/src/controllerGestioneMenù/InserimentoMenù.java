@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import modelGestioneMenù.MenùManager;
 
 
@@ -14,7 +13,7 @@ import modelGestioneMenù.MenùManager;
  * Servlet implementation class InserimentoMenù
  */
 
-@WebServlet("/inserisci_menù")
+@WebServlet("/inseriscimenu")
 public class InserimentoMenù extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -35,14 +34,15 @@ public class InserimentoMenù extends HttpServlet {
 			boolean result = mm.inserimento(nome);
 		
 			if(result) {
-				response.sendRedirect("gestioneMenù.jsp");
-			} else {
-				request.setAttribute("errMessage", result);
-				request.getRequestDispatcher("inserimentoMenù.jsp").forward(request, response);	
+				request.setAttribute("meesage", "Il menù è stato inserito correttamente");
+				request.getRequestDispatcher("getmenus").forward(request, response);
 			}
-		} else {
-			response.sendRedirect("inserimentoMenù.jsp");
-		}	
+			else {
+				request.setAttribute("message", "Impossibile inserire il menù");
+				request.getRequestDispatcher("inserimentoMenu.jsp").forward(request, response);	
+			}
+		} else
+			response.sendRedirect("inserimentoMenu.jsp");
 	}
 
 	
@@ -51,6 +51,7 @@ public class InserimentoMenù extends HttpServlet {
 	 */
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
