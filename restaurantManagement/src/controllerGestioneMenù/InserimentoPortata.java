@@ -36,8 +36,8 @@ public class InserimentoPortata extends HttpServlet {
 			HttpSession session = request.getSession();
 			boolean result = mm.inserimentoPortata((Integer) session.getAttribute("id_menù"), nome, tipo, prezzo, descrizione);
 			if (result) {
-				request.setAttribute("message", "portata inserita correttamente");
-				response.sendRedirect("getportate");
+				request.setAttribute("message_success", "portata inserita correttamente");
+				request.getRequestDispatcher("getportate").forward(request, response);
 			} else {
 				request.setAttribute("message", "impossibile inserire la portata nel menù");
 				request.getRequestDispatcher("inserimentoPortata.jsp").forward(request, response);

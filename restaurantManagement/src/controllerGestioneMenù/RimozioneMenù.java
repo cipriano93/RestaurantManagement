@@ -28,10 +28,10 @@ public class RimozioneMenù extends HttpServlet {
 		MenùManager mm = new MenùManager();
 		boolean result = mm.rimozione(id);
 		if (result) {
-			request.setAttribute("message", "menù rimosso con successo.");
+			request.setAttribute("message_success", "menù rimosso con successo.");
 			request.getRequestDispatcher("getmenus").forward(request, response);
 		} else {
-			request.setAttribute("message", result);
+			request.setAttribute("message_danger", "impossibile rimuovere il menù");
 			request.getRequestDispatcher("gestioneMenù.jsp").forward(request, response);
 		}
 	}

@@ -59,7 +59,7 @@
 	
 	<div class="container">
 		<%
-			String message = (String) request.getParameter("message");
+			String message = (String) request.getAttribute("message");
 			if (message != null) {
 		%>
 				<div class="alert alert-danger">

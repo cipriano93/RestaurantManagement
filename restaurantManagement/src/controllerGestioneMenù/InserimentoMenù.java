@@ -34,7 +34,7 @@ public class InserimentoMenù extends HttpServlet {
 			boolean result = mm.inserimento(nome);
 		
 			if(result) {
-				request.setAttribute("message", "il menù è stato inserito correttamente.");
+				request.setAttribute("message_success", "il menù è stato inserito correttamente.");
 				request.getRequestDispatcher("getmenus").forward(request, response);
 			} else {
 				request.setAttribute("message", "impossibile inserire il menù.");

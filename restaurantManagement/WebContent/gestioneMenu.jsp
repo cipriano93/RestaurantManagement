@@ -22,7 +22,14 @@
 <br>
 <div class="container">
 	<%
-		String message = (String) request.getAttribute("message");
+		String message = (String) request.getAttribute("message_danger");
+		if (message != null) { 
+	%>
+			<div class="alert alert-danger">
+		  		<strong>Menù:</strong> <%= message %>
+			</div>
+	<%	}
+		message = (String) request.getAttribute("message_success");
 		if (message != null) { 
 	%>
 			<div class="alert alert-success">

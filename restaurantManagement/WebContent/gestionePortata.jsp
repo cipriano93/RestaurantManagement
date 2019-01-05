@@ -18,7 +18,7 @@
 	<hr/>
 </div>
 <div align="center">
-	Menù "<%= session.getAttribute("name_menù") %>" <a href="modificaNomeMenu.jsp">rinomina</a>
+	Menù "<%= session.getAttribute("nome_menù") %>" <a href="modificaNomeMenu.jsp">rinomina</a>
 </div>
 <br>
 <div align="center">
@@ -35,13 +35,6 @@
 			</div>
 	<%	}
 		message = (String) request.getAttribute("message_success");
-		if (message != null) { 
-	%>
-			<div class="alert alert-success">
-	  			<strong>Portata:</strong> <%= message %>
-			</div>
-	<%	}
-		message = (String) request.getAttribute("message");
 		if (message != null) { 
 	%>
 			<div class="alert alert-success">

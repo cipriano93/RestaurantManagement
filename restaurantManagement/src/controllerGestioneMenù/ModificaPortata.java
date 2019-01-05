@@ -33,7 +33,7 @@ public class ModificaPortata extends HttpServlet {
 			MenùManager mm = new MenùManager();
 			boolean result = mm.modificaPortata(Integer.parseInt(request.getParameter("idportata")), nome, tipo, prezzo, descrizione);
 			if (result) {
-				request.setAttribute("message", "portata modificata correttamente");
+				request.setAttribute("message_success", "portata modificata correttamente");
 				request.getRequestDispatcher("getportate").forward(request, response);
 			} else {
 				request.setAttribute("message", "impossibile modificare la portata");

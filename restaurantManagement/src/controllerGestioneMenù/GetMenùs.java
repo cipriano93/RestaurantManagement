@@ -24,8 +24,9 @@ public class GetMenùs extends HttpServlet {
 		MenùManager mm = new MenùManager();
 		request.setAttribute("menùs", mm.getMenùs());
 		String message = (String) request.getAttribute("message");
+		message = (String) request.getAttribute("message_success");
 		if (message != null)
-			request.setAttribute("message", message);
+			request.setAttribute("message_success", message);
 		request.getRequestDispatcher("gestioneMenu.jsp").forward(request, response);
 	}
 

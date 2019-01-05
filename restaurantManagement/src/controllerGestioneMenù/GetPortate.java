@@ -32,10 +32,10 @@ public class GetPortate extends HttpServlet {
 		session.setAttribute("id_menù", id);
 		String nome_menù = request.getParameter("namemenu");
 		if (nome_menù != null)
-			session.setAttribute("name_menù", nome_menù);
+			session.setAttribute("nome_menù", nome_menù);
 		MenùManager mm = new MenùManager();
 		request.setAttribute("portate", mm.getPortate(id));
-		request.setAttribute("message", request.getAttribute("message"));
+		request.setAttribute("message_success", request.getAttribute("message_success"));
 		request.getRequestDispatcher("gestionePortata.jsp").forward(request, response);
 	}
 

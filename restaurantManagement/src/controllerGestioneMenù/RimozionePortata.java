@@ -28,7 +28,7 @@ public class RimozionePortata extends HttpServlet {
 		boolean result = mm.rimozionePortata(Integer.parseInt(request.getParameter("idportata")));
 		if (result) {
 			request.setAttribute("message_success", "portata rimossa correttamente");
-			request.getRequestDispatcher("gestionePortata.jsp").forward(request, response);
+			request.getRequestDispatcher("getportate").forward(request, response);
 		} else {
 			request.setAttribute("message_danger", "impossibile rimuovere la portata");
 			request.getRequestDispatcher("gestionePortata.jsp").forward(request, response);
