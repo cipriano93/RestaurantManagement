@@ -62,8 +62,8 @@
 			String message = (String) request.getAttribute("message");
 			if (message != null) {
 		%>
-				<div class="alert alert-danger">
-	  				<strong>Portata:</strong> <%= message %>
+				<div class="alert alert-warning">
+	  				<strong>Attenzione!</strong> <%= message %>
 				</div>
 		<%	}	%>
 	

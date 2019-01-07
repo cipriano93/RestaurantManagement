@@ -31,21 +31,21 @@
 		if (message != null) { 
 	%>
 			<div class="alert alert-danger">
-	  			<strong>Portata:</strong> <%= message %>
+	  			<strong>Errore!</strong> <%= message %>
 			</div>
 	<%	}
 		message = (String) request.getAttribute("message_success");
 		if (message != null) { 
 	%>
 			<div class="alert alert-success">
-	  			<strong>Portata:</strong> <%= message %>
+	  			<strong>Successo!</strong> <%= message %>
 			</div>
 	<%	}
 		String menù = (String) request.getAttribute("menù");
 		if (menù != null) {
 			%>
 			<div class="alert alert-success">
-	  			<strong>Menù:</strong> <%= menù %>
+	  			<strong>Successo!</strong> <%= menù %>
 			</div>
 	<%	}
 		ArrayList<PortataBean> pbs = (ArrayList<PortataBean>) request.getAttribute("portate");

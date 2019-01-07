@@ -26,14 +26,14 @@
 		if (message != null) { 
 	%>
 			<div class="alert alert-danger">
-		  		<strong>Menù:</strong> <%= message %>
+		  		<strong>Errore!</strong> <%= message %>
 			</div>
 	<%	}
 		message = (String) request.getAttribute("message_success");
 		if (message != null) { 
 	%>
 			<div class="alert alert-success">
-		  		<strong>Menù:</strong> <%= message %>
+		  		<strong>Successo!</strong> <%= message %>
 			</div>
 	<%	}
 		ArrayList<MenùBean> mbs = (ArrayList<MenùBean>) request.getAttribute("menùs");

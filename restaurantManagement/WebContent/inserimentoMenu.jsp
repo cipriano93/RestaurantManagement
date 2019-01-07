@@ -49,7 +49,7 @@
 		if (message != null) {
 	%>
 			<div class="alert alert-warning">
-  				<strong>Menù non inserito!</strong> <%= message %>.
+  				<strong>Attenzione!</strong> <%= message %>.
 			</div>
 	 <% } %>
 	<form name="form" action="inseriscimenu" onsubmit="return validateForm()" method="POST">
