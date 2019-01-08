@@ -1,3 +1,7 @@
+<%@page import="modelGestioneMenù.MenùBean"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelGestioneMenù.MenùManager"%>
+<%@page import="com.sun.glass.ui.Menu"%>
 <%@page import="modelGestioneComanda.TavoloBean"%>
 <%@ include file="header.jsp" %>	
 <%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
@@ -30,6 +34,25 @@
       
     </script>
 	<!-- ./Validation -->
+
+	<script type="text/javascript">
+	function chooseMenu(tipo){
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function(){
+			if(xhttp.readyState == 4 && xhttp.status == 200){
+				//riferimento alla select con id "comuni"
+				document.getElementById("nome_portata").innerHTML = xhttp.responseText;
+			}w
+		};
+		//var provincia = document.getElementById("province").value;
+		//URL lato server
+		var menu = document.getElementById("menu").value;
+		xhttp.open("GET","SelectMenu?tipo="+tipo+"&menu="+menu,true);
+		xhttp.send();
+		}
+	</script>
+	
+	
 	
 	<!-- Breadcrumb -->
 	<nav aria-label="breadcrumb">
@@ -65,8 +88,14 @@
 				<div class="col-sm-2">
     					<div class="form-group dark_brown">
       					<label for="type">Menù:</label>
-							<select class="form-control light_brown" id="type">
-								<option>" "</option>
+      						<% MenùManager mm = new MenùManager();
+      							ArrayList<MenùBean> menus = new ArrayList<MenùBean>();
+      							menus = mm.getMenùs();
+      						%>
+							<select class="form-control light_brown" id="menu">
+								<%for(int i = 0; i < menus.size(); i++){%>
+									<option><%=menus.get(i).getNome()%></option>
+								<%}%>
 							</select>
     					</div>
     				</div>
@@ -76,7 +105,7 @@
 				<div class="col-sm-3">
     					<div class="form-group dark_brown">
       					<label for="type">Tipo:</label>
-							<select class="form-control light_brown" id="type">
+							<select class="form-control light_brown" id="tipo" onchange ="chooseMenu(this.value)">
 								<option>Antipasto</option>
 								<option>Primo</option>
 								<option>Secondo</option>
@@ -93,7 +122,7 @@
 				<div class="col-sm-3">
     					<div class="form-group dark_brown">
       					<label for="type">Nome portata:</label>
-							<select class="form-control light_brown" id="type">
+							<select class="form-control light_brown" id="nome_portata">
 								<option>Spaghetti</option>
 								<option>Acqua</option>
 							</select>

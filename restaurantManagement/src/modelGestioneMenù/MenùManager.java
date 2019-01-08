@@ -77,10 +77,43 @@ public class MenùManager {
 		return (mbd.doRetrieveAll());
 	}
 	
-	
+	//id del menù
 	public ArrayList<PortataBean> getPortate(int id) {
 		PortataBeanDAO pbd = new PortataBeanDAO();
 		
 		return (pbd.doRetrieveByCond(id));
 	}
+	
+	public int getIdMenuByNome(String nome) {
+		int id = 0;
+		MenùBeanDAO mbd = new MenùBeanDAO();
+		ArrayList<MenùBean> menus = mbd.doRetrieveAll();
+		for(int i = 0; i < menus.size(); i++) {
+			if(menus.get(i).getNome().equals(nome))
+				id = menus.get(i).getIdMenù();
+		}
+		System.out.println("id: " +id);
+		return id;
+	}
+	
+	public ArrayList<PortataBean> getPortateByMenuTipo(int idMenù, String tipo){
+		ArrayList<PortataBean> portate = new ArrayList<PortataBean>();
+		ArrayList<PortataBean> portateByTipo = new ArrayList<PortataBean>();
+		
+		PortataBeanDAO pbd = new PortataBeanDAO();
+		portate = pbd.doRetrieveByCond(idMenù);
+		
+		for(PortataBean pb: portate) {
+			if(pb.getTipo().equals(tipo))
+				portateByTipo.add(pb);
+		}		
+		System.out.println("size: " + portateByTipo.size());
+		return portateByTipo;
+		
+	}
+	
+	public void stampa(String x) {
+		System.out.println("tipo: " +x);
+	}
+	
 }

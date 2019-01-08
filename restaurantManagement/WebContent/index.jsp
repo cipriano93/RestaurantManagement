@@ -62,7 +62,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 <div class="navbar">
-  <a href="#">Prenota tavolo</a> 
+  <a href="prenotaTavolo.jsp">Prenota tavolo</a> 
   <a href="#">Info ristorante</a> 
   <a href="#">Help</a> 
 </div>

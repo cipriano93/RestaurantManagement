@@ -162,4 +162,6 @@ public class PortataBeanDAO {
 		return result;	 
 	 }
 	
+	
+	
 }
