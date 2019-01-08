@@ -1,4 +1,6 @@
+<%@page import="modelGestioneComanda.TavoloBean"%>
 <%@ include file="header.jsp" %>	
+<%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore) {
@@ -44,12 +46,17 @@
 	  <hr/>
 	</div>
 	
+	<!-- Numero tavolo -->
+	<div class="container" >
+	  <h4 class= "dark_brown"> Numero tavolo: <span class= "light_brown"><%= tb.getNumeroTavolo() %></span></h4>
+	</div>
+	<!-- \.Numero tavolo -->
+	
 	<!-- Numero persone -->
 	<div class="container" >
-	  <h4 class= "dark_brown"> Numero persone: <span class= "light_brown">10</span></h4>
+	  <h4 class= "dark_brown"> Numero persone: <span class= "light_brown"><%=tb.getNumeroPersone() %></span></h4>
 	</div>
 	<!-- \.Numero persone -->
-	
 	<!-- Inserimento portata comanda form -->
 	<div class="container">
    		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
@@ -244,9 +251,10 @@
 		<div class="col-md-2"></div>
 		<!-- Bottone conferma ordine -->
 			<div class="col-md-4">
-				<form  name="form" action="" method="POST" onsubmit="">
+				<form  name="form" action="anteprimaOrdine.jsp" method="POST" onsubmit="">
 					<div class="text-center"> 
-			    			<button id="conferma_ordine" class="btn btn-success">Conferma ordine</button> 
+			    			<button id="anteprima_ordine" class="btn btn-success">Anteprima ordine</button> 
+			    			<input type="hidden" name ="tavolo" value = "<%= tb.getNumeroTavolo()%>">
 					</div>
 				</form>
 			<br>

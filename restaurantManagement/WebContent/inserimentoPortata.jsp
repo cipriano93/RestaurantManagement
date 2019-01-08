@@ -6,7 +6,7 @@
   	  }
   	  
       function validateForm() {
-        var name = document.form.name;
+        var name = document.form.nameportata;
         var price = document.form.price;
         
         if(validationName(name) && validationPrice(price)){
@@ -18,7 +18,7 @@
       
       function validationName(name) {
   	  	var nameformat = /^[A-Z a-z]{3,}$/;
-    	if (name.value.match(nameformat)){
+    		if (name.value.match(nameformat)){
       		return true;
       	} else {
       		verify("Inserire correttamente il nome");
