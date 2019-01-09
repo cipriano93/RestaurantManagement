@@ -4,7 +4,7 @@
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
-		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area peronale</a></li>
+		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Gestione cameriere</li>
 	</ol>
 </nav>
@@ -17,9 +17,13 @@
 <div align="center">
 	<a href="inserimentoCameriere.jsp" class="btn btn-default">Inserisci cameriere</a>
 </div>
+<br>
 
 <!-- Tabella cameriere -->
 <div class="container">
+	<div class = "row">
+	<div class = "col-sm-3"></div>
+	<div class = "col-sm-6">
 	<table class="table">
 		<thead>
 			<tr>
@@ -37,6 +41,10 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
+	<div class = "col-sm-3"></div>
+	</div>
+	
 </div>
 <!-- ./Tabella cameriere -->
 

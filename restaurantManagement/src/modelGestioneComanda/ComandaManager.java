@@ -42,13 +42,14 @@ public class ComandaManager {
 		}
 	}
 	//da migliorare
-	public void rimozionePortataComanda(ComandaBean cb, PortataBean pb, int quantità, String note) {
+	public void rimozionePortataComanda(ComandaBean cb, int id) {
 		PortataComandaBean pcb = new PortataComandaBean();
-		pcb.setPb(pb);
-		pcb.setQuantità(quantità);
-		pcb.setNote(note);
-		
-		cb.removePortataComanda(pcb);
+		for(int i = 0; i < cb.getSizeAllPortate(); i ++) {
+			pcb = cb.getPortateComanda().get(i);
+			if(id == pcb.getPb().getIdPortata()) {
+				cb.removePortataComanda(pcb);
+			}
+		}
 	}
 	public void modificaPortataComandaQuantity(ComandaBean cb, int idPor, int quantità) {
 		for(PortataComandaBean pcb: cb.getPortateComanda()) {

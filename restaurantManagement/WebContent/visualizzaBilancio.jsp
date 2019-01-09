@@ -73,7 +73,7 @@
 <!-- Breadcrumb -->
 	<ul class="breadcrumb">
 		<li><a href="#">Home</a></li>
-		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area peronale</a></li>
+		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Visualizza bilancio</li>
 	</ul>
 <!-- Breadcrumb -->

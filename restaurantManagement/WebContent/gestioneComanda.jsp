@@ -58,7 +58,7 @@
 		var menu = document.getElementById("menu").value;
 		xhttp.open("GET","SelectMenu?tipo="+tipo+"&menu="+menu,true);
 		xhttp.send();
-		}
+	}
 	</script>
 	
 	
@@ -77,6 +77,9 @@
 	  <h3>Gestione comanda</h3>
 	  <hr/>
 	</div>
+	
+	
+	
 	<% if(tb != null) { %>
 	<!-- Numero tavolo -->
 	<div class="container" >
@@ -154,20 +157,66 @@
 				<div class="col-sm-3">
 					<div class="form-group dark_brown">
 						<label for="hour">Note:</label>
-						<textarea class="form-control light_brown" rows="5" id="note" name ="notes"></textarea>
+						<textarea class="form-control light_brown" rows="2" id="note" name ="notes"></textarea>
 						<span id="ver" class="red"></span>
 	   				 </div>
 	   			 </div>
 			<!-- \.Note -->
 			<input type = "hidden" name ="tavolo" value ="<%= tb.getNumeroTavolo() %>">
 			</div>
+			<br>
+			<br>
 			<!-- Bottone inserimento portata nella comanda -->
-				<div class="text-center">
+			<div class = "row">
+				<div class="col-sm-5"></div>
+				<div class="text-center col-sm-2">
 					<div class=" text-center"> 
 				    	<button id="inserimento_portata_comanda" class="btn btn-success" onclick="">Inserisci portata</button> 
 					</div>
 				</div>
 				<!-- /.Bottone inserimento portata nella comanda -->
+				<%
+					Boolean message = (Boolean) request.getAttribute("message_inserimento");
+					if (message != null) {
+				%>
+					<div class="col-sm-2"></div>
+						<div class="col-sm-3">
+								<div class="alert alert-success">
+			  						<strong>Successo!</strong> Portata inserita.
+								</div>
+						</div>
+						
+				 <% } %>
+				 	<%
+					message = (Boolean) request.getAttribute("message_modifica");
+					if (message != null) {
+				%>
+					<div class="col-sm-2"></div>
+						<div class="col-sm-3">
+								<div class="alert alert-success">
+			  						<strong>Successo!</strong> Portata modificata.
+								</div>
+						</div>
+						
+				 <% } %>
+				 	<%
+					message = (Boolean) request.getAttribute("message_rimozione");
+					if (message != null) {
+				%>
+					<div class="col-sm-2"></div>
+						<div class="col-sm-3">
+								<div class="alert alert-success">
+			  						<strong>Successo!</strong> Portata rimossa.
+								</div>
+						</div>
+						
+				 <% } %>
+				 
+				 
+				 
+			</div>
+				
+				
 					
 			
 		</form>	
@@ -175,13 +224,22 @@
 	<br>
 	<!-- ./Inserimento portata comanda form -->
 	
-	
-	<!-- Gestione ordine form form -->
 	<div class="container">
 	<h3 class="dark_brown">Lista portate</h3>
 	<hr>
 	</div>
-
+	
+	<%ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
+		ArrayList<PortataComandaBean> portateComanda = cb.getPortateComanda();%>
+		
+	<%if(portateComanda.size() == 0) { %>
+		<div class="container">
+			<div class="alert alert-info">
+	  			<strong>Info!</strong> Nessuna portata inserita.
+			</div>
+		</div>
+	<% } else { %>
+	<!-- Gestione ordine form form -->
 	<div class="container text-centered">
 		<div class="row">
 			<div class="col-md-2"></div>
@@ -190,8 +248,7 @@
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<thead>
-						<%ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
-							ArrayList<PortataComandaBean> portateComanda = cb.getPortateComanda();%>
+						
 						
 							<tr>
 								<th class="dark_brown text-center">Nome portata</th>
@@ -200,10 +257,12 @@
 								<th class="dark_brown text-center"></th>
 							</tr>
 						</thead>
+						
 						<!--  Corpo table -->
 						<tbody>
 						
-						<%for(PortataComandaBean pcb: portateComanda) { %>
+						<%for(PortataComandaBean pcb: portateComanda) { 
+							int id = pcb.getPb().getIdPortata(); %>
 							<tr>
 								<!-- Nome portata comanda -->
 								<td class="text-center"><%= pcb.getPb().getNome() %> </td>
@@ -211,11 +270,11 @@
 								
 								<!-- Quantità portata comanda -->
 								<td class="text-center">
-								<form name="form" action="ModificaPortataComanda">
+								<form name="form" action="ModificaPortataComanda" method="post">
 									<input name="quantity" type="number" min="1" max="10" value="<%= pcb.getQuantità()%>">
 									<button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button>
 								<input type="hidden" name = "cliccatoQuantity" value= "1">
-								<input type ="hidden"  name ="idPortata" value ="<%= pcb.getPb().getIdPortata()%>">
+								<input type ="hidden"  name ="idPortata" value ="<%= id %>">
 								</form>
 								</td>
 								
@@ -223,7 +282,7 @@
 								
 								<!-- Stato portata comanda -->
 								<td class="text-center">
-								<form action ="ModificaPortataComanda">
+								<form action ="ModificaPortataComanda" method="post">
 									<%if(pcb.isConsegnato()){ %>								
 										<span style="color:green" class="fist btn btn-default btn-md glyphicon glyphicon-ok"></span>
 										<input type="hidden" name ="green"  value="green">
@@ -232,7 +291,7 @@
 										<input type="hidden" name = "red" value="red">
 									<%} %>
 									<input type="hidden" name = "cliccatoStato" value= "1">
-									<input type ="hidden"  name ="idPortata" value ="<%= pcb.getPb().getIdPortata()%>">
+									<input type ="hidden"  name ="idPortata" value ="<%= id %>">
 								</form>
 								
 								</td>
@@ -240,8 +299,8 @@
 								
 								<!-- Rimozione portata comanda -->
 								<td class="text-center">
-									<form action="">
-						        			<input type="hidden" name="remove" value="">
+									<form action="RimozionePortataComanda" method="post">
+						        			<input type="hidden" name="remove" value="<%= id %>">
 						        			<button type="submit" class="btn btn-danger">Rimuovi</button>
 						        		</form>
 								</td>
@@ -251,6 +310,7 @@
 							<% } %>
 						</tbody>
 						<!--  /.corpo table -->
+				
 					</table>
 				</div>
 			<!-- Table -->
@@ -285,7 +345,8 @@
 		<div class="col-md-2"></div>
 	</div>
 	<!-- ./Gestione ordine form form -->
-	<br>
-	<br>
 		<% } %>
+	<% } %>
+	<br>
+	<br>
 <%@ include file="footer.jsp" %>

@@ -6,7 +6,7 @@
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="">Home</a></li>
-		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area peronale</a></li>
+		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Gestione menù</li>
 	</ol>
 </nav>
@@ -45,6 +45,9 @@
 			
 <!-- Tabella menù -->
 	<%	} else {	%>
+	<div class ="row">
+	<div class = "col-sm-3"></div>
+		<div class = "col-sm-6">
 			<table class="table">
 				<thead>
 					<tr>
@@ -68,8 +71,13 @@
 						</tbody>
 				<%	}	%>	
 			</table>
+			</div>
+			
+			<div class = "col-sm-3"></div>
+			</div>
 	<%	}	%>
 <!-- ./Tabella menù -->
+
 </div>
 
 <%@ include file="footer.jsp" %>

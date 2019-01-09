@@ -54,23 +54,19 @@
 	
 <!-- Inserimento numero persone form -->
 <div class="container">
-	<%
-		String message = (String) request.getAttribute("message");
-		if (message != null) {
-	%>
-			<div class="alert alert-warning">
-  				<strong>Attenzione!</strong> <%= message %>.
-			</div>
-	 <% } %>
-	<form name="form" action="SelezionaTavolo" method="POST">
-		<div class="form-group">
-	    	<label class ="dark_brown" for="name">Numero persone:</label>
-	      <input type="number" class="form-control" id="num_people" name="num_people" min="1" max="40">
-	       <input name="tavolo" type="hidden"  value="<%=request.getParameter("button")%>">
-	      	<span class="red" id="ver"></span>
-	    </div>
-		<button type="submit" class="btn btn-primary">Inserisci persone</button>
-	</form>
+	 	<div class="col-md-5"></div>
+	 	<div class="col-md-2">
+			<form name="form" action="SelezionaTavolo" method="POST">
+				<div class="form-group">
+			    	<label class ="dark_brown text-centered" for="name">Numero persone:</label>
+			      <input type="number" class="form-control" id="num_people" name="num_people" min="1" max="40">
+			       <input name="tavolo" type="hidden"  value="<%=request.getParameter("button")%>">
+			      	<span class="red" id="ver"></span>
+			    </div>
+				<button type="submit" class="btn btn-primary">Inserisci persone</button>
+			</form>
+		</div>
+		<div class="col-md-5"></div>
 </div>
 <br>
 <br>

@@ -51,11 +51,9 @@ public class ModificaPortataComanda extends HttpServlet {
 				stato = true;
 			cm.modificaPortataComandaStato(cb, Integer.parseInt(idPortata), stato);
 		}
-		else {
-			response.sendRedirect("index.jsp");
-		}
 		application.setAttribute("comanda"+tb.getNumeroTavolo(), cb);
-		response.sendRedirect("gestioneComanda.jsp");
+		request.setAttribute("message_modifica", true);
+		request.getRequestDispatcher("gestioneComanda.jsp").forward(request, response);
 	}
 
 	/**

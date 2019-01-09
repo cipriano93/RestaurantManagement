@@ -46,7 +46,8 @@ public class InserimentoPortataComanda extends HttpServlet {
 		cm.inserimentoPortataComanda(cb, pb, Integer.parseInt(quantità), note);
 		
 		application.setAttribute("comanda"+tb.getNumeroTavolo(), cb);
-		response.sendRedirect("gestioneComanda.jsp");
+		request.setAttribute("message_inserimento", true);
+		request.getRequestDispatcher("gestioneComanda.jsp").forward(request, response);
 	}
 
 	/**
