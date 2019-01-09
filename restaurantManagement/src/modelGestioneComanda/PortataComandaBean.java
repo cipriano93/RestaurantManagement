@@ -32,8 +32,8 @@ public class PortataComandaBean {
 	}
 	
 	//Variabili d'istanza
-	PortataBean pb;
-	int quantità;
-	String note;
-	boolean consegnato;
+	private PortataBean pb;
+	private int quantità;
+	private String note;
+	private boolean consegnato;
 }

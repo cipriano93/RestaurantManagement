@@ -40,8 +40,8 @@ public class ComandaBean {
 		return portateCB;
 	}
 	//Variabili d'istanza
-	TavoloBean tb;
-	ArrayList<PortataComandaBean> portateCB = new ArrayList<PortataComandaBean>();
+	private TavoloBean tb;
+	private ArrayList<PortataComandaBean> portateCB = new ArrayList<PortataComandaBean>();
 	
 	
 }
