@@ -8,7 +8,7 @@
 <%@page import="com.sun.glass.ui.Menu"%>
 <%@page import="modelGestioneComanda.TavoloBean"%>
 <%@ include file="header.jsp" %>	
-<%TavoloBean tb = (TavoloBean) application.getAttribute("tavolo"); %>
+<%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore) {
@@ -36,6 +36,12 @@
       	}
 	  }
       
+      $(document).ready(function(){
+    	  	$(".fist").on('click', function(){
+    	    		$(this).parent().submit();
+    	  	});
+    	  });
+      
     </script>
 	<!-- ./Validation -->
 
@@ -48,7 +54,6 @@
 				document.getElementById("nome_portata").innerHTML = xhttp.responseText;
 			}
 		};
-		//var provincia = document.getElementById("province").value;
 		//URL lato server
 		var menu = document.getElementById("menu").value;
 		xhttp.open("GET","SelectMenu?tipo="+tipo+"&menu="+menu,true);
@@ -72,7 +77,7 @@
 	  <h3>Gestione comanda</h3>
 	  <hr/>
 	</div>
-	
+	<% if(tb != null) { %>
 	<!-- Numero tavolo -->
 	<div class="container" >
 	  <h4 class= "dark_brown"> Numero tavolo: <span class= "light_brown"><%= tb.getNumeroTavolo() %></span></h4>
@@ -84,6 +89,7 @@
 	  <h4 class= "dark_brown"> Numero persone: <span class= "light_brown"><%=tb.getNumeroPersone() %></span></h4>
 	</div>
 	<!-- \.Numero persone -->
+
 	<!-- Inserimento portata comanda form -->
 	<div class="container">
    		<form  name="form" action="InserimentoPortataComanda" method="POST" onsubmit="">
@@ -110,6 +116,7 @@
     					<div class="form-group dark_brown">
       					<label for="type">Tipo:</label>
 							<select class="form-control light_brown" id="tipo" onchange ="chooseMenu(this.value)">
+								<option>seleziona tipo</option>
 								<option>Antipasto</option>
 								<option>Primo</option>
 								<option>Secondo</option>
@@ -127,7 +134,7 @@
     					<div class="form-group dark_brown">
       					<label for="type">Nome portata:</label>
 							<select class="form-control light_brown" id="nome_portata" name ="nome_portata" value="nome_portata">
-								<option></option>
+								<option>seleziona portata</option>
 							</select>
 							
    						</div>
@@ -138,7 +145,7 @@
 				<div class="col-sm-1">
 					<div class="form-group dark_brown">
 	   				 	<label for="num_people">Quantità:</label>
-	    					<input type="number" class="form-control light_brown" id="num_portate" name="num_portate" min="1" max="20">
+	    					<input type="number" class="form-control light_brown" id="num_portate" name="num_portate" min="1" max="20" value="1">
 				   </div>	
 			   </div>						
     			<!-- \.Quantità -->	
@@ -183,7 +190,7 @@
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<thead>
-						<%ComandaBean cb = (ComandaBean) application.getAttribute("comanda");
+						<%ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
 							ArrayList<PortataComandaBean> portateComanda = cb.getPortateComanda();%>
 						
 							<tr>
@@ -199,32 +206,40 @@
 						<%for(PortataComandaBean pcb: portateComanda) { %>
 							<tr>
 								<!-- Nome portata comanda -->
-								<td><%= pcb.getPb().getNome() %> </td>
+								<td class="text-center"><%= pcb.getPb().getNome() %> </td>
 								<!-- /.Nome portata comanda -->
 								
 								<!-- Quantità portata comanda -->
-								
-								<td>
-									<form action="" method = "post">
-										<input name="update" type="number" placeholder="2" min="1" max="" value="<%= pcb.getQuantità()%>">
-										<input type="hidden" name="id" value="">
-										<button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button>
-									</form>
+								<td class="text-center">
+								<form name="form" action="ModificaPortataComanda">
+									<input name="quantity" type="number" min="1" max="10" value="<%= pcb.getQuantità()%>">
+									<button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button>
+								<input type="hidden" name = "cliccatoQuantity" value= "1">
+								<input type ="hidden"  name ="idPortata" value ="<%= pcb.getPb().getIdPortata()%>">
+								</form>
 								</td>
+								
 								<!-- /.Quantità portata comanda -->
 								
 								<!-- Stato portata comanda -->
-								<td>
+								<td class="text-center">
+								<form action ="ModificaPortataComanda">
 									<%if(pcb.isConsegnato()){ %>								
-										<span id ="fist" style="color:green"  class=" btn btn-default btn-md glyphicon glyphicon-ok"></span>
+										<span style="color:green" class="fist btn btn-default btn-md glyphicon glyphicon-ok"></span>
+										<input type="hidden" name ="green"  value="green">
 									<%} else { %>	
-										<span id ="fist" style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-remove"></span>
+										<span style="color:red" class="fist btn btn-default btn-md glyphicon glyphicon-remove"></span>
+										<input type="hidden" name = "red" value="red">
 									<%} %>
+									<input type="hidden" name = "cliccatoStato" value= "1">
+									<input type ="hidden"  name ="idPortata" value ="<%= pcb.getPb().getIdPortata()%>">
+								</form>
+								
 								</td>
 								<!-- /.Stato portata comanda -->
 								
 								<!-- Rimozione portata comanda -->
-								<td>
+								<td class="text-center">
 									<form action="">
 						        			<input type="hidden" name="remove" value="">
 						        			<button type="submit" class="btn btn-danger">Rimuovi</button>
@@ -272,5 +287,5 @@
 	<!-- ./Gestione ordine form form -->
 	<br>
 	<br>
-	
+		<% } %>
 <%@ include file="footer.jsp" %>

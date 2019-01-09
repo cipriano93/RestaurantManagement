@@ -28,19 +28,24 @@ public class SelezionaTavolo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	 	//Prendo la lista dei tavoli dalla sessione
-		
+		HttpSession session = request.getSession();
 		ServletContext application = request.getServletContext();
 		
 	 	ArrayList<TavoloBean> tavoli = (ArrayList<TavoloBean>) application.getAttribute("tavoli");
 	 	ArrayList<TavoloBean> updatesTables = new ArrayList<TavoloBean>();
 		String tavolo = request.getParameter("tavolo");
 		String numPersone = request.getParameter("num_people");
+		TavoloBean tb = new TavoloBean();
+		tb.setNumeroTavolo(Integer.parseInt(tavolo));
+		tb.setNumeroPersone(Integer.parseInt(numPersone));
+		
 		
 		ComandaManager cm = new ComandaManager();
 		ComandaBean cb = cm.newComanda(Integer.parseInt(tavolo), Integer.parseInt(numPersone));
 		updatesTables = cm.aggiornaListaTavoli(tavoli, Integer.parseInt(tavolo), Integer.parseInt(numPersone));
 	
-		application.setAttribute("comanda", cb);
+		session.setAttribute("tavolo", tb);
+		application.setAttribute("comanda"+tavolo , cb);
 		application.setAttribute("tavoli",updatesTables);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("selezionaTavolo.jsp");
 		requestDispatcher.forward(request, response);

@@ -1,11 +1,19 @@
 package controllerGestioneComanda;
 
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import modelGestioneComanda.ComandaBean;
+import modelGestioneComanda.ComandaManager;
+import modelGestioneComanda.TavoloBean;
+import modelGestioneMenù.MenùManager;
 
 /**
  * Servlet implementation class ModificaPortataComanda
@@ -14,27 +22,46 @@ import javax.servlet.http.HttpServletResponse;
 public class ModificaPortataComanda extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ModificaPortataComanda() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+
+		TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); 
+
+		ServletContext application = request.getServletContext();
+		
+		String quantity = request.getParameter("quantity");
+		String green = request.getParameter("green");
+		String red = request.getParameter("red");
+		String idPortata = request.getParameter("idPortata");
+		
+		ComandaManager cm = new ComandaManager();
+		ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
+		boolean stato = false;
+		
+		if(request.getParameter("cliccatoQuantity") != null) {
+			cm.modificaPortataComandaQuantity(cb, Integer.parseInt(idPortata), Integer.parseInt(quantity));
+		}else if(request.getParameter("cliccatoStato") != null){
+			if(green != null && red == null)
+				stato = false;
+			else if(green == null && red != null)
+				stato = true;
+			cm.modificaPortataComandaStato(cb, Integer.parseInt(idPortata), stato);
+		}
+		else {
+			response.sendRedirect("index.jsp");
+		}
+		application.setAttribute("comanda"+tb.getNumeroTavolo(), cb);
+		response.sendRedirect("gestioneComanda.jsp");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

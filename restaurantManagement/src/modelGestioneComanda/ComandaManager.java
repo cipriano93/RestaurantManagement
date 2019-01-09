@@ -23,12 +23,23 @@ public class ComandaManager {
 	
 	
 	public void inserimentoPortataComanda(ComandaBean cb, PortataBean pb,int quantità, String note) {
-		PortataComandaBean pcb = new PortataComandaBean();
-		pcb.setPb(pb);
-		pcb.setQuantità(quantità);
-		pcb.setNote(note);
-		
-		cb.addPortataComanda(pcb);
+		boolean presente = false;
+		PortataComandaBean tmp = null;
+		for(int i = 0; i < cb.getSizeAllPortate() && !presente; i++) {
+			tmp = cb.getPortateComanda().get(i);
+			if(tmp.getPb().getIdPortata() == pb.getIdPortata()) {
+				int valore = tmp.getQuantità();
+				tmp.setQuantità(valore + quantità);
+				presente = true;
+			}
+		}
+		if(!presente) {
+			PortataComandaBean pcb = new PortataComandaBean();
+			pcb.setPb(pb);
+			pcb.setQuantità(quantità);
+			pcb.setNote(note);
+			cb.addPortataComanda(pcb);
+		}
 	}
 	//da migliorare
 	public void rimozionePortataComanda(ComandaBean cb, PortataBean pb, int quantità, String note) {
@@ -39,17 +50,19 @@ public class ComandaManager {
 		
 		cb.removePortataComanda(pcb);
 	}
-	public void modificaPortataComanda(ComandaBean cb, PortataBean pb, int quantità, String note, boolean consegnato) {
+	public void modificaPortataComandaQuantity(ComandaBean cb, int idPor, int quantità) {
 		for(PortataComandaBean pcb: cb.getPortateComanda()) {
-			if(pb.getNome().equals(pcb.getPb().getNome()))
-				cb.removePortataComanda(pcb);
+			if(idPor == pcb.getPb().getIdPortata()) {
+				pcb.setQuantità(quantità);
+			}
 		}	
-		PortataComandaBean pcb = new PortataComandaBean();
-		pcb.setPb(pb);
-		pcb.setQuantità(quantità);
-		pcb.setNote(note);
-		pcb.setConsegnato(consegnato);
-		cb.addPortataComanda(pcb);
+	}
+	public void modificaPortataComandaStato(ComandaBean cb, int idPor, boolean consegnato) {
+		for(PortataComandaBean pcb: cb.getPortateComanda()) {
+			if(idPor == pcb.getPb().getIdPortata()) {
+				pcb.setConsegnato(consegnato);
+			}
+		}	
 	}
 	public void stampa(String nomePo, String quantità, String note, String tavo) {
 		System.out.println("portata: "+ nomePo);

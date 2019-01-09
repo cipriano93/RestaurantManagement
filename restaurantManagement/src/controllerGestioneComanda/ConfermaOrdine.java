@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import modelGestioneComanda.ComandaBean;
 import modelGestioneComanda.ComandaManager;
 import modelGestioneComanda.TavoloBean;
 
@@ -26,14 +28,16 @@ public class ConfermaOrdine extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-	 	ArrayList<TavoloBean> tavoli = (ArrayList<TavoloBean>) session.getAttribute("tavoli");
+	 	ServletContext application = request.getServletContext();
+		ArrayList<TavoloBean> tavoli = (ArrayList<TavoloBean>) application.getAttribute("tavoli");
 	 	ArrayList<TavoloBean> updatesTables = new ArrayList<TavoloBean>();
-		String tavolo = request.getParameter("tavolo");
+		TavoloBean tb = (TavoloBean) session.getAttribute("tavolo");
 		
 		ComandaManager cm = new ComandaManager();
 		
-		updatesTables = cm.aggiornaListaTavoli(tavoli, Integer.parseInt(tavolo),0);
+		updatesTables = cm.aggiornaListaTavoli(tavoli, tb.getNumeroTavolo(), 0);
 	
+		application.setAttribute("comanda"+tb.getNumeroTavolo(), null);
 		session.setAttribute("tavoli",updatesTables);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("selezionaTavolo.jsp");
 		requestDispatcher.forward(request, response);

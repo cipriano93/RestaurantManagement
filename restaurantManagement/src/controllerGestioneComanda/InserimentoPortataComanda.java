@@ -9,10 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.MenuSelectionManager;
 
 import modelGestioneComanda.ComandaBean;
 import modelGestioneComanda.ComandaManager;
+import modelGestioneComanda.TavoloBean;
 import modelGestioneMenù.MenùManager;
 import modelGestioneMenù.PortataBean;
 
@@ -26,25 +28,25 @@ public class InserimentoPortataComanda extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		TavoloBean tb = (TavoloBean) session.getAttribute("tavolo");
+		
 		String nomePortata = request.getParameter("nome_portata");
 		String quantità = request.getParameter("num_portate");
 		String note = request.getParameter("notes");
-		String tavolo = request.getParameter("tavolo");
+		
 		ServletContext application = request.getServletContext();
 		
-		ComandaBean cb = (ComandaBean) application.getAttribute("comanda");
+		ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
 		
 		ComandaManager cm = new ComandaManager();
 		MenùManager mm = new MenùManager();
 		PortataBean pb = mm.getPortataByNome(nomePortata);
 		
 		cm.inserimentoPortataComanda(cb, pb, Integer.parseInt(quantità), note);
-	//prova
-		cm.stampa(nomePortata, quantità, note, tavolo);
 		
-		application.setAttribute("comanda", cb);
+		application.setAttribute("comanda"+tb.getNumeroTavolo(), cb);
 		response.sendRedirect("gestioneComanda.jsp");
-
 	}
 
 	/**

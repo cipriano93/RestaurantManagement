@@ -43,7 +43,6 @@
 				<form  name="form" action="ConfermaOrdine" method="POST" onsubmit="">
 					<div class="text-center"> 
 			    			<button id="anteprima_ordine" class="btn btn-success">Conferma ordine</button> 
-			    			<input type="hidden" name ="tavolo" value = "<%= request.getParameter("tavolo")%>">
 					</div>
 				</form>
 			<br>

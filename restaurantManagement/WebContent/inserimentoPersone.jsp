@@ -6,7 +6,7 @@
 	TavoloBean tb = tavoli.get(numTavolo-1);
 %>
 <%if(tb.getNumeroPersone()!= 0) {
-	application.setAttribute("tavolo", tb);
+	session.setAttribute("tavolo", tb);
 	response.sendRedirect("gestioneComanda.jsp");
 }%>
 	
