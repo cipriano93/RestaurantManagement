@@ -107,7 +107,7 @@ public class PortataBeanDAO {
 			ResultSet res = ps.executeQuery();
 			
 			if(res.next()) {
-				pb.setIdMenù(res.getInt("idMenu"));
+				pb.setIdMenù(res.getInt("idmenu"));
 				pb.setNome(res.getString("nome"));
 				pb.setTipo(res.getString("tipo"));
 				pb.setPrezzo(res.getString("prezzo"));
@@ -160,7 +160,43 @@ public class PortataBeanDAO {
 			e.printStackTrace();
 		}
 		return result;	 
-	 }
+	 }	
+		
+	public PortataBean getIdByNome(String nome) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			PortataBean pb = new PortataBean();
+			pb.setNome(nome);
+			conn = DriverManagerConnectionPool.getConnection();
+			ps = conn.prepareStatement("SELECT * FROM portata WHERE nome=?");
+			ps.setString(1, nome);
+			
+			ResultSet res = ps.executeQuery();
+			
+			if(res.next()) {
+				pb.setIdMenù(res.getInt("idmenu"));
+				pb.setIdPortata(res.getInt("idportata"));
+				pb.setTipo(res.getString("tipo"));
+				pb.setPrezzo(res.getString("prezzo"));
+				pb.setDescrizione(res.getString("descrizione"));
+				return pb;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				DriverManagerConnectionPool.releaseConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		 return null;	 
+	}
+	
+	
+	
 	
 	
 	

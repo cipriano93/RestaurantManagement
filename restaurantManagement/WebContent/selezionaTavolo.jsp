@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <%@page import="modelGestioneComanda.TavoloBean"%>
 <%@page import="java.util.ArrayList"%>
@@ -48,7 +49,7 @@
 
 <%ArrayList<TavoloBean> tavoli = new ArrayList<TavoloBean>(); %>
 <form action="inserimentoPersone.jsp" method ="post">
-	<%if (session.getAttribute("tavoli") == null){
+	<%if (application.getAttribute("tavoli") == null){
 		System.out.println("sono qua");
 			tavoli = new ArrayList<TavoloBean>();
 			for(int i = 0; i < 16; i ++){
@@ -58,7 +59,7 @@
 				tavoli.add(tb);
 			}
 	} else { 
-		tavoli = (ArrayList) session.getAttribute("tavoli") ;
+		tavoli = (ArrayList) application.getAttribute("tavoli") ;
 	}%>
 	<div class="grid-container">
 		<% for(int i = 1; i< 16; i++) { 
@@ -78,7 +79,7 @@
 		<% } %>
 
 		
-		<%session.setAttribute("tavoli", tavoli); %>
+		<%application.setAttribute("tavoli", tavoli); %>
 	
 	 <!--  <div class="grid-item"><button type="button" value ="2" class="btn btn-success">2</button></div>
 	  <div class="grid-item"><button type="button" value ="3" class="btn btn-success">3</button></div>  

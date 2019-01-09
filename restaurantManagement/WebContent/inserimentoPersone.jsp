@@ -1,12 +1,12 @@
 <%@page import="modelGestioneComanda.TavoloBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ include file="header.jsp" %>
-<% ArrayList<TavoloBean> tavoli = (ArrayList) session.getAttribute("tavoli");
+<% ArrayList<TavoloBean> tavoli = (ArrayList) application.getAttribute("tavoli");
 	int numTavolo = Integer.parseInt(request.getParameter("button"));
 	TavoloBean tb = tavoli.get(numTavolo-1);
 %>
 <%if(tb.getNumeroPersone()!= 0) {
-	session.setAttribute("tavolo", tb);
+	application.setAttribute("tavolo", tb);
 	response.sendRedirect("gestioneComanda.jsp");
 }%>
 	

@@ -1,10 +1,14 @@
+<%@page import="modelGestioneMenù.PortataBean"%>
+<%@page import="modelGestioneComanda.PortataComandaBean"%>
+<%@page import="modelGestioneComanda.ComandaBean"%>
+<%@page import="modelGestioneComanda.ComandaManager"%>
 <%@page import="modelGestioneMenù.MenùBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelGestioneMenù.MenùManager"%>
 <%@page import="com.sun.glass.ui.Menu"%>
 <%@page import="modelGestioneComanda.TavoloBean"%>
 <%@ include file="header.jsp" %>	
-<%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
+<%TavoloBean tb = (TavoloBean) application.getAttribute("tavolo"); %>
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore) {
@@ -14,7 +18,7 @@
       function validateForm() {
         var note = document.form.note;
        
-        if(validationNome(note)){
+        if(validationNote(note)){
           	return true;
         } else {
          	return false;
@@ -23,11 +27,11 @@
       
       function validationNote(note) {
   	  	var noteformat = /^[A-Z a-z]{3,}$/;
-    	if (name.value.match(nameformat)){
+    	if (note.value.match(noteformat)){
       		return true;
       	} else {
       		verify("Inserire correttamente le note");
-         	name.focus();
+         	note.focus();
          	return false;
       	}
 	  }
@@ -42,7 +46,7 @@
 			if(xhttp.readyState == 4 && xhttp.status == 200){
 				//riferimento alla select con id "comuni"
 				document.getElementById("nome_portata").innerHTML = xhttp.responseText;
-			}w
+			}
 		};
 		//var provincia = document.getElementById("province").value;
 		//URL lato server
@@ -82,7 +86,7 @@
 	<!-- \.Numero persone -->
 	<!-- Inserimento portata comanda form -->
 	<div class="container">
-   		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
+   		<form  name="form" action="InserimentoPortataComanda" method="POST" onsubmit="">
 			<div class = "row">
 			<!-- Menù -->
 				<div class="col-sm-2">
@@ -112,7 +116,7 @@
 								<option>Contorno</option>
 								<option>Frutta</option>
 								<option>Dessert</option>
-								<option>Bevande</option>
+								<option>Bevanda</option>
 							</select>
    						</div>
     				</div>
@@ -122,10 +126,10 @@
 				<div class="col-sm-3">
     					<div class="form-group dark_brown">
       					<label for="type">Nome portata:</label>
-							<select class="form-control light_brown" id="nome_portata">
-								<option>Spaghetti</option>
-								<option>Acqua</option>
+							<select class="form-control light_brown" id="nome_portata" name ="nome_portata" value="nome_portata">
+								<option></option>
 							</select>
+							
    						</div>
     				</div>
 			<!-- ./Portata --> 
@@ -134,7 +138,7 @@
 				<div class="col-sm-1">
 					<div class="form-group dark_brown">
 	   				 	<label for="num_people">Quantità:</label>
-	    					<input type="number" class="form-control light_brown" id="num_people" name="num_people" min="1" max="20">
+	    					<input type="number" class="form-control light_brown" id="num_portate" name="num_portate" min="1" max="20">
 				   </div>	
 			   </div>						
     			<!-- \.Quantità -->	
@@ -143,11 +147,12 @@
 				<div class="col-sm-3">
 					<div class="form-group dark_brown">
 						<label for="hour">Note:</label>
-						<textarea class="form-control light_brown" rows="5" id="note"></textarea>
+						<textarea class="form-control light_brown" rows="5" id="note" name ="notes"></textarea>
 						<span id="ver" class="red"></span>
 	   				 </div>
 	   			 </div>
 			<!-- \.Note -->
+			<input type = "hidden" name ="tavolo" value ="<%= tb.getNumeroTavolo() %>">
 			</div>
 			<!-- Bottone inserimento portata nella comanda -->
 				<div class="text-center">
@@ -178,6 +183,9 @@
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<thead>
+						<%ComandaBean cb = (ComandaBean) application.getAttribute("comanda");
+							ArrayList<PortataComandaBean> portateComanda = cb.getPortateComanda();%>
+						
 							<tr>
 								<th class="dark_brown text-center">Nome portata</th>
 								<th class="dark_brown text-center">Quantita'</th>
@@ -187,84 +195,45 @@
 						</thead>
 						<!--  Corpo table -->
 						<tbody>
-							<tr>
-								<!-- Nome portata comanda -->
-								<td>
-									Spaghetti
-								</td>
-								<!-- /.Nome portata comanda -->
-								
-								<!-- Quantità portata comanda -->
-								<td>
-									<form action="" method = "post">
-										<input name="update" type="number" placeholder="2" min="1" max="" value="">
-										<input type="hidden" name="id" value="">
-										<button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button>
-									</form>
-								</td>
-								<!-- /.Quantità portata comanda -->
-								
-								<!-- Stato portata comanda -->
-								<td>
-									
-									
-										
-										<span id ="fist" style="color:green"  class=" btn btn-default btn-md glyphicon glyphicon-ok"></span>
-			
-								</td>
-								<!-- /.Stato portata comanda -->
-								
-								<!-- Rimozione portata comanda -->
-								<td>
-									<form action="">
-						        			<input type="hidden" name="remove" value="">
-						        			<button type="submit" class="btn btn-danger">Rimuovi</button>
-						        		</form>
-								</td>
-								<!-- /.Rimozione portata comanda -->
-								
-							</tr>
-							
-							
-							<tr>
-								<!-- Nome portata comanda -->
-								<td>
-									Spaghetti
-								</td>
-								<!-- /.Nome portata comanda -->
-								
-								<!-- Quantità portata comanda -->
-								<td>
-									<form action="" method = "post">
-										<input name="update" type="number" min="1" max="" value="">
-										<input type="hidden" name="id" value="">
-										<button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button>
-									</form>
-								</td>
-								<!-- /.Quantità portata comanda -->
-								
-								<!-- Stato portata comanda -->
-								<td>
-									<a  href="#">
-										<span style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-remove"></span>
-									</a>
-								</td>
-								<!-- /.Stato portata comanda -->
-								
-								<!-- Rimozione portata comanda -->
-								<td>
-									<form action="">
-						        			<input type="hidden" name="remove" value="">
-						        			<button type="submit" class="btn btn-danger">Rimuovi</button>
-						        		</form>
-								</td>
-								<!-- /.Rimozione portata comanda -->
-								
-							</tr>
-							
-							
-							
 						
+						<%for(PortataComandaBean pcb: portateComanda) { %>
+							<tr>
+								<!-- Nome portata comanda -->
+								<td><%= pcb.getPb().getNome() %> </td>
+								<!-- /.Nome portata comanda -->
+								
+								<!-- Quantità portata comanda -->
+								
+								<td>
+									<form action="" method = "post">
+										<input name="update" type="number" placeholder="2" min="1" max="" value="<%= pcb.getQuantità()%>">
+										<input type="hidden" name="id" value="">
+										<button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button>
+									</form>
+								</td>
+								<!-- /.Quantità portata comanda -->
+								
+								<!-- Stato portata comanda -->
+								<td>
+									<%if(pcb.isConsegnato()){ %>								
+										<span id ="fist" style="color:green"  class=" btn btn-default btn-md glyphicon glyphicon-ok"></span>
+									<%} else { %>	
+										<span id ="fist" style="color:red"  class=" btn btn-default btn-md glyphicon glyphicon-remove"></span>
+									<%} %>
+								</td>
+								<!-- /.Stato portata comanda -->
+								
+								<!-- Rimozione portata comanda -->
+								<td>
+									<form action="">
+						        			<input type="hidden" name="remove" value="">
+						        			<button type="submit" class="btn btn-danger">Rimuovi</button>
+						        		</form>
+								</td>
+								<!-- /.Rimozione portata comanda -->
+								
+							</tr>
+							<% } %>
 						</tbody>
 						<!--  /.corpo table -->
 					</table>

@@ -115,5 +115,12 @@ public class MenùManager {
 	public void stampa(String x) {
 		System.out.println("tipo: " +x);
 	}
+	public PortataBean getPortataByNome(String nome) {
+		PortataBeanDAO pbd = new PortataBeanDAO();
+		
+		return pbd.getIdByNome(nome);
+	}
+	
+	
 	
 }
