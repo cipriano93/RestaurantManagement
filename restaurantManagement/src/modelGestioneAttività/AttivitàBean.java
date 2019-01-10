@@ -1,6 +1,8 @@
 package modelGestioneAttività;
 
-public class AttivitàBean {
+import java.io.Serializable;
+
+public class AttivitàBean implements Serializable {
 
 	public String getNome() {
 		return nome;
@@ -22,12 +24,22 @@ public class AttivitàBean {
 	}
 
 
-	public String getPIva() {
+	public int getNum_civ() {
+		return num_civ;
+	}
+
+
+	public void setNum_civ(int num_civ) {
+		this.num_civ = num_civ;
+	}
+
+
+	public String getPiva() {
 		return p_iva;
 	}
 
 
-	public void setPIva(String p_iva) {
+	public void setPiva(String p_iva) {
 		this.p_iva = p_iva;
 	}
 
@@ -61,5 +73,7 @@ public class AttivitàBean {
 	}
 
 
+	private static final long serialVersionUID = 1L;
+	private int num_civ;
 	private String nome, indirizzo, p_iva, provincia, città, tel;
 }
