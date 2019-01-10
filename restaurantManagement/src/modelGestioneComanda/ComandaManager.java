@@ -54,6 +54,7 @@ public class ComandaManager {
 	public void modificaPortataComandaQuantity(ComandaBean cb, int idPor, int quantità) {
 		for(PortataComandaBean pcb: cb.getPortateComanda()) {
 			if(idPor == pcb.getPb().getIdPortata()) {
+				pcb.setOldQuantità();
 				pcb.setQuantità(quantità);
 			}
 		}	

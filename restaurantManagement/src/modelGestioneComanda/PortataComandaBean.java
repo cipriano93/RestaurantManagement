@@ -5,6 +5,7 @@ import modelGestioneMenù.PortataBean;
 public class PortataComandaBean {
 	public PortataComandaBean() {
 		consegnato = false;
+		old_quantità = 0;
 	}
 	public PortataBean getPb() {
 		return pb;
@@ -13,10 +14,18 @@ public class PortataComandaBean {
 		this.pb = pb;
 	}
 	public int getQuantità() {
-		return quantità;
+		return new_quantità;
 	}
 	public void setQuantità(int quantità) {
-		this.quantità = quantità;
+		if (old_quantità == 0)
+			this.old_quantità = quantità;
+		this.new_quantità = quantità;
+	}
+	public void setOldQuantità() {
+		old_quantità = new_quantità;
+	}
+	public boolean diversaQuantità() {
+		return (old_quantità == new_quantità);
 	}
 	public String getNote() {
 		return note;
@@ -33,7 +42,7 @@ public class PortataComandaBean {
 	
 	//Variabili d'istanza
 	private PortataBean pb;
-	private int quantità;
+	private int old_quantità, new_quantità;
 	private String note;
 	private boolean consegnato;
 }
