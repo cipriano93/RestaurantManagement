@@ -5,6 +5,7 @@
 <%@include file = "header.jsp" %>
 <html>
 <head>
+
 <style>
 	.grid-container {
 	  display: grid;
