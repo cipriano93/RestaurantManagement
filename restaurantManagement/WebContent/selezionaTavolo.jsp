@@ -5,6 +5,7 @@
 <%@include file = "header.jsp" %>
 <html>
 <head>
+
 <style>
 	.grid-container {
 	  display: grid;
@@ -98,5 +99,6 @@
 	  --> 
 	</div>
 </form>
+<%@include file = "footer.jsp" %>
 </body>
 </html>

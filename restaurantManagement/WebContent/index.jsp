@@ -1,18 +1,17 @@
 <%@ include file="header.jsp" %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link href="https://fonts.googleapis.com/css?family=Judson" rel="stylesheet">
 <style>
 * {box-sizing: border-box}
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: 'Judson', serif; background: #F8F5F1;}
 
 .topnav {
  
-  background-color: #C8C9B5;
+  background-color: #A8A39D;
   overflow: hidden;
 }
 
 .topnav a {
-margin-top: 3px;
   float: left;
   display:block;
   padding: 9px;
@@ -24,7 +23,7 @@ margin-top: 3px;
 }
 
 .topnav a:hover {
-  background-color: #E5DDCB;
+  background-color: #E2DDD9;
 }
 
 .navbar a.active {
@@ -56,11 +55,11 @@ margin-top: 3px;
 }
   
 </style>
-
+<body>
 <div class="topnav" id="myTopnav">
-  <a href="#home">Home</a>
-  <a href="#news">Info ristorante</a>
-  <a href="#contact">Help</a>
+  <a href="visualizzaMenu.jsp">Consulta i menù</a>
+  <a href="prenotaTavolo.jsp">Prenota tavolo</a>
+  <a href="infoRistorante.jsp">Info ristorante</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -80,7 +79,7 @@ margin-top: 3px;
 	    <div class="carousel-inner">
 	
 	      <div class="item active">
-	        <img src="img_myCarousel/01m.jpg" alt="Sala" style="width:100%;">
+	        <img src="img_myCarousel/1m.jpg" alt="Sala" style="width:100%;">
 	        <div class="carousel-caption">
 	          <h3 class="white">La nostra sala</h3>
 	          <p></p>
@@ -120,7 +119,7 @@ margin-top: 3px;
 <br>
 
 <div>
-<h2 align="center" style= "font-family: avenir">Ultime Creazioni </h2>
+<h2 align="center">Ultime Creazioni </h2>
 </div>
 
 <div class="container"> 
@@ -128,33 +127,33 @@ margin-top: 3px;
 <br> 
 	  <div class="row">
 	  <div class="col-sm-4">
-	      <div class="panel" style="border-color:#C8C9B5">
-	        <div class="panel-heading" style="background-color:#C8C9B5"><font color="white">° Insalata di riso con tonno e verdure grigliate °</font></div>
+	      <div class="panel" style="border-color:#A8A39D">
+	        <div class="panel-heading" style="background-color:#A8A39D"><font color="white">° Insalata di riso con tonno e verdure grigliate °</font></div>
 	        <div class="panel-body" >
 	        <a><img src="img_myCarousel/04m.jpg" class="img-responsive" style="width:100%" ></a>
 	         </div>
-	          <div class="panel-footer"  style="background-color:#C8C9B5">
+	          <div class="panel-footer"  style="background-color:#A8A39D">
 	          </div>
 	          </div>
 	          </div>
 	          
 	           <div class="col-sm-4">
-	      <div class="panel" style="border-color:#C8C9B5">
-	        <div class="panel-heading" style="background-color:#C8C9B5"><font color="white">° Linguine calamaretti e salsa al pane di segale °</font></div>
+	      <div class="panel" style="border-color:#A8A39D">
+	        <div class="panel-heading" style="background-color:#A8A39D"><font color="white">° Linguine calamaretti e salsa al pane di segale °</font></div>
 	        <div class="panel-body">
 	        <a><img src="img_myCarousel/05m.jpg" class="img-responsive" style="width:100%" ></a>
 	         </div>
-	          <div class="panel-footer"  style="background-color:#C8C9B5">
+	          <div class="panel-footer"  style="background-color:#A8A39D">
 	          </div>
 	          </div>
 	          </div>
 	           <div class="col-sm-4">
-	      <div class="panel" style="border-color:#C8C9B5">
-	        <div class="panel-heading" style="background-color:#C8C9B5"><font color="white">° Merluzzo nero in salsa nera °</font></div>
+	      <div class="panel" style="border-color:#A8A39D">
+	        <div class="panel-heading" style="background-color:#A8A39D"><font color="white">° Merluzzo nero in salsa nera °</font></div>
 	        <div class="panel-body">
 	        <a><img src="img_myCarousel/06m.jpg" class="img-responsive" style="width:100%" ></a>
 	         </div>
-	          <div class="panel-footer" style="background-color:#C8C9B5">
+	          <div class="panel-footer" style="background-color:#A8A39D">
 	          </div>
 	          </div>
 	          </div>

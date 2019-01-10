@@ -24,21 +24,22 @@ public class ComandaBean {
 		ArrayList<PortataComandaBean> portate = new ArrayList<PortataComandaBean>();
 		for(PortataComandaBean pcb: portateCB) {
 			if(pcb.isConsegnato() == true)
-				portateCB.add(pcb);
+				portate.add(pcb);
 		}
 		return portate;
 	}
 	public ArrayList<PortataComandaBean> getPortateNonConsegnate() {
 		ArrayList<PortataComandaBean> portate = new ArrayList<PortataComandaBean>();
 		for(PortataComandaBean pcb: portateCB) {
-			if(pcb.isConsegnato() == false)
-				portateCB.add(pcb);
+				if(pcb.isConsegnato() == false)
+					portate.add(pcb);
 		}
+		
 		return portate;
 	}
 	public ArrayList<PortataComandaBean> getPortateComanda() {
 		return portateCB;
-	}
+	}	
 	//Variabili d'istanza
 	private TavoloBean tb;
 	private ArrayList<PortataComandaBean> portateCB = new ArrayList<PortataComandaBean>();
