@@ -37,7 +37,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-4 text-left">
-		   		<a href="index.jsp"><img src="img/logoSfondoBianco.jpg"  class="img-responsive" height="80" width="80" ></a>
+		   		<a href="index.jsp"><img src="img/logoSfondoBianco .jpg"  class="img-responsive" height="80" width="80" ></a>
 			</div>
 			<div class="col-sm-4 text-center">
 			<h2 style= "font-family: avenir"> Restaurant Management</h2>	   		 
