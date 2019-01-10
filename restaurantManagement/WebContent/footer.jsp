@@ -1,38 +1,47 @@
 <!-- Footer -->
-<footer class="page-footer font-small danger pt-4 mt-4">
+<link href="https://fonts.googleapis.com/css?family=Judson" rel="stylesheet">
+
+<style>
+.footer{
+    position: bottom;
+    width: 100%;
+}
+</style>
+
+<footer class="page-footer font-small  pt-4 mt-4" style="font-family: 'Judson', serif">
 
 <!--Footer Links-->
-<div class="container">
+<div class="container-fluid text-center text-md-left">
 	<div class="row">
 		<!--First column-->
-		<div class="col-sm-6">
+		<div class="col-md-6">
 			<h5 class="text-uppercase dark_brown">Chi siamo</h5>
 			<ul class="list-unstyled">
 				<li>
-					<a href="#!">Restaurant Management è</a>
+					<a class="white" href="#!">Restaurant Management è</a>
 	            </li>
 	            <li>
-					<a href="#!">Manifesto</a>
+					<a class="white" href="#!">Manifesto</a>
 				</li>
 				<li>
-					<a href="#!">Diventa fornitore</a>
+					<a class="white" href="#!">Diventa fornitore</a>
 				</li>
 			</ul>
 		</div>
 		<!--/.First column-->
 			            
 		<!--Second column-->
-		<div class="col-sm-6">
+		<div class="col-md-6">
 			<h5 class="text-uppercase dark_brown">Informazioni</h5>
 			<ul class="list-unstyled">
 				<li>
-					<a href="#!">FAQ</a>
+					<a class="white" href="#!">FAQ</a>
 				</li>
 				<li>
-					<a href="#!">Spedizione e consegna</a>
+					<a class="white" href="#!">Spedizione e consegna</a>
 				</li>
 				<li>
-					<a href="#!">Contatti</a>
+					<a class="white" href="#!">Contatti</a>
 				</li>
 			</ul>
 		</div>
@@ -44,7 +53,7 @@
 <!--Copyright-->
 <div class="footer-copyright py-3 text-center" class = "dark_brown">
 	<span class = "dark_brown">© 2018 Copyright:</span>
-	<a href="#!"> Restaurant Management </a>
+	<a class="white" href="#!"> Restaurant Management </a>
 </div>
 <!--/.Copyright-->
 	    

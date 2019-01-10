@@ -9,9 +9,8 @@
 	
 	<%
 		for (int i = 1; i<=15; i++) {
-			ArrayList<ComandaBean> cbs = (ArrayList<ComandaBean>) application.getAttribute("comanda" + i);
-			if (cbs != null && (cbs.size())>=0) {
-				ComandaBean cb = cbs.get(i-1);
+			ComandaBean cb = (ComandaBean) application.getAttribute("comanda" + i);
+			if (cb != null && cb.getPortateNonConsegnate().size() > 0) {
 				int size = cb.getSizeAllPortate();
 				ArrayList<PortataComandaBean> pcbs = cb.getPortateComanda();
 				if ((i%4) == 1) {
@@ -57,41 +56,6 @@
 		}
 	%>
 </div>
-
-	<!--  <div  style= "font-family: satisfy" class="row">
-
-		<div class="col-sm-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class= "dark_brown my_font">Tavolo: 7</h4>
-				</div>	    
-				
-				<div class="panel-body"> -->
-				<!-- Prima riga uguale per tutti-->
-					<div class="row dark_brown ">
-						<div class="col-sm-8"><strong>Portata</strong></div>
-						<div class="col-sm-4"><strong>Quantità</strong></div>
-					</div>
-					<!--/.Prima riga uguale per tutti-->
-					
-					<!--  <div class="row light_brown red">
-						<div class="col-sm-8">scialatelli frutti di mare</div>
-						<div class="col-sm-4 text-center">45</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-8">scialatelli frutti di mare</div>
-						<div class="col-sm-4 text-center"style ="color:#4682B4">45</div>
-					</div>
-				
-					<div class="row ">
-						<div class="col-sm-8">scialatelli frutti di mare</div>
-						<div class="col-sm-4 text-center">45</div>
-					</div>		
-				</div>	
-				</div>		
-		</div>	
-	</div> -->
 </div>
 
 <%@ include file="footer.jsp" %>

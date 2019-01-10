@@ -1,18 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
 <html>
+
 <head>
-  <title>Restaurant Management</title>
+  <title>Ristorante Incontro</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">  <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Judson" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-  
+</head>
 
 <style>
 .button {
@@ -26,24 +27,31 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 16px;
+  font-family:judson, serif
 }
 
 .button:hover {
   background-color: #f1f1f1;
 }
+h2{
+color: #412E28;
+font-family: 'Satisfy';
+font-size: 40px;
+}
+
 </style>
 
-
-</head>
 <body>
 <!-- Affix -->
+
+
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-4 text-left">
-		   		<a href="index.jsp"><img src="img/logoSfondoBianco.jpg"  class="img-responsive" height="80" width="80" ></a>
+			<div class="col-sm-4 text_left">
+		   		<a href="index.jsp"><img src="img/logoM.png"  class="img-responsive" height="80" width="80" ></a>
 			</div>
 			<div class="col-sm-4 text-center">
-			<h2 style= "font-family: avenir"> Restaurant Management</h2>	   		 
+			<h2> Ristorante Incontro</h2>	   		 
 	   		 </div>
 	   		 <div class="col-sm-4 text-right">
 	   		 <br>
