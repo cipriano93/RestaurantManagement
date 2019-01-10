@@ -74,8 +74,15 @@
 <!-- ./Breadcrumb -->
 
 	<div class="container">
-	  <h3>Gestione comanda</h3>
-	  <hr/>
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Gestione comanda</h3>
+			</div>
+			<div class="col-sm-6 text-right">
+				<a href="cucina.jsp"><button class="button"><i class="glyphicon glyphicon-list-alt"></i> Cucina</button></a>
+			</div>
+		</div>
+			<hr/>
 	</div>
 	
 	
