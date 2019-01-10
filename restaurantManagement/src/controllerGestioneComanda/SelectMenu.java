@@ -36,11 +36,23 @@ public class SelectMenu extends HttpServlet {
 		MenùManager mm = new MenùManager();
 		
 		int id = mm.getIdMenuByNome(menu);
-		ArrayList<PortataBean> portateByTipo = mm.getPortateByMenuTipo(id, tipo);
-		PortataBean pb = new PortataBean();
-		for(int i = 0; i < portateByTipo.size(); i++) {
-			pb = portateByTipo.get(i);
-			result += "<option value=" + quote + pb.getNome()+ quote +">" + pb.getNome()+ "</option>";
+		
+		if(tipo != null) {
+			ArrayList<PortataBean> portateByTipo = mm.getPortateByMenuTipo(id, tipo);
+			PortataBean pb = new PortataBean();
+			for(int i = 0; i < portateByTipo.size(); i++) {
+				pb = portateByTipo.get(i);
+				result += "<option value=" + quote + pb.getNome()+ quote +">" + pb.getNome()+ "</option>";
+			}
+		} else {
+			ArrayList<PortataBean> portateByMenù = mm.getPortate(id);
+			PortataBean pb = new PortataBean();
+			result ="<thead> <tr> <th>Portata</th> <th>Prezzo</th></tr></thead> <tbody>";
+			for(int i = 0; i < portateByMenù.size(); i++) {
+				pb = portateByMenù.get(i);		
+				result += "<tr> <td>"+pb.getNome() + "</td>"+ "<td>"+pb.getPrezzo() + "</td> </tr>"; 
+			}
+			result +="</tbody>";	
 		}
 		out.println(result);
 	}

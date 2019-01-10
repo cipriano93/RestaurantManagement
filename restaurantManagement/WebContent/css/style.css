@@ -87,6 +87,12 @@ a#headingAnchor_new {
 #number {
   width: 3em;
 }
+.my_font{
+	font-family: avenir;
+}
 
 .blue {
-  color: yellow;
+  color: #4682B4;
+
+  
+  

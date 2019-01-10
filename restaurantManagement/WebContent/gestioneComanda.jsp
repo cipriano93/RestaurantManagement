@@ -248,8 +248,6 @@
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<thead>
-						
-						
 							<tr>
 								<th class="dark_brown text-center">Nome portata</th>
 								<th class="dark_brown text-center">Quantita'</th>
@@ -335,7 +333,7 @@
 			</div>
 		<!-- Bottone invia comanda -->
 		<div class="col-md-4">
-			<form  name="form" action="" method="POST" onsubmit="">
+			<form  name="form" action="cucina.jsp" method="POST" onsubmit="">
 				<div class=" text-center"> 
 		    			<button id="invia_comanda" class="btn btn-success">Invia comanda</button> 
 				</div>
