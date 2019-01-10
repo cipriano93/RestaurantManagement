@@ -16,10 +16,11 @@
 	
  	function validateForm(){
    		var name = document.form.name;
-   		var address = document.form.address; 
+   		var address = document.form.address;
+   		var num_civ = document.form.num_civ;
    		var p_iva = document.form.iva;
    		var tel = document.form.tel;
-   		if(validationName(name) && validationAddress(address) && validationPartitaIVA(p_iva) && validationTel(tel)){
+   		if(validationName(name) && validationPartitaIVA(p_iva) && validationAddress(address) && validationNumCivico(num_civ) && validationTel(tel)){
      		return true;
    		} else {
      		return false;
@@ -31,19 +32,30 @@
    		if(name.value.match(nameformat)){
      		return true;
    		} else {
-     		verify("Inserire correttamente il nome");
+     		verifica("Inserire correttamente il nome");
 			name.focus();
 			return false;
 		}
  	}
  	
  	function validationAddress(address) {
- 		var addressformat = /^[a-zA-Z ]+,[0-9]{2}$/;
+ 		var addressformat = /^[a-zA-Z ]+$/;
    		if(address.value.match(addressformat)){
      		return true;
    		} else {
-    		verify("Inserire correttamente l'indirizzo");
+    		verifica("Inserire correttamente l'indirizzo");
      		address.focus();
+     		return false;
+		}
+ 	}
+ 	
+ 	function validationNumCivico(num_civ) {
+ 		var num_civ_format = /^[0-9]+$/;
+   		if(num_civ.value.match(num_civ_format)) {
+     		return true;
+   		} else {
+    		verifica("Inserire correttamente il numero civico");
+     		num_civ.focus();
      		return false;
 		}
  	}
@@ -53,7 +65,7 @@
    		if(p_iva.value.match(p_iva_format)) {
      		return true;
    		} else {
-    		verify("Inserire correttamente la partita iva");
+    		verifica("Inserire correttamente la partita iva");
      		iva.focus();
      		return false;
 		}
@@ -64,7 +76,7 @@
    		if(tel.value.match(telformat)) {
      		return true;
    		} else {
-    		verify("Inserire correttamente il telefono");
+    		verifica("Inserire correttamente il telefono");
      		tel.focus();
      		return false;
 		}
@@ -104,28 +116,40 @@ button {
 	<h3 class="dark_brown">Modifica dati attività</h3>
 	<hr />
 </div>
+
+<%
+	Boolean message = (Boolean) request.getAttribute("message");
+	if (message != null) {
+		if (!message) {
+%>
+			<div class="container">
+				<div class="alert alert-danger"><strong>Attenzione!</strong> Impossibile modificare i dati dell'attività</div>
+			</div>
+	 <% } else { %>
+			<div class="container">
+				<div class="alert alert-success"><strong>Successo!</strong> I dati dell'attività sono stati modificati</div>
+			</div>	 
+<%
+		}
+	}	
+%>
 	
 <!-- Modifica dati attività form -->
 <div class="container">
+<form name="form" action="ModificaDatiAttivita" onsubmit="return validateForm()" method="POST">
 <div class="row" >
-	<form name="form" action="" onsubmit="return validateForm()" method="POST">
 		<div class="column" >
 			<label class="dark_brown" for="name">Nome:</label>
 		    <input type="text" class="form-control light_brown" id="name" placeholder="Inserisci il nome" name="name">
-		      <span class="red" id="ver"></span>
 	    </div>
 	  
 	   	<div class="column">
 	   		<label class="dark_brown" for="address">P.IVA:</label>
-	      	<input type="text" class="form-control light_brown" id="address" placeholder="Inserisci la P:IVA" name="address">
-	      	<span class="red" id="ver"></span>
+	      	<input type="text" class="form-control light_brown" id="iva" placeholder="Inserisci la P. IVA" name="iva">
+	   	</div>
+	    
 	   	</div>
 	   	
-	   	</form> 
-	   	</div>
-	   	</div>
-	   	
-	   	<div class="container">
 	   	<div class="row">
 	   	<div class="column" >
 	   		<label for="address">Provincia:</label>
@@ -244,7 +268,7 @@ button {
 </select>
 	   	</div>
 	   
-	   	<div class="column">
+	   <div class="column">
 	   		<label for="citta">Citta':</label>
 	   		<select class="form-control" id="citta" name="citta">
 	   		<option></option>
@@ -367,47 +391,42 @@ button {
 	   		<option>Volturara Irpina</option>
 	   		<option>Zungoli</option>
 	   		</select>
+	   		
+	   		</div>
 	      	
 	   	</div>
-	   	</div>
-	   	</div>
 	   	
-	   	
-	   	<div class="container">
 	   	<div class="row">
-	   	<form name="form" action="" onsubmit="return validateForm()" method="POST">
-	   	<div class="column" >
+	   	<div class="column">
 	   		<label class="dark_brown" for="address">Indirizzo:</label>
 	      	<input type="text" class="form-control light_brown" id="address" placeholder="Inserisci l'indirizzo" name="address">
-	      	<span class="red" id="ver"></span>
 	   	</div>
 	   
-	   	<!-- Provincia e città? -->
 	   	<div class="column">
-	   		<label class="dark_brown" for="tel">N.Civico</label>
-	      	<input type="tel" class="form-control light_brown" id="tel" placeholder="Inserisci il numero civico" name="tel">
-	      	<span class="red" id="ver"></span>
+	   		<label class="dark_brown" for="num_civ">N.Civico</label>
+	      	<input type="tel" class="form-control light_brown" id="num_civ" placeholder="Inserisci il numero civico" name="num_civ">
 	   	</div>
 	   	
 	   		<div class="column">
 	   		<label class="dark_brown" for="tel">Telefono:</label>
 	      	<input type="tel" class="form-control light_brown" id="tel" placeholder="Inserisci il numero di telefono" name="tel">
-	      	<span class="red" id="ver"></span>
 	   	</div>
 	   	
-	   	</form>
 	   	</div>
-	  	</div>
+	   	
+	   	<p class="red" id="ver"></p>
 	 	
-	 	<div class="container">
 	   	<div class="row">
 	   	<div class="column" >
-		<button type="submit" class="btn btn-success">Conferma</button>
-		<button type="submit" class="btn btn-danger">Annulla</button>
+		<input type="submit" class="btn btn-success" value="Conferma">
+		<a href="areaPersonaleGestore.jsp" class="btn btn-default">Annulla</a>
 	
 		</div>
+		
 		</div>
+		</form>
 		</div>
+	
 <br>
 <br>
 <!-- ./Modifica dati attività form -->
