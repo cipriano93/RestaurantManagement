@@ -73,6 +73,4 @@ public class ComandaManager {
 		System.out.println("tavolo: "+ tavo);
 		
 	}
-	
-	
 }
