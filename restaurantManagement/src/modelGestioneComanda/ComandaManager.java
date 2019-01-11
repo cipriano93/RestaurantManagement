@@ -66,6 +66,14 @@ public class ComandaManager {
 			}
 		}	
 	}
+	
+	
+	public boolean inviaComanda(CucinaBean c, ComandaBean cb) {
+		c.contains(cb);
+		return (c.addComanda(cb));
+	}
+	
+	
 	public void stampa(String nomePo, String quantità, String note, String tavo) {
 		System.out.println("portata: "+ nomePo);
 		System.out.println("quantità: "+ quantità);

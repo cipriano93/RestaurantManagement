@@ -86,9 +86,18 @@
 			<hr/>
 	</div>
 	
+	<%
+		Boolean message = (Boolean) request.getAttribute("message_cucina");
+		if (message != null) {
+	%>
+			<div class="alert alert-danger">
+				<strong>Errore!</strong> Impossibile inviare la comanda in cucina.
+			</div>
 	
-	
-	<% if(tb != null) { %>
+	<%
+		}
+		if(tb != null) {
+	%>
 	<!-- Numero tavolo -->
 	<div class="container" >
 	  <h4 class= "dark_brown"> Numero tavolo: <span class= "light_brown"><%= tb.getNumeroTavolo() %></span></h4>
@@ -184,7 +193,7 @@
 				</div>
 				<!-- /.Bottone inserimento portata nella comanda -->
 				<%
-					Boolean message = (Boolean) request.getAttribute("message_inserimento");
+					message = (Boolean) request.getAttribute("message_inserimento");
 					if (message != null) {
 				%>
 					<div class="col-sm-2"></div>
@@ -341,7 +350,7 @@
 			</div>
 		<!-- Bottone invia comanda -->
 		<div class="col-md-4">
-			<form  name="form" action="cucina.jsp" method="POST" onsubmit="">
+			<form  name="form" action="InviaComanda" method="POST">
 				<div class=" text-center"> 
 		    			<button id="invia_comanda" class="btn btn-success">Invia comanda</button> 
 				</div>
