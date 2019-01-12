@@ -11,7 +11,17 @@
 	
 <!-- Personal status -->
 <div class="container">
-			 <% if(request.getAttribute("prenotazioneInserita") != null) { %>
+			 <%
+			 	Boolean message = (Boolean) request.getAttribute("message");
+			 	if (message != null) {
+			 %>
+					<div class="alert alert-success">
+						<strong>Successo!</strong> Dati modificati.
+					</div>	
+			 <%
+			 	}
+			 	if(request.getAttribute("prenotazioneInserita") != null) {
+			 %>
 					<div class="alert alert-success">
 						<strong>Successo!</strong> Prenotazione effettuata.
 					</div>	

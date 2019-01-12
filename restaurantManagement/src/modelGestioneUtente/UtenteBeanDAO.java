@@ -136,16 +136,19 @@ public class UtenteBeanDAO {
 			ps.setString(4, ub.getTipo());
 			ps.setString(5, ub.getUsername());
 			
+			ps.executeUpdate();
 			
-			int i = ps.executeUpdate();
-			
-			if(i != 0)
-				return true;
-		}catch(SQLException e) {
-			e.printStackTrace();
+			return true;
+		} catch(SQLException e) {
+			return false;
+		} finally {
+			try {
+				ps.close();
+				DriverManagerConnectionPool.releaseConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		return false;
 	}
 		
 	public synchronized boolean doDelete(String username) {

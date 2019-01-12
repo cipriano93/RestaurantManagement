@@ -1,3 +1,5 @@
+<%@ page import="modelGestioneUtente.UtenteBean" %>
+
 <%@ include file="header.jsp" %>	
 	 <!-- Validation -->
 	 <script>
@@ -76,18 +78,28 @@
 	
 	<!-- Modifica dati personali form -->
 	<div class="container">
+	
+		<%
+			Boolean message = (Boolean) request.getAttribute("message");
+			if (message != null) {
+		%>
+				<div class="alert alert-danger">
+					<strong>Errore!</strong> Impossibile modificare i dati.
+				</div>
+		 <% } %>
+	
 		<div class="row">
 		<div class="col-md-12">		
 			<h3 class = "dark_brown">Modifica i tuoi dati</h3>
 			<hr/>
 			<br>
-		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
+		<form  name="form" action="ModificaDatiPersonali" method="POST" onsubmit="return validateForm()">
 				<!-- Username -->
 				<div class="row">
 			    		<label class="col-sm-2 control-label dark_brown">Username</label>
 			    		<div class="col-sm-3">
-			    			<input class="form-control light_brown" type="text" value="Andrea" disabled>
-			    			<input class="light_brown" type="hidden" name="username" value=""> 
+			    			<input class="form-control light_brown" type="text" value="<%= ((UtenteBean) session.getAttribute("utenteBean")).getUsername() %>" disabled>
+			    			<input type="hidden" value="<%= ((UtenteBean) session.getAttribute("utenteBean")).getUsername() %>" name="username">
 			   	 	</div>
 			    		<div class="col-sm-7"></div>
 			  	</div>
@@ -97,11 +109,11 @@
 				<div class="row">
 			    		<label class="col-sm-2 control-label dark_brown">Nuova password</label>
 			    		<div class="col-sm-3">
-			      		<input type="password" class="form-control light_brown" name="password" value="">
+			      		<input type="password" class="form-control light_brown" name="pwd">
 			    		</div>
 			  	  	<label class="col-sm-2 control-label dark_brown">Conferma la password</label>
 			  	  	<div class="col-sm-3">
-			      		<input type="password" class="form-control light_brown" name="confirmPassword" value="">
+			      		<input type="password" class="form-control light_brown" name="pwd_confirm">
 			   	 	</div>
 			    		<div class="col-sm-2"></div>
 			  	</div>
@@ -111,11 +123,11 @@
 				<div class="row">
 			   	 	<label class="col-sm-2 control-label dark_brown">Nome</label>
 			   	 	<div class="col-sm-3">
-			      		<input type="text" class="form-control light_brown" name="name" value="">
+			      		<input type="text" class="form-control light_brown" name="name">
 			    		</div>
 			    		<label class="col-sm-2 control-label dark_brown">Cognome</label>
 			   	 	<div class="col-sm-3">
-			      		<input type="text" class="form-control light_brown" name="surname" value="">
+			      		<input type="text" class="form-control light_brown" name="surname">
 			    		</div>
 			    		<div class="col-sm-2"></div>
 			  	</div>

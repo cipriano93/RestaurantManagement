@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import modelGestioneUtente.UtenteBean;
 import modelGestioneUtente.UtenteManager;
 
 /**
@@ -29,21 +31,25 @@ public class ModificaDatiPersonali extends HttpServlet {
 		String confirmPassword = request.getParameter("pwd_confirm");
 		
 		//prima della creazione controllo sulla chiave
-		String regexName = "^[A-Za-z\\s]{3,}$";
+		/*String regexName = "^[A-Za-z\\s]{3,}$";
 		String regexSurname ="^[A-Za-z\\s]{3,}$";
-		String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";
+		String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";*/
 		
 		//questo è un controllo più accurato, se l'email non rispetta il pattern, esce direttamente
-		if(password.equals(confirmPassword) && password.matches(regexPassword) && name.matches(regexName) && surname.matches(regexSurname)) {
+		if(password.equals(confirmPassword)/* && password.matches(regexPassword) && name.matches(regexName) && surname.matches(regexSurname)*/) {
 			//Creazione utente manager
 			UtenteManager um = new UtenteManager();
 		
 			boolean result = um.modificaDatiPersonali(username, password, name, surname, "cliente");
 			
-			if(result)
-				response.sendRedirect("areaPersonaleCliente.jsp");
-			else {
-				request.setAttribute("errMessage", result);
+			if(result) {
+				HttpSession session = request.getSession();
+				session.setAttribute("utenteBean", um.login(username, password));
+				
+				request.setAttribute("message", true);
+				request.getRequestDispatcher("areaPersonaleCliente.jsp").forward(request, response);
+			} else {
+				request.setAttribute("message", true);
 				request.getRequestDispatcher("modificaDatiPersonali.jsp").forward(request, response);	
 			}
 		} else
