@@ -58,7 +58,7 @@ body {font-family: 'Judson', serif; background: #F8F5F1;}
 <body>
 <div class="topnav" id="myTopnav">
   <a href="visualizzaMenu.jsp">Consulta i menù</a>
-  <a href="VisualizzaPrenotazioni">Prenota tavolo</a>
+  <a href="prenotaTavolo.jsp">Prenota tavolo</a>
   <a href="infoRistorante.jsp">Info ristorante</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
