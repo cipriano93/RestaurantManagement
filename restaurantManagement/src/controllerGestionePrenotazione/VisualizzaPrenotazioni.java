@@ -31,8 +31,8 @@ public class VisualizzaPrenotazioni extends HttpServlet {
 		
 		session.setAttribute("prenotazioni", pm.visualizzaPrenotazioni(((UtenteBean) session.getAttribute("utenteBean")).getUsername()));
 		
-		String message_success = (String) request.getAttribute("message_danger");
-		String message_danger = (String) request.getAttribute("message_success");
+		Boolean message_danger = (Boolean) request.getAttribute("message_danger");
+		Boolean message_success = (Boolean) request.getAttribute("message_success");
 		if (message_danger != null)
 			request.setAttribute("message_danger", true);
 		if (message_success != null)

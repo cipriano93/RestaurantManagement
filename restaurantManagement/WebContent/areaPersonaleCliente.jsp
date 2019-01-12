@@ -1,3 +1,4 @@
+<%@ page import="modelGestioneUtente.UtenteBean" %>
 <%@ include file="header.jsp" %>
 
 <!-- Jumbotron -->
@@ -10,17 +11,17 @@
 	
 <!-- Personal status -->
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			 <% if(request.getAttribute("prenotazioneInserita")!=null) {%>
-					<p class="green">Prenotazione inserita con successo</p>
-				<%} %>
-			<h1 class ="dark_brown">Bentornato <strong><span class ="light_brown">Gianmarco</span></strong></h1>
-			<a href="modificaDatiPersonali.jsp">Modifica dati personali</a>
-			<br>
-			<a href="visualizzaPrenotazioni.jsp">Visualizza prenotazioni</a>
-		</div>
-	</div>
+			 <% if(request.getAttribute("prenotazioneInserita") != null) { %>
+					<div class="alert alert-success">
+						<strong>Successo!</strong> Prenotazione effettuata.
+					</div>	
+			 <% } %>
+	<h1 class ="dark_brown">Bentornato 
+		<strong><span class ="light_brown"><%= ((UtenteBean) session.getAttribute("utenteBean")).getNome() %></span></strong>
+	</h1>
+	<a href="modificaDatiPersonali.jsp">Modifica dati personali</a>
+	<br>
+	<a href="VisualizzaPrenotazioni">Visualizza prenotazioni</a>
 </div>
 <br>
 <br>

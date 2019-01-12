@@ -29,7 +29,7 @@
 	    </div>
 	    <div class="form-group">
 	    	<label for="num_people">Numero persone:</label>
-	      	<input type="number" class="form-control" id="num_people" name="num_people" min="1" max="20">
+	      	<input type="number" class="form-control" id="num_people" name="num_people" min="1" max="20" value="1">
 	    </div>
 	    <div class="form-group">
 	    	<label for="tel">Numero di cellulare:</label>
