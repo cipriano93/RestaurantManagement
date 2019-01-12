@@ -7,34 +7,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelGestionePrenotazione.PrenotazioneManager;
+
+
 /**
  * Servlet implementation class RimozionePrenotazione
  */
+
 @WebServlet("/RimozionePrenotazione")
 public class RimozionePrenotazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RimozionePrenotazione() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String id = request.getParameter("idprenotazione");
+		
+		PrenotazioneManager pm = new PrenotazioneManager();
+		if (!(pm.rimozionePrenotazione(Integer.parseInt(id))))
+			request.setAttribute("message_danger", true);
+		else
+			request.setAttribute("message_success", true);
+		request.getRequestDispatcher("VisualizzaPrenotazioni").forward(request, response);
 	}
 
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

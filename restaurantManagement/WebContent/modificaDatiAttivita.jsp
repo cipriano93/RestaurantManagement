@@ -123,11 +123,15 @@ button {
 		if (!message) {
 %>
 			<div class="container">
-				<div class="alert alert-danger"><strong>Attenzione!</strong> Impossibile modificare i dati dell'attività</div>
+				<div class="alert alert-danger">
+					<strong>Attenzione!</strong> Impossibile modificare i dati dell'attività.
+				</div>
 			</div>
 	 <% } else { %>
 			<div class="container">
-				<div class="alert alert-success"><strong>Successo!</strong> I dati dell'attività sono stati modificati</div>
+				<div class="alert alert-success">
+					<strong>Successo!</strong> I dati dell'attività sono stati modificati.
+				</div>
 			</div>	 
 <%
 		}

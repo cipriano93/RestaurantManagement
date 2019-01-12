@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
 				UtenteBean ub = um.login(userB.getUsername(), userB.getPassword());
 		
 				if(ub == null) {
-					request.setAttribute("denied", Boolean.valueOf(true));
+					request.setAttribute("message_danger", true);
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
 					requestDispatcher.forward(request, response);
 				} else {
@@ -82,14 +82,14 @@ public class Login extends HttpServlet {
 		
 		/* Request */
 		if( (usr == null) || (pswd == null) ) {
-			String regexUsername = "^[0-9a-zA-Z]+$";
-			String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";
+			/*String regexUsername = "^[0-9a-zA-Z]+$";
+			String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";*/
 			
 			String temp = request.getParameter("usr");		
-			if(temp != null && temp.matches(regexUsername)) {
+			if(temp != null/*&& temp.matches(regexUsername)*/) {
 				usr = temp;
 				temp = request.getParameter("pswd");
-				if(temp != null && temp.matches(regexPassword)) {
+				if(temp != null/*&& temp.matches(regexPassword)*/) {
 					pswd = temp;
 				}
 			}

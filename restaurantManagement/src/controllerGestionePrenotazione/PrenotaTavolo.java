@@ -8,7 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import modelGestionePrenotazione.PrenotazioneManager;
+import modelGestioneUtente.UtenteBean;
 
 /**
  * Servlet implementation class PrenotaTavolo
@@ -23,7 +26,6 @@ private static final long serialVersionUID = 1L;
 	 */
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");	
 		String date = request.getParameter("date");
 		String hour = request.getParameter("hour");
 		String tel = request.getParameter("tel");
@@ -50,7 +52,9 @@ private static final long serialVersionUID = 1L;
 		
 		data.set(Integer.parseInt(anno), Integer.parseInt(mese)-1, Integer.parseInt(giorno), Integer.parseInt(ore) ,Integer.parseInt(minuti));
 
-		boolean result = pm.prenotaTavolo(username, data, nPersone, tel, note);
+		HttpSession session = request.getSession();
+		
+		boolean result = pm.prenotaTavolo(((UtenteBean) session.getAttribute("utenteBean")).getUsername(), data, nPersone, tel, note);
 		if(result) {
 			request.setAttribute("prenotazioneInserita", result);
 			request.getRequestDispatcher("areaPersonaleCliente.jsp").forward(request, response);

@@ -23,7 +23,7 @@ public class PrenotazioneBeanDAO {
 		
 			ps.setLong(1, pb.getIdPrenotazione());
 			ps.setString(2, username);
-			ps.setObject(3, new Timestamp(new GregorianCalendar().getTimeInMillis()));
+			ps.setObject(3, new Timestamp(pb.getData().getTimeInMillis()));
 			ps.setInt(4, pb.getNumPersone());
 			ps.setString(5, pb.getTelefono());
 			ps.setString(6, pb.getDescrizione());
@@ -32,7 +32,7 @@ public class PrenotazioneBeanDAO {
 			return true;
 			
 		} catch (SQLException e) {
-			return false;
+			e.printStackTrace();
 		} finally {
 			try {
 				DriverManagerConnectionPool.releaseConnection(con);
@@ -41,6 +41,7 @@ public class PrenotazioneBeanDAO {
 				e.printStackTrace();
 			}
 		}
+		return false;
 	}
 	
 	public synchronized boolean doDelete(int id) {
@@ -73,11 +74,15 @@ public class PrenotazioneBeanDAO {
 		try {
 			con = DriverManagerConnectionPool.getConnection();
 			ps = con.prepareStatement("SELECT * FROM prenotazione WHERE username=?");
+			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				PrenotazioneBean pb = new PrenotazioneBean();
 				pb.setIdPrenotazione(rs.getInt("idprenotazione"));
-				pb.setData((GregorianCalendar) rs.getObject("data"));
+				Timestamp ts = (Timestamp) rs.getObject("data");
+				GregorianCalendar gc = new GregorianCalendar();
+				gc.setTime(ts);
+				pb.setData(gc);
 				pb.setNumPersone(rs.getInt("num_persone"));
 				pbs.add(pb);
 			}
@@ -122,6 +127,3 @@ public class PrenotazioneBeanDAO {
 		return pbs;
 	}
 }
-
-
-//http://localhost:8080/restaurantManagement/PrenotaTavolo?username=andrea&date=2019-01-09&hour=04%3A44&num_people=5&tel=555

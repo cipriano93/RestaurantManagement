@@ -51,13 +51,20 @@
 <!-- Login form -->
 <div class="container">
 	<%
-		String message = (String) request.getAttribute("message");
+		Boolean message = (Boolean) request.getAttribute("message_danger");
+		if (message != null) {
+	%>
+			<div class="alert alert-danger">
+  				<strong>Errore!</strong> Username e/o password errati.
+			</div>
+	<%	}
+		message = (Boolean) request.getAttribute("message_registrazione");
 		if (message != null) {
 	%>
 			<div class="alert alert-success">
-  				<strong>Registrazione effettuata!</strong> <%= message %>.
+  				<strong>Successo!</strong> Registrazione effettuata. Ora puoi loggarti con le credenziali inserite in fase di registrazione.
 			</div>
-	<% 	}	%>
+	 <% } %>
 	   		<form name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
 	    			<div class="form-group">
 	      			<label class ="dark_brown" for="usr">Username:</label>

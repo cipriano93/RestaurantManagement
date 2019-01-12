@@ -18,8 +18,7 @@
 
 <!-- Prenotazione tavolo -->
 <div class="container">
-	<form action="PrenotaTavolo">
-		<input class="light_brown" type="hidden" name="username" value="andrea"> 
+	<form action="PrenotaTavolo" method="post">
 		<div class="form-group">
 			<label for="date">Seleziona data:</label>
 		    <input type="date" class="form-control" id="date" name="date">

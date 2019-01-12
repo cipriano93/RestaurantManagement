@@ -1,3 +1,4 @@
+<%@ page import="java.util.ArrayList, java.util.GregorianCalendar, modelGestionePrenotazione.PrenotazioneBean" %>
 <%@ include file ="header.jsp" %>
 
 <!DOCTYPE html>
@@ -47,71 +48,80 @@
 		<!-- Breadcrumb -->
 	
 		<div class="container">
-			<h3 class="dark_brown" style="font-family: satisfy">Accedi all'area personale</h3>
+			<h3 class="dark_brown" style="font-family: satisfy">Prenotazioni</h3>
 			<hr>
 			
-			<div class="row">
+			<%
+				Boolean message = (Boolean) request.getAttribute("message_danger");
+				if (message != null) {
+			%>
+					<div class="alert alert-danger">
+						<strong>Errore!</strong> Impossibile rimuovere la prenotazione.
+					</div>
+			<%
+				}
+				message = (Boolean) request.getAttribute("message_success");
+				if (message != null) {
+			%>
+					<div class="alert alert-success">
+						<strong>Successo!</strong> Prenotazione rimossa.
+					</div>
+			<%
+				}
+				ArrayList<PrenotazioneBean> pbs = (ArrayList<PrenotazioneBean>) session.getAttribute("prenotazioni");
+				if (pbs == null || (pbs.size()) == 0) {
+			%>
+					<div class="alert alert-info">
+						<strong>Info!</strong> Nessuna prenotazione effettuata finora.
+					</div>
+			 <% } else { %>
 			
-				<div class="col-sm-3"></div>
-				
-				<div class="col-sm-6">
-	
-					<!-- Tabella prenotazioni -->
-					<table id="prenotazioni" class="text-center">
-						<tr>
-					    	<th style="text-align: center">Data</th>
-					    	<th style="text-align: center">Ora</th>
-					    	<th style="text-align: center">N.coperti</th>
-					    	<th style="text-align: center">Rimozione</th>
-					  	</tr>
-					  	<tr>
-					    	<td>11/04/2019</td>
-					    	<td>13:00</td>
-					    	<td>4</td>
-					    	<td>
-					    		<button id="btn" type="button" class="btn btn-danger">Cancella</button>
-					    	</td>
-					  	</tr>
-					  	<tr>
-					    	<td>11/04/2019</td>
-					    	<td>13:00</td>
-					    	<td>6</td>
-					    	<td>
-					    		<button id="btn" type="button" class="btn btn-danger">Cancella</button>
-							</td>
-					  	</tr>
-					  	<tr>
-					    	<td>11/04/2019</td>
-					    	<td>13:00</td>
-					    	<td>5</td>
-					    	<td>
-					    		<button id="btn" type="button" class="btn btn-danger">Cancella</button>
-					    	</td>
-					  	</tr>
-					  	<tr>
-					    	<td>11/04/2019</td>
-					    	<td>13:00</td>
-					    	<td>10</td>
-					    	<td>
-					    		<button id="btn" type="button" class="btn btn-danger">Cancella</button>
-					    	</td>
-					  	</tr>
-					  	<tr>
-					    	<td>11/04/2019</td>
-					    	<td>13:00</td>
-					    	<td>7</td>
-					    	<td>
-					    		<button id="btn" type="button" class="btn btn-danger">Cancella</button>
-					    	</td>
-					  	</tr>
-					 </table>
-					<!-- ./Tabella prenotazioni -->
+					<div class="row">
+					
+						<div class="col-sm-3"></div>
+						
+						<div class="col-sm-6">
 			
-				</div>
-				
-				<div class="col-sm-3"></div>
+							<!-- Tabella prenotazioni -->
+							<table id="prenotazioni" class="text-center">
+								<tr>
+							    	<th style="text-align: center">Data</th>
+							    	<th style="text-align: center">Ora</th>
+							    	<th style="text-align: center">N.coperti</th>
+							    	<th style="text-align: center">Rimozione</th>
+							  	</tr>
+							  	<%
+							  		int size = pbs.size();
+							  		for (int i = 0; i < size; i++) {
+							  			PrenotazioneBean pb = pbs.get(i);
+							  			GregorianCalendar gc = pb.getData();
+							  	%>
+							  			<tr>
+							  				<%
+							  					int month = gc.get(gc.MONTH) + 1;
+							  					if (month >= 1 && month <= 9) {
+							  				%>
+							  						<td><%= gc.get(gc.DAY_OF_MONTH) + "/0" + (gc.get(gc.MONTH) + 1) + "/" + gc.get(gc.YEAR) %></td>
+							  				 <% } else { %>
+							  				 		<td><%= gc.get(gc.DAY_OF_MONTH) + "/" + (gc.get(gc.MONTH) + 1) + "/" + gc.get(gc.YEAR) %></td>
+							  				 <% } %>
+							  				<td><%= gc.get(gc.HOUR_OF_DAY) + ":" + gc.get(gc.MINUTE) %></td>
+							  				<td><%= pb.getNumPersone() %></td>
+							  				<td>
+							    				<a href=<%= "RimozionePrenotazione?idprenotazione=" + pb.getIdPrenotazione() %> class="btn btn-danger">Rimuovi</a>
+							    			</td>
+							  			</tr>
+							  	 <% } %>
+							 </table>
+							<!-- ./Tabella prenotazioni -->
+					
+						</div>
+						
+						<div class="col-sm-3"></div>
+					
+					</div>
 			
-			</div>
+			 <% } %>
 	
 		</div>		
 	

@@ -46,7 +46,7 @@
 <!-- Tabella menù -->
 	<%	} else {	%>
 	<div class ="row">
-	<div class = "col-sm-3"></div>
+		<div class = "col-sm-3"></div>
 		<div class = "col-sm-6">
 			<table class="table">
 				<thead>
@@ -73,8 +73,8 @@
 			</table>
 			</div>
 			
-			<div class = "col-sm-3"></div>
-			</div>
+		<div class = "col-sm-3"></div>
+	</div>
 	<%	}	%>
 <!-- ./Tabella menù -->
 

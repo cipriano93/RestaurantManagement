@@ -85,11 +85,11 @@
 	</div>
 	<div class="container">
 		<%
-			String message = (String) request.getAttribute("message");
+			Boolean message = (Boolean) request.getAttribute("message");
 			if (message != null) { 
 		%>
 				<div class="alert alert-danger">
-	  				<strong>Username già utilizzata!</strong> <%= message %>
+	  				<strong>Errore!</strong> Username già utilizzata. Inserire un'altra username.
 				</div>
 		<% } %>
 	
