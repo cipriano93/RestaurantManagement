@@ -73,7 +73,7 @@
 	</nav>
 <!-- ./Breadcrumb -->
 
-	<div class="container">
+	<div class="container my_satisfy">
 		<div class="row">
 			<div class="col-sm-6">
 				<h3>Gestione comanda</h3>
@@ -98,20 +98,24 @@
 		}
 		if(tb != null) {
 	%>
-	<!-- Numero tavolo -->
-	<div class="container" >
-	  <h4 class= "dark_brown"> Numero tavolo: <span class= "light_brown"><%= tb.getNumeroTavolo() %></span></h4>
-	</div>
-	<!-- \.Numero tavolo -->
-	
-	<!-- Numero persone -->
-	<div class="container" >
-	  <h4 class= "dark_brown"> Numero persone: <span class= "light_brown"><%=tb.getNumeroPersone() %></span></h4>
-	</div>
-	<!-- \.Numero persone -->
 
+	<div class="row">
+		<div class="container" style="font-family: avenir">
+			<div class="col-md-2">
+				<!-- Numero tavolo -->
+				<h5 class= "dark_brown"> Numero tavolo: <span class= "light_brown"><%= tb.getNumeroTavolo() %></span></h5>
+				<!-- \.Numero tavolo -->
+			</div>
+			<div class="col-md-2">
+				<!-- Numero persone -->	
+				<h5 class= "dark_brown"> Numero persone: <span class= "light_brown"><%=tb.getNumeroPersone() %></span></h5>
+				<!-- \.Numero persone -->
+			</div>
+			<div class="col-md-8"></div>
+		</div>
+	</div>
 	<!-- Inserimento portata comanda form -->
-	<div class="container">
+	<div class="container" style="font-family: avenir">
    		<form  name="form" action="InserimentoPortataComanda" method="POST" onsubmit="">
 			<div class = "row">
 			<!-- Menù -->
@@ -241,8 +245,8 @@
 	<br>
 	<!-- ./Inserimento portata comanda form -->
 	
-	<div class="container">
-	<h3 class="dark_brown">Lista portate</h3>
+	<div class="container" style="font-family: avenir">
+	<h3 class="dark_brown my_satisfy">Lista portate</h3>
 	<hr>
 	</div>
 	
@@ -250,14 +254,14 @@
 		ArrayList<PortataComandaBean> portateComanda = cb.getPortateComanda();%>
 		
 	<%if(portateComanda.size() == 0) { %>
-		<div class="container">
+		<div class="container" style="font-family: avenir">
 			<div class="alert alert-info">
 	  			<strong>Info!</strong> Nessuna portata inserita.
 			</div>
 		</div>
 	<% } else { %>
 	<!-- Gestione ordine form form -->
-	<div class="container text-centered">
+	<div class="container text-centered" style="font-family: avenir">
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
@@ -298,11 +302,11 @@
 								<!-- Stato portata comanda -->
 								<td class="text-center">
 								<form action ="ModificaPortataComanda" method="post">
-									<%if(pcb.isConsegnato()){ %>								
-										<span style="color:green" class="fist btn btn-default btn-md glyphicon glyphicon-ok"></span>
+							<%if(pcb.isConsegnato()){ %>						
+										<span class = "fist"><input type="checkbox"   checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="si" data-off="no">	</span>	
 										<input type="hidden" name ="green"  value="green">
 									<%} else { %>	
-										<span style="color:red" class="fist btn btn-default btn-md glyphicon glyphicon-remove"></span>
+										<span class = "fist"><input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="si" data-off="no"></span>
 										<input type="hidden" name = "red" value="red">
 									<%} %>
 									<input type="hidden" name = "cliccatoStato" value= "1">
@@ -335,7 +339,7 @@
 	</div>
 	
 		
-	<div class ="row">
+	<div class ="row style="font-family: avenir"">
 		<div class="col-md-2"></div>
 		<!-- Bottone conferma ordine -->
 			<div class="col-md-4">
