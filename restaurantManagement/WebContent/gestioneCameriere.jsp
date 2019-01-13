@@ -10,17 +10,17 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-<div class="container">
+<div class="container my_satisfy">
 	<h3 class="dark_brown">Gestione cameriere</h3>
 	<hr/>
 </div>
-<div align="center">
+<div align="center" class = "my_avenir">
 	<a href="inserimentoCameriere.jsp" class="btn btn-default">Inserisci cameriere</a>
 </div>
 <br>
 
 <!-- Tabella cameriere -->
-<div class="container">
+<div class="container my_avenir">
 	<div class = "row">
 	<div class = "col-sm-3"></div>
 	<div class = "col-sm-6">

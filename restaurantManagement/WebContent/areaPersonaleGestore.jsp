@@ -9,10 +9,10 @@
 <!-- ./Jumbotron -->
 	
 <!-- Personal status -->
-<div class="container">
+<div class="container my_avenir">
 	<div class="row">
 		<div class="col-md-12">
-			<h1 class ="dark_brown">Bentornato <strong><span class ="light_brown">Andrea</span></strong></h1>
+			<h1 class ="dark_brown" style="font-family: satisfy">Bentornato <strong><span class ="light_brown">Andrea</span></strong></h1>
 			
 				<a href="modificaDatiAttivita.jsp">Modifica dati attività</a>
 				<br>
@@ -20,7 +20,7 @@
 				<br>
 				<a href="gestioneCameriere.jsp">Gestione cameriere</a>
 				<br>
-				<a href="visualizzaPrenotazioniGestore.jsp">Visualizza prenotazioni</a>
+				<a href="visualizzaPrenotazioni.jsp">Visualizza prenotazioni</a>
 				<br>
 				<a href="visualizzaBilancio.jsp">Visualizza bilancio</a>
 
