@@ -34,10 +34,12 @@
 <body>
 
 <!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
 	<ul class="breadcrumb">
 		<li><a href="#">Home</a></li>
 		<li>Disposizione tavoli</li>	
 	</ul>
+</nav>
 <!-- Breadcrumb -->
 
 
@@ -50,7 +52,7 @@
 
 <%ArrayList<TavoloBean> tavoli = new ArrayList<TavoloBean>(); %>
 <form action="inserimentoPersone.jsp" method ="post">
-	<%if (application.getAttribute("tavoli") == null){
+	<%if ((application.getAttribute("tavoli")) == null){
 		System.out.println("sono qua");
 			tavoli = new ArrayList<TavoloBean>();
 			for(int i = 0; i < 16; i ++){
@@ -62,6 +64,16 @@
 	} else { 
 		tavoli = (ArrayList) application.getAttribute("tavoli") ;
 	}%>
+	<% if(tavoli == null) { %>
+		<div class="grid-container">
+		<% for(int i = 1; i< 16; i++) { %>
+		 <div class="grid-item">
+				  <button type="submit" name="button" value ="<%= i%>" class="btn btn-success" ><%=i %></button>
+				  <input type="hidden" name="tavolo" value="<%=i%>">
+	  	</div>
+	  	<% } %>
+	  	</div>
+	<% } else { %>
 	<div class="grid-container">
 		<% for(int i = 1; i< 16; i++) { 
 			TavoloBean tb = tavoli.get(i-1);
@@ -78,25 +90,9 @@
 			  </div>
 		 <% } %>
 		<% } %>
-
+	<%} %>
 		
 		<%application.setAttribute("tavoli", tavoli); %>
-	
-	 <!--  <div class="grid-item"><button type="button" value ="2" class="btn btn-success">2</button></div>
-	  <div class="grid-item"><button type="button" value ="3" class="btn btn-success">3</button></div>  
-	  <div class="grid-item"><button type="button" value ="4" class="btn btn-success">4</button></div>
-	  <div class="grid-item"><button type="button" value ="5" class="btn btn-success">5</button></div>
-	  <div class="grid-item"><button type="button" value ="6" class="btn btn-danger">6</button></div>  
-	  <div class="grid-item"><button type="button" value ="7" class="btn btn-danger">7</button></div>
-	  <div class="grid-item"><button type="button" value ="8" class="btn btn-danger">8</button></div>
-	  <div class="grid-item"><button type="button" value ="9" class="btn btn-danger">9</button></div>
-	  <div class="grid-item"><button type="button" value ="10" class="btn btn-success">10</button></div>
-	  <div class="grid-item"><button type="button" value ="11" class="btn btn-danger">11</button></div>
-	  <div class="grid-item"><button type="button" value ="12" class="btn btn-success">12</button></div>  
-	  <div class="grid-item"><button type="button" value ="13" class="btn btn-success">13</button></div>
-	  <div class="grid-item"><button type="button" value ="14" class="btn btn-success">14</button></div>
-	  <div class="grid-item"><button type="button" value ="15" class="btn btn-danger">15</button></div>
-	  --> 
 	</div>
 </form>
 <%@include file = "footer.jsp" %>

@@ -100,20 +100,22 @@
 	%>
 
 	<div class="row">
-		<div class="container" style="font-family: avenir">
+		<div class="container text-center" style="font-family: avenir">
+			<div class="col-md-4"></div>
 			<div class="col-md-2">
 				<!-- Numero tavolo -->
-				<h5 class= "dark_brown"> Numero tavolo: <span class= "light_brown"><%= tb.getNumeroTavolo() %></span></h5>
+				<h4 class= "dark_brown"> Numero tavolo: <span class= "light_brown"><%= tb.getNumeroTavolo() %></span></h4>
 				<!-- \.Numero tavolo -->
 			</div>
 			<div class="col-md-2">
-				<!-- Numero persone -->	
-				<h5 class= "dark_brown"> Numero persone: <span class= "light_brown"><%=tb.getNumeroPersone() %></span></h5>
+				<!-- Numero persone -->
+				<h4 class= "dark_brown"> Numero persone: <span class= "light_brown"><%=tb.getNumeroPersone() %></span></h4s>
 				<!-- \.Numero persone -->
 			</div>
-			<div class="col-md-8"></div>
+			<div class="col-md-4"></div>
 		</div>
 	</div>
+	<br>
 	<!-- Inserimento portata comanda form -->
 	<div class="container" style="font-family: avenir">
    		<form  name="form" action="InserimentoPortataComanda" method="POST" onsubmit="">
