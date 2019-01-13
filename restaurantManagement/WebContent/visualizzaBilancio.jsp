@@ -72,7 +72,7 @@
 <!-- Breadcrumb -->
 
 
-<div class="container">
+<div class="container my_satisfy">
 	<h3 class="dark_brown">Visualizza bilancio</h3>
 	<hr>
 	
