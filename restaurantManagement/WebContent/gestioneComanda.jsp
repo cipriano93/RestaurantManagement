@@ -73,7 +73,7 @@
 	</nav>
 <!-- ./Breadcrumb -->
 
-	<div class="container" style="font-family: avenir">
+	<div class="container my_satisfy">
 		<div class="row">
 			<div class="col-sm-6">
 				<h3>Gestione comanda</h3>
@@ -246,7 +246,7 @@
 	<!-- ./Inserimento portata comanda form -->
 	
 	<div class="container" style="font-family: avenir">
-	<h3 class="dark_brown">Lista portate</h3>
+	<h3 class="dark_brown my_satisfy">Lista portate</h3>
 	<hr>
 	</div>
 	
@@ -302,11 +302,11 @@
 								<!-- Stato portata comanda -->
 								<td class="text-center">
 								<form action ="ModificaPortataComanda" method="post">
-									<%if(pcb.isConsegnato()){ %>								
-										<span style="color:green" class="fist btn btn-default btn-md glyphicon glyphicon-ok"></span>
+							<%if(pcb.isConsegnato()){ %>						
+										<span class = "fist"><input type="checkbox"   checked data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="si" data-off="no">	</span>	
 										<input type="hidden" name ="green"  value="green">
 									<%} else { %>	
-										<span style="color:red" class="fist btn btn-default btn-md glyphicon glyphicon-remove"></span>
+										<span class = "fist"><input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="si" data-off="no"></span>
 										<input type="hidden" name = "red" value="red">
 									<%} %>
 									<input type="hidden" name = "cliccatoStato" value= "1">

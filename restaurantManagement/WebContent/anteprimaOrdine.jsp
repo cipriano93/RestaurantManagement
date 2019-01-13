@@ -10,27 +10,29 @@
 
 <%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
 <!-- Breadcrumb -->
+<nav aria-label="breadcrumb" style="font-family: avenir">
 	<ul class="breadcrumb">
 		<li class="breadcrumb-item"><a href="">Home</a></li>
 		<li class="breadcrumb-item"><a href="selezionaTavolo.jsp">Disposizione tavoli</a></li>
 		<li class="breadcrumb-item"><a href="gestioneComanda.jsp">Gestione comanda</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Anteprima ordine</li>
 	</ul>
+</nav>
 <!-- Breadcrumb -->
+
 	<%ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
 	ArrayList<PortataComandaBean> portateComanda = cb.getPortateConsegnate();%>
 	
 	<%if(portateComanda.size() > 0){ %>
-	<div class="container">
-		<h3 class="dark_brown text-center" style="font-family: satisfy" >Anteprima ordine</h3>
+	<div class="container my_satisfy">
+		<h3 class="dark_brown text-center">Anteprima ordine</h3>
 		<div>
-			<h4 class="dark_brown text-center" style="font-family: satisfy">Tavolo n. <%=tb.getNumeroTavolo() %></h4>
 		</div>
 	<hr>
 	</div>
 
 	
-	<div class="container">
+	<div class="container my_avenir">
 		<div class="row">
 <!-- Table -->
 			<div class = "col-sm-3"></div>

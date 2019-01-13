@@ -47,13 +47,13 @@
 <!-- ./Breadcrumb -->
 
 <div class="container">
-	<h3 class="dark_brown" style="font-family: avenir">Tavolo <%=request.getParameter("button") %>   </h3>
+	<h3 class="dark_brown my_satisfy">Tavolo <%=request.getParameter("button") %>   </h3>
 	
 	<hr/>
 </div>
 	
 <!-- Inserimento numero persone form -->
-<div class="container my_font">
+<div class="container my_avenir">
 	<div class = "row">
 	 	<div class="col-md-5"></div>
 	 	<div class="col-md-2">
