@@ -3,7 +3,7 @@
 
 <div class="container">
 	<div>
-		<h3 class="dark_brown"  style= "font-family: satisfy">Cucina</h3>
+		<h3 class="dark_brown">Cucina</h3>
 	</div>
 	<hr>
 	
@@ -16,7 +16,6 @@
 			</div>
 	<%
 		}
-	
 		CucinaBean cucina = (CucinaBean) application.getAttribute("cucina");
 		if (cucina == null || (cucina.getSize()) == 0) {
 	%>

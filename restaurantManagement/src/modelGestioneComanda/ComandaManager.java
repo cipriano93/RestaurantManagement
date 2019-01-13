@@ -74,6 +74,11 @@ public class ComandaManager {
 	}
 	
 	
+	public ArrayList<OrdineBean> getOrdini() {
+		return (new OrdineBeanDAO().doRetrieveAll());
+	}
+	
+	
 	public void stampa(String nomePo, String quantità, String note, String tavo) {
 		System.out.println("portata: "+ nomePo);
 		System.out.println("quantità: "+ quantità);

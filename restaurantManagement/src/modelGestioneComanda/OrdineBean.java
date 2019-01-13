@@ -24,6 +24,16 @@ public class OrdineBean {
 	}
 	
 	
+	public int getNumCoperti() {
+		return num_coperti;
+	}
+
+
+	public void setNumCoperti(int num_coperti) {
+		this.num_coperti = num_coperti;
+	}
+
+
 	public double getTotale() {
 		return totale;
 	}
@@ -34,7 +44,7 @@ public class OrdineBean {
 	}
 
 
-	private int id_ordine;
+	private int id_ordine, num_coperti;
 	private double totale;
 	private GregorianCalendar data;
 }
