@@ -49,9 +49,20 @@ public class Login extends HttpServlet {
 					response.addCookie(usrCookie);
 					response.addCookie(pswCookie);
 					
+					System.out.println("xx: "+ub.getTipo());
+					System.out.println("xx: "+ub.getUsername());
+					System.out.println("xx: "+ub.getPassword());
+					
+					
+					
 					HttpSession session = request.getSession();
 					session.setAttribute("utenteBean", ub);
-					response.sendRedirect("index.jsp");
+					if(ub.getTipo().equals("cliente"))
+						response.sendRedirect("index.jsp");
+					else if(ub.getTipo().equals("gestore"))
+						response.sendRedirect("areaPersonaleGestore.jsp");
+					else if(ub.getTipo().equals("cameriere"))
+						response.sendRedirect("selezionaTavolo.jsp");
 				}
 			}
 			catch (Exception e) {
@@ -95,6 +106,8 @@ public class Login extends HttpServlet {
 			}
 		}
 		
+		
+		System.out.println("usr: "+ usr);
 		if( (usr != null) && (pswd != null) ) {
 			ub = new UtenteBean();
 			ub.setUsername(usr);

@@ -1,7 +1,6 @@
-<%@ include file="header.jsp" %>
 
 <script>
-	function verifica(errore){
+	function verify(errore){
 		document.getElementById("ver").innerHTML = errore;
 	}	
  	function validateForm(){
@@ -18,7 +17,7 @@
    		if (username.value.match(username_format))
    			return true;
    		else {
-   			verify("La username può contenere soltanto numeri e lettere");
+   			verify("La username puÃ² contenere soltanto numeri e lettere");
    			username.focus();
    			return false;
    		}
@@ -34,52 +33,110 @@
  	}
 </script>
 
-<!-- Breadcrumb -->
-<nav aria-label="breadcrumb">
- 	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Login</li>
-	</ol>
-</nav>
-<!-- ./Breadcrumb -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+	
+	<link rel="stylesheet" href="css/styles.css">   
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<div class="container">
-	<h3 class="dark_brown">Accedi all'area personale</h3>
-	<hr />
-</div>
-	
-<!-- Login form -->
-<div class="container">
-	<%
-		Boolean message = (Boolean) request.getAttribute("message_danger");
-		if (message != null) {
-	%>
-			<div class="alert alert-danger">
-  				<strong>Errore!</strong> Username e/o password errati.
-			</div>
-	<%	}
-		message = (Boolean) request.getAttribute("message_registrazione");
-		if (message != null) {
-	%>
-			<div class="alert alert-success">
-  				<strong>Successo!</strong> Registrazione effettuata. Ora puoi loggarti con le credenziali inserite in fase di registrazione.
-			</div>
-	 <% } %>
-	   		<form name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
-	    			<div class="form-group">
-	      			<label class ="dark_brown" for="usr">Username:</label>
-	      			<input type="text" class="form-control light_brown" id="usr" placeholder="Inserisci la username" name ="usr">
-	    			</div>
-	   			<div class="form-group">
-	      			<label class ="dark_brown" for="pwd">Password:</label>
-	      			<input type="password" class="form-control light_brown" id="pwd" placeholder="Inserisci la password" name ="pswd">
-	   			</div>
-				<button type="submit" class="btn btn-primary">Accedi</button>
-			</form> 		
-	<p class ="red" id="ver"></p>
-</div>
+<div class="login-block my_avenir">
+
 <br>
 <br>
-<!-- ./Login form -->
-	
-<%@ include file="footer.jsp" %>
+<br>
+    <div class="container">
+	<div class="row">
+
+		<div class="col-md-4 login-sec">
+		<a href="index.jsp"><img src="img/logoSfondoBianco.jpg"  class="img-responsive" height="100" width="100" ></a>
+		    <h2 class="text-center">Login</h2>
+		    <form class="login-form" name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" class="form-control light_brown " placeholder="" id="usr" name ="usr">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control light_brown" placeholder="" id="pwd"  name ="pswd">
+  </div>
+	  <p class ="red" id="ver"></p>
+  
+    <button type="submit" class="btn btn-primary float-right">Login</button>
+
+  
+	</form>
+
+		</div>
+		<div class="col-md-8 banner-sec">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                 <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+            <div class="carousel-inner">
+            
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="img/1.jpg" alt="First slide">
+ 
+    </div>
+    
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="img/2.jpg" alt="First slide">
+    </div>
+    
+    <div class="carousel-item">
+      <img class="d-block w-100" src="img/3.jpeg" alt="First slide">
+  </div>
+ </div>	  
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a> 
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+
+<!-- 
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="..." alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+ -->
