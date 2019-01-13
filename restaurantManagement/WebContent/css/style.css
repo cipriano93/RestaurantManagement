@@ -87,7 +87,13 @@ a#headingAnchor_new {
 #number {
   width: 3em;
 }
-.my_font{
+.my_avenir{
+	font-family: avenir;
+}
+.my_satisfy{
+	font-family: satisfy;
+}
+nav{
 	font-family: avenir;
 }
 
