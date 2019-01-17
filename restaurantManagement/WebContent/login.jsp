@@ -1,4 +1,9 @@
-
+<%@page import="modelGestioneUtente.UtenteBean"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%if(session.getAttribute("utenteBean") == null){ %>    
+    
 <script>
 	function verify(errore){
 		document.getElementById("ver").innerHTML = errore;
@@ -33,8 +38,7 @@
  	}
 </script>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
     
 	
 	<link rel="stylesheet" href="css/styles.css">   
@@ -57,12 +61,12 @@
 		    <form class="login-form" name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
-    <input type="text" class="form-control light_brown " placeholder="" id="usr" name ="usr">
+    <input type="text" class="form-control" style = "color: #B49566" placeholder="" id="usr" name ="usr">
     
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control light_brown" placeholder="" id="pwd"  name ="pswd">
+    <input type="password" class="form-control" style = "color: #B49566" placeholder="" id="pwd"  name ="pswd">
   </div>
 	  <p class ="red" id="ver"></p>
   
@@ -107,36 +111,18 @@
 </div>
 </div>
 </div>
-
-
-<!-- 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-
-
- -->
+<%}else{ %>
+<% UtenteBean ub = (UtenteBean) session.getAttribute("utenteBean");
+	String tipo = ub.getTipo();
+	switch(tipo){
+		case "cliente":
+			response.sendRedirect("index.jsp");
+			break;
+		case "gestore":
+			response.sendRedirect("areaPersonaleGestore.jsp");
+			break;
+		case "cameriere":
+			response.sendRedirect("selezionaTavolo.jsp");
+			break;
+	}
+} %>

@@ -41,7 +41,7 @@
 	</ul>
 </nav>
 <!-- Breadcrumb -->
-
+<%if(ub != null && ub.getTipo().equals("cameriere")){ %>
 
 <hr>
 <h3 style="font-family:avenir" align="center">Seleziona tavolo</h3>
@@ -95,6 +95,13 @@
 		<%application.setAttribute("tavoli", tavoli); %>
 	</div>
 </form>
+<% } else { %>
+	<h3 class = "red" style="font-family:avenir" align="center">Accedi come cameriere</h3>
+<% } %>
+
+
+
+
 <%@include file = "footer.jsp" %>
-</body>
-</html>
+	</body>
+	</html>

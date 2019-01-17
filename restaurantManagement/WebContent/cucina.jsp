@@ -1,9 +1,21 @@
 <%@ page import="java.util.ArrayList, modelGestioneMenù.PortataBean, modelGestioneComanda.PortataComandaBean, modelGestioneComanda.ComandaBean, modelGestioneComanda.CucinaBean" %>
 <%@ include file="header.jsp" %>
 
+<!-- Breadcrumb -->
+	<nav aria-label="breadcrumb">
+	 	<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="">Home</a></li>
+			<li class="breadcrumb-item"><a href="selezionaTavolo.jsp">Disposizione tavoli</a></li>
+			<li class="breadcrumb-item"><a href="gestioneComanda.jsp">Gestione comanda</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Cucina</li>
+		</ol>
+	</nav>
+<!-- ./Breadcrumb -->
+
+
 <div class="container">
 	<div>
-		<h3 class="dark_brown">Cucina</h3>
+		<h3 class="dark_brown my_satisfy">Cucina</h3>
 	</div>
 	<hr>
 	
@@ -11,7 +23,7 @@
 		Boolean message = (Boolean) request.getAttribute("message");
 		if (message != null) {
 	%>
-			<div class="alert alert-success">
+			<div class="alert alert-success my_avenir">
 				<strong>Successo!</strong> La comanda è stata inviata in cucina.
 			</div>
 	<%
@@ -28,23 +40,25 @@
 			int size = cucina.getSize();
 			for (int i = 0; i < size; i++) {
 				ComandaBean cb = cucina.getComanda(i);
-				int size_portate = cb.getSizeAllPortate();
-				ArrayList<PortataComandaBean> pcbs = cb.getPortateComanda();
+				
+				ArrayList<PortataComandaBean> pcbs = cb.getPortateNonConsegnate();
+				int size_portate= pcbs.size();
 				if (size_portate >= 1) {
 					num_portate++;
-					if ((num_portate % 4) == 1) {
+					if ((num_portate % 3) == 1) {
 		%>
 							<div style="font-family: satisfy" class="row">
 				 <% } %>
-				 	<div class="col-sm-3">
+				 	<div class="col-sm-4">
 				 		<div class="panel panel-default">
 							<div class="panel-heading">
-								<h4 class= "dark_brown my_font">Tavolo <%= cb.getTavolo().getNumeroTavolo() %></h4>
+								<h4 class= "dark_brown my_satisfy">Tavolo <%= cb.getTavolo().getNumeroTavolo() %></h4>
 							</div>	    
-							<div class="panel-body">
+							<div class="panel-body my_avenir">
 								<div class="row">
-									<div class="col-sm-8"><strong>Portata</strong></div>
-									<div class="col-sm-4"><strong>Quantità</strong></div>
+									<div class="col-sm-5"><strong>Portata</strong></div>
+									<div class="col-sm-3"><strong>Quantità</strong></div>
+									<div class="col-sm-4"><strong>Note</strong></div>
 								</div>
 		<%		 
 					for (int j = 0; j < size_portate; j++) {
@@ -52,24 +66,27 @@
 						PortataBean pb = pcb.getPb();
 		%>
 					 <% if (!(pcb.isConsegnato())) { %>
-							<div class="row light_brown">
+							<div class="row">
 					 <% } else { %>
 							<div class="row red">
 					 <% } %>
-						<div class="col-sm-8"><%= pb.getNome() %></div>
+						<div class="col-sm-5"><%= pb.getNome() %></div>
 					 <% if (!(pcb.diversaQuantità()) && !(pcb.isConsegnato())) { %>
-						 	<div class="col-sm-4 text-center" style="color:#4682B4"><%= pcb.getQuantità() %></div>
+						 	<div class="col-sm-3 text-center" style="color: #C90015;"><%= pcb.getQuantità() %></div>
 					 <% } else { %>
-							<div class="col-sm-4 text-center"><%= pcb.getQuantità() %></div>
+							<div class="col-sm-3 text-center"><%= pcb.getQuantità() %></div>
 					 <% } %>
+					 <div class="col-sm-4"><%=pcb.getNote() %></div>
+					 
 					 </div>
+					 	
 				   <% } %>
 					</div>
 					</div>
 					</div>
 					
 			 <% }
-			 	if (num_portate != 1 && (num_portate % 4) == 1) {
+			 	if (num_portate != 1 && (num_portate % 3) == 1) {
 			 %>
 			 		</div>
 	<%			

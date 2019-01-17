@@ -1,8 +1,9 @@
+<%@page import="modelGestioneUtente.UtenteBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
-
+<%UtenteBean ub = (UtenteBean) session.getAttribute("utenteBean"); %>
 <head>
   <title>Ristorante Incontro</title>
   <meta charset="utf-8">
@@ -59,8 +60,28 @@ font-size: 40px;
 	   		 </div>
 	   		 <div class="col-sm-4 text-right">
 	   		 <br>
-      			<a href="registrazione.jsp"><button class="button"><i class="glyphicon glyphicon-user"></i> Registrati</button></a>
-      			<a href="login.jsp"><button class="button"><i class="glyphicon glyphicon-log-in"></i> Accedi</button> </a>
+	   		 	<% if( ub != null) { %>
+	   		 		<%String tipo = ub.getTipo();
+	   		 		String pagina = null;
+					switch(tipo){
+						case "cliente":
+							pagina = "areaPersonaleCliente.jsp";
+							break;
+						case "gestore":
+							pagina = "areaPersonaleGestore.jsp";
+							break;
+						case "cameriere":
+							pagina = "selezionaTavolo.jsp";
+							break;
+						}%>
+						
+					<a href="<%= pagina%>"><button class="button"><i class="glyphicon glyphicon-user"></i> <%=ub.getNome() %></button></a>
+   		 			<a href="Logout"><button class="button"><i class="glyphicon glyphicon-log-out"></i> Esci</button> </a>
+   		 			
+	   		 	<% } else { %>
+   		 			<a href="registrazione.jsp"><button class="button"><i class="glyphicon glyphicon-user"></i> Registrati</button></a>
+    					<a href="login.jsp"><button class="button"><i class="glyphicon glyphicon-log-in"></i> Accedi</button> </a>
+		       	<% } %>
 		    </div>
    	 	</div>
 	</div>	

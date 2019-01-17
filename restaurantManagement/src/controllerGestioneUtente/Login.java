@@ -48,13 +48,7 @@ public class Login extends HttpServlet {
 					Cookie pswCookie = new Cookie("pswd", ub.getPassword());
 					response.addCookie(usrCookie);
 					response.addCookie(pswCookie);
-					
-					System.out.println("xx: "+ub.getTipo());
-					System.out.println("xx: "+ub.getUsername());
-					System.out.println("xx: "+ub.getPassword());
-					
-					
-					
+				
 					HttpSession session = request.getSession();
 					session.setAttribute("utenteBean", ub);
 					if(ub.getTipo().equals("cliente"))

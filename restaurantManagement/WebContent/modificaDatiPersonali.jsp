@@ -98,7 +98,7 @@
 				<div class="row">
 			    		<label class="col-sm-2 control-label dark_brown">Username</label>
 			    		<div class="col-sm-3">
-			    			<input class="form-control light_brown" type="text" value="Manuelllll" disabled>
+			    			<input class="form-control light_brown" type="text" value="<%=ub.getUsername()%>" disabled>
 			    			<input type="hidden" value="" name="username">
 			   	 	</div>
 			    		<div class="col-sm-7"></div>

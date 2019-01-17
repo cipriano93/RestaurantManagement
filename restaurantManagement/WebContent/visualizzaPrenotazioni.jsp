@@ -34,19 +34,18 @@
 </style>
 
 <!-- Breadcrumb -->
-<ul class="breadcrumb">
-	<li><a href="#">Home</a></li>
-	<%UtenteBean ub = new UtenteBean();
-	ub.setTipo("cliente");
-	ub.setNome("c");%>
-	
-	<%if (ub.getTipo().equals("gestore")) { %>
-		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
-	<%} else { %>
-		<li class="breadcrumb-item"><a href="areaPersonaleCliente.jsp">Area personale</a></li>
-	<% } %>
-	<li class="breadcrumb-item active" aria-current="page">Visualizza prenotazioni</li>
-</ul>
+<nav aria-label="breadcrumb">
+	<ul class="breadcrumb">
+		<li><a href="#">Home</a></li>
+		
+		<%if (ub.getTipo().equals("gestore")) { %>
+			<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
+		<%} else { %>
+			<li class="breadcrumb-item"><a href="areaPersonaleCliente.jsp">Area personale</a></li>
+		<% } %>
+		<li class="breadcrumb-item active" aria-current="page">Visualizza prenotazioni</li>
+	</ul>
+</nav>
 <!-- Breadcrumb -->
 
 <div class="container my_avenir">

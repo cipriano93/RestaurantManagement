@@ -12,7 +12,7 @@
 <div class="container my_avenir">
 	<div class="row">
 		<div class="col-md-12">
-			<h1 class ="dark_brown" style="font-family: satisfy">Bentornato <strong><span class ="light_brown">Andrea</span></strong></h1>
+			<h1 class ="dark_brown" style="font-family: satisfy">Bentornato <strong><span class ="light_brown"><%=ub.getNome() %></span></strong></h1>
 			
 				<a href="modificaDatiAttivita.jsp">Modifica dati attività</a>
 				<br>

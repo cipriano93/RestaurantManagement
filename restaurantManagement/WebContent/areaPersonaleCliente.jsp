@@ -27,7 +27,7 @@
 					</div>	
 			 <% } %>
 			 
-		<h1 class ="dark_brown" style="font-family: satisfy">Bentornato <strong><span class ="light_brown">Manuel</span></strong></h1>
+		<h1 class ="dark_brown" style="font-family: satisfy">Bentornato <strong><span class ="light_brown"><%=ub.getNome() %></span></strong></h1>
 	<a href="modificaDatiPersonali.jsp">Modifica dati personali</a>
 	<br>
 	<a href="visualizzaPrenotazioni.jsp">Visualizza prenotazioni</a>
