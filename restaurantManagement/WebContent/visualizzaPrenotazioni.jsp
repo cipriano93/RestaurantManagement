@@ -1,3 +1,4 @@
+<%@page import="modelGestioneUtente.UtenteBean"%>
 <%@ page import="java.util.ArrayList, java.util.GregorianCalendar, modelGestionePrenotazione.PrenotazioneBean" %>
 <%@ include file ="header.jsp" %>
 
@@ -33,15 +34,22 @@
 </style>
 
 <!-- Breadcrumb -->
-<ul class="breadcrumb">
-	<li><a href="#">Home</a></li>
-	<li class="breadcrumb-item"><a href="areaPersonaleCliente.jsp">Area personale</a></li>
-	<li class="breadcrumb-item active" aria-current="page">Visualizza prenotazioni</li>
-</ul>
+<nav aria-label="breadcrumb">
+	<ul class="breadcrumb">
+		<li><a href="#">Home</a></li>
+		
+		<%if (ub.getTipo().equals("gestore")) { %>
+			<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
+		<%} else { %>
+			<li class="breadcrumb-item"><a href="areaPersonaleCliente.jsp">Area personale</a></li>
+		<% } %>
+		<li class="breadcrumb-item active" aria-current="page">Visualizza prenotazioni</li>
+	</ul>
+</nav>
 <!-- Breadcrumb -->
 
-<div class="container">
-	<h3 class="dark_brown">Prenotazioni</h3>
+<div class="container my_avenir">
+	<h3 class="dark_brown "style="font-family: satisfy">Prenotazioni</h3>
 	<hr>
 	
 	<%
@@ -68,7 +76,7 @@
 				<strong>Info!</strong> Nessuna prenotazione effettuata finora.
 			</div>
 	 <% } else { %>
-	
+		<div class ="container my_avenir">
 			<div class="row">
 			
 				<div class="col-sm-3"></div>
@@ -120,7 +128,7 @@
 				<div class="col-sm-3"></div>
 			
 			</div>
-	
+	</div>
 	 <% } %>
 
 </div>		

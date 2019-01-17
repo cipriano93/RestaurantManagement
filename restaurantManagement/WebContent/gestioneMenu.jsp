@@ -12,15 +12,15 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-<div class="container">
+<div class="container my_satisfy">
 	<h3 class="dark_brown">Gestione menù</h3>
 	<hr/>
 </div>
-<div align="center">
+<div align="center" class ="my_avenir">
 	<a href="inserimentoMenu.jsp" class="btn btn-default">Inserisci menù</a>
 </div>
 <br>
-<div class="container">
+<div class="container my_avenir">
 	<%
 		String message = (String) request.getAttribute("message_danger");
 		if (message != null) { 
@@ -42,9 +42,10 @@
 			<div class="alert alert-info">
 	  			<strong>Info!</strong> Nessun menù inserito.
 			</div>
-			
+</div>			
 <!-- Tabella menù -->
 	<%	} else {	%>
+<div class="cointainer my_avenir">	
 	<div class ="row">
 		<div class = "col-sm-3"></div>
 		<div class = "col-sm-6">

@@ -79,8 +79,8 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-	<div class="container" style="font-family: satisfy">
-	  <h3>Crea un account personale</h3>
+	<div class="container my_avenir">
+	  <h3 style="font-family: satisfy">Crea un account personale</h3>
 	  <hr/>
 		<%
 			Boolean message = (Boolean) request.getAttribute("message");

@@ -29,13 +29,13 @@
 <!-- ./Breadcrumb -->
 
 <div class="container">
-	<h3 class="dark_brown">Menù</h3>
+	<h3 class="dark_brown" style="font-family: satisfy">Menù</h3>
 	
 	<hr/>
 </div>
 	
 <!-- Scelta menu form -->
-	<div class="container">
+	<div class="container my_avenir">
 			<div class = "row">
 				<!-- Menù -->
 				<div class="col-sm-5"></div>

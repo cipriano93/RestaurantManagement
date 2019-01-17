@@ -112,7 +112,7 @@ button {
 </nav>
 <!-- ./Breadcrumb -->
 
-<div class="container">
+<div class="container my_satisfy">
 	<h3 class="dark_brown">Modifica dati attività</h3>
 	<hr />
 </div>
@@ -122,7 +122,7 @@ button {
 	if (message != null) {
 		if (!message) {
 %>
-			<div class="container">
+			<div class="container my_avenir">
 				<div class="alert alert-danger">
 					<strong>Attenzione!</strong> Impossibile modificare i dati dell'attività.
 				</div>
@@ -139,7 +139,7 @@ button {
 %>
 	
 <!-- Modifica dati attività form -->
-<div class="container">
+<div class="container my_avenir">
 <form name="form" action="ModificaDatiAttivita" onsubmit="return validateForm()" method="POST">
 <div class="row" >
 		<div class="column" >

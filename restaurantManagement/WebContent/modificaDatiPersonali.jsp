@@ -77,7 +77,7 @@
 	<!-- ./Breadcrumb -->
 	
 	<!-- Modifica dati personali form -->
-	<div class="container">
+	<div class="container my_avenir">
 	
 		<%
 			Boolean message = (Boolean) request.getAttribute("message");
@@ -90,7 +90,7 @@
 	
 		<div class="row">
 		<div class="col-md-12">		
-			<h3 class = "dark_brown">Modifica i tuoi dati</h3>
+			<h3 class ="dark_brown" style="font-family: satisfy">Modifica i tuoi dati</h3>
 			<hr/>
 			<br>
 		<form  name="form" action="ModificaDatiPersonali" method="POST" onsubmit="return validateForm()">
@@ -98,8 +98,8 @@
 				<div class="row">
 			    		<label class="col-sm-2 control-label dark_brown">Username</label>
 			    		<div class="col-sm-3">
-			    			<input class="form-control light_brown" type="text" value="<%= ((UtenteBean) session.getAttribute("utenteBean")).getUsername() %>" disabled>
-			    			<input type="hidden" value="<%= ((UtenteBean) session.getAttribute("utenteBean")).getUsername() %>" name="username">
+			    			<input class="form-control light_brown" type="text" value="<%=ub.getUsername()%>" disabled>
+			    			<input type="hidden" value="" name="username">
 			   	 	</div>
 			    		<div class="col-sm-7"></div>
 			  	</div>
@@ -133,7 +133,7 @@
 			  	</div>
 				<!-- ./Nome and cognome -->
 						<br>
-				<button type="submit" class="btn btn-success">Aggiorna</button>
+				<button type="submit" class="btn btn-success">Modifica</button>
 			</form>
 				<p id="ver" class ="red" ></p> 
 				</div>

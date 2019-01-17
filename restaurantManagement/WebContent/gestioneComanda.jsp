@@ -17,17 +17,30 @@
   	  
       function validateForm() {
         var note = document.form.note;
-       
-        if(validationNote(note)){
+        var tipo = document.form.tipo_portata;
+        
+        if(validationTipo(tipo) && validationNote(note)){
           	return true;
         } else {
          	return false;
         }
       }
       
+      function validationTipo(tipo) {
+    	  	var string = tipo.value;
+    	  	var string2 = "seleziona tipo";
+      	if (string == string2){
+      		verify("Seleziona il tipo");
+      		tipo_portata.focus();
+        		return false;
+        	} else {
+           	return true;
+        	}
+  	  }
+      
       function validationNote(note) {
-  	  	var noteformat = /^[A-Z a-z]{3,}$/;
-    	if (note.value.match(noteformat)){
+    	  
+   	 	if (note.value.length > 0){
       		return true;
       	} else {
       		verify("Inserire correttamente le note");
@@ -118,7 +131,7 @@
 	<br>
 	<!-- Inserimento portata comanda form -->
 	<div class="container" style="font-family: avenir">
-   		<form  name="form" action="InserimentoPortataComanda" method="POST" onsubmit="">
+   		<form  name="form" action="InserimentoPortataComanda" method="POST" onsubmit="return validateForm()">
 			<div class = "row">
 			<!-- Menù -->
 				<div class="col-sm-2">
@@ -141,7 +154,7 @@
 				<div class="col-sm-3">
     					<div class="form-group dark_brown">
       					<label for="type">Tipo:</label>
-							<select class="form-control light_brown" id="tipo" onchange ="chooseMenu(this.value)">
+							<select class="form-control light_brown" id="tipo_portata" value="tipo_portata" onchange ="chooseMenu(this.value)">
 								<option>seleziona tipo</option>
 								<option>Antipasto</option>
 								<option>Primo</option>
@@ -181,6 +194,7 @@
 					<div class="form-group dark_brown">
 						<label for="hour">Note:</label>
 						<textarea class="form-control light_brown" rows="2" id="note" name ="notes"></textarea>
+						<br>
 						<span id="ver" class="red"></span>
 	   				 </div>
 	   			 </div>
@@ -194,7 +208,7 @@
 				<div class="col-sm-5"></div>
 				<div class="text-center col-sm-2">
 					<div class=" text-center"> 
-				    	<button id="inserimento_portata_comanda" class="btn btn-success" onclick="">Inserisci portata</button> 
+				    	<button  type="submit" id="inserimento_portata_comanda" class="btn btn-success">Inserisci portata</button> 
 					</div>
 				</div>
 				<!-- /.Bottone inserimento portata nella comanda -->
