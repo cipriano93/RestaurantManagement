@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import modelGestioneComanda.ComandaManager;
 
-
 /**
  * Servlet implementation class VisualizzaBilancio
  */
