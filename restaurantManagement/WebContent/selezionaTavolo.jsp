@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<%@page import="modelGestioneComanda.TavoloBean"%>
+<%@page import="model.TavoloBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@include file = "header.jsp" %>
 <html>

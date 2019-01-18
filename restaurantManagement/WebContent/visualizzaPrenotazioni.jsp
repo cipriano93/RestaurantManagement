@@ -1,5 +1,5 @@
-<%@page import="modelGestioneUtente.UtenteBean"%>
-<%@ page import="java.util.ArrayList, java.util.GregorianCalendar, modelGestionePrenotazione.PrenotazioneBean" %>
+<%@page import="model.UtenteBean"%>
+<%@ page import="java.util.ArrayList, java.util.GregorianCalendar, model.PrenotazioneBean" %>
 <%@ include file ="header.jsp" %>
 
 <style>

@@ -1,12 +1,12 @@
-<%@page import="modelGestioneMenù.PortataBean"%>
-<%@page import="modelGestioneComanda.PortataComandaBean"%>
-<%@page import="modelGestioneComanda.ComandaBean"%>
-<%@page import="modelGestioneComanda.ComandaManager"%>
-<%@page import="modelGestioneMenù.MenùBean"%>
+<%@page import="model.PortataBean"%>
+<%@page import="model.PortataComandaBean"%>
+<%@page import="model.ComandaBean"%>
+<%@page import="model.ComandaManager"%>
+<%@page import="model.MenùBean"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="modelGestioneMenù.MenùManager"%>
-<%@page import="modelGestioneComanda.TavoloBean"%>
-<%@ include file="header.jsp" %>
+<%@page import="model.MenùManager"%>
+<%@page import="model.TavoloBean"%>
+<%@include file="header.jsp" %>
 
 <%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
 <!-- Breadcrumb -->

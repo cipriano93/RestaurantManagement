@@ -1,4 +1,4 @@
-<%@ page import="modelGestioneUtente.UtenteBean" %>
+<%@ page import="model.UtenteBean" %>
 <%@ include file="header.jsp" %>
 
 <!-- Jumbotron -->

@@ -1,4 +1,4 @@
-<%@page import="modelGestioneComanda.TavoloBean"%>
+<%@page import="model.TavoloBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ include file="header.jsp" %>
 <% ArrayList<TavoloBean> tavoli = (ArrayList<TavoloBean>) application.getAttribute("tavoli");

@@ -1,7 +1,7 @@
 <%@ include file="header.jsp" %>
 <%@page import="java.util.ArrayList"%>
-<%@page import="modelGestioneMenù.MenùManager"%>
-<%@page import="modelGestioneMenù.MenùBean"%>
+<%@page import="model.MenùManager"%>
+<%@page import="model.MenùBean"%>
 <title>Insert title here</title>
 
 <script type="text/javascript">

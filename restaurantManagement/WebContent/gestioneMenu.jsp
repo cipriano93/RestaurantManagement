@@ -1,6 +1,6 @@
 <%@ include file="header.jsp" %>
 
-<%@ page import="java.util.ArrayList, modelGestioneMenù.MenùBean" %>
+<%@ page import="java.util.ArrayList, model.MenùBean" %>
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">

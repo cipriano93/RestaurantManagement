@@ -1,4 +1,4 @@
-<%@ page import="java.util.ArrayList, modelGestioneComanda.OrdineBean" %>
+<%@ page import="java.util.ArrayList, model.OrdineBean" %>
 
 <%@ include file = "header.jsp" %>
 

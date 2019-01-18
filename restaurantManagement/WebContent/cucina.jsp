@@ -1,4 +1,4 @@
-<%@ page import="java.util.ArrayList, modelGestioneMenù.PortataBean, modelGestioneComanda.PortataComandaBean, modelGestioneComanda.ComandaBean, modelGestioneComanda.CucinaBean" %>
+<%@ page import="java.util.ArrayList, model.PortataBean, model.PortataComandaBean, model.ComandaBean, model.CucinaBean" %>
 <%@ include file="header.jsp" %>
 
 <!-- Breadcrumb -->
