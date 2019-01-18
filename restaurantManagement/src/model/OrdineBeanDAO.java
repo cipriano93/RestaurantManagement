@@ -191,7 +191,7 @@ public class OrdineBeanDAO {
 		ArrayList <OrdineBean> obs = new ArrayList<>();
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("SELECT * FROM ordine");
+			ps = con.prepareStatement("SELECT * FROM ordine ORDER BY data DESC");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				OrdineBean ob = new OrdineBean();
