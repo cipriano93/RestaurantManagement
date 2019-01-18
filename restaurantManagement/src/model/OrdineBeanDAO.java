@@ -63,7 +63,8 @@ public class OrdineBeanDAO {
 				ts = (Timestamp) rs.getObject("data");
 				GregorianCalendar tmp = new GregorianCalendar();
 				tmp.setTime(ts);
-				if ((gc.get(gc.DAY_OF_MONTH)) == (tmp.get(tmp.DAY_OF_MONTH))) {
+				if ((gc.get(gc.YEAR)) == (tmp.get(tmp.YEAR)) && (gc.get(gc.MONTH)) == (tmp.get(tmp.MONTH)) &&
+						(gc.get(gc.DAY_OF_MONTH)) == (tmp.get(tmp.DAY_OF_MONTH))) {
 					ob = new OrdineBean();
 					ob.setIdOrdine(rs.getInt("idordine"));
 					ob.setData(tmp);
@@ -112,7 +113,7 @@ public class OrdineBeanDAO {
 				ts = (Timestamp) rs.getObject("data");
 				GregorianCalendar tmp = new GregorianCalendar();
 				tmp.setTime(ts);
-				if ((gc.get(gc.MONTH)) == (tmp.get(tmp.MONTH))) {
+				if ((gc.get(gc.YEAR)) == (tmp.get(tmp.YEAR)) && (gc.get(gc.MONTH)) == (tmp.get(tmp.MONTH))) {
 					ob = new OrdineBean();
 					ob.setIdOrdine(rs.getInt("idordine"));
 					ob.setData(tmp);
