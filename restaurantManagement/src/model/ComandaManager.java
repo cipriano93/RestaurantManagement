@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 import model.PortataBean;
 
@@ -71,6 +72,17 @@ public class ComandaManager {
 	public boolean inviaComanda(CucinaBean c, ComandaBean cb) {
 		c.contains(cb);
 		return (c.addComanda(cb));
+	}
+	
+	
+	public boolean inserimentoOrdine(ComandaBean cb) {
+		OrdineBean ob = new OrdineBean();
+		ob.setData(new GregorianCalendar());
+		ob.setNumCoperti(cb.getTavolo().getNumeroPersone());
+		ob.setTotale(cb.getTotale());
+		
+		OrdineBeanDAO obd = new OrdineBeanDAO();
+		return (obd.doSave(ob));
 	}
 	
 	

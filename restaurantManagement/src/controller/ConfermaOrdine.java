@@ -36,11 +36,20 @@ public class ConfermaOrdine extends HttpServlet {
 		ComandaManager cm = new ComandaManager();
 		
 		updatesTables = cm.aggiornaListaTavoli(tavoli, tb.getNumeroTavolo(), 0);
-	
-		application.setAttribute("comanda"+tb.getNumeroTavolo(), null);
-		session.setAttribute("tavoli",updatesTables);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("selezionaTavolo.jsp");
-		requestDispatcher.forward(request, response);
+		
+		ComandaBean cb = (ComandaBean) application.getAttribute("comanda" + tb.getNumeroTavolo());
+		
+		if (!(cm.inserimentoOrdine(cb))) {
+			request.setAttribute("message", true);
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("anteprimaOrdine.jsp");
+			requestDispatcher.forward(request, response);
+		} else {
+			request.setAttribute("message", true);
+			application.setAttribute("comanda" + tb.getNumeroTavolo(), null);
+			session.setAttribute("tavoli", updatesTables);
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("selezionaTavolo.jsp");
+			requestDispatcher.forward(request, response);
+		}
 	}
 
 	/**

@@ -49,8 +49,19 @@
 <span class="label danger">prenotato</span>
 <hr>
 
+<%
+	Boolean message = (Boolean) request.getAttribute("message");
+	if (message != null) {
+%>
+		<div class="alert alert-access">
+			<strong>Successo!</strong> L'ordine è stato salvato correttamente.
+		</div>
 
-<%ArrayList<TavoloBean> tavoli = new ArrayList<TavoloBean>(); %>
+
+<%
+	}
+	ArrayList<TavoloBean> tavoli = new ArrayList<TavoloBean>();
+%>
 <form action="inserimentoPersone.jsp" method ="post">
 	<%if ((application.getAttribute("tavoli")) == null){
 		System.out.println("sono qua");

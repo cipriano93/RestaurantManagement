@@ -1,8 +1,14 @@
 package model;
 
 import java.util.GregorianCalendar;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class OrdineBean {
+	
+	public OrdineBean() {
+		id_ordine = ThreadLocalRandom.current().nextInt(10000, 99999 + 1);
+	}
+	
 
 	public int getIdOrdine() {
 		return id_ordine;

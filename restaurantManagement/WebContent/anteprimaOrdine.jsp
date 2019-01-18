@@ -23,12 +23,18 @@
 	<%ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
 	ArrayList<PortataComandaBean> portateComanda = cb.getPortateConsegnate();%>
 	
-	<%if(portateComanda.size() > 0){ %>
+	<%if(portateComanda.size() > 0) { %>
 	<div class="container my_satisfy">
 		<h3 class="dark_brown text-center">Anteprima ordine</h3>
-		<div>
-		</div>
-	<hr>
+		<hr>
+		<%
+			Boolean message = (Boolean) request.getAttribute("message");
+			if (message != null) {
+		%>
+				<div class="alert alert-danger">
+					<strong>Errore!</strong> Impossibile salvare l'ordine.
+				</div>
+		 <% } %>
 	</div>
 
 	
@@ -90,7 +96,7 @@
 		</div>
 			<!-- Bottone conferma ordine -->
 			<div class="col-md-12">
-				<form  name="form" action="ConfermaOrdine" method="POST" onsubmit="">
+				<form  name="form" action="ConfermaOrdine" method="POST">
 					<div class="text-center"> 
 			    			<button id="conferma_ordine" class="btn btn-success my_font">Conferma ordine</button> 
 					</div>
