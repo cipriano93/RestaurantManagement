@@ -36,22 +36,34 @@
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
 	<ul class="breadcrumb">
-		<li><a href="#">Home</a></li>
+		<li><a href="index.jsp">Home</a></li>
 		
-		<%if (ub.getTipo().equals("gestore")) { %>
-			<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
-		<%} else { %>
-			<li class="breadcrumb-item"><a href="areaPersonaleCliente.jsp">Area personale</a></li>
-		<% } %>
+		<% if (ub == null) { %>
+				</ul>
+			</nav>
+			<h3 class = "red" style="font-family:avenir" align="center">Accedi come cliente o gestore</h3>
+			<br>
+		<%
+			} else {
+				if (ub.getTipo().equals("gestore")) {
+		%>
+					<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
+			 <% } else { %>
+					<li class="breadcrumb-item"><a href="areaPersonaleCliente.jsp">Area personale</a></li>
+			 <% } %>
 		<li class="breadcrumb-item active" aria-current="page">Visualizza prenotazioni</li>
 	</ul>
 </nav>
 <!-- Breadcrumb -->
 
 <div class="container my_avenir">
+	
+	<% if (!(ub.getTipo().equals("cliente")) || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class = "red" style="font-family:avenir" align="center">Accedi come cliente o gestore</h3>
+	<% } %>
+	
 	<h3 class="dark_brown "style="font-family: satisfy">Prenotazioni</h3>
 	<hr>
-	
 	<%
 		Boolean message = (Boolean) request.getAttribute("message_danger");
 		if (message != null) {
@@ -130,6 +142,8 @@
 	</div>
 	 <% } %>
 
-</div>		
+</div>
+
+<% } %>	
 
 <%@ include file="footer.jsp" %>
