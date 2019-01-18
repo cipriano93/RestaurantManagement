@@ -90,6 +90,7 @@
 			<div class = "col-sm-7"></div>
 			<div class = "col-sm-2 text-right">
 				<div><strong><span>Totale <%=totaleConto %> &euro;</span></strong></div>
+				<% session.setAttribute("totale_ordine", totaleConto); %>
 			</div>
 			<div class = "col-sm-3"></div>
 			

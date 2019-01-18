@@ -39,7 +39,7 @@ public class ConfermaOrdine extends HttpServlet {
 		
 		ComandaBean cb = (ComandaBean) application.getAttribute("comanda" + tb.getNumeroTavolo());
 		
-		if (!(cm.inserimentoOrdine(cb))) {
+		if (!(cm.inserimentoOrdine(cb, (Double) session.getAttribute("totale_ordine")))) {
 			request.setAttribute("message", true);
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("anteprimaOrdine.jsp");
 			requestDispatcher.forward(request, response);

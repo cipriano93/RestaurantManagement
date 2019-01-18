@@ -42,18 +42,6 @@ public class ComandaBean {
 	}
 	
 	
-	public double getTotale() {
-		int size = getSizeAllPortate();
-		double tot = 0;
-		for (int i = 0; i < size; i++) {
-			PortataComandaBean pcb = portateCB.get(i);
-			if (pcb.isConsegnato())
-				tot += Double.parseDouble(pcb.getPb().getPrezzo());
-		}
-		return tot;
-	}
-	
-	
 	//Variabili d'istanza
 	private TavoloBean tb;
 	private ArrayList<PortataComandaBean> portateCB = new ArrayList<PortataComandaBean>();

@@ -75,11 +75,11 @@ public class ComandaManager {
 	}
 	
 	
-	public boolean inserimentoOrdine(ComandaBean cb) {
+	public boolean inserimentoOrdine(ComandaBean cb, double tot) {
 		OrdineBean ob = new OrdineBean();
 		ob.setData(new GregorianCalendar());
 		ob.setNumCoperti(cb.getTavolo().getNumeroPersone());
-		ob.setTotale(cb.getTotale());
+		ob.setTotale(tot);
 		
 		OrdineBeanDAO obd = new OrdineBeanDAO();
 		return (obd.doSave(ob));

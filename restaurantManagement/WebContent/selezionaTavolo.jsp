@@ -53,7 +53,7 @@
 	Boolean message = (Boolean) request.getAttribute("message");
 	if (message != null) {
 %>
-		<div class="alert alert-access">
+		<div class="alert alert-success">
 			<strong>Successo!</strong> L'ordine è stato salvato correttamente.
 		</div>
 

@@ -17,11 +17,11 @@ public class OrdineBeanDAO {
 		PreparedStatement ps = null;
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("INSERT INTO ordine (idordine, data, num_coperti, totale) VALUES (?, ?, ?)");
+			ps = con.prepareStatement("INSERT INTO ordine (idordine, data, num_coperti, totale) VALUES (?, ?, ?, ?)");
 			ps.setLong(1, ob.getIdOrdine());
 			ps.setObject(2, new Timestamp(ob.getData().getTimeInMillis()));
 			ps.setInt(3, ob.getNumCoperti());
-			ps.setDouble(3, ob.getTotale());
+			ps.setDouble(4, ob.getTotale());
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
