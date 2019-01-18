@@ -43,7 +43,7 @@ public class OrdineBeanDAO {
 		ArrayList <OrdineBean> obs = new ArrayList<>();
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("SELECT * FROM ordine ORDER BY data");
+			ps = con.prepareStatement("SELECT * FROM ordine ORDER BY data DESC");
 			ResultSet rs = ps.executeQuery();
 			Timestamp ts;
 			GregorianCalendar gc = null;
@@ -92,7 +92,7 @@ public class OrdineBeanDAO {
 		ArrayList <OrdineBean> obs = new ArrayList<>();
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("SELECT * FROM ordine ORDER BY data");
+			ps = con.prepareStatement("SELECT * FROM ordine ORDER BY data DESC");
 			ResultSet rs = ps.executeQuery();
 			Timestamp ts;
 			GregorianCalendar gc = null;
@@ -141,7 +141,7 @@ public class OrdineBeanDAO {
 		ArrayList <OrdineBean> obs = new ArrayList<>();
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("SELECT * FROM ordine ORDER BY data");
+			ps = con.prepareStatement("SELECT * FROM ordine ORDER BY data DESC");
 			ResultSet rs = ps.executeQuery();
 			Timestamp ts;
 			GregorianCalendar gc = null;
