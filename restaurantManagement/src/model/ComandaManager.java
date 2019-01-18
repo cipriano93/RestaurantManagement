@@ -91,6 +91,21 @@ public class ComandaManager {
 	}
 	
 	
+	public ArrayList<OrdineBean> getOrdiniByLastDay() {
+		return (new OrdineBeanDAO().doRetrieveByDay());
+	}
+	
+	
+	public ArrayList<OrdineBean> getOrdiniByLastMonth() {
+		return (new OrdineBeanDAO().doRetrieveByMonth());
+	}
+	
+	
+	public ArrayList<OrdineBean> getOrdiniByLastYear() {
+		return (new OrdineBeanDAO().doRetrieveByYear());
+	}
+	
+	
 	public void stampa(String nomePo, String quantità, String note, String tavo) {
 		System.out.println("portata: "+ nomePo);
 		System.out.println("quantità: "+ quantità);

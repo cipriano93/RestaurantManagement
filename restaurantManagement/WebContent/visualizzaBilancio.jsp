@@ -3,23 +3,23 @@
 <%@ include file = "header.jsp" %>
 
 <style>
-		#prenotazioni {
+		#ordini {
 		  	border-collapse: collapse;
 		  	width: 96%;
 			margin:25px;
 		}
 		
-		#prenotazioni td, #prenotazioni th {
+		#ordini td, #ordini th {
 			border: 1px solid #ddd;
 		  	padding: 8px;
 		  	width:10%;
 		}
 		
-		#prenotazioni tr:nth-child(even){ background-color: white; }
+		#ordini tr:nth-child(even){ background-color: white; }
 		
-		#prenotazioni tr:hover { background-color: #ddd; }
+		#ordini tr:hover { background-color: #ddd; }
 		
-		#prenotazioni th {
+		#ordini th {
 			padding-top: 12px;
 		  	padding-bottom: 12px;
 		  	text-align: left;
@@ -63,9 +63,25 @@
 		.dropdown:hover .dropbtn { background-color: #3e8e41; }
 </style>
 
+<script type="text/javascript">
+	function orderBy(value) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if(xhttp.readyState == 4 && xhttp.status == 200) {
+				//riferimento alla tabella con id "ordini"
+				document.getElementById("ordini").innerHTML = xhttp.responseText;
+			}
+		};
+		//URL lato server
+		var item = document.getElementById("orderBy").value;
+		xhttp.open("GET","VisualizzaBilancio?orderBy=" + item, true);
+		xhttp.send();
+	}
+</script>
+
 <!-- Breadcrumb -->
 	<ul class="breadcrumb">
-		<li><a href="#">Home</a></li>
+		<li><a href="index.jsp">Home</a></li>
 		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Visualizza bilancio</li>
 	</ul>
@@ -76,49 +92,20 @@
 	<h3 class="dark_brown">Visualizza bilancio</h3>
 	<hr>
 	
-	<%
-		ArrayList<OrdineBean> ordini = (ArrayList<OrdineBean>) session.getAttribute("ordini");
-		if (ordini == null) {
-	%>
-			<div class="alert alert-info">
-				<strong>Info!</strong> Nessun ordine effettuato finora.
-			</div>
-	 <% } else { %>
+		<div align="center">
+   			<span class="dark_brown">Filtra per:</span>
+   			<select id="orderBy" onchange="orderBy(this.value)">
+   				<option></option>
+   				<option value="all">Tutti</option>
+  				<option value="giorno">Ultimi giorni</option>
+   				<option value="mese">Ultimo mese</option>
+    			<option value="anno">Ultimo anno</option>
+  			</select>
+  		</div>
 		
-			<form action="#" method="GET">
-				<div align="center">
-		   			<span class="dark_brown">Filtra per:</span>
-		   			<select name="orderBy" onchange="this.form.submit()">
-		   				<option></option>
-		  				<option value="giorno">Ultimi giorni</option>
-		   				<option value="mese">Ultimo mese</option>
-		    			<option value="anno">Ultimo anno</option>
-		
-		  			</select>
-		  		</div>
-			</form>
-			
-			<table id="prenotazioni" class="text-center">
-						<tr>
-							<th style="text-align: center">Data</th>
-							<th style="text-align: center">N.coperti</th>
-							<th style="text-align: center">Totale</th>
-						</tr>
-			
-			<%
-				int size = ordini.size();
-				for (int i = 0; i < size; i++) {
-					OrdineBean ob = ordini.get(i);
-			%>
-					<tr>
-						<td><%= ob.getData() %></td>
-						<td><%= ob.getNumCoperti() %></td>
-						<td><%= ob.getTotale() %></td>
-					</tr>
-					
-			<% } %>
-			</table>
-	 <% } %>
+		<table id="ordini" class="text-center">
+		</table>
+
 </div>
 
 <%@ include file="footer.jsp" %>

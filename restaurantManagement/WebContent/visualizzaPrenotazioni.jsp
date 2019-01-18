@@ -98,22 +98,21 @@
 					  			GregorianCalendar gc = pb.getData();
 					  	%>
 					  			<tr>
+					  				<td><%= gc.get(gc.DAY_OF_MONTH) + "/" %>
 					  				<%
 					  					int month = gc.get(gc.MONTH) + 1;
-					  					if (month >= 1 && month <= 9) {
-					  				%>
-					  						<td><%= gc.get(gc.DAY_OF_MONTH) + "/0" + (gc.get(gc.MONTH) + 1) + "/" + gc.get(gc.YEAR) %></td>
-					  				 <% } else { %>
-					  				 		<td><%= gc.get(gc.DAY_OF_MONTH) + "/" + (gc.get(gc.MONTH) + 1) + "/" + gc.get(gc.YEAR) %></td>
+					  				   	if (month >= 1 && month <= 9) { %>
+					  						<%= "0" %>
 					  				 <% } %>
-					  				 <%
-					  				 	int minute = gc.get(gc.MINUTE);
+					  				<%= month + "/" + gc.get(gc.YEAR) %></td>
+					  				<td><%= gc.get(gc.HOUR_OF_DAY) + ":" %>
+					  				<%
+					  					int minute = gc.get(gc.MINUTE);
 					  					if (minute >= 0 && minute <= 9) {
 					  				%>
-					  						<td><%= gc.get(gc.HOUR_OF_DAY) + ":0" + gc.get(gc.MINUTE) %></td>
-					  				 <% } else { %>
-					  				 		<td><%= gc.get(gc.HOUR_OF_DAY) + ":" + gc.get(gc.MINUTE) %></td>
+					  						 <%= "0" %>
 					  				 <% } %>
+					  				<%= gc.get(gc.MINUTE) %></td>
 					  				<td><%= pb.getNumPersone() %></td>
 					  				<td>
 					    				<a href=<%= "RimozionePrenotazione?idprenotazione=" + pb.getIdPrenotazione() %> class="btn btn-danger">Rimuovi</a>
