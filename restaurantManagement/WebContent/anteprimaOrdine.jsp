@@ -27,6 +27,9 @@
 	<div class="container my_satisfy">
 		<h3 class="dark_brown text-center">Anteprima ordine</h3>
 		<hr>
+	</div>
+	
+	<div class="container">
 		<%
 			Boolean message = (Boolean) request.getAttribute("message");
 			if (message != null) {
@@ -36,7 +39,6 @@
 				</div>
 		 <% } %>
 	</div>
-
 	
 	<div class="container my_avenir">
 		<div class="row">
