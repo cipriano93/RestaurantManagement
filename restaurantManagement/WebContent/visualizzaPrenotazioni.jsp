@@ -101,7 +101,9 @@
 					    	<th style="text-align: center">Data</th>
 					    	<th style="text-align: center">Ora</th>
 					    	<th style="text-align: center">N.coperti</th>
-					    	<th style="text-align: center">Rimozione</th>
+					    	<% if (ub.getTipo().equals("cliente")) { %>
+					    		<th style="text-align: center">Rimozione</th>
+					    	<% } %>
 					  	</tr>
 					  	<%
 					  		int size = pbs.size();
@@ -126,9 +128,11 @@
 					  				 <% } %>
 					  				<%= gc.get(gc.MINUTE) %></td>
 					  				<td><%= pb.getNumPersone() %></td>
-					  				<td>
-					    				<a href=<%= "RimozionePrenotazione?idprenotazione=" + pb.getIdPrenotazione() %> class="btn btn-danger">Rimuovi</a>
-					    			</td>
+					  				<% if (ub.getTipo().equals("cliente")) { %>
+						  				<td>
+						    				<a href=<%= "RimozionePrenotazione?idprenotazione=" + pb.getIdPrenotazione() %> class="btn btn-danger">Rimuovi</a>
+						    			</td>
+						    		<% } %>
 					  			</tr>
 					  	 <% } %>
 					 </table>

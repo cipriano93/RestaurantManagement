@@ -73,7 +73,7 @@ public class PrenotazioneBeanDAO {
 		
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("SELECT * FROM prenotazione WHERE username=?");
+			ps = con.prepareStatement("SELECT * FROM prenotazione WHERE username=? ORDER BY data DESC");
 			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -105,7 +105,7 @@ public class PrenotazioneBeanDAO {
 		ArrayList <PrenotazioneBean> pbs = new ArrayList<>();
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("SELECT * FROM prenotazione");
+			ps = con.prepareStatement("SELECT * FROM prenotazione ORDER BY data DESC");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				PrenotazioneBean pb = new PrenotazioneBean();
