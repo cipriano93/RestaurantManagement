@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MenùManager {
 
-	public boolean inserimento(String nome) {
+	public boolean inserimentoMenù(String nome) {
 		MenùBean mb = new MenùBean();
 		
 		mb.setNome(nome);
@@ -15,7 +15,7 @@ public class MenùManager {
 	}
 	
 	
-	public boolean modificaNome(int id, String nome) {
+	public boolean modificaNomeMenù(int id, String nome) {
 		MenùBean mb = new MenùBean();
 		
 		mb.setIdMenù(id);
@@ -27,7 +27,7 @@ public class MenùManager {
 	}
 	
 	
-	public boolean rimozione(int id) {
+	public boolean rimozioneMenù(int id) {
 		MenùBeanDAO mbd = new MenùBeanDAO();
 		
 		return (mbd.doDelete(id));

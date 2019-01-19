@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 
 public class AttivitàManager {
 
-	public boolean modificaDati(String name, String p_iva, String provincia, String città, String address, int num_civ, String tel) {
+	public boolean modificaDatiAttività(String name, String p_iva, String provincia, String città, String address, int num_civ, String tel) {
 		AttivitàBean ab = new AttivitàBean();
 		ab.setNome(name);
 		ab.setPiva(p_iva);
@@ -17,7 +17,7 @@ public class AttivitàManager {
 		ab.setTel(tel);
 		ObjectOutputStream out;
 		try {
-			out = new ObjectOutputStream (new FileOutputStream("")); // inserire il path, che indicherà dove salvare il file
+			out = new ObjectOutputStream (new FileOutputStream("")); // inserire il path del file
 			out.writeObject(ab);
 			out.close();
 		} catch (IOException e) {

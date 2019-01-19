@@ -31,7 +31,7 @@ public class InserimentoMenù extends HttpServlet {
 		if (nome.matches(regexName)) {
 			MenùManager mm = new MenùManager();
 			
-			boolean result = mm.inserimento(nome);
+			boolean result = mm.inserimentoMenù(nome);
 		
 			if(result) {
 				request.setAttribute("message_success", "il menù è stato inserito correttamente.");

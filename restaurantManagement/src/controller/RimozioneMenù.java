@@ -26,7 +26,7 @@ public class RimozioneMenù extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("idmenu"));
 		MenùManager mm = new MenùManager();
-		boolean result = mm.rimozione(id);
+		boolean result = mm.rimozioneMenù(id);
 		if (result) {
 			request.setAttribute("message_success", "menù rimosso con successo.");
 			request.getRequestDispatcher("getmenus").forward(request, response);

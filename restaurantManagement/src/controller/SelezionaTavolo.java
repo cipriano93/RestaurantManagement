@@ -41,7 +41,7 @@ public class SelezionaTavolo extends HttpServlet {
 		
 		
 		ComandaManager cm = new ComandaManager();
-		ComandaBean cb = cm.newComanda(Integer.parseInt(tavolo), Integer.parseInt(numPersone));
+		ComandaBean cb = cm.creaComanda(Integer.parseInt(tavolo), Integer.parseInt(numPersone));
 		updatesTables = cm.aggiornaListaTavoli(tavoli, Integer.parseInt(tavolo), Integer.parseInt(numPersone));
 	
 		session.setAttribute("tavolo", tb);

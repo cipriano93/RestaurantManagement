@@ -12,7 +12,7 @@ public class ComandaManager {
 		tavoli.get(tavolo-1).setNumeroPersone(persone);
 		return tavoli;
 	}
-	public ComandaBean newComanda(int nTavolo, int nPersone) {
+	public ComandaBean creaComanda(int nTavolo, int nPersone) {
 		ComandaBean cb = new ComandaBean();
 		TavoloBean tb = new TavoloBean();
 		tb.setNumeroTavolo(nTavolo);

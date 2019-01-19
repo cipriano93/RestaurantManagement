@@ -32,7 +32,7 @@ public class ModificaDatiAttività extends HttpServlet {
 		String num_civ = request.getParameter("num_civ");
 		String tel = request.getParameter("tel");
 		AttivitàManager am = new AttivitàManager();
-		if (!(am.modificaDati(name, p_iva, provincia, città, address, Integer.parseInt(num_civ), tel))) {
+		if (!(am.modificaDatiAttività(name, p_iva, provincia, città, address, Integer.parseInt(num_civ), tel))) {
 			request.setAttribute("message", false);
 			request.getRequestDispatcher("modificaDatiAttivita.jsp").forward(request, response);
 		} else {

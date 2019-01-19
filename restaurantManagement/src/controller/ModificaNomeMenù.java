@@ -30,7 +30,7 @@ public class ModificaNomeMenù extends HttpServlet {
 		if (nome.matches(regName)) {
 			MenùManager mm = new MenùManager();
 			HttpSession session = request.getSession();
-			boolean result = mm.modificaNome((Integer) session.getAttribute("id_menù"), nome);
+			boolean result = mm.modificaNomeMenù((Integer) session.getAttribute("id_menù"), nome);
 			if (result) {
 				request.setAttribute("menù", "il nome del menù è stato modificato correttamente");
 				session.setAttribute("nome_menù", nome);
