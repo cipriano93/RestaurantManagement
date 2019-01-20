@@ -6,44 +6,57 @@ function verify(errore) {
 }
 
 function validateForm() {
-	var date = document.form.date.value;
-	var time = document.form.time.value;
-	var tel = document.form.tel.value;
-	if (!(validateDate(date)) || !(validateTime(time)) || !(validateTel(tel)))
+	var date = document.form.date;
+	var time = document.form.time;
+	var tel = document.form.tel;
+	var note = document.form.note;
+	if (!(validationDate(date)) || !(validationTime(time)) || !(validationTel(tel)) || !(validationNote(note)))
 		return false;
 	else
 		return true;
 }
 
-function validateDate(date) {
+function validationDate(date) {
 	var d = new Date();
 	var year_now = d.getFullYear(), month_now = d.getMonth() + 1, day_now = d.getDate();
-	var year = date.substring(0, 4), month = date.substring(5, 7), day = date.substring(8, 10);
+	var year = date.value.substring(0, 4), month = date.value.substring(5, 7), day = date.value.substring(8, 10);
 	if (year < year_now || month < month_now || day < day_now) {
 		verify("Inserire una data corretta");
+		date.focus();
 		return false;
 	}
 	return true;
 }
 
-function validateTime(time) {
+function validationTime(time) {
 	var h = new Date();
 	var hour_now = h.getHours(), minutes_now = h.getMinutes();
-	var hour = time.substring(0, 2), minutes = time.substring(3, 5);
+	var hour = time.value.substring(0, 2), minutes = time.value.substring(3, 5);
 	if (hour < hour_now || (hour == hour_now && minutes < minutes_now)) {
 		verify("Inserire un'ora corretta");
+		time.focus();
 		return false;
 	}
 	return true;
 }
 
-function validateTel(tel) {
+function validationTel(tel) {
 	var tel_format = /^[0-9]{10}$/;
-	if (!(tel.match(tel_format))) {
+	if (!(tel.value.match(tel_format))) {
 		verify("Inserire un numero di cellulare corretto");
+		tel.focus();
 		return false;
 	} else
 		return true;
+}
+
+function validationNote(note) {
+	if ((note.value.length) <= 0) {
+		verify("Inserire correttamente le note");
+     	note.focus();
+    	return false;
+  	} else
+  		return true;
 }
 </script>
 
