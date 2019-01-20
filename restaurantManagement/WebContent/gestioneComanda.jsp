@@ -49,11 +49,18 @@
       	}
 	  }
       
-      $(document).ready(function(){
-    	  	$(".fist").on('click', function(){
-    	    		$(this).parent().submit();
-    	  	});
-    	  });
+      	$(document).ready(function() {
+			$("#form").submit(function() {
+				if (($("#menu").val()) == "none") {
+			 		verify("Selezionare un menù");
+			 		$("#menu").focus();
+				}
+			});
+			
+			$(".fist").on('click', function() {
+				$(this).parent().submit();
+			});
+		});
       
     </script>
 	<!-- ./Validation -->
@@ -131,7 +138,7 @@
 	<br>
 	<!-- Inserimento portata comanda form -->
 	<div class="container" style="font-family: avenir">
-   		<form  name="form" action="InserimentoPortataComanda" method="POST" onsubmit="return validateForm()">
+   		<form id="form" name="form" action="InserimentoPortataComanda" method="POST" onsubmit="return validateForm()">
 			<div class = "row">
 			<!-- Menù -->
 				<div class="col-sm-2">
@@ -142,6 +149,7 @@
       							menus = mm.getMenùs();
       						%>
 							<select class="form-control light_brown" id="menu">
+								<option value="none">seleziona menù</option>
 								<%for(int i = 0; i < menus.size(); i++){%>
 									<option><%=menus.get(i).getNome()%></option>
 								<%}%>
@@ -305,7 +313,7 @@
 								
 								<!-- Quantità portata comanda -->
 								<td class="text-center">
-								<form name="form" action="ModificaPortataComanda" method="post">
+								<form action="ModificaPortataComanda" method="post">
 									<input name="quantity" type="number" min="1" max="10" value="<%= pcb.getQuantità()%>">
 									<button type="submit" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button>
 								<input type="hidden" name = "cliccatoQuantity" value= "1">
@@ -359,7 +367,7 @@
 		<div class="col-md-2"></div>
 		<!-- Bottone conferma ordine -->
 			<div class="col-md-4">
-				<form  name="form" action="anteprimaOrdine.jsp" method="POST" onsubmit="">
+				<form action="anteprimaOrdine.jsp" method="POST">
 					<div class="text-center"> 
 			    			<button id="anteprima_ordine" class="btn btn-success">Anteprima ordine</button> 
 			    			<input type="hidden" name ="tavolo" value = "<%= tb.getNumeroTavolo()%>">
@@ -370,7 +378,7 @@
 			</div>
 		<!-- Bottone invia comanda -->
 		<div class="col-md-4">
-			<form  name="form" action="InviaComanda" method="POST">
+			<form action="InviaComanda" method="POST">
 				<div class=" text-center"> 
 		    			<button id="invia_comanda" class="btn btn-success">Invia comanda</button> 
 				</div>
