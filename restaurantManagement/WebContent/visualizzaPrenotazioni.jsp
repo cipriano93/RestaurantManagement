@@ -58,7 +58,7 @@
 
 <div class="container my_avenir">
 	
-	<% if (!(ub.getTipo().equals("cliente")) || !(ub.getTipo().equals("gestore"))) { %>
+	<% if (!(ub.getTipo().equals("cliente")) && !(ub.getTipo().equals("gestore"))) { %>
 		<h3 class = "red" style="font-family:avenir" align="center">Accedi come cliente o gestore</h3>
 	<% } %>
 	
@@ -112,21 +112,24 @@
 					  			GregorianCalendar gc = pb.getData();
 					  	%>
 					  			<tr>
-					  				<td><%= gc.get(gc.DAY_OF_MONTH) + "/" %>
 					  				<%
+					  					String date = "" + gc.get(gc.DAY_OF_MONTH) + "/";
 					  					int month = gc.get(gc.MONTH) + 1;
-					  				   	if (month >= 1 && month <= 9) { %>
-					  						<%= "0" %>
-					  				 <% } %>
-					  				<%= month + "/" + gc.get(gc.YEAR) %></td>
-					  				<td><%= gc.get(gc.HOUR_OF_DAY) + ":" %>
+					  				   	if (month >= 1 && month <= 9) { 
+					  						date += "0";
+					  					}
+					  					date += month + "/" + gc.get(gc.YEAR);
+					  				%>
+					  				<td><%= date %></td>
 					  				<%
+					  					String time = "" + gc.get(gc.HOUR_OF_DAY) + ":";
 					  					int minute = gc.get(gc.MINUTE);
 					  					if (minute >= 0 && minute <= 9) {
+					  						 time += "0"; 
+					  					}
+					  					time += minute;
 					  				%>
-					  						 <%= "0" %>
-					  				 <% } %>
-					  				<%= gc.get(gc.MINUTE) %></td>
+					  				<td><%= time %></td>	
 					  				<td><%= pb.getNumPersone() %></td>
 					  				<% if (ub.getTipo().equals("cliente")) { %>
 						  				<td>

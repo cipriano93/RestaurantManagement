@@ -27,7 +27,7 @@ private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String date = request.getParameter("date");
-		String hour = request.getParameter("hour");
+		String time = request.getParameter("time");
 		String tel = request.getParameter("tel");
 		String num_people = request.getParameter("num_people");
 		String note = request.getParameter("note");
@@ -47,12 +47,14 @@ private static final long serialVersionUID = 1L;
 		String mese = date.substring(5, 7);
 		String giorno = date.substring(8,10);
 		
-		String ore = hour.substring(0, 2);
-		String minuti = hour.substring(3, 5);
+		String ore = time.substring(0, 2);
+		String minuti = time.substring(3, 5);
 		
 		data.set(Integer.parseInt(anno), Integer.parseInt(mese)-1, Integer.parseInt(giorno), Integer.parseInt(ore) ,Integer.parseInt(minuti));
 
 		HttpSession session = request.getSession();
+		
+		System.out.println(((UtenteBean) session.getAttribute("utenteBean")).getUsername());
 		
 		boolean result = pm.prenotaTavolo(((UtenteBean) session.getAttribute("utenteBean")).getUsername(), data, nPersone, tel, note);
 		if(result) {
