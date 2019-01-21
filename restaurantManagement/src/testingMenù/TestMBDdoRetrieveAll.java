@@ -21,6 +21,7 @@ public class TestMBDdoRetrieveAll {
 	
 	@Test
 	public void doRetrieveAllTest() {
+		menùs = mbd.doRetrieveAll();
 		assertEquals(true, mbd.doRetrieveAll().size() > 0);
 	}
 	
