@@ -7,9 +7,7 @@
 <%@page import="model.MenùManager"%>
 <%@page import="model.TavoloBean"%>
 <%@include file="header.jsp" %>
-<style>
-body {font-family: 'Judson', serif; background: #F8F5F1;}
-</style>
+
 <%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" style="font-family: avenir">

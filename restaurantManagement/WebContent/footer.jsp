@@ -14,7 +14,7 @@
 </style>
 
 
-<footer class="page-footer font-small  pt-4 mt-4 " style="font-family: 'Judson', serif">
+<footer class="page-footer font-small  pt-4 mt-4 footer" style="font-family: 'Judson', serif">
 
 <!--Footer Links-->
 <div class="container-fluid text-center text-md-left">
