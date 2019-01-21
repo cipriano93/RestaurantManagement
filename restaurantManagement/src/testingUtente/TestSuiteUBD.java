@@ -6,8 +6,12 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	TestDoSave.class
+	TestUBDdoSave.class,
+	TestUBDdoDelete.class,
+	TestUBDdoRetrieveByKey.class,
+	TestUBDdoRetrieveByOneKey.class,
+	TestUBDdoUpdate.class
 })
-public class UtenteTestSuite {
+public class TestSuiteUBD {
 	
 }
