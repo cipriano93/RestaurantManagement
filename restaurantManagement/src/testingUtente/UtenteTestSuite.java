@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	TestUtenteBeanDAO.class
+	TestDoSave.class
 })
 public class UtenteTestSuite {
 	
