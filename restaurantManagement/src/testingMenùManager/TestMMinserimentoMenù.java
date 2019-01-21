@@ -9,8 +9,8 @@ import model.MenùManager;
 public class TestMMinserimentoMenù {
 	
 	@Test
-	public void prenotaTavoloTest() {
-		assertEquals(true, mm.inserimentoMenù("menù"));
+	public void inserimentoMenùTest() {
+		assertEquals(true, mm.inserimentoMenù("bell'italia"));
 	}
 	
 	

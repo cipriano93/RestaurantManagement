@@ -9,10 +9,9 @@ import model.MenùManager;
 public class TestMMrimozioneMenù {
 	
 	@Test
-	public void prenotaTavoloTest() {
+	public void rimozioneMenùTest() {
 		assertEquals(true, mm.rimozioneMenù(1000));
 	}
-	
 	
 	private MenùManager mm = new MenùManager();
 }

@@ -12,6 +12,6 @@ public class TestUMregistrazione {
 		assertEquals(true, um.registrazione("cliente97", "cliente97", "Mario", "Rossi", "cliente"));
 	}
 	
-	
+
 	private UtenteManager um = new UtenteManager();
 }

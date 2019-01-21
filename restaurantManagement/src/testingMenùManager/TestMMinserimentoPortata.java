@@ -9,10 +9,9 @@ import model.MenùManager;
 public class TestMMinserimentoPortata {
 	
 	@Test
-	public void prenotaTavoloTest() {
-		assertEquals(true, mm.inserimentoPortata(1000, "portata", "antipasto", "2.5", "descrizione"));
+	public void inserimentoPortataTest() {
+		assertEquals(true, mm.inserimentoPortata(55442, "Affettato misto", "antipasto", "2.5", "i sapori del sud"));
 	}	
-	
-	
+
 	private MenùManager mm = new MenùManager();
 }

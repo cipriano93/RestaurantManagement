@@ -2,19 +2,24 @@ package testingMenùManager;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import model.MenùBean;
+import model.MenùManager;
+import model.PortataBean;
 import model.PrenotazioneManager;
 
 public class TestMMgetPortataByNome {
 	
 	@Test
-	public void prenotaTavoloTest() {
-		assertEquals(true, pm.prenotaTavolo("cliente93", new GregorianCalendar(), 7, "3333333333", "ottima cameriera"));
+	public void getPortateTest() {
+		assertEquals("Scialatelli frutti di mare", mm.getPortataByNome("Scialatelli frutti di mare").getNome());
 	}
-	
-	
-	private PrenotazioneManager pm = new PrenotazioneManager();
+
+	private MenùManager mm = new MenùManager();
 }

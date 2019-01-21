@@ -6,15 +6,16 @@ import java.util.GregorianCalendar;
 
 import org.junit.Test;
 
+import model.MenùManager;
 import model.PrenotazioneManager;
 
 public class TestMMgetIdMenuByNome {
 	
 	@Test
-	public void prenotaTavoloTest() {
-		assertEquals(true, pm.prenotaTavolo("cliente93", new GregorianCalendar(), 7, "3333333333", "ottima cameriera"));
+	public void getIDMenuByNomeTest() {
+		assertEquals(65585, mm.getIdMenuByNome("Stella di mare"));
 	}
 	
 	
-	private PrenotazioneManager pm = new PrenotazioneManager();
+	private MenùManager mm = new MenùManager();
 }

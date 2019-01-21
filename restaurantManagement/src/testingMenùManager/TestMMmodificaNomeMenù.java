@@ -9,10 +9,9 @@ import model.MenùManager;
 public class TestMMmodificaNomeMenù {
 	
 	@Test
-	public void rimozionePrenotazioneTest() {
-		assertEquals(true, mm.modificaNomeMenù(1000, "menu"));
+	public void modificaNomeMenùTest() {
+		assertEquals(true, mm.modificaNomeMenù(55442, "Sapori dell'Irpinia"));
 	}
-	
 	
 	private MenùManager mm = new MenùManager();
 }

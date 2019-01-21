@@ -12,7 +12,6 @@ public class TestMMrimozionePortata {
 	public void rimozionePortataTest() {
 		assertEquals(true, mm.rimozionePortata(1000));
 	}
-	
-	
+
 	private MenùManager mm = new MenùManager();
 }

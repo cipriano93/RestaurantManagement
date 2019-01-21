@@ -4,17 +4,19 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import testingUtenteManager.TestUMlogin;
-import testingUtenteManager.TestUMregistrazione;
-import testingUtenteManager.TestUMmodificaDatiPersonali;
-
 @RunWith(Suite.class)
-@SuiteClasses({
-	TestUMlogin.class,
-	TestUMregistrazione.class,
-	TestUMmodificaDatiPersonali.class
-})
-
+@SuiteClasses({ 
+	TestMMgetIdMenuByNome.class,
+	TestMMgetMenùs.class,
+	TestMMgetPortataByNome.class, 
+	TestMMgetPortate.class,
+	TestMMgetPortateByMenuTipo.class,
+	TestMMinserimentoMenù.class,
+	TestMMinserimentoPortata.class,
+	TestMMmodificaNomeMenù.class, 
+	TestMMmodificaPortata.class,
+	TestMMrimozioneMenù.class,
+	TestMMrimozionePortata.class })
 public class TestSuiteMM {
 
 }
