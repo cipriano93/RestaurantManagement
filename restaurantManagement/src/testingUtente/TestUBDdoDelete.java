@@ -1,8 +1,8 @@
 package testingUtente;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import model.UtenteBeanDAO;
 
@@ -10,7 +10,7 @@ class TestUBDdoDelete {
 	UtenteBeanDAO ubd = new UtenteBeanDAO();
 	@Test
 	public void doDeleteTest() {
-		assertEquals(true, ubd.doDelete("gestore89"));
+		assertEquals(true, ubd.doDelete("gestore97"));
 	}
 
 }
