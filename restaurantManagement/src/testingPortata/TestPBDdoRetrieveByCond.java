@@ -21,6 +21,7 @@ public class TestPBDdoRetrieveByCond {
 	
 	@Test
 	public void doRetrieveByCondTest() {
+		portate = pbd.doRetrieveByCond(1000);
 		assertEquals(true, pbd.doRetrieveByCond(1000).size() > 0);
 	}
 	

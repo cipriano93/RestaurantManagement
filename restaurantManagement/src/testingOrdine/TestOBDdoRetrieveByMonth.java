@@ -21,6 +21,7 @@ public class TestOBDdoRetrieveByMonth {
 	
 	@Test
 	public void doRetrieveByMonthTest() {
+		ordini = obd.doRetrieveByMonth();
 		assertEquals(true, obd.doRetrieveByMonth().size() > 0);
 	}
 	

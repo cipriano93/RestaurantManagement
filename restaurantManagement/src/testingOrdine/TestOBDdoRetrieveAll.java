@@ -21,6 +21,7 @@ public class TestOBDdoRetrieveAll {
 	
 	@Test
 	public void doRetrieveAllTest() {
+		ordini = obd.doRetrieveAll();
 		assertEquals(true, obd.doRetrieveAll().size() > 0);
 	}
 	
