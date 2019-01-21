@@ -1,5 +1,65 @@
 <%@ include file="header.jsp" %>
 
+<script type="text/javascript">
+function verify(errore) {
+	document.getElementById("ver").innerHTML = errore;
+}
+
+function validateForm() {
+	var date = document.form.date;
+	var time = document.form.time;
+	var tel = document.form.tel;
+	var note = document.form.note;
+	if (!(validationDate(date)) || !(validationTime(time)) || !(validationTel(tel)) || !(validationNote(note)))
+		return false;
+	else
+		return true;
+}
+
+function validationDate(date) {
+	var d = new Date();
+	var year_now = d.getFullYear(), month_now = d.getMonth() + 1, day_now = d.getDate();
+	var year = date.value.substring(0, 4), month = date.value.substring(5, 7), day = date.value.substring(8, 10);
+	if (year < year_now || month < month_now || day < day_now) {
+		verify("Inserire una data corretta");
+		date.focus();
+		return false;
+	}
+	return true;
+}
+
+function validationTime(time) {
+	var h = new Date();
+	var hour_now = h.getHours(), minutes_now = h.getMinutes();
+	var hour = time.value.substring(0, 2), minutes = time.value.substring(3, 5);
+	if (hour < hour_now || (hour == hour_now && minutes < minutes_now)) {
+		verify("Inserire un'ora corretta");
+		time.focus();
+		return false;
+	}
+	return true;
+}
+
+function validationTel(tel) {
+	var tel_format = /^[0-9]{10}$/;
+	if (!(tel.value.match(tel_format))) {
+		verify("Inserire un numero di cellulare corretto");
+		tel.focus();
+		return false;
+	} else
+		return true;
+}
+
+function validationNote(note) {
+	if ((note.value.length) <= 0) {
+		verify("Inserire correttamente le note");
+     	note.focus();
+    	return false;
+  	} else
+  		return true;
+}
+</script>
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
@@ -18,7 +78,7 @@
 
 <!-- Prenotazione tavolo -->
 <div class="container my_avenir">
-	<form action="PrenotaTavolo" method="post">
+	<form action="PrenotaTavolo" method="post" onsubmit="return validationForm()">
 		<div class="form-group">
 			<label for="date">Seleziona data:</label>
 		    <input type="date" class="form-control light_brown" id="date" name="date">
