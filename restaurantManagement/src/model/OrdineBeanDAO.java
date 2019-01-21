@@ -37,7 +37,7 @@ public class OrdineBeanDAO {
 	}
 	
 	
-	public synchronized ArrayList <OrdineBean> doRetrieveByDay() {
+	public synchronized ArrayList<OrdineBean> doRetrieveByDay() {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ArrayList <OrdineBean> obs = new ArrayList<>();
@@ -87,7 +87,7 @@ public class OrdineBeanDAO {
 	}
 	
 	
-	public synchronized ArrayList <OrdineBean> doRetrieveByMonth() {
+	public synchronized ArrayList<OrdineBean> doRetrieveByMonth() {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ArrayList <OrdineBean> obs = new ArrayList<>();
@@ -136,7 +136,7 @@ public class OrdineBeanDAO {
 	}
 	
 	
-	public synchronized ArrayList <OrdineBean> doRetrieveByYear() {
+	public synchronized ArrayList<OrdineBean> doRetrieveByYear() {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ArrayList <OrdineBean> obs = new ArrayList<>();

@@ -111,7 +111,7 @@ public class PortataBeanDAO {
 				pb.setNome(res.getString("nome"));
 				pb.setTipo(res.getString("tipo"));
 				pb.setPrezzo(res.getString("prezzo"));
-				pb.setDescrizione(res.getString("descizione"));
+				pb.setDescrizione(res.getString("descrizione"));
 				return pb;
 			}
 			
@@ -194,10 +194,4 @@ public class PortataBeanDAO {
 		}
 		 return null;	 
 	}
-	
-	
-	
-	
-	
-	
 }
