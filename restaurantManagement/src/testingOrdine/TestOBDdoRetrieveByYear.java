@@ -21,7 +21,7 @@ public class TestOBDdoRetrieveByYear {
 	
 	@Test
 	public void doRetrieveByYearTest() {
-		assertEquals(true, obd.doRetrieveAll().size() > 0);
+		assertEquals(true, obd.doRetrieveByYear().size() > 0);
 	}
 	
 	

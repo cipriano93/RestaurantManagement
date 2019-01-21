@@ -21,7 +21,7 @@ public class TestOBDdoRetrieveByMonth {
 	
 	@Test
 	public void doRetrieveByMonthTest() {
-		assertEquals(true, obd.doRetrieveAll().size() > 0);
+		assertEquals(true, obd.doRetrieveByMonth().size() > 0);
 	}
 	
 	

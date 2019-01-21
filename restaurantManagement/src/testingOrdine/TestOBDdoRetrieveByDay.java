@@ -21,7 +21,7 @@ public class TestOBDdoRetrieveByDay {
 	
 	@Test
 	public void doRetrieveByDayTest() {
-		assertEquals(true, obd.doRetrieveAll().size() > 0);
+		assertEquals(true, obd.doRetrieveByDay().size() > 0);
 	}
 	
 	
