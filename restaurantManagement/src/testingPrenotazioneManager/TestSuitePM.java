@@ -10,9 +10,9 @@ import testingUtenteManager.TestUMmodificaDatiPersonali;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	TestUMlogin.class,
-	TestUMregistrazione.class,
-	TestUMmodificaDatiPersonali.class
+	TestPMprenotaTavolo.class,
+	TestPMrimozionePrenotazione.class,
+	TestPMvisualizzaPrenotazioni.class
 })
 
 public class TestSuitePM {

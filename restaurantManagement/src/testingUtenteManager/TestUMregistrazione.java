@@ -9,7 +9,7 @@ import model.UtenteManager;
 public class TestUMregistrazione {
 	@Test
 	public void registrazioneTest() {
-		assertEquals(true, um.registrazione("cameriere97", "cameriere97", "Giuseppe", "rotondo97", "cliente"));
+		assertEquals(true, um.registrazione("cliente97", "cliente97", "Mario", "Rossi", "cliente"));
 	}
 	
 	
