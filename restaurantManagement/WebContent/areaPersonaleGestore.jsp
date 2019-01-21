@@ -20,7 +20,7 @@
 				<br>
 				<a href="gestioneCameriere.jsp">Gestione cameriere</a>
 				<br>
-				<a href="visualizzaPrenotazioni.jsp">Visualizza prenotazioni</a>
+				<a href="VisualizzaPrenotazioni">Visualizza prenotazioni</a>
 				<br>
 				<a href="visualizzaBilancio.jsp">Visualizza bilancio</a>
 

@@ -37,13 +37,14 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-<div class="container">
-	<h3 class="dark_brown">Inserisci un menù</h3>
+<div class="container ">
+	<h3 class="dark_brown " style="font-family: satisfy">Inserisci un menù</h3>
 	<hr/>
 </div>
+
 	
 <!-- Inserimento menù form -->
-<div class="container">
+<div class="container my_avenir">
 	<%
 		String message = (String) request.getAttribute("message");
 		if (message != null) {

@@ -110,7 +110,10 @@ public class PrenotazioneBeanDAO {
 			while (rs.next()) {
 				PrenotazioneBean pb = new PrenotazioneBean();
 				pb.setIdPrenotazione(rs.getInt("idprenotazione"));
-				pb.setData((GregorianCalendar) rs.getObject("data"));
+				Timestamp ts = (Timestamp) rs.getObject("data");
+				GregorianCalendar gc = new GregorianCalendar();
+				gc.setTime(ts);
+				pb.setData(gc);
 				pb.setNumPersone(rs.getInt("num_persone"));
 				pbs.add(pb);
 			}

@@ -86,14 +86,14 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-	<div class="container">
+	<div class="container my_satisfy">
 	  <h3>Crea un account cameriere</h3>
 	  <hr/>
 	</div>
 	
 	<!-- Inserimento cameriere form -->
-	<div class="container">
-	   		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
+	<div class="container my_avenir">
+	   		<form  name="form" action="InserimentoCameriere" method="POST" onsubmit="return validateForm()">
 	 	 		<div class="row">
 	 	 			<div class="col-sm-6">
 			 	 		<div class="form-group">
