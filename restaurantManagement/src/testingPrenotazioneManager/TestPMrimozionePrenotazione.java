@@ -4,14 +4,15 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import model.UtenteManager;
+import model.PrenotazioneManager;
 
 public class TestPMrimozionePrenotazione {
+	
 	@Test
-	public void modificaDatiPersonaliTest() {
-		assertEquals(true, um.modificaDatiPersonali("cameriere97", "cameriere97", "Giuseppe", "rotondo97", "cliente"));
+	public void rimozionePrenotazioneTest() {
+		assertEquals(true, pm.rimozionePrenotazione(1000));
 	}
 	
 	
-	private UtenteManager um = new UtenteManager();
+	private PrenotazioneManager pm = new PrenotazioneManager();
 }
