@@ -17,7 +17,7 @@ public class AttivitàManager {
 		ab.setTel(tel);
 		ObjectOutputStream out;
 		try {
-			out = new ObjectOutputStream (new FileOutputStream("/Users/andreacipriano/git/RestaurantManagement/restaurantManagement/src/file.txt")); 
+			out = new ObjectOutputStream (new FileOutputStream("")); // inserire il path
 			out.writeObject(ab);
 			out.close();
 		} catch (IOException e) {
