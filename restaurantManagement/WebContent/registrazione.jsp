@@ -38,11 +38,11 @@
     		}
 	   }
    	  function validationUsername(username) {
-   	  	var username_format=/^[0-9a-zA-Z]+$/;
+   	  	var username_format=/^[0-9a-zA-Z]{3,}$/;
    		if (username.value.match(username_format))
    			return true;
    		else {
-   			verifica("La username può contenere soltanto numeri e lettere");
+   			verify("Inserire correttamente la username");
    			username.focus();
    			return false;
    		}

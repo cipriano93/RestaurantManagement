@@ -1,12 +1,12 @@
 <%@ include file="header.jsp" %>
 
 <script>
-	function verifica(errore){
+	function verify(errore){
 		document.getElementById("ver").innerHTML = errore;
 	}
 	
  	function validateForm(){
-   		var name = document.form.name;
+   		var name = document.form.namemenu;
    		if(validationName(name)){
      		return true;
    		} else {
@@ -15,11 +15,11 @@
  	}
  	
  	function validationName(name) {
-   		var nameformat = /^[a-zA-Z0-9 ]+$/;
+   		var nameformat = /^[a-z A-Z]{4,}$/;
    		if(name.value.match(nameformat)){
      		return true;
    		} else {
-     		verify("Il nome del menù deve contenere soltanto lettere o numeri");
+     		verify("Inserisci correttamente il nome del menù");
 			name.focus();
 			return false; 
 		}
@@ -38,7 +38,7 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-<div class="container">
+<div class="container my_satisfy">
 	<h3 class="dark_brown">Modifica nome menù</h3>
 	<hr/>
 </div>
@@ -55,15 +55,16 @@
 </div>
 	
 <!-- Modifica nome menù form -->
-<div class="container">
+<div class="container my_avenir">
 	<form name="form" action="modificanomemenu" onsubmit="return validateForm()" method="POST">
 		<div class="form-group">
 	    	<label class ="dark_brown" for="name">Nome:</label>
-	      	<input type="text" class="form-control light_brown" id="name" placeholder="Inserisci il nome" name="namemenu">
-	      	<span class="red" id="ver"></span>
+	      	<input type="text" class="form-control light_brown" id="namemenu" placeholder="Inserisci il nome" name="namemenu">
 	    </div>
 		<button type="submit" class="btn btn-primary">Modifica nome</button>
 	</form>
+	<br>
+	<span class="red" id="ver"></span>
 </div>
 <br>
 <br>

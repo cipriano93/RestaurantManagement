@@ -35,14 +35,14 @@
  	 	if(surname.value.match(surnameformat)){
     		return true;
    	 	} else {
-    		verify("Inserire correttamente il cognome");
+    			verify("Inserire correttamente il cognome");
       	 	surname.focus();
        		return false;
     	}
 	  }
    	  
    	function validationUsername(username) {
-   		var username_format=/^[0-9a-zA-Z]+$/;
+   		var username_format=/^[0-9a-zA-Z]{3,}$/;
    		if (username.value.match(username_format))
    			return true;
    		else {
@@ -87,7 +87,7 @@
 <!-- ./Breadcrumb -->
 
 	<div class="container my_avenir">
-	  <h3>Crea un account cameriere</h3>
+	  <h3 class="my_satisfy">Crea un account cameriere</h3>
 	  <hr/>
 	  
 	  <%
@@ -101,48 +101,47 @@
 	</div>
 	
 	<!-- Inserimento cameriere form -->
-	<div class="container">
+	<div class="container my_avenir">
 	   		<form  name="form" action="InserimentoCameriere" method="POST" onsubmit="return validateForm()">
 	 	 		<div class="row">
 	 	 			<div class="col-sm-6">
 			 	 		<div class="form-group">
 			      			<label class="dark_brown" for="name">Nome:</label>
 			      			<input type="text" class="form-control light_brown" name="name">
-			      			<span id="ver" class="red"></span>
-			    		</div>
+			      	</div>
 			    	</div>
 			    	<div class="col-sm-6">
 			    		<div class="form-group">
 			      			<label class ="dark_brown" for="surname">Cognome:</label>
 			      			<input type="text" class="form-control light_brown" name="surname">
-			      			<span id="ver" class="red"></span>
 			    		</div>
 			    	</div>
 		    	</div>
 	    		<div class="form-group">
 	      			<label class="dark_brown" for="usr">Username:</label>
 	      			<input type="text" class="form-control light_brown" name="usr">
-	      			<span id="ver" class ="red"></span>
-	    		</div>
+	      	</div>
 	    		<div class="row">
 	    			<div class="col-sm-6">
 			    		<div class="form-group">
 				    		<label class="dark_brown" for="pwd">Password:</label>
 				     		<input type="password" class="form-control light_brown" name="pwd">
-				     		<span id="ver" class="red"></span>
-			    		</div>
+				    </div>
 			    	</div>
 			    	<div class="col-sm-6">
 			    		<div class="form-group">
 				    		<label class="dark_brown" for="pwd_confirm">Conferma password:</label>
 				     		<input type="password" class="form-control light_brown" name="pwd_confirm">
-				     		<span id="ver" class="red"></span>
-			    		</div>
+				    </div>
 			    	</div>
 		    	</div>
 				<button type="submit" class="btn btn-primary">Crea cameriere</button>
+				<br>
+				<br>
+				<span id="ver" class="red"></span>
 			</form>	
 	</div>
+	
 	<br>
 	<br>
 	<!-- ./Inserimento cameriere form -->

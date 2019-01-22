@@ -74,8 +74,8 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-	<div class="container">
-	  <h3>Modifica cameriere</h3>
+	<div class="container my_avenir">
+	  <h3 class ="my_satisfy">Modifica cameriere</h3>
 	  <hr/>
 	  <%
 	  	Boolean message = (Boolean) request.getAttribute("message");
@@ -88,21 +88,19 @@
 	</div>
 	
 	<!-- Modifica cameriere form -->
-	<div class="container">
+	<div class="container my_avenir">
 	   		<form  name="form" action=<%= "ModificaCameriere?usr=" + request.getParameter("usr") %> method="POST" onsubmit="return validateForm()">
 	 	 		<div class="row">
 	 	 			<div class="col-sm-6">
 			 	 		<div class="form-group">
 			      			<label class="dark_brown" for="name">Nome:</label>
 			      			<input type="text" class="form-control light_brown" name="name">
-			      			<span id="ver" class="red"></span>
-			    		</div>
+			      	</div>
 			    	</div>
 			    	<div class="col-sm-6">
 			    		<div class="form-group">
 			      			<label class ="dark_brown" for="surname">Cognome:</label>
 			      			<input type="text" class="form-control light_brown" name="surname">
-			      			<span id="ver" class="red"></span>
 			    		</div>
 			    	</div>
 		    	</div>
@@ -111,19 +109,20 @@
 			    		<div class="form-group">
 				    		<label class="dark_brown" for="pwd">Password:</label>
 				     		<input type="password" class="form-control light_brown" name="pwd">
-				     		<span id="ver" class="red"></span>
-			    		</div>
+				    </div>
 			    	</div>
 			    	<div class="col-sm-6">
 			    		<div class="form-group">
 				    		<label class="dark_brown" for="pwd_confirm">Conferma password:</label>
 				     		<input type="password" class="form-control light_brown" name="pwd_confirm">
-				     		<span id="ver" class="red"></span>
-			    		</div>
+					</div>
 			    	</div>
 		    	</div>
 				<button type="submit" class="btn btn-primary">Modifica cameriere</button>
 			</form>	
+			<br>
+			<br>
+			<span id="ver" class="red"></span>
 	</div>
 	<br>
 	<br>

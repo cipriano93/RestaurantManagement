@@ -7,14 +7,27 @@
   	  
       function validateForm() {
         var name = document.form.nameportata;
+        var tipo = document.form.type;
         var price = document.form.price;
+        var note = document.form.description;
         
-        if(validationName(name) && validationPrice(price)){
+        if(validationName(name) && validationTipo(tipo) && validationPrice(price) && validationNote(note) ){
           	return true;
         } else {
          	return false;
         }
       }
+      function validationTipo(tipo) {
+  	  	var string = tipo.value;
+  	  	var string2 = "seleziona tipo";
+    	if (string == string2){
+    		verify("Seleziona il tipo");
+    		tipo.focus();
+      		return false;
+      	} else {
+         	return true;
+      	}
+	  }
       
       function validationName(name) {
   	  	var nameformat = /^[A-Z a-z]{3,}$/;
@@ -37,6 +50,18 @@
        		return false;
     	}
 	  }
+   	  
+      function validationNote(note) {
+    	  	var noteformat = /^[A-Z a-z]{4,}$/;
+      		if (note.value.match(noteformat)){
+        		return true;
+        	} else {
+        		verify("Inserire correttamente la descrizione");
+           	note.focus();
+           	return false;
+        	}
+  	  }
+   	  
     </script>
 	<!-- ./Validation -->
 	
@@ -52,12 +77,12 @@
 	</nav>
 <!-- ./Breadcrumb -->
 
-	<div class="container">
+	<div class="container my_satisfy">
 	  <h3>Inserisci una portata</h3>
 	  <hr/>
 	</div>
 	
-	<div class="container">
+	<div class="container my_avenir">
 		<%
 			String message = (String) request.getAttribute("message");
 			if (message != null) {
@@ -74,13 +99,13 @@
 					<div class="form-group">
 			    		<label class="dark_brown" for="name">Nome:</label>
 			      		<input type="text" class="form-control light_brown" name="nameportata">
-			      		<span id="ver" class="red"></span>
 			    	</div>
 			    </div>
 			    <div class="col-sm-4">
 	    			<div class="form-group">
 	      				<label for="type">Tipo:</label>
-						<select class="form-control" id="type" name="type">
+						<select class="form-control ligth_brown" id="type" name="type">
+							<option>seleziona tipo</option>
 							<option>Antipasto</option>
 							<option>Primo</option>
 							<option>Secondo</option>
@@ -95,21 +120,22 @@
 				   	<div class="form-group">
 				      	<label class="dark_brown" for="price">Prezzo:</label>
 				      	<input type="text" class="form-control light_brown" name="price">
-				      	<span id="ver" class ="red"></span>
 				    </div>
 				 </div>
 			</div>
 			<div class="form-group">
 					<label for="description">Descrizione:</label>
 					<textarea class="form-control light_brown" rows="5" id="description" name="description"></textarea>
-					<span id="ver" class="red"></span>
 				</div>	
 			<div class = "row">		
   				<div class="col-sm-3">
 					<button type="submit" class="btn btn-primary">Inserisci</button>
 				</div>
 			</div>	
+			<br>
+			<span id="ver" class="red"></span>
 		</form>	
+		
 	<!-- ./Inserimento portata form -->
 	</div>
 	<br>
