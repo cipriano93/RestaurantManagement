@@ -1,13 +1,8 @@
 <%@ include file="header.jsp" %>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
 
 <script>
 	function verifica(errore){
@@ -420,9 +415,10 @@ button {
 		</div>
 		</form>
 		</div>
+	<!-- ./Modifica dati attività form -->
 	
+	<% } %>
 <br>
 <br>
-<!-- ./Modifica dati attività form -->
 	
 <%@ include file="footer.jsp" %>

@@ -1,6 +1,11 @@
 <%@ page import="model.UtenteBean" %>
 
-<%@ include file="header.jsp" %>	
+<%@ include file="header.jsp" %>
+
+<% if (ub == null || !(ub.getTipo().equals("cliente"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cliente</h3>
+<% } else { %>
+	
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore){
@@ -139,5 +144,9 @@
 				</div>
 				</div>
 				</div>
+				
+				<% } %>
+				
+				<br>
 	
 <%@ include file="footer.jsp" %>

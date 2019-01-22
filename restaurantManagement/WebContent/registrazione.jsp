@@ -1,4 +1,12 @@
-<%@ include file="header.jsp" %>	
+<%@ include file="header.jsp" %>
+
+<% if (ub != null) { %>
+	<div align="center">
+		<h3 class = "red" style="font-family:avenir">Effettua il logout per registrarti</h3>
+		<a href="Logout" class="btn btn-default btn-lg">Logout</a>
+	</div>
+<% } else { %>
+	
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore){
@@ -130,6 +138,9 @@
 		<p id="ver" class ="red" ></p>
 	<!-- ./Singup form -->
 	</div>
+	
+	<% } %>
+	
 	<br>
 	<br>
 	

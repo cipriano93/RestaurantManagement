@@ -8,7 +8,10 @@
 <%@page import="model.TavoloBean"%>
 <%@include file="header.jsp" %>
 
-<%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
+<% if (ub == null || !(ub.getTipo().equals("cameriere"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cameriere</h3>
+<% } else { %>
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" style="font-family: avenir">
 	<ul class="breadcrumb">
@@ -19,24 +22,27 @@
 	</ul>
 </nav>
 <!-- Breadcrumb -->
-
-	<%ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
-	ArrayList<PortataComandaBean> portateComanda = cb.getPortateConsegnate();%>
 	
-	<%if(portateComanda.size() > 0) { %>
-	<div class="container my_satisfy">
-		<h3 class="dark_brown text-center">Anteprima ordine</h3>
-		<hr>
-
-		<%
-			Boolean message = (Boolean) request.getAttribute("message");
-			if (message != null) {
-		%>
-				<div class="alert alert-danger">
-					<strong>Errore!</strong> Impossibile salvare l'ordine.
-				</div>
-		 <% } %>
-	</div>
+	<%
+			TavoloBean tb = (TavoloBean) session.getAttribute("tavolo");
+			ComandaBean cb = (ComandaBean) application.getAttribute("comanda"+tb.getNumeroTavolo());
+			ArrayList<PortataComandaBean> portateComanda = cb.getPortateConsegnate();
+	%>
+	
+			<%if(portateComanda.size() > 0) { %>
+			<div class="container my_satisfy">
+				<h3 class="dark_brown text-center">Anteprima ordine</h3>
+				<hr>
+		
+				<%
+					Boolean message = (Boolean) request.getAttribute("message");
+					if (message != null) {
+				%>
+						<div class="alert alert-danger">
+							<strong>Errore!</strong> Impossibile salvare l'ordine.
+						</div>
+				 <% } %>
+			</div>
 	
 	<div class="container my_avenir">
 		<div class="row">
@@ -106,7 +112,10 @@
 			</div>
 		<!-- Bottone conferma ordine -->
 		
-	<% } %>
+	<%
+			}
+		}
+	%>
 
 	<br>
 	<br>

@@ -1,6 +1,10 @@
 <%@ page import="java.util.ArrayList, model.PortataBean, model.PortataComandaBean, model.ComandaBean, model.CucinaBean" %>
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("cameriere"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cameriere</h3>
+<% } else { %>
+
 <!-- Breadcrumb -->
 	<nav aria-label="breadcrumb">
 	 	<ol class="breadcrumb">
@@ -97,5 +101,9 @@
 </div>
 
 </div>
+
+<% } %>
+
+<br>
 
 <%@ include file="footer.jsp" %>

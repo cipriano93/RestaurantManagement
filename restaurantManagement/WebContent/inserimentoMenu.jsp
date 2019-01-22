@@ -1,5 +1,9 @@
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <script>
 	function verifica(errore){
 		document.getElementById("ver").innerHTML = errore;
@@ -62,8 +66,11 @@
 		<button type="submit" class="btn btn-primary">Inserisci menù</button>
 	</form>
 </div>
-<br>
-<br>
 <!-- ./Inserimento menù form -->
+
+<% } %>
+
+<br>
+<br>
 	
 <%@ include file="footer.jsp" %>

@@ -1,6 +1,10 @@
 <%@ page import="model.UtenteBean" %>
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("cliente"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cliente</h3>
+	<% } else { %>
+
 <!-- Jumbotron -->
 <div class="jumbotron" id = "jumbotron_login">
 	<div class="container text-center my_satisfy">
@@ -11,6 +15,7 @@
 	
 <!-- Personal status -->
 <div class="container my_avenir">
+	
 			 <%
 			 	Boolean message = (Boolean) request.getAttribute("message");
 			 	if (message != null) {
@@ -32,6 +37,7 @@
 	<br>
 	<a href="VisualizzaPrenotazioni">Visualizza prenotazioni</a>
 </div>
+<% } %>
 <br>
 <br>
 <!-- ./Personal status -->

@@ -2,6 +2,10 @@
 
 <%@ include file = "header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+	<h3 class = "red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <style>
 		#ordini {
 		  	border-collapse: collapse;
@@ -107,5 +111,9 @@
 		</table>
 
 </div>
+
+<% } %>
+
+<br>
 
 <%@ include file="footer.jsp" %>

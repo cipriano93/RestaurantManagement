@@ -1,4 +1,9 @@
-<%@ include file="header.jsp" %>	
+<%@ include file="header.jsp" %>
+
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+	<% } else { %>
+	
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore) {
@@ -141,9 +146,11 @@
 				<span id="ver" class="red"></span>
 			</form>	
 	</div>
+	<!-- ./Inserimento cameriere form -->
+	
+	<% } %>
 	
 	<br>
 	<br>
-	<!-- ./Inserimento cameriere form -->
 	
 <%@ include file="footer.jsp" %>

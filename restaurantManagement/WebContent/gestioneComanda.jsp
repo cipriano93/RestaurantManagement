@@ -7,7 +7,12 @@
 <%@page import="model.MenùManager"%>
 <%@page import="com.sun.glass.ui.Menu"%>
 <%@page import="model.TavoloBean"%>
-<%@ include file="header.jsp" %>	
+<%@ include file="header.jsp" %>
+
+<% if (ub == null || !(ub.getTipo().equals("cameriere"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cameriere</h3>
+	<% } else { %>
+
 <%TavoloBean tb = (TavoloBean) session.getAttribute("tavolo"); %>
 	 <!-- Validation -->
 	 <script>
@@ -18,8 +23,9 @@
       function validateForm() {
         var note = document.form.note;
         var tipo = document.form.tipo_portata;
+        var portata = document.form.nome_portata;
         
-        if(validationTipo(tipo) && validationNote(note)){
+        if(validationTipo(tipo) && validationPortata(portata) && validationNote(note)){
           	return true;
         } else {
          	return false;
@@ -37,6 +43,18 @@
            	return true;
         	}
   	  }
+      
+      function validationPortata(portata) {
+  	  	var string = portata.value;
+  	  	var string2 = "seleziona portata";
+    	if (string == "" || string == string2){
+    		verify("Selezionare la portata");
+    		portata.focus();
+      		return false;
+      	} else {
+         	return true;
+      	}
+	  }
       
       function validationNote(note) {
     	  
@@ -388,8 +406,11 @@
 		<div class="col-md-2"></div>
 	</div>
 	<!-- ./Gestione ordine form form -->
-		<% } %>
-	<% } %>
+			<% } %>
+	<%
+			}
+		}
+	%>
 	<br>
 	<br>
 <%@ include file="footer.jsp" %>
