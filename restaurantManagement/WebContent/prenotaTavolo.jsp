@@ -108,7 +108,7 @@ function validationNote(note) {
 </div>
 <!-- ./Prenotazione tavolo -->
 
- <% } %>
+<% } %>
 
 <br>
 	
