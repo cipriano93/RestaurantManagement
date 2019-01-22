@@ -91,8 +91,8 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-	<div class="container my_avenir">
-	  <h3 class="my_satisfy">Crea un account cameriere</h3>
+	<div class="container my_satisfy">
+	  <h3>Crea un account cameriere</h3>
 	  <hr/>
 	  
 	  <%

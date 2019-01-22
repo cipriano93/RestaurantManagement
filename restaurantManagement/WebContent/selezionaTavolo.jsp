@@ -44,7 +44,7 @@
 <span class="label danger">prenotato</span>
 <hr>
 
-<div class="container">
+<div class="container my_avenir">
 <%
 	Boolean message = (Boolean) request.getAttribute("message");
 	if (message != null) {

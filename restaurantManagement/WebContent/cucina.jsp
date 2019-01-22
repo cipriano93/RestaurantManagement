@@ -17,7 +17,7 @@
 <!-- ./Breadcrumb -->
 
 
-<div class="container">
+<div class="container my_avenir">
 	<div>
 		<h3 class="dark_brown my_satisfy">Cucina</h3>
 	</div>
@@ -27,7 +27,7 @@
 		Boolean message = (Boolean) request.getAttribute("message");
 		if (message != null) {
 	%>
-			<div class="alert alert-success my_avenir">
+			<div class="alert alert-success">
 				<strong>Successo!</strong> La comanda è stata inviata in cucina.
 			</div>
 	<%

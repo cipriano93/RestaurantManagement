@@ -41,8 +41,8 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-<div class="container ">
-	<h3 class="dark_brown " style="font-family: satisfy">Inserisci un menù</h3>
+<div class="container my_satisfy">
+	<h3 class="dark_brown">Inserisci un menù</h3>
 	<hr/>
 </div>
 

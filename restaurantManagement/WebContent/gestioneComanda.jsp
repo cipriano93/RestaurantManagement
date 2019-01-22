@@ -138,7 +138,7 @@
 	%>
 
 	<div class="row">
-		<div class="container text-center" style="font-family: avenir">
+		<div class="container text-center my_avenir">
 			<div class="col-md-4"></div>
 			<div class="col-md-2">
 				<!-- Numero tavolo -->

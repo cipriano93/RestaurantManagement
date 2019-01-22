@@ -74,7 +74,7 @@ function validationNote(note) {
 <!-- ./Breadcrumb -->
 
 <div class="container">
-	<h3 class="dark_brown" style="font-family: satisfy">Prenota tavolo</h3>
+	<h3 class="dark_brown my_satisfy">Prenota tavolo</h3>
 	<hr/>
 </div>
 

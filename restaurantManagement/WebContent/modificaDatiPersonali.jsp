@@ -95,7 +95,7 @@
 	
 		<div class="row">
 		<div class="col-md-12">		
-			<h3 class ="dark_brown" style="font-family: satisfy">Modifica i tuoi dati</h3>
+			<h3 class ="dark_brown my_satisfy">Modifica i tuoi dati</h3>
 			<hr/>
 			<br>
 		<form  name="form" action="ModificaDatiPersonali" method="POST" onsubmit="return validateForm()">
