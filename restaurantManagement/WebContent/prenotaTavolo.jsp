@@ -69,6 +69,9 @@ function validationNote(note) {
 </nav>
 <!-- ./Breadcrumb -->
 
+<% if (ub == null || !(ub.getTipo().equals("cliente"))) { %>
+	<h3 class = "red" style="font-family:avenir" align="center">Accedi come cliente</h3>
+<% } else { %>
 
 <div class="container">
 	<h3 class="dark_brown" style="font-family: satisfy">Prenota tavolo</h3>
@@ -104,6 +107,8 @@ function validationNote(note) {
   </form>
 </div>
 <!-- ./Prenotazione tavolo -->
+
+ <% } %>
 
 <br>
 	
