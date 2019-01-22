@@ -120,23 +120,13 @@ button {
 <%
 	Boolean message = (Boolean) request.getAttribute("message");
 	if (message != null) {
-		if (!message) {
 %>
-			<div class="container my_avenir">
-				<div class="alert alert-danger">
-					<strong>Attenzione!</strong> Impossibile modificare i dati dell'attività.
-				</div>
+		<div class="container my_avenir">
+			<div class="alert alert-danger">
+				<strong>Attenzione!</strong> Impossibile modificare i dati dell'attività.
 			</div>
-	 <% } else { %>
-			<div class="container">
-				<div class="alert alert-success">
-					<strong>Successo!</strong> I dati dell'attività sono stati modificati.
-				</div>
-			</div>	 
-<%
-		}
-	}	
-%>
+		</div> 
+ <% } %>
 	
 <!-- Modifica dati attività form -->
 <div class="container my_avenir">

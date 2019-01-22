@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 import model.UtenteBean;
 import model.UtenteBeanDAO;
 
@@ -44,4 +46,9 @@ public class CameriereManager {
 		return result;
 	}
 
+	
+	public ArrayList<UtenteBean> getCamerieri() {
+		UtenteBeanDAO ubd = new UtenteBeanDAO();
+		return (ubd.doRetrieveAllCameriere());
+	}
 }

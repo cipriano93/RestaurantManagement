@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.DriverManagerConnectionPool;
 import model.UtenteBean;
@@ -140,7 +141,7 @@ public class UtenteBeanDAO {
 			
 			return true;
 		} catch(SQLException e) {
-			return false;
+			e.printStackTrace();
 		} finally {
 			try {
 				ps.close();
@@ -149,6 +150,7 @@ public class UtenteBeanDAO {
 				e.printStackTrace();
 			}
 		}
+		return false;
 	}
 		
 	public synchronized boolean doDelete(String username) {
@@ -172,4 +174,41 @@ public class UtenteBeanDAO {
 		return false;
 	}
 	
+	
+	public ArrayList<UtenteBean> doRetrieveAllCameriere() {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
+		try {
+			ArrayList<UtenteBean> ubs = new ArrayList<>();
+			
+			conn = DriverManagerConnectionPool.getConnection();
+			
+			ps = conn.prepareStatement("SELECT * FROM utente WHERE tipo=?");
+			
+			ps.setString(1, "cameriere");
+			
+			ResultSet res = ps.executeQuery();
+			
+			while (res.next()) {
+				UtenteBean ub = new UtenteBean();
+				ub.setUsername(res.getString("username"));
+				ub.setNome(res.getString("nome"));
+				ub.setPassword(res.getString("password"));
+				ub.setCognome(res.getString("cognome"));
+				ub.setTipo("cameriere");
+				ubs.add(ub);
+			}
+			return ubs; 
+		} catch (SQLException e) {
+			return null;
+		} finally {
+			try {
+				ps.close();
+				DriverManagerConnectionPool.releaseConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

@@ -1,3 +1,5 @@
+<%@ page import="java.util.ArrayList" %>
+
 <%@ include file="header.jsp" %>
 
 <!-- Breadcrumb -->
@@ -19,28 +21,67 @@
 </div>
 <br>
 
+<%
+	String message = (String) request.getAttribute("message");
+	if (message != null) {
+%>		
+		<div class="container my_avenir">
+			<div class="alert alert-success">
+				<strong>Successo!</strong> <%= message %>
+			</div>
+		</div>
+ <% } %>
+
+<%
+	Boolean message_rimozione = (Boolean) request.getAttribute("message_rimozione");
+	if (message_rimozione != null) {
+%>		
+		<div class="container my_avenir">
+	<% if (!message_rimozione) { %>
+			<div class="alert alert-danger">
+				<strong>Errore!</strong> Impossibile eliminare il cameriere.
+			</div>
+	<% } else { %>
+			<div class="alert alert-success">
+				<strong>Successo!</strong> Cameriere eliminato correttamente.
+			</div>
+	<% } %>
+		</div>
+ <% } %>
+
 <!-- Tabella cameriere -->
 <div class="container my_avenir">
 	<div class = "row">
 	<div class = "col-sm-3"></div>
 	<div class = "col-sm-6">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Cameriere</th>
-				<th>Modifica/Rimuovi</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Cameriere x</td>
-				<td>
-					<a href="modificaCameriere.jsp" class="btn btn-default">Modifica</a>
-					<a href="#" class="btn btn-danger">Rimuovi</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+		<%
+			ArrayList<UtenteBean> camerieri = (ArrayList<UtenteBean>) request.getAttribute("camerieri");
+			if (camerieri != null && (camerieri.size()) >= 1) {
+		%>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Cameriere</th>
+						<th>Modifica/Rimuovi</th>
+					</tr>
+				</thead>
+				<tbody>
+				<%
+					int size = camerieri.size();
+					for (int i = 0; i < size; i++) {
+						UtenteBean cameriere = camerieri.get(i);
+				%>
+						<tr>
+							<td><%= cameriere.getNome() + " " + cameriere.getCognome() %></td>
+							<td>
+								<a href=<%= "modificaCameriere.jsp?usr=" + cameriere.getUsername() %> class="btn btn-default">Modifica</a>
+								<a href=<%= "RimozioneCameriere?usr=" + cameriere.getUsername() %> class="btn btn-danger">Rimuovi</a>
+							</td>	
+						</tr>
+				 <% } %>
+				</tbody>
+			</table>
+		 <% } %>
 	</div>
 	<div class = "col-sm-3"></div>
 	</div>

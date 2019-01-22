@@ -77,11 +77,19 @@
 	<div class="container">
 	  <h3>Modifica cameriere</h3>
 	  <hr/>
+	  <%
+	  	Boolean message = (Boolean) request.getAttribute("message");
+	  	if (message != null) {
+	  %>
+	  		<div>
+	  			<strong>Errore!</strong> Impossibile modificare il cameriere.
+	  		</div>
+	 <% } %>
 	</div>
 	
 	<!-- Modifica cameriere form -->
 	<div class="container">
-	   		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
+	   		<form  name="form" action=<%= "ModificaCameriere?usr=" + request.getParameter("usr") %> method="POST" onsubmit="return validateForm()">
 	 	 		<div class="row">
 	 	 			<div class="col-sm-6">
 			 	 		<div class="form-group">

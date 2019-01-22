@@ -89,11 +89,20 @@
 	<div class="container">
 	  <h3>Crea un account cameriere</h3>
 	  <hr/>
+	  
+	  <%
+	  	Boolean message = (Boolean) request.getAttribute("message");
+	  	if (message != null) {
+	  %>
+	  		<div class="alert alert-danger">
+	  			<strong>Errore!</strong> Username già utilizzata.
+	  		</div>
+	 <% } %>
 	</div>
 	
 	<!-- Inserimento cameriere form -->
 	<div class="container">
-	   		<form  name="form" action="" method="POST" onsubmit="return validateForm()">
+	   		<form  name="form" action="InserimentoCameriere" method="POST" onsubmit="return validateForm()">
 	 	 		<div class="row">
 	 	 			<div class="col-sm-6">
 			 	 		<div class="form-group">
