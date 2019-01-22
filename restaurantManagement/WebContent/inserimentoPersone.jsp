@@ -60,7 +60,7 @@
 			<form name="form" action="SelezionaTavolo" method="POST" onsubmit ="return validateForm()">
 				<div class="form-group ">
 			    	<label class ="dark_brown text-centered" for="name">Numero persone:</label>
-			      <input type="number" class="form-control light_brown" id="num_people" name="num_people" min="1" max="40">
+			      <input type="number" class="form-control light_brown" id="num_people" name="num_people" min="1" max="40" value="1">
 			       <input name="tavolo" type="hidden"  value="<%=request.getParameter("button")%>">
 			      
 			    </div>
