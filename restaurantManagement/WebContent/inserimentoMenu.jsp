@@ -50,7 +50,7 @@
 		if (message != null) {
 	%>
 			<div class="alert alert-warning">
-  				<strong>Attenzione!</strong> <%= message %>.
+  				<strong>Errore!</strong> <%= message %>.
 			</div>
 	 <% } %>
 	<form name="form" action="inseriscimenu" onsubmit="return validateForm()" method="POST">
