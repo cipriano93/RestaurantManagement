@@ -8,7 +8,7 @@ import model.ComandaBean;
 import model.ComandaManager;
 import model.TavoloBean;
 
-public class TestcreaComanda {
+public class TestCMcreaComanda {
 
 	@Test
 	public void creaComandaTest() {
