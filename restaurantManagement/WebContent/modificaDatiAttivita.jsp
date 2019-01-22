@@ -72,7 +72,7 @@
  	}
  	
  	function validationTel(tel) {
- 		var telformat = /^[0-9]{9}$/;
+ 		var telformat = /^[0-9]{10}$/;
    		if(tel.value.match(telformat)) {
      		return true;
    		} else {

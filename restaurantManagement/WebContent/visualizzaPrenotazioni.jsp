@@ -4,7 +4,7 @@
 
 <style>
 	#prenotazioni {
-	  	font-family: satisfy;
+	  	font-family: avenir;
 	  	border-collapse: collapse;
 		width: 96%;
 		margin:25px;

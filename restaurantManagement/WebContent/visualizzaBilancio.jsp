@@ -92,7 +92,7 @@
 	<h3 class="dark_brown">Visualizza bilancio</h3>
 	<hr>
 	
-		<div align="center">
+		<div align="center" class = "my_avenir">
    			<span class="dark_brown">Filtra per:</span>
    			<select id="orderBy" onchange="orderBy(this.value)">
    				<option></option>
@@ -103,7 +103,7 @@
   			</select>
   		</div>
 		
-		<table id="ordini" class="text-center">
+		<table id="ordini" class="text-center my_avenir">
 		</table>
 
 </div>

@@ -81,11 +81,11 @@ function validationNote(note) {
 	<form name="form" action="PrenotaTavolo" method="post" onsubmit="return validateForm()">
 		<div class="form-group">
 			<label for="date">Data:</label>
-		    <input type="date" class="light_brown" id="date" name="date">
+		    <input type="date" class="form-control light_brown" id="date" name="date">
 		</div> 
 		<div class="form-group">
 	      <label for="hour">Ora:</label>
-	      <input type="time" class="light_brown" id="time" name="time">
+	      <input type="time" class="form-control light_brown" id="time" name="time">
 	    </div>
 	    <div class="form-group">
 	    	<label for="num_people">Numero persone:</label>

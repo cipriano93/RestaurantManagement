@@ -44,7 +44,7 @@
 <%if(ub != null && ub.getTipo().equals("cameriere")){ %>
 
 <hr>
-<h3 style="font-family:avenir" align="center">Seleziona tavolo</h3>
+<h3 style="font-family:satisfy" align="center">Seleziona tavolo</h3>
 <span class="label success">libero</span>
 <span class="label danger">prenotato</span>
 <hr>

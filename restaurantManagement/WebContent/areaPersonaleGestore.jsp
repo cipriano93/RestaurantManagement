@@ -13,6 +13,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			
+<<<<<<< HEAD
 			<%
 				Boolean message = (Boolean) request.getAttribute("message");
 				if (message != null) {
@@ -31,6 +32,17 @@
 			<a href="VisualizzaPrenotazioni">Visualizza prenotazioni</a>
 			<br>
 			<a href="visualizzaBilancio.jsp">Visualizza bilancio</a>
+=======
+				<a href="modificaDatiAttivita.jsp">Modifica dati attività</a>
+				<br>
+				<a href="getmenus">Gestione menù</a>
+				<br>
+				<a href="gestioneCameriere.jsp">Gestione cameriere</a>
+				<br>
+				<a href="VisualizzaPrenotazioni">Visualizza prenotazioni</a>
+				<br>
+				<a href="visualizzaBilancio.jsp">Visualizza bilancio</a>
+>>>>>>> branch 'master' of https://github.com/cipriano93/RestaurantManagement.git
 
 		</div>
 	</div>

@@ -1,50 +1,30 @@
 <!-- Footer -->
 <link href="https://fonts.googleapis.com/css?family=Judson" rel="stylesheet">
 
+
 <style>
-.footer{
-    position: bottom;
-    width: 100%;
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
 </style>
 
-<footer class="page-footer font-small  pt-4 mt-4" style="font-family: 'Judson', serif">
+
+<footer class="page-footer font-small  pt-4 mt-4 footer" style="font-family: 'Judson', serif">
 
 <!--Footer Links-->
 <div class="container-fluid text-center text-md-left">
 	<div class="row">
 		<!--First column-->
-		<div class="col-md-6">
-			<h5 class="text-uppercase dark_brown">Chi siamo</h5>
-			<ul class="list-unstyled">
-				<li>
-					<a class="white" href="#!">Restaurant Management è</a>
-	            </li>
-	            <li>
-					<a class="white" href="#!">Manifesto</a>
-				</li>
-				<li>
-					<a class="white" href="#!">Diventa fornitore</a>
-				</li>
-			</ul>
-		</div>
+		
 		<!--/.First column-->
 			            
 		<!--Second column-->
-		<div class="col-md-6">
-			<h5 class="text-uppercase dark_brown">Informazioni</h5>
-			<ul class="list-unstyled">
-				<li>
-					<a class="white" href="#!">FAQ</a>
-				</li>
-				<li>
-					<a class="white" href="#!">Spedizione e consegna</a>
-				</li>
-				<li>
-					<a class="white" href="#!">Contatti</a>
-				</li>
-			</ul>
-		</div>
+		
 		<!--/.Second column-->	           
 	</div>
 </div>

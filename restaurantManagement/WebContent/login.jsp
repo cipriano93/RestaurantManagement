@@ -56,7 +56,7 @@
 	<div class="row">
 
 		<div class="col-md-4 login-sec">
-		<a href="index.jsp"><img src="img/logoSfondoBianco.jpg"  class="img-responsive" height="100" width="100" ></a>
+		<img src="img/logoSfondoBianco.jpg"  class="img-responsive" height="100" width="100" >
 		    <h2 class="text-center">Login</h2>
 		    <form class="login-form" name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
   <div class="form-group">
