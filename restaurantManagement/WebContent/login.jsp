@@ -2,11 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%if(session.getAttribute("utenteBean") == null){ %>    
-<link rel="stylesheet" href="css/styles.css">   
+<%if(session.getAttribute("utenteBean") == null){ %>        
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/style.css"> 
 <script>
 	function verify(errore){
 		document.getElementById("ver").innerHTML = errore;
@@ -56,11 +57,11 @@
 		    		<form class="login-form" name ="form1" action ="Login" onsubmit = "return validateForm()" method ="POST">
   					<div class="form-group">
 					    <label for="exampleInputEmail1">Username</label>
-					    <input type="text" class="form-control" style = "color: #B49566" placeholder="" id="usr" name ="usr">
+					    <input type="text" class="form-control light_brown" placeholder="" id="usr" name ="usr">
     					 </div>
 					  <div class="form-group">
 					    <label for="exampleInputPassword1">Password</label>
-					    <input type="password" class="form-control" style = "color: #B49566" placeholder="" id="pwd"  name ="pswd">
+					    <input type="password" class="form-control light_brown" placeholder="" id="pwd"  name ="pswd">
 					  </div>
   						<p class ="red" id="ver"></p>
   						<button type="submit" class="btn btn-primary float-right">Login</button>

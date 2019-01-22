@@ -142,7 +142,7 @@ button {
 	   	<div class="row">
 	   	<div class="column" >
 	   		<label for="address">Provincia:</label>
-	      	<select class="form-control" id="provincia" name="provincia">
+	      	<select class="form-control light_brown" id="provincia" name="provincia">
 	      	<option></option>
 	<option value="ag">Agrigento</option>
 	<option value="al">Alessandria</option>
@@ -259,7 +259,7 @@ button {
 	   
 	   <div class="column">
 	   		<label for="citta">Citta':</label>
-	   		<select class="form-control" id="citta" name="citta">
+	   		<select class="form-control light_brown" id="citta" name="citta">
 	   		<option></option>
 	   		<option>Aiello del Sabato</option>
 	   		<option>Altavilla Irpina</option>

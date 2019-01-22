@@ -98,7 +98,7 @@
 	
 		<div align="center" class = "my_avenir">
    			<span class="dark_brown">Filtra per:</span>
-   			<select id="orderBy" onchange="orderBy(this.value)">
+   			<select id="orderBy" class="light_brown" onchange="orderBy(this.value)">
    				<option></option>
    				<option value="all">Tutti</option>
   				<option value="giorno">Ultimi giorni</option>
