@@ -10,12 +10,17 @@ public class ComandaBean {
 		return tb;
 	}
 	//inserire controllo
-	public void addPortataComanda(PortataComandaBean pcb) {
-		portateCB.add(pcb);
+	public boolean addPortataComanda(PortataComandaBean pcb) {
+		return (portateCB.add(pcb));
 	}
 	//inserire controllo
-	public void removePortataComanda(PortataComandaBean pcb) {
+	public boolean removePortataComanda(PortataComandaBean pcb) {
+		int size = portateCB.size();
 		portateCB.remove(pcb);
+		if (size == portateCB.size())
+			return false;
+		else
+			return true;
 	}
 	public int getSizeAllPortate() {
 		return portateCB.size();
