@@ -1,4 +1,4 @@
-//<%@page import="model.PortataBean"%>
+<%@page import="model.PortataBean"%>
 <%@page import="model.PortataComandaBean"%>
 <%@page import="model.ComandaBean"%>
 <%@page import="model.ComandaManager"%>
