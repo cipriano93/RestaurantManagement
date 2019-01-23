@@ -23,15 +23,17 @@ public class ComandaManager {
 	}
 	
 	
-	public void inserimentoPortataComanda(ComandaBean cb, PortataBean pb,int quantità, String note) {
+	public boolean inserimentoPortataComanda(ComandaBean cb, PortataBean pb, int quantità, String note) {
 		boolean presente = false;
+		boolean inserita = false;
+		boolean modificata = false;
 		PortataComandaBean tmp = null;
 		for(int i = 0; i < cb.getSizeAllPortate() && !presente; i++) {
 			tmp = cb.getPortateComanda().get(i);
 			if(tmp.getPb().getIdPortata() == pb.getIdPortata()) {
 				int valore = tmp.getQuantità();
 				tmp.setQuantità(valore + quantità);
-				presente = true;
+				presente = modificata = true;
 			}
 		}
 		if(!presente) {
@@ -39,33 +41,50 @@ public class ComandaManager {
 			pcb.setPb(pb);
 			pcb.setQuantità(quantità);
 			pcb.setNote(note);
-			cb.addPortataComanda(pcb);
+			inserita = cb.addPortataComanda(pcb);
 		}
+		if (inserita || modificata)
+			return true;
+		else
+			return false;
 	}
 	//da migliorare
-	public void rimozionePortataComanda(ComandaBean cb, int id) {
+	public boolean rimozionePortataComanda(ComandaBean cb, int id) {
 		PortataComandaBean pcb = new PortataComandaBean();
 		for(int i = 0; i < cb.getSizeAllPortate(); i ++) {
 			pcb = cb.getPortateComanda().get(i);
 			if(id == pcb.getPb().getIdPortata()) {
-				cb.removePortataComanda(pcb);
+				return (cb.removePortataComanda(pcb));
 			}
 		}
+		return false;
 	}
-	public void modificaPortataComandaQuantity(ComandaBean cb, int idPor, int quantità) {
+	public boolean modificaPortataComandaQuantity(ComandaBean cb, int idPor, int quantità) {
+		int q = 0;
 		for(PortataComandaBean pcb: cb.getPortateComanda()) {
 			if(idPor == pcb.getPb().getIdPortata()) {
 				pcb.setOldQuantità();
 				pcb.setQuantità(quantità);
+				q = quantità;
 			}
-		}	
+		}
+		if (q == quantità)
+			return true;
+		else
+			return false;
 	}
-	public void modificaPortataComandaStato(ComandaBean cb, int idPor, boolean consegnato) {
+	public boolean modificaPortataComandaStato(ComandaBean cb, int idPor, boolean consegnato) {
+		boolean verity = false;
 		for(PortataComandaBean pcb: cb.getPortateComanda()) {
 			if(idPor == pcb.getPb().getIdPortata()) {
 				pcb.setConsegnato(consegnato);
+				verity = pcb.isConsegnato();
 			}
-		}	
+		}
+		if (verity == consegnato)
+			return true;
+		else
+			return false;
 	}
 	
 	

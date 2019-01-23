@@ -13,7 +13,11 @@ import org.junit.runners.Suite.SuiteClasses;
 	TestCMgetOrdiniByLastYear.class,
 	TestCMinviaComanda.class,
 	TestCMcreaComanda.class,
-	TestCMinserimentoOrdine.class
+	TestCMinserimentoOrdine.class,
+	TestCMinserimentoPortataComanda.class,
+	TestCMmodificaPortataComandaQuantity.class,
+	TestCMmodificaPortataComandaStato.class,
+	TestCMrimozionePortataComanda.class
 })
 
 public class TestSuiteCM {
