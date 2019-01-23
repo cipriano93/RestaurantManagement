@@ -139,18 +139,18 @@
 
 	<div class="row">
 		<div class="container text-center my_avenir">
-			<div class="col-md-4"></div>
-			<div class="col-md-2">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
 				<!-- Numero tavolo -->
 				<h4 class= "dark_brown"> Numero tavolo: <span class= "light_brown"><%= tb.getNumeroTavolo() %></span></h4>
 				<!-- \.Numero tavolo -->
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<!-- Numero persone -->
 				<h4 class= "dark_brown"> Numero persone: <span class= "light_brown"><%=tb.getNumeroPersone() %></span></h4s>
 				<!-- \.Numero persone -->
 			</div>
-			<div class="col-md-4"></div>
+			<div class="col-md-3"></div>
 		</div>
 	</div>
 	<br>

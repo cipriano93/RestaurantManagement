@@ -10,11 +10,12 @@ function verify(errore) {
 }
 
 function validateForm() {
+	//modificare
 	var date = document.form.date;
 	var time = document.form.time;
 	var tel = document.form.tel;
 	var note = document.form.note;
-	if (!(validationDate(date)) || !(validationTime(time)) || !(validationTel(tel)) || !(validationNote(note)))
+	if (!(validationDate(date)) || !(validationTel(tel)) || !(validationNote(note)))
 		return false;
 	else
 		return true;

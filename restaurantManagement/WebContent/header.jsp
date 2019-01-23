@@ -1,3 +1,5 @@
+<%@page import="model.AttivitàManager"%>
+<%@page import="model.AttivitàBean"%>
 <%@page import="model.UtenteBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
@@ -5,7 +7,9 @@
 <html>
 <%UtenteBean ub = (UtenteBean) session.getAttribute("utenteBean"); %>
 <head>
-  <title>Ristorante Incontro</title>
+	<%AttivitàManager am = new AttivitàManager();
+		String nomeRistorante = am.getNomeRistorante();%>
+  <title><%=nomeRistorante %></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -56,7 +60,7 @@ font-size: 40px;
 		   		<a href="index.jsp"><img src="img/logoM.png"  class="img-responsive" height="80" width="80" ></a>
 			</div>
 			<div class="col-sm-4 text-center">
-			<h2> Ristorante Incontro</h2>	   		 
+			<h2><%=nomeRistorante %></h2>	   		 
 	   		 </div>
 	   		 <div class="col-sm-4 text-right">
 	   		 <br>

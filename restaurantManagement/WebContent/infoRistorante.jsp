@@ -20,13 +20,7 @@
    <img src="img/mappa.jpeg" style="width:100%;">
    <hr>
    </div>
-   
-   <div class="container">
-   <button class="btn btn-warning">Indietro</button>
-   
-   </div>
- 
-   
+      
   </body>
    <br>
   

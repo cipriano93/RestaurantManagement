@@ -125,7 +125,7 @@ button {
 	
 <!-- Modifica dati attività form -->
 <div class="container my_avenir">
-<form name="form" action="ModificaDatiAttivita" onsubmit="return validateForm()" method="POST">
+<form name="form" action="ModificaDatiAttivita" onsubmit ="return validateForm()" method="POST">
 <div class="row" >
 		<div class="column" >
 			<label class="dark_brown" for="name">Nome:</label>
