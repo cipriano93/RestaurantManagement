@@ -15,33 +15,24 @@ public class TestCMaggiornaListaTavoli {
 
 	@Before
 	public void setUp() {
-		tavoli = new ArrayList<TavoloBean>();
 		tb.setNumeroPersone(10);
 		tb.setNumeroTavolo(1);
+		tavoli.add(tb);
 	}
 	
 	@Test
 	public void aggiornaListaTavoliTest() {
-		ArrayList<TavoloBean> tavoli = new ArrayList<>();
-		tavoli.add(tb);
-		this.tavoli = cm.aggiornaListaTavoli(tavoli, 1, 10);
-		assertEquals(true, tavoli.size() > 0);
+		tavoli = cm.aggiornaListaTavoli(tavoli, tb.getNumeroTavolo(), tb.getNumeroPersone());
+		assertEquals(tb.getNumeroPersone(), tavoli.get(tb.getNumeroTavolo()-1).getNumeroPersone());
 	}
-	
 	
 	@After
 	public void tearDown() {
-		tavoli = null;
+		tavoli.get(tb.getNumeroTavolo()-1).setNumeroPersone(0);
+		
 	}
-	
-	
-	@Test(expected=IndexOutOfBoundsException.class)
-	public void testForException() {
-		Object o = tavoli.get(0);
-	}
-	
 	
 	private TavoloBean tb = new TavoloBean();
-	private ArrayList<TavoloBean> tavoli;
+	private ArrayList<TavoloBean> tavoli = new ArrayList<TavoloBean>();
 	private ComandaManager cm = new ComandaManager();
 }

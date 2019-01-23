@@ -26,7 +26,7 @@ public class TestMBDdoDelete {
 		pb.setData(new GregorianCalendar());
 		pb.setNumPersone(10);
 		pb.setTelefono("0123456789");
-		pb.setDescrizione("descrizione");
+		pb.setDescrizione("compleanno 10 anni");
 		ubd.doSave(ub);
 	}
 	
