@@ -37,6 +37,28 @@ public class OrdineBeanDAO {
 	}
 	
 	
+	public synchronized boolean doDelete(int id) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = DriverManagerConnectionPool.getConnection();
+			ps = con.prepareStatement("DELETE FROM ordine WHERE idordine=?");
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			return false;
+		} finally {
+			try {
+				DriverManagerConnectionPool.releaseConnection(con);
+				ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	public synchronized ArrayList<OrdineBean> doRetrieveByDay() {
 		Connection con = null;
 		PreparedStatement ps = null;

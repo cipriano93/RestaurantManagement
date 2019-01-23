@@ -3,6 +3,7 @@ package testingPrenotazione;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 import org.junit.After;
 import org.junit.Before;
@@ -10,33 +11,58 @@ import org.junit.Test;
 
 import model.PrenotazioneBean;
 import model.PrenotazioneBeanDAO;
+import model.UtenteBean;
+import model.UtenteBeanDAO;
 
 public class TestPBDdoRetrieveAllByKey {
 	
 	@Before
 	public void setUp() {
-		prenotazioni = new ArrayList<PrenotazioneBean>();
+		ub.setUsername("cliente85");
+		ub.setPassword("cliente85");
+		ub.setNome("Paolo");
+		ub.setCognome("Flora");
+		ub.setTipo("cliente");
+		
+		pb.setData(new GregorianCalendar());
+		pb.setNumPersone(10);
+		pb.setTelefono("0123456789");
+		pb.setDescrizione("descrizione");
+		
+		ubd.doSave(ub);
+		pbd.doSave(pb, ub.getUsername());
+
 	}
 	
 	
 	@Test
 	public void doRetrieveAllByKeyTest() {
-		assertEquals(true, pbd.doRetrieveAllByKey("cliente").size() > 0);
+		prenotazioni = pbd.doRetrieveAllByKey(ub.getUsername());
+		assertEquals(1, prenotazioni.size());
 	}
 	
-	
+
 	@After
 	public void tearDown() {
-		prenotazioni = null;
+		prenotazioni.clear();
+		pbd.doDelete(pb.getIdPrenotazione());
+		ubd.doDelete(ub.getUsername());
 	}
 	
 	
-	@Test(expected=IndexOutOfBoundsException.class)
+	@Test
 	public void testForException() {
-		Object o = prenotazioni.get(0);
+		try {
+			Object o = prenotazioni.get(0);
+		} catch (IndexOutOfBoundsException i) {
+			
+		}
 	}
 	
-	
-	private ArrayList<PrenotazioneBean> prenotazioni;
+
+	private ArrayList<PrenotazioneBean> prenotazioni = new ArrayList<>();
 	private PrenotazioneBeanDAO pbd = new PrenotazioneBeanDAO();
+	private UtenteBean ub = new UtenteBean();
+	private UtenteBeanDAO ubd = new UtenteBeanDAO();
+	private PrenotazioneBean pb = new PrenotazioneBean();
 }

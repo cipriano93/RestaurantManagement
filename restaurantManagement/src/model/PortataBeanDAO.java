@@ -29,7 +29,7 @@ public class PortataBeanDAO {
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			return false;
+			e.printStackTrace();
 		} finally {
 			try {
 				DriverManagerConnectionPool.releaseConnection(conn);
@@ -38,6 +38,7 @@ public class PortataBeanDAO {
 				e.printStackTrace();
 			}
 		}
+		return false;
 	}
 	
 	

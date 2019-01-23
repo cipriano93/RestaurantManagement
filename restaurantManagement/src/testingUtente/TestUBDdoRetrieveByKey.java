@@ -1,22 +1,38 @@
 package testingUtente;
 
 import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import model.UtenteBean;
 import model.UtenteBeanDAO;
 
 public class TestUBDdoRetrieveByKey {
-	UtenteBean ub = new UtenteBean();
-	UtenteBeanDAO ubd = new UtenteBeanDAO();
+	private UtenteBeanDAO ubd = new UtenteBeanDAO();
+	private UtenteBean ub = new UtenteBean();
+
+	
+	@Before
+	public void setUp() {
+		ub.setUsername("gestore85");
+		ub.setPassword("gestore85");
+		ub.setNome("Paolo");
+		ub.setCognome("Flora");
+		ub.setTipo("gestore");
+		ubd.doSave(ub);
+	}
+	
 	
 	@Test
 	public void doRetrieveByKeyTest() {
-		ub.setUsername("cameriere97");
-		ub.setPassword("cameriere97");
-		ub.setNome("Giuseppe");
-		ub.setCognome("rotondo97");
-		ub.setTipo("cameriere");
-		assertEquals("cameriere97", ubd.doRetrieveByKey("cameriere97", "cameriere97").getUsername());
+		assertEquals(ub.getUsername(), ubd.doRetrieveByKey(ub.getUsername(), ub.getPassword()).getUsername());
+	}
+	
+
+	@After
+	public void tearDown() {
+		ubd.doDelete(ub.getUsername());
 	}
 }

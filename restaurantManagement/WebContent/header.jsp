@@ -56,7 +56,7 @@ font-size: 40px;
 		   		<a href="index.jsp"><img src="img/logoM.png"  class="img-responsive" height="80" width="80" ></a>
 			</div>
 			<div class="col-sm-4 text-center">
-			<h2> Ristorante Incontro</h2>	   		 
+			<h2>Ristorante Incontro</h2>	   		 
 	   		 </div>
 	   		 <div class="col-sm-4 text-right">
 	   		 <br>

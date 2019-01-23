@@ -3,6 +3,7 @@ package testingOrdine;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,29 +16,43 @@ public class TestOBDdoRetrieveByDay {
 	
 	@Before
 	public void setUp() {
-		ordini = new ArrayList<OrdineBean>();
+		ob = new OrdineBean();
+		ob.setData(new GregorianCalendar());
+		ob.setNumCoperti(10);
+		ob.setTotale(100);
+		
+		size = obd.doRetrieveByDay().size();
+		
+		obd.doSave(ob);
 	}
 	
 	
 	@Test
 	public void doRetrieveByDayTest() {
 		ordini = obd.doRetrieveByDay();
-		assertEquals(true, obd.doRetrieveByDay().size() > 0);
+		assertEquals(size + 1, ordini.size());
 	}
 	
 	
 	@After
 	public void tearDown() {
-		ordini = null;
+		ordini.clear();
+		obd.doDelete(ob.getIdOrdine());
 	}
 	
 	
-	@Test(expected=IndexOutOfBoundsException.class)
+	@Test
 	public void testForException() {
-		Object o = ordini.get(0);
+		try {
+			Object o = ordini.get(0);
+		} catch (IndexOutOfBoundsException i) {
+			
+		}
 	}
 	
 	
-	private ArrayList<OrdineBean> ordini;
+	private ArrayList<OrdineBean> ordini = new ArrayList<>();
 	private OrdineBeanDAO obd = new OrdineBeanDAO();
+	private OrdineBean ob;
+	private int size;
 }
