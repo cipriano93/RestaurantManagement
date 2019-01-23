@@ -1,5 +1,9 @@
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+	<% } else { %>
+
 <!-- Jumbotron -->
 <div class="jumbotron" id = "jumbotron_login">
 	<div class="container text-center my_satisfy">
@@ -35,6 +39,7 @@
 		</div>
 	</div>
 </div>
+<% } %>
 <br>
 <br>
 <!-- ./Personal status -->

@@ -2,6 +2,10 @@
 
 <%@ include file = "header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+	<h3 class = "red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <style>
 		#ordini {
 		  	border-collapse: collapse;
@@ -94,7 +98,7 @@
 	
 		<div align="center" class = "my_avenir">
    			<span class="dark_brown">Filtra per:</span>
-   			<select id="orderBy" onchange="orderBy(this.value)">
+   			<select id="orderBy" class="light_brown" onchange="orderBy(this.value)">
    				<option></option>
    				<option value="all">Tutti</option>
   				<option value="giorno">Ultimi giorni</option>
@@ -107,5 +111,9 @@
 		</table>
 
 </div>
+
+<% } %>
+
+<br>
 
 <%@ include file="footer.jsp" %>

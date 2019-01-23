@@ -2,6 +2,10 @@
 
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
@@ -89,4 +93,7 @@
 </div>
 <!-- ./Tabella cameriere -->
 
+<% } %>
+
+<br>
 <%@ include file="footer.jsp" %>

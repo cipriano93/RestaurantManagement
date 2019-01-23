@@ -1,6 +1,11 @@
 <%@ page import="model.UtenteBean" %>
 
-<%@ include file="header.jsp" %>	
+<%@ include file="header.jsp" %>
+
+<% if (ub == null || !(ub.getTipo().equals("cliente"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cliente</h3>
+<% } else { %>
+	
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore){
@@ -90,7 +95,7 @@
 	
 		<div class="row">
 		<div class="col-md-12">		
-			<h3 class ="dark_brown" style="font-family: satisfy">Modifica i tuoi dati</h3>
+			<h3 class ="dark_brown my_satisfy">Modifica i tuoi dati</h3>
 			<hr/>
 			<br>
 		<form  name="form" action="ModificaDatiPersonali" method="POST" onsubmit="return validateForm()">
@@ -139,5 +144,9 @@
 				</div>
 				</div>
 				</div>
+				
+				<% } %>
+				
+				<br>
 	
 <%@ include file="footer.jsp" %>

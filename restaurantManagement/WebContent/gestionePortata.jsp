@@ -2,6 +2,10 @@
 
 <%@ page import="java.util.ArrayList, model.PortataBean" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
@@ -89,5 +93,9 @@
 	<%	}	%>
 <!-- ./Tabella portata -->
 </div>
+
+<% } %>
+
+<br>
 
 <%@ include file="footer.jsp" %>

@@ -1,6 +1,11 @@
 <%@page import="model.TavoloBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ include file="header.jsp" %>
+
+<% if (ub == null || !(ub.getTipo().equals("cameriere"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cameriere</h3>
+	<% } else { %>
+
 <% ArrayList<TavoloBean> tavoli = (ArrayList<TavoloBean>) application.getAttribute("tavoli");
 	int numTavolo = Integer.parseInt(request.getParameter("button"));
 	TavoloBean tb = tavoli.get(numTavolo-1);
@@ -74,13 +79,12 @@
 	<div class = "text-center">
 		<span class="red my_avenir" id="ver">
 	</div>
-
-	
-	
-	
 </div>	
-<br>
-<br>
 <!-- ./Inserimento numero persone form -->
+
+<% } %>
+
+<br>
+<br>
 	
 <%@ include file="footer.jsp" %>

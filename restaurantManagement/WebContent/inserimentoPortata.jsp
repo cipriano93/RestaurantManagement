@@ -1,4 +1,9 @@
-<%@ include file="header.jsp" %>	
+<%@ include file="header.jsp" %>
+
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+	
 	 <!-- Validation -->
 	 <script>
   	  function verify(errore) {
@@ -104,7 +109,7 @@
 			    <div class="col-sm-4">
 	    			<div class="form-group">
 	      				<label for="type">Tipo:</label>
-						<select class="form-control ligth_brown" id="type" name="type">
+						<select class="form-control light_brown" id="type" name="type">
 							<option>seleziona tipo</option>
 							<option>Antipasto</option>
 							<option>Primo</option>
@@ -135,9 +140,11 @@
 			<br>
 			<span id="ver" class="red"></span>
 		</form>	
-		
-	<!-- ./Inserimento portata form -->
 	</div>
+	<!-- ./Inserimento portata form -->
+	
+	<% } %>
+	
 	<br>
 	<br>
 	

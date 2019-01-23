@@ -1,5 +1,9 @@
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <script>
 	function verify(errore){
 		document.getElementById("ver").innerHTML = errore;
@@ -66,8 +70,11 @@
 	<br>
 	<span class="red" id="ver"></span>
 </div>
-<br>
-<br>
 <!-- ./Modifica nome menù form -->
+
+<% } %>
+
+<br>
+<br>
 	
 <%@ include file="footer.jsp" %>
