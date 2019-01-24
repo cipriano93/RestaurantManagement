@@ -2,6 +2,7 @@ package testingMenùManager;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,8 +30,13 @@ public class TestMMrimozionePortata {
 	
 	@Test
 	public void rimozionePortataTest() {
-		mm.rimozioneMenù(mb.getIdMenù());
 		assertEquals(true, mm.rimozionePortata(pb.getIdPortata()));
+	}
+	
+	
+	@After
+	public void tearDown() {
+		mm.rimozioneMenù(mb.getIdMenù());
 	}
 
 	
