@@ -13,7 +13,7 @@ public class TestMBDdoSave {
 
 	@Before
 	public void setUp() {
-		mb.setNome("menu");
+		mb.setNome("bell'italia");
 	}
 	
 	

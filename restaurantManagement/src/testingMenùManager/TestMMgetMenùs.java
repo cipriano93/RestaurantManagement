@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import model.MenùBean;
+import model.MenùBeanDAO;
 import model.MenùManager;
 import model.PrenotazioneBean;
 
@@ -16,28 +17,34 @@ public class TestMMgetMenùs {
 	
 	@Before
 	public void setUp() {
-		menu = new ArrayList<MenùBean>();
+		mb.setNome("bell'italia");
+		mbd.doSave(mb);
 	}
 	
 	@Test
-	public void getMenusTest() {
+	public void getMenùsTest() {
 		menu = mm.getMenùs();
-		assertEquals(true, mm.getMenùs().size() > 0);
+		assertEquals(1, menu.size());
 	}
 	
 	
 	@After
 	public void tearDown() {
-		menu = null;
+		menu.clear();
+		mm.rimozioneMenù(mb.getIdMenù());
 	}
 	
 	
-	@Test(expected=IndexOutOfBoundsException.class)
+	@Test
 	public void testForException() {
-		Object o = menu.get(0);
+		try {
+			Object o = menu.get(0);
+		} catch (IndexOutOfBoundsException i) { }
 	}
 	
 	
-	private ArrayList<MenùBean> menu;
+	private ArrayList<MenùBean> menu = new ArrayList<>();
 	private MenùManager mm = new MenùManager();
+	private MenùBean mb = new MenùBean();
+	private MenùBeanDAO mbd = new MenùBeanDAO();
 }

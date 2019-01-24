@@ -8,35 +8,55 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import model.MenùBean;
+import model.MenùBeanDAO;
 import model.MenùManager;
 import model.PortataBean;
+import model.PortataBeanDAO;
 
 public class TestMMgetPortate {
 	
 	@Before
 	public void setUp() {
-		portate = new ArrayList<PortataBean>();
+		mb.setNome("bell'italia");
+		mbd.doSave(mb);
+		
+		pb.setIdMenù(mb.getIdMenù());
+		pb.setNome("Scialatielli frutti di mare");
+		pb.setTipo("primo");
+		pb.setPrezzo("2.5");
+		pb.setDescrizione("i sapori del sud");
+		
+		pbd.doSave(pb);
 	}
 	
 	@Test
 	public void getPortateTest() {
-		portate = mm.getPortate(65585);
-		assertEquals(true, mm.getPortate(65585).size() > 0);
+		portate = mm.getPortate(mb.getIdMenù());
+		assertEquals(1, portate.size());
 	}
 	
 	
 	@After
 	public void tearDown() {
-		portate = null;
+		portate.clear();
+		mm.rimozionePortata(pb.getIdPortata());
+		mm.rimozioneMenù(mb.getIdMenù());
 	}
 	
 	
-	@Test(expected=IndexOutOfBoundsException.class)
+	@Test
 	public void testForException() {
-		Object o = portate.get(0);
+		try {
+			Object o = portate.get(0);
+		} catch (IndexOutOfBoundsException i) { }
 	}
 	
 	
-	private ArrayList<PortataBean> portate;
+	private ArrayList<PortataBean> portate = new ArrayList<>();
 	private MenùManager mm = new MenùManager();
+	private MenùBean mb = new MenùBean();
+	private PortataBean pb = new PortataBean();
+	private MenùBeanDAO mbd = new MenùBeanDAO();
+	private PortataBeanDAO pbd = new PortataBeanDAO();
 }

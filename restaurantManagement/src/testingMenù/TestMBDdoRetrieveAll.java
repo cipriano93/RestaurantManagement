@@ -15,29 +15,34 @@ public class TestMBDdoRetrieveAll {
 	
 	@Before
 	public void setUp() {
-		menùs = new ArrayList<MenùBean>();
+		mb.setNome("bell'italia");
+		mbd.doSave(mb);
 	}
 	
 	
 	@Test
 	public void doRetrieveAllTest() {
 		menùs = mbd.doRetrieveAll();
-		assertEquals(true, mbd.doRetrieveAll().size() > 0);
+		assertEquals(1, menùs.size());
 	}
 	
 	
 	@After
 	public void tearDown() {
-		menùs = null;
+		menùs.clear();
+		mbd.doDelete(mb.getIdMenù());
 	}
 	
 	
-	@Test(expected=IndexOutOfBoundsException.class)
+	@Test
 	public void testForException() {
-		Object o = menùs.get(0);
+		try {
+			Object o = menùs.get(0);
+		} catch (IndexOutOfBoundsException i) { }
 	}
 	
 	
-	private ArrayList<MenùBean> menùs;
+	private ArrayList<MenùBean> menùs = new ArrayList<>();
 	private MenùBeanDAO mbd = new MenùBeanDAO();
+	private MenùBean mb = new MenùBean();
 }

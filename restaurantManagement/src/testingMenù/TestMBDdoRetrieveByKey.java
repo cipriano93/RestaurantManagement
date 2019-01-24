@@ -13,7 +13,8 @@ public class TestMBDdoRetrieveByKey {
 
 	@Before
 	public void setUp() {
-		mb.setNome("");
+		mb.setNome("bell'italia");
+		mbd.doSave(mb);
 	}
 	
 	
