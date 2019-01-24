@@ -18,12 +18,15 @@ public class OrdineBeanDAO {
 		try {
 			con = DriverManagerConnectionPool.getConnection();
 			ps = con.prepareStatement("INSERT INTO ordine (idordine, data, num_coperti, totale) VALUES (?, ?, ?, ?)");
+			
 			ps.setLong(1, ob.getIdOrdine());
 			ps.setObject(2, new Timestamp(ob.getData().getTimeInMillis()));
 			ps.setInt(3, ob.getNumCoperti());
 			ps.setDouble(4, ob.getTotale());
+			
 			ps.executeUpdate();
 			return true;
+			
 		} catch (SQLException e) {
 			return false;
 		} finally {
@@ -35,8 +38,6 @@ public class OrdineBeanDAO {
 			}
 		}
 	}
-	
-	
 	public synchronized boolean doDelete(int id) {
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -46,6 +47,7 @@ public class OrdineBeanDAO {
 			ps.setInt(1, id);
 			ps.executeUpdate();
 			return true;
+			
 		} catch (SQLException e) {
 			return false;
 		} finally {
@@ -59,7 +61,7 @@ public class OrdineBeanDAO {
 	}
 	
 	
-	public synchronized ArrayList<OrdineBean> doRetrieveByDay() {
+	public synchronized ArrayList <OrdineBean> doRetrieveByDay() {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ArrayList <OrdineBean> obs = new ArrayList<>();
@@ -109,7 +111,7 @@ public class OrdineBeanDAO {
 	}
 	
 	
-	public synchronized ArrayList<OrdineBean> doRetrieveByMonth() {
+	public synchronized ArrayList <OrdineBean> doRetrieveByMonth() {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ArrayList <OrdineBean> obs = new ArrayList<>();
@@ -158,7 +160,7 @@ public class OrdineBeanDAO {
 	}
 	
 	
-	public synchronized ArrayList<OrdineBean> doRetrieveByYear() {
+	public synchronized ArrayList <OrdineBean> doRetrieveByYear() {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ArrayList <OrdineBean> obs = new ArrayList<>();
@@ -238,4 +240,5 @@ public class OrdineBeanDAO {
 		}
 		return obs;
 	}
+	
 }

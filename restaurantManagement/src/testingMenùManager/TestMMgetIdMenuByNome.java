@@ -14,7 +14,7 @@ public class TestMMgetIdMenuByNome {
 	
 	@Before
 	public void setUp() {
-		mb.setNome("Stella di mare");
+		mb.setNome("San Valentino");
 		
 		mbd.doSave(mb);
 	}

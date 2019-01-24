@@ -16,12 +16,11 @@ public class TestOBDdoRetrieveByDay {
 	
 	@Before
 	public void setUp() {
+		double tot = 45;
 		ob = new OrdineBean();
 		ob.setData(new GregorianCalendar());
 		ob.setNumCoperti(10);
-		ob.setTotale(100);
-		
-		size = obd.doRetrieveByDay().size();
+		ob.setTotale(tot);
 		
 		obd.doSave(ob);
 	}
@@ -30,7 +29,7 @@ public class TestOBDdoRetrieveByDay {
 	@Test
 	public void doRetrieveByDayTest() {
 		ordini = obd.doRetrieveByDay();
-		assertEquals(size + 1, ordini.size());
+		assertEquals(1, ordini.size());
 	}
 	
 	

@@ -13,25 +13,26 @@ import model.OrdineBeanDAO;
 
 public class TestOBDdoSave {
 
-	@Before
+	@Before	
 	public void setUp() {
+		double tot = 45;
 		ob.setData(new GregorianCalendar());
 		ob.setNumCoperti(10);
-		ob.setTotale(100);
+		ob.setTotale(tot);
 	}
 	
 	
 	@Test
 	public void doSaveTest() {
+		
 		assertEquals(true, obd.doSave(ob));
 	}
-	
 	
 	@After
 	public void tearDown() {
 		obd.doDelete(ob.getIdOrdine());
 	}
-	
+
 	
 	private OrdineBean ob = new OrdineBean();
 	private OrdineBeanDAO obd = new OrdineBeanDAO();

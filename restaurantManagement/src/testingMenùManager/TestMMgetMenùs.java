@@ -18,13 +18,14 @@ public class TestMMgetMenùs {
 	@Before
 	public void setUp() {
 		mb.setNome("bell'italia");
+		size = mm.getMenùs().size();
 		mbd.doSave(mb);
 	}
 	
 	@Test
 	public void getMenùsTest() {
 		menu = mm.getMenùs();
-		assertEquals(1, menu.size());
+		assertEquals(size+1, menu.size());
 	}
 	
 	
@@ -45,6 +46,7 @@ public class TestMMgetMenùs {
 	
 	private ArrayList<MenùBean> menu = new ArrayList<>();
 	private MenùManager mm = new MenùManager();
+	private int size;
 	private MenùBean mb = new MenùBean();
 	private MenùBeanDAO mbd = new MenùBeanDAO();
 }

@@ -16,6 +16,7 @@ public class TestMBDdoRetrieveAll {
 	@Before
 	public void setUp() {
 		mb.setNome("bell'italia");
+		size = mbd.doRetrieveAll().size();
 		mbd.doSave(mb);
 	}
 	
@@ -23,7 +24,7 @@ public class TestMBDdoRetrieveAll {
 	@Test
 	public void doRetrieveAllTest() {
 		menùs = mbd.doRetrieveAll();
-		assertEquals(1, menùs.size());
+		assertEquals(size +1, menùs.size());
 	}
 	
 	
@@ -44,5 +45,6 @@ public class TestMBDdoRetrieveAll {
 	
 	private ArrayList<MenùBean> menùs = new ArrayList<>();
 	private MenùBeanDAO mbd = new MenùBeanDAO();
+	private int size;
 	private MenùBean mb = new MenùBean();
 }

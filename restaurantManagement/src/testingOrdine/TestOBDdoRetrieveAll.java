@@ -16,10 +16,11 @@ public class TestOBDdoRetrieveAll {
 	
 	@Before
 	public void setUp() {
+		double tot = 45;
 		ob = new OrdineBean();
 		ob.setData(new GregorianCalendar());
 		ob.setNumCoperti(10);
-		ob.setTotale(100);
+		ob.setTotale(tot);
 		
 		size = obd.doRetrieveAll().size();
 		

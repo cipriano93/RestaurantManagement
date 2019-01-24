@@ -6,7 +6,7 @@ import org.junit.runner.notification.Failure;
 
 public class TestRunnerOBD {
 	public static void main(String[] args) {
-	
+
 		Result result = JUnitCore.runClasses(TestSuiteOBD.class);
 
 	    for (Failure failure : result.getFailures()) {
@@ -14,5 +14,7 @@ public class TestRunnerOBD {
 	    }
 
 	    System.out.println(result.wasSuccessful());
-	  }
+	 
+	 
+		}
 }
