@@ -138,7 +138,7 @@ public class UtenteBeanDAO {
 			ps.setString(5, ub.getUsername());
 			
 			ps.executeUpdate();
-			
+		
 			return true;
 		} catch(SQLException e) {
 			e.printStackTrace();

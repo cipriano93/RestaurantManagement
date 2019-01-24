@@ -1,7 +1,7 @@
 <%@ page import="model.UtenteBean" %>
 <%@ include file="header.jsp" %>
 
-<% if (ub == null || !(ub.getTipo().equals("cliente"))) { %>
+<%if (ub == null || !(ub.getTipo().equals("cliente"))) { %>
 		<h3 class="red" style="font-family:avenir" align="center">Accedi come cliente</h3>
 	<% } else { %>
 

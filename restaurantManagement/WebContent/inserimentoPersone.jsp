@@ -30,8 +30,7 @@
  	}
  	
  	function validationPerson(persone) {
-   		var personeformat = /^[1-9]+$/;
-   		if(persone.value.match(personeformat)){
+   		if(persone.value > 0){
      		return true;
    		} else {
      		verifica("Inserisci il numero di persone");

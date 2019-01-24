@@ -28,7 +28,6 @@ public class UtenteManager {
 		boolean result = false;
 		UtenteBeanDAO ubd = new UtenteBeanDAO();
 		UtenteBean ub = new UtenteBean();
-		
 		ub.setUsername(username);
 		ub.setPassword(password);
 		ub.setNome(nome);
@@ -36,10 +35,8 @@ public class UtenteManager {
 		ub.setTipo(tipo);
 		
 		result = ubd.doUpdate(ub);
-		
+
 		return result;
 	}
-	
-	
 	
 }
