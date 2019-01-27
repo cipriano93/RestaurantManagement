@@ -24,8 +24,8 @@
         var note = document.form.note;
         var tipo = document.form.tipo_portata;
         var portata = document.form.nome_portata;
-        
-        if(validationTipo(tipo) && validationPortata(portata) && validationNote(note)){
+        //if(validationTipo(tipo) && validationPortata(portata) && validationNote(note)){
+        if(validationTipo(tipo) && validationPortata(portata)){
           	return true;
         } else {
          	return false;

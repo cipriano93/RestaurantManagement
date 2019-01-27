@@ -16,7 +16,8 @@
         var price = document.form.price;
         var note = document.form.description;
         
-        if(validationName(name) && validationTipo(tipo) && validationPrice(price) && validationNote(note) ){
+        //if(validationName(name) && validationTipo(tipo) && validationPrice(price) && validationNote(note) ){
+        if(validationName(name) && validationTipo(tipo) && validationPrice(price)){
           	return true;
         } else {
          	return false;

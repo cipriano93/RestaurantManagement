@@ -84,11 +84,13 @@
 </script>
 
 <!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
 	<ul class="breadcrumb">
 		<li><a href="index.jsp">Home</a></li>
 		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Visualizza bilancio</li>
 	</ul>
+</nav>
 <!-- Breadcrumb -->
 
 

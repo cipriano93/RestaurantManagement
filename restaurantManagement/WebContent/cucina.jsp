@@ -47,7 +47,14 @@
 				
 				ArrayList<PortataComandaBean> pcbs = cb.getPortateNonConsegnate();
 				int size_portate= pcbs.size();
-				if (size_portate >= 1) {
+				int bevande = 0;
+				for (int w = 0; w < size_portate; w++) {
+					PortataComandaBean pcb = pcbs.get(w);
+					PortataBean pb = pcb.getPb();
+					if(pb.getTipo().equals("Bevanda"))
+						bevande ++;
+				}
+				if (size_portate >= 1 && ! (bevande == size_portate)) {
 					num_portate++;
 					if ((num_portate % 3) == 1) {
 		%>
@@ -69,6 +76,7 @@
 						PortataComandaBean pcb = pcbs.get(j);
 						PortataBean pb = pcb.getPb();
 		%>
+					<%if(!pcb.getPb().getTipo().equals("Bevanda")) { %>
 					 <% if (!(pcb.isConsegnato())) { %>
 							<div class="row">
 					 <% } else { %>
@@ -84,7 +92,7 @@
 					 
 					 </div>
 					 	
-				   <% } %>
+				   <% }} %>
 					</div>
 					</div>
 					</div>
