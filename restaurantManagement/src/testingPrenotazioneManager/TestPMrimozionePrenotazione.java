@@ -18,8 +18,8 @@ public class TestPMrimozionePrenotazione {
 	
 	@Before
 	public void setUp() {
-		ub.setUsername("cliente85");
-		ub.setPassword("cliente85");
+		ub.setUsername("cliente78");
+		ub.setPassword("cliente78");
 		ub.setNome("Paolo");
 		ub.setCognome("Flora");
 		ub.setTipo("cliente");
