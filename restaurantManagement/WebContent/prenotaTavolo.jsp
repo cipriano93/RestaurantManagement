@@ -15,7 +15,7 @@ function validateForm() {
 	var time = document.form.time;
 	var tel = document.form.tel;
 	var note = document.form.note;
-	if (!(validationDate(date)) || !(validationTel(tel)) || !(validationNote(note)))
+	if (!(validationTel(tel)) || !(validationNote(note)))
 		return false;
 	else
 		return true;

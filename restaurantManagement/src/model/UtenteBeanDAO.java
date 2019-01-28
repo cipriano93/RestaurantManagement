@@ -184,7 +184,7 @@ public class UtenteBeanDAO {
 			
 			conn = DriverManagerConnectionPool.getConnection();
 			
-			ps = conn.prepareStatement("SELECT * FROM utente WHERE tipo=?");
+			ps = conn.prepareStatement("SELECT * FROM utente WHERE tipo=? ORDER BY nome ASC");
 			
 			ps.setString(1, "cameriere");
 			
