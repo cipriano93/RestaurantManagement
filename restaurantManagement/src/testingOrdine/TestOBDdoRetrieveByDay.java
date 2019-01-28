@@ -21,7 +21,7 @@ public class TestOBDdoRetrieveByDay {
 		ob.setData(new GregorianCalendar());
 		ob.setNumCoperti(10);
 		ob.setTotale(tot);
-		
+		size = obd.doRetrieveByDay().size();
 		obd.doSave(ob);
 	}
 	
@@ -29,7 +29,7 @@ public class TestOBDdoRetrieveByDay {
 	@Test
 	public void doRetrieveByDayTest() {
 		ordini = obd.doRetrieveByDay();
-		assertEquals(1, ordini.size());
+		assertEquals(size + 1, ordini.size());
 	}
 	
 	
