@@ -2,6 +2,10 @@
 
 <%@ include file = "header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+	<h3 class = "red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <style>
 		#ordini {
 		  	border-collapse: collapse;
@@ -80,11 +84,13 @@
 </script>
 
 <!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
 	<ul class="breadcrumb">
 		<li><a href="index.jsp">Home</a></li>
 		<li class="breadcrumb-item"><a href="areaPersonaleGestore.jsp">Area personale</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Visualizza bilancio</li>
 	</ul>
+</nav>
 <!-- Breadcrumb -->
 
 
@@ -92,9 +98,9 @@
 	<h3 class="dark_brown">Visualizza bilancio</h3>
 	<hr>
 	
-		<div align="center">
+		<div align="center" class = "my_avenir">
    			<span class="dark_brown">Filtra per:</span>
-   			<select id="orderBy" onchange="orderBy(this.value)">
+   			<select id="orderBy" class="light_brown" onchange="orderBy(this.value)">
    				<option></option>
    				<option value="all">Tutti</option>
   				<option value="giorno">Ultimi giorni</option>
@@ -103,9 +109,13 @@
   			</select>
   		</div>
 		
-		<table id="ordini" class="text-center">
+		<table id="ordini" class="text-center my_avenir">
 		</table>
 
 </div>
+
+<% } %>
+
+<br>
 
 <%@ include file="footer.jsp" %>

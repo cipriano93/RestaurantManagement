@@ -1,10 +1,8 @@
-
-<!DOCTYPE html>
 <%@page import="model.TavoloBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@include file = "header.jsp" %>
-<html>
-<head>
+
+<%if(ub != null && ub.getTipo().equals("cameriere")){ %>
 
 <style>
 	.grid-container {
@@ -30,8 +28,6 @@
 	.success {background-color: #4CAF50;}
 	.danger {background-color: #f44336;}
 </style>
-</head>
-<body>
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
@@ -41,15 +37,14 @@
 	</ul>
 </nav>
 <!-- Breadcrumb -->
-<%if(ub != null && ub.getTipo().equals("cameriere")){ %>
 
 <hr>
-<h3 style="font-family:avenir" align="center">Seleziona tavolo</h3>
+<h3 style="font-family:satisfy" align="center">Seleziona tavolo</h3>
 <span class="label success">libero</span>
 <span class="label danger">prenotato</span>
 <hr>
 
-<div class="container">
+<div class="container my_avenir">
 <%
 	Boolean message = (Boolean) request.getAttribute("message");
 	if (message != null) {
@@ -109,9 +104,6 @@
 	<h3 class = "red" style="font-family:avenir" align="center">Accedi come cameriere</h3>
 <% } %>
 
-
-
+<br>
 
 <%@include file = "footer.jsp" %>
-	</body>
-	</html>

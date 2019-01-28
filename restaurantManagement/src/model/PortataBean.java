@@ -64,7 +64,7 @@ public class PortataBean {
 		this.descrizione = descrizione;
 	}
 
-
+	
 	private int idPortata;
 	private int idMenù;
 	private String nome, tipo, descrizione, prezzo;

@@ -1,19 +1,16 @@
 <%@ include file="header.jsp" %>
 
-<style>
-ul.breadcrumb{
-	background-color:#A8A39D;
-}
-</style>
 
 <html>
     <link href="https://fonts.googleapis.com/css?family=Judson" rel="stylesheet">
   <body class="background">
   <!-- Breadcrumb -->
-	<ul class="breadcrumb">
-		<li><a class="white" href="index.jsp">Home</a></li>
-		<li class="white">Info ristorante</li>
-	</ul>
+<nav aria-label="breadcrumb" style="font-family: avenir">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+		<li class="breadcrumb-item active">Info ristorante</li>
+	</ol>
+</nav>
 <!-- Breadcrumb -->
   
    <div class="container">
@@ -23,13 +20,7 @@ ul.breadcrumb{
    <img src="img/mappa.jpeg" style="width:100%;">
    <hr>
    </div>
-   
-   <div class="container">
-   <button class="btn btn-warning">Indietro</button>
-   
-   </div>
- 
-   
+      
   </body>
    <br>
   

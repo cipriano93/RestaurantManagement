@@ -1,6 +1,11 @@
 <%@page import="model.TavoloBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@ include file="header.jsp" %>
+
+<% if (ub == null || !(ub.getTipo().equals("cameriere"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cameriere</h3>
+	<% } else { %>
+
 <% ArrayList<TavoloBean> tavoli = (ArrayList<TavoloBean>) application.getAttribute("tavoli");
 	int numTavolo = Integer.parseInt(request.getParameter("button"));
 	TavoloBean tb = tavoli.get(numTavolo-1);
@@ -25,8 +30,7 @@
  	}
  	
  	function validationPerson(persone) {
-   		var personeformat = /^[1-9]+$/;
-   		if(persone.value.match(personeformat)){
+   		if(persone.value > 0){
      		return true;
    		} else {
      		verifica("Inserisci il numero di persone");
@@ -60,7 +64,7 @@
 			<form name="form" action="SelezionaTavolo" method="POST" onsubmit ="return validateForm()">
 				<div class="form-group ">
 			    	<label class ="dark_brown text-centered" for="name">Numero persone:</label>
-			      <input type="number" class="form-control light_brown" id="num_people" name="num_people" min="1" max="40">
+			      <input type="number" class="form-control light_brown" id="num_people" name="num_people" min="1" max="40" value="1">
 			       <input name="tavolo" type="hidden"  value="<%=request.getParameter("button")%>">
 			      
 			    </div>
@@ -74,13 +78,12 @@
 	<div class = "text-center">
 		<span class="red my_avenir" id="ver">
 	</div>
-
-	
-	
-	
 </div>	
-<br>
-<br>
 <!-- ./Inserimento numero persone form -->
+
+<% } %>
+
+<br>
+<br>
 	
 <%@ include file="footer.jsp" %>

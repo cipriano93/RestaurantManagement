@@ -3,7 +3,7 @@
 <link href="https://fonts.googleapis.com/css?family=Judson" rel="stylesheet">
 <style>
 * {box-sizing: border-box}
-body {font-family: 'Judson', serif; background: #F8F5F1;}
+body {font-family: 'Judson', serif;}
 
 .topnav {
  

@@ -37,7 +37,7 @@ public class ModificaDatiAttività extends HttpServlet {
 			request.getRequestDispatcher("modificaDatiAttivita.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", true);
-			request.getRequestDispatcher("modificaDatiAttivita.jsp").forward(request, response);
+			request.getRequestDispatcher("areaPersonaleGestore.jsp").forward(request, response);
 		}
 	}
 

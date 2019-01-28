@@ -1,6 +1,10 @@
 <%@ page import="model.UtenteBean" %>
 <%@ include file="header.jsp" %>
 
+<%if (ub == null || !(ub.getTipo().equals("cliente"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cliente</h3>
+	<% } else { %>
+
 <!-- Jumbotron -->
 <div class="jumbotron" id = "jumbotron_login">
 	<div class="container text-center my_satisfy">
@@ -11,6 +15,7 @@
 	
 <!-- Personal status -->
 <div class="container my_avenir">
+	
 			 <%
 			 	Boolean message = (Boolean) request.getAttribute("message");
 			 	if (message != null) {
@@ -30,8 +35,9 @@
 		<h1 class ="dark_brown" style="font-family: satisfy">Bentornato <strong><span class ="light_brown"><%=ub.getNome() %></span></strong></h1>
 	<a href="modificaDatiPersonali.jsp">Modifica dati personali</a>
 	<br>
-	<a href="visualizzaPrenotazioni.jsp">Visualizza prenotazioni</a>
+	<a href="VisualizzaPrenotazioni">Visualizza prenotazioni</a>
 </div>
+<% } %>
 <br>
 <br>
 <!-- ./Personal status -->

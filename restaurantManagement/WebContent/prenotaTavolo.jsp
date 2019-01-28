@@ -1,16 +1,24 @@
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("cliente"))) { %>
+	<h3 class = "red" style="font-family:avenir" align="center">Accedi come cliente</h3>
+<% } else { %>
+
 <script type="text/javascript">
 function verify(errore) {
 	document.getElementById("ver").innerHTML = errore;
 }
 
+
+
+
 function validateForm() {
+	//modificare
 	var date = document.form.date;
 	var time = document.form.time;
 	var tel = document.form.tel;
 	var note = document.form.note;
-	if (!(validationDate(date)) || !(validationTime(time)) || !(validationTel(tel)) || !(validationNote(note)))
+	if (!(validationTel(tel)) || !(validationNote(note)))
 		return false;
 	else
 		return true;
@@ -69,23 +77,24 @@ function validationNote(note) {
 </nav>
 <!-- ./Breadcrumb -->
 
-
 <div class="container">
-	<h3 class="dark_brown" style="font-family: satisfy">Prenota tavolo</h3>
+	<h3 class="dark_brown my_satisfy">Prenota tavolo</h3>
 	<hr/>
 </div>
 
 
 <!-- Prenotazione tavolo -->
 <div class="container my_avenir">
-	<form action="PrenotaTavolo" method="post" onsubmit="return validationForm()">
+
+	<form name="form" action="PrenotaTavolo" method="post" onsubmit="return validateForm()">
+
 		<div class="form-group">
-			<label for="date">Seleziona data:</label>
+			<label for="date">Data:</label>
 		    <input type="date" class="form-control light_brown" id="date" name="date">
 		</div> 
 		<div class="form-group">
 	      <label for="hour">Ora:</label>
-	      <input type="time" class="form-control light_brown" id="hour" name="hour">
+	      <input type="time" class="form-control light_brown" id="time" name="time">
 	    </div>
 	    <div class="form-group">
 	    	<label for="num_people">Numero persone:</label>
@@ -99,11 +108,13 @@ function validationNote(note) {
   			<label for="note">Note:</label>
   			<textarea class="form-control light_brown" rows="5" name="note"></textarea>
 		</div> 
-
+		<p id="ver" class="red"></p>
 	    <button type="submit" class="btn btn-success">Prenota</button>
   </form>
 </div>
 <!-- ./Prenotazione tavolo -->
+
+<% } %>
 
 <br>
 	

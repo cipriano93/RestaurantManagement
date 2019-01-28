@@ -34,26 +34,29 @@ public class ModificaDatiPersonali extends HttpServlet {
 		/*String regexName = "^[A-Za-z\\s]{3,}$";
 		String regexSurname ="^[A-Za-z\\s]{3,}$";
 		String regexPassword = "^(?=.*[0-9])(?=.*[A-Z]).{5,}$";*/
+		/*
 		
-		//questo è un controllo più accurato, se l'email non rispetta il pattern, esce direttamente
-		if(password.equals(confirmPassword)/* && password.matches(regexPassword) && name.matches(regexName) && surname.matches(regexSurname)*/) {
-			//Creazione utente manager
+		if(password.equals(confirmPassword)/* && password.matches(regexPassword) && name.matches(regexName) && surname.matches(regexSurname)) {
+			
+			*/
 			UtenteManager um = new UtenteManager();
 		
 			boolean result = um.modificaDatiPersonali(username, password, name, surname, "cliente");
 			
+			System.out.println("usr in servlet: " + username);
 			if(result) {
 				HttpSession session = request.getSession();
 				session.setAttribute("utenteBean", um.login(username, password));
 				
 				request.setAttribute("message", true);
 				request.getRequestDispatcher("areaPersonaleCliente.jsp").forward(request, response);
+				
 			} else {
 				request.setAttribute("message", true);
 				request.getRequestDispatcher("modificaDatiPersonali.jsp").forward(request, response);	
 			}
-		} else
-			response.sendRedirect("modificaDatiPersonali.jsp");	
+	//	} else
+	//		response.sendRedirect("modificaDatiPersonali.jsp");	
 	}
 
 	

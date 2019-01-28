@@ -31,7 +31,7 @@ public class RimozioneMenù extends HttpServlet {
 			request.setAttribute("message_success", "menù rimosso con successo.");
 			request.getRequestDispatcher("getmenus").forward(request, response);
 		} else {
-			request.setAttribute("message_danger", "impossibile rimuovere il menù");
+			request.setAttribute("message_danger", "impossibile rimuovere il menù.");
 			request.getRequestDispatcher("gestioneMenù.jsp").forward(request, response);
 		}
 	}

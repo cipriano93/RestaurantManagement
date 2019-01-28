@@ -1,5 +1,9 @@
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <script>
 	function verifica(errore){
 		document.getElementById("ver").innerHTML = errore;
@@ -37,19 +41,20 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-<div class="container">
+<div class="container my_satisfy">
 	<h3 class="dark_brown">Inserisci un menù</h3>
 	<hr/>
 </div>
+
 	
 <!-- Inserimento menù form -->
-<div class="container">
+<div class="container my_avenir">
 	<%
 		String message = (String) request.getAttribute("message");
 		if (message != null) {
 	%>
 			<div class="alert alert-warning">
-  				<strong>Attenzione!</strong> <%= message %>.
+  				<strong>Errore!</strong> <%= message %>.
 			</div>
 	 <% } %>
 	<form name="form" action="inseriscimenu" onsubmit="return validateForm()" method="POST">
@@ -61,8 +66,11 @@
 		<button type="submit" class="btn btn-primary">Inserisci menù</button>
 	</form>
 </div>
-<br>
-<br>
 <!-- ./Inserimento menù form -->
+
+<% } %>
+
+<br>
+<br>
 	
 <%@ include file="footer.jsp" %>

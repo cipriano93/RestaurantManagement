@@ -116,7 +116,7 @@ public class MenùBeanDAO {
 		ArrayList <MenùBean> mbs = new ArrayList<>();
 		try {
 			con = DriverManagerConnectionPool.getConnection();
-			ps = con.prepareStatement("SELECT * FROM menu");
+			ps = con.prepareStatement("SELECT * FROM menu ORDER by nome ASC");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				MenùBean mb = new MenùBean();

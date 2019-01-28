@@ -55,8 +55,18 @@ public class PrenotazioneBean {
 		this.descrizione = descrizione;
 	}
 
+	//
+	public String getUsername() {
+		return username;
+	}
+
+//
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	private int idPrenotazione, num_persone;
 	private String descrizione, telefono;
 	private GregorianCalendar data;
+	private String username;
 }

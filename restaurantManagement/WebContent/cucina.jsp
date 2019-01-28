@@ -1,6 +1,10 @@
 <%@ page import="java.util.ArrayList, model.PortataBean, model.PortataComandaBean, model.ComandaBean, model.CucinaBean" %>
 <%@ include file="header.jsp" %>
 
+<% if (ub == null || !(ub.getTipo().equals("cameriere"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come cameriere</h3>
+<% } else { %>
+
 <!-- Breadcrumb -->
 	<nav aria-label="breadcrumb">
 	 	<ol class="breadcrumb">
@@ -13,7 +17,7 @@
 <!-- ./Breadcrumb -->
 
 
-<div class="container">
+<div class="container my_avenir">
 	<div>
 		<h3 class="dark_brown my_satisfy">Cucina</h3>
 	</div>
@@ -23,7 +27,7 @@
 		Boolean message = (Boolean) request.getAttribute("message");
 		if (message != null) {
 	%>
-			<div class="alert alert-success my_avenir">
+			<div class="alert alert-success">
 				<strong>Successo!</strong> La comanda è stata inviata in cucina.
 			</div>
 	<%
@@ -43,7 +47,14 @@
 				
 				ArrayList<PortataComandaBean> pcbs = cb.getPortateNonConsegnate();
 				int size_portate= pcbs.size();
-				if (size_portate >= 1) {
+				int bevande = 0;
+				for (int w = 0; w < size_portate; w++) {
+					PortataComandaBean pcb = pcbs.get(w);
+					PortataBean pb = pcb.getPb();
+					if(pb.getTipo().equals("Bevanda"))
+						bevande ++;
+				}
+				if (size_portate >= 1 && ! (bevande == size_portate)) {
 					num_portate++;
 					if ((num_portate % 3) == 1) {
 		%>
@@ -65,6 +76,7 @@
 						PortataComandaBean pcb = pcbs.get(j);
 						PortataBean pb = pcb.getPb();
 		%>
+					<%if(!pcb.getPb().getTipo().equals("Bevanda")) { %>
 					 <% if (!(pcb.isConsegnato())) { %>
 							<div class="row">
 					 <% } else { %>
@@ -80,7 +92,7 @@
 					 
 					 </div>
 					 	
-				   <% } %>
+				   <% }} %>
 					</div>
 					</div>
 					</div>
@@ -97,5 +109,9 @@
 </div>
 
 </div>
+
+<% } %>
+
+<br>
 
 <%@ include file="footer.jsp" %>

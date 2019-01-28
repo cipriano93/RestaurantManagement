@@ -20,7 +20,6 @@ public class PrenotazioneBeanDAO {
 			
 			String query = "INSERT INTO prenotazione (idprenotazione, username, data,  num_persone, telefono, descrizione) VALUES (?, ?, ?, ?, ?, ?)";
 			ps = con.prepareStatement(query);
-		
 			ps.setLong(1, pb.getIdPrenotazione());
 			ps.setString(2, username);
 			ps.setObject(3, new Timestamp(pb.getData().getTimeInMillis()));
@@ -78,11 +77,13 @@ public class PrenotazioneBeanDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				PrenotazioneBean pb = new PrenotazioneBean();
+				pb.setUsername(rs.getString("username"));
 				pb.setIdPrenotazione(rs.getInt("idprenotazione"));
 				Timestamp ts = (Timestamp) rs.getObject("data");
 				GregorianCalendar gc = new GregorianCalendar();
 				gc.setTime(ts);
 				pb.setData(gc);
+				pb.setDescrizione(rs.getString("descrizione"));
 				pb.setNumPersone(rs.getInt("num_persone"));
 				pbs.add(pb);
 			}
@@ -109,6 +110,8 @@ public class PrenotazioneBeanDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				PrenotazioneBean pb = new PrenotazioneBean();
+				pb.setUsername(rs.getString("username"));
+				pb.setDescrizione(rs.getString("descrizione"));
 				pb.setIdPrenotazione(rs.getInt("idprenotazione"));
 				Timestamp ts = (Timestamp) rs.getObject("data");
 				GregorianCalendar gc = new GregorianCalendar();

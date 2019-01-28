@@ -1,13 +1,8 @@
 <%@ include file="header.jsp" %>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
 
 <script>
 	function verifica(errore){
@@ -120,27 +115,17 @@ button {
 <%
 	Boolean message = (Boolean) request.getAttribute("message");
 	if (message != null) {
-		if (!message) {
 %>
-			<div class="container my_avenir">
-				<div class="alert alert-danger">
-					<strong>Attenzione!</strong> Impossibile modificare i dati dell'attività.
-				</div>
+		<div class="container my_avenir">
+			<div class="alert alert-danger">
+				<strong>Attenzione!</strong> Impossibile modificare i dati dell'attività.
 			</div>
-	 <% } else { %>
-			<div class="container">
-				<div class="alert alert-success">
-					<strong>Successo!</strong> I dati dell'attività sono stati modificati.
-				</div>
-			</div>	 
-<%
-		}
-	}	
-%>
+		</div> 
+ <% } %>
 	
 <!-- Modifica dati attività form -->
 <div class="container my_avenir">
-<form name="form" action="ModificaDatiAttivita" onsubmit="return validateForm()" method="POST">
+<form name="form" action="ModificaDatiAttivita" onsubmit ="return validateForm()" method="POST">
 <div class="row" >
 		<div class="column" >
 			<label class="dark_brown" for="name">Nome:</label>
@@ -157,7 +142,7 @@ button {
 	   	<div class="row">
 	   	<div class="column" >
 	   		<label for="address">Provincia:</label>
-	      	<select class="form-control" id="provincia" name="provincia">
+	      	<select class="form-control light_brown" id="provincia" name="provincia">
 	      	<option></option>
 	<option value="ag">Agrigento</option>
 	<option value="al">Alessandria</option>
@@ -274,7 +259,7 @@ button {
 	   
 	   <div class="column">
 	   		<label for="citta">Citta':</label>
-	   		<select class="form-control" id="citta" name="citta">
+	   		<select class="form-control light_brown" id="citta" name="citta">
 	   		<option></option>
 	   		<option>Aiello del Sabato</option>
 	   		<option>Altavilla Irpina</option>
@@ -430,9 +415,10 @@ button {
 		</div>
 		</form>
 		</div>
+	<!-- ./Modifica dati attività form -->
 	
+	<% } %>
 <br>
 <br>
-<!-- ./Modifica dati attività form -->
 	
 <%@ include file="footer.jsp" %>

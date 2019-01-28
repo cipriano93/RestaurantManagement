@@ -65,7 +65,7 @@ public class VisualizzaBilancio extends HttpServlet {
 					result += "0";
 				result += minute + "</td>" +
 							"<td>" + ob.getNumCoperti() + "</td>" + 
-							"<td>" + ob.getTotale() + "&euro;</td>" + 
+							"<td>" + ob.getTotale() + " &euro;</td>" + 
 						  "</tr>";
 			}
 			PrintWriter out = response.getWriter();

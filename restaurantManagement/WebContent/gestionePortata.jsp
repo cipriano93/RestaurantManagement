@@ -2,6 +2,10 @@
 
 <%@ page import="java.util.ArrayList, model.PortataBean" %>
 
+<% if (ub == null || !(ub.getTipo().equals("gestore"))) { %>
+		<h3 class="red" style="font-family:avenir" align="center">Accedi come gestore</h3>
+<% } else { %>
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
  	<ol class="breadcrumb">
@@ -13,19 +17,19 @@
 </nav>
 <!-- ./Breadcrumb -->
 
-<div class="container">
+<div class="container my_satisfy">
 	<h3 class="dark_brown">Gestione portata</h3>
 	<hr/>
 </div>
-<div align="center">
+<div class = "my_avenir" align="center">
 	Menù "<%= session.getAttribute("nome_menù") %>" <a href="modificaNomeMenu.jsp">rinomina</a>
 </div>
 <br>
-<div align="center">
+<div class = "my_avenir" align="center">
 	<a href="inserimentoPortata.jsp" class="btn btn-default">Inserisci portata</a>
 </div>
 <br>
-<div class="container">
+<div class="container my_avenir">
 	<%
 		String message = (String) request.getAttribute("message_danger");
 		if (message != null) { 
@@ -89,5 +93,9 @@
 	<%	}	%>
 <!-- ./Tabella portata -->
 </div>
+
+<% } %>
+
+<br>
 
 <%@ include file="footer.jsp" %>

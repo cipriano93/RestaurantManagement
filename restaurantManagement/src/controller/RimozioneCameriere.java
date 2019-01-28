@@ -28,9 +28,10 @@ private static final long serialVersionUID = 1L;
 		boolean result = cm.rimozioneCameriere(username);
 	
 		if(result) {
-			response.sendRedirect("gestioneCameriere.jsp");
+			request.setAttribute("message_rimozione", true);
+			request.getRequestDispatcher("GetCamerieri").forward(request, response);
 		} else {
-			request.setAttribute("errMessage", result);
+			request.setAttribute("message_rimozione", false);
 			request.getRequestDispatcher("gestioneCameriere.jsp").forward(request, response);	
 		}
 	}	

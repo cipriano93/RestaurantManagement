@@ -1,10 +1,10 @@
-<%@page import="model.UtenteBean"%>
+<%@page import="model.UtenteBeanDAO"%>
 <%@ page import="java.util.ArrayList, java.util.GregorianCalendar, model.PrenotazioneBean" %>
 <%@ include file ="header.jsp" %>
 
 <style>
 	#prenotazioni {
-	  	font-family: satisfy;
+	  	font-family: avenir;
 	  	border-collapse: collapse;
 		width: 96%;
 		margin:25px;
@@ -58,7 +58,7 @@
 
 <div class="container my_avenir">
 	
-	<% if (!(ub.getTipo().equals("cliente")) || !(ub.getTipo().equals("gestore"))) { %>
+	<% if (!(ub.getTipo().equals("cliente")) && !(ub.getTipo().equals("gestore"))) { %>
 		<h3 class = "red" style="font-family:avenir" align="center">Accedi come cliente o gestore</h3>
 	<% } %>
 	
@@ -91,18 +91,24 @@
 		<div class ="container my_avenir">
 			<div class="row">
 			
-				<div class="col-sm-3"></div>
+				<div class="col-sm-2"></div>
 				
-				<div class="col-sm-6">
+				<div class="col-sm-8">
 	
 					<!-- Tabella prenotazioni -->
 					<table id="prenotazioni" class="text-center">
 						<tr>
+						 	<% if (ub.getTipo().equals("gestore")) { %>
+					    		<th style="text-align: center">Nome Cognome</th>
+					    	<% } %>
 					    	<th style="text-align: center">Data</th>
 					    	<th style="text-align: center">Ora</th>
 					    	<th style="text-align: center">N.coperti</th>
 					    	<% if (ub.getTipo().equals("cliente")) { %>
 					    		<th style="text-align: center">Rimozione</th>
+					    	<% } %>
+					    	<% if (ub.getTipo().equals("gestore")) { %>
+					    		<th style="text-align: center">Note</th>
 					    	<% } %>
 					  	</tr>
 					  	<%
@@ -110,28 +116,42 @@
 					  		for (int i = 0; i < size; i++) {
 					  			PrenotazioneBean pb = pbs.get(i);
 					  			GregorianCalendar gc = pb.getData();
+					  			String username = pb.getUsername();
+				  				UtenteBeanDAO ubd = new UtenteBeanDAO();
+				  				UtenteBean ub1 = ubd.doRetrieveByOneKey(username);	
+				  				String nc = ub1.getNome() + " " + ub1.getCognome();
 					  	%>
+					  
 					  			<tr>
-					  				<td><%= gc.get(gc.DAY_OF_MONTH) + "/" %>
-					  				<%
+					  			<% if (ub.getTipo().equals("gestore")) { %>
+									<td><%=nc%></td>
+					  			<%} %>
+					  				<% 
+					  					String date = "" + gc.get(gc.DAY_OF_MONTH) + "/";
 					  					int month = gc.get(gc.MONTH) + 1;
-					  				   	if (month >= 1 && month <= 9) { %>
-					  						<%= "0" %>
-					  				 <% } %>
-					  				<%= month + "/" + gc.get(gc.YEAR) %></td>
-					  				<td><%= gc.get(gc.HOUR_OF_DAY) + ":" %>
+					  				   	if (month >= 1 && month <= 9) { 
+					  						date += "0";
+					  					}
+					  					date += month + "/" + gc.get(gc.YEAR);
+					  				%>
+					  				<td><%= date %></td>
 					  				<%
+					  					String time = "" + gc.get(gc.HOUR_OF_DAY) + ":";
 					  					int minute = gc.get(gc.MINUTE);
 					  					if (minute >= 0 && minute <= 9) {
+					  						 time += "0"; 
+					  					}
+					  					time += minute;
 					  				%>
-					  						 <%= "0" %>
-					  				 <% } %>
-					  				<%= gc.get(gc.MINUTE) %></td>
+					  				<td><%= time %></td>	
 					  				<td><%= pb.getNumPersone() %></td>
 					  				<% if (ub.getTipo().equals("cliente")) { %>
 						  				<td>
 						    				<a href=<%= "RimozionePrenotazione?idprenotazione=" + pb.getIdPrenotazione() %> class="btn btn-danger">Rimuovi</a>
 						    			</td>
+						    			<% } %>
+						    			<% if (ub.getTipo().equals("gestore")) { %>
+						  				<td><%=pb.getDescrizione() %></td>
 						    		<% } %>
 					  			</tr>
 					  	 <% } %>
@@ -140,7 +160,7 @@
 			
 				</div>
 				
-				<div class="col-sm-3"></div>
+				<div class="col-sm-2"></div>
 			
 			</div>
 	</div>
