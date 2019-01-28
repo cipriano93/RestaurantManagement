@@ -136,4 +136,35 @@ public class MenùBeanDAO {
 		}
 		return mbs;
 	}
+	//
+	public MenùBean getIdByNome(String nome) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			MenùBean mb = new MenùBean();
+			mb.setNome(nome);
+			conn = DriverManagerConnectionPool.getConnection();
+			ps = conn.prepareStatement("SELECT * FROM menu WHERE nome=?");
+			ps.setString(1, nome);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				mb.setIdMenù(rs.getInt("idmenu"));
+				mb.setNome(rs.getString("nome"));
+				return mb;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+				DriverManagerConnectionPool.releaseConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		 return null;	 
+	}
+	
 }

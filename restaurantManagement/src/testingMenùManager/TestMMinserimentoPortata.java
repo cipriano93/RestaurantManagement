@@ -19,8 +19,8 @@ public class TestMMinserimentoPortata {
 		
 		mbd.doSave(mb);
 		
-		pb.setNome("Affettato misto");
-		pb.setTipo("antipasto");
+		pb.setNome("Carciofi marinati");
+		pb.setTipo("Antipasto");
 		pb.setPrezzo("2.5");
 		pb.setDescrizione("i sapori del sud");
 	}
@@ -34,7 +34,6 @@ public class TestMMinserimentoPortata {
 	
 	@After
 	public void tearDown() {
-		mm.rimozionePortata(pb.getIdPortata());
 		mm.rimozioneMenù(mb.getIdMenù());
 	}
 	
